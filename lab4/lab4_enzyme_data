@@ -1,0 +1,65 @@
+# Enzyme name
+# list of pathway/order (order = 0 if unknown)
+# explanation
+# EC number
+# [Enter] (two Enters should be made at the last of the page)  ------------- >>>> 
+Triosephosphate isomerase
+glycolysis|1
+catalyzes the reversible interconversion of the triose phosphate isomers dihydroxyacetone phosphate and D-glyceraldehyde 3-phosphate
+EC 5.3.1.1
+
+Phosphoglycerate kinase
+glycolysis|2
+catalyzes the reversible transfer of a phosphate group from 1,3-bisphosphoglycerate to ADP producing 3-phosphoglycerate and ATP
+EC 2.7.2.3
+
+Phosphoenolpyruvate carboxylase
+glycolysis|3
+an enzyme in the family of carboxy-lyases found in plants and some bacteria that catalyzes the addition of bicarbonate (HCO3−) to phosphoenolpyruvate (PEP) to form the four-carbon compound oxaloacetate and inorganic phosphate
+EC 4.1.1.31
+
+Pyruvate kinase
+glycolysis|4,pentose phosphate|0
+It catalyzes the transfer of a phosphate group from phosphoenolpyruvate to adenosine diphosphate, yielding one molecule of pyruvate and one molecule of ATP.
+EC 2.7.1.40
+
+Glucose-6-phosphate dehydrogenase
+pentose phosphate|1,glycolysis|0
+D-glucose 6-phosphate + NADP⁺ ⇌ 6-phospho-D-glucono-1,5-lactone + NADPH + H⁺
+EC 1.1.1.49
+
+Gluconolactonase
+pentose phosphate|2
+This enzyme belongs to the family of hydrolases, specifically those acting on carboxylic ester bonds. 
+EC 3.1.1.17
+
+6-phosphogluconate dehydrogenase
+pentose phosphate|3
+It forms ribulose 5-phosphate from 6-phosphogluconate. It is an oxidative carboxylase that catalyses the decarboxylating reduction of 6-phosphogluconate into ribulose 5-phosphate in the presence of NADP
+EC 1.1.1.44
+
+Transaldolase
+pentose phosphate|4
+transaldolase:catalyzes the following reaction sedoheptulose 7-phosphate + glyceraldehyde 3-phosphate erythrose 4-phosphate + fructose 6-phosphate.
+EC 2.2.1.2
+
+Succinate dehydrogenase
+TCA cycle|1
+This enzyme catalyzes the oxidation of succinate to fumarate with the reduction of ubiquinone to ubiquinol
+EC 1.3.5.1
+
+Fumarase
+TCA cycle|2
+It catalyzes the reversible hydration/dehydration of fumarate to malate
+EC 4.2.1.2
+
+Malate dehydrogenase
+TCA cycle|3,glycolysis|0
+It reversibly catalyzes the oxidation of malate to oxaloacetate using the reduction of NAD+ to NADH.
+EC 1.1.1.37
+
+Citrate synthase
+TCA cycle|4
+It catalyzes the condensation reaction of the two-carbon acetate residue from acetyl coenzyme A and a molecule of four-carbon oxaloacetate to form the six-carbon citrate
+EC 2.3.3.1
+
