@@ -9,22 +9,22 @@ catalyzes the reversible interconversion of the triose phosphate isomers dihydro
 EC 5.3.1.1
 
 Phosphoglycerate kinase
-glycolysis|2
+glycolysis|3
 catalyzes the reversible transfer of a phosphate group from 1,3-bisphosphoglycerate to ADP producing 3-phosphoglycerate and ATP
 EC 2.7.2.3
 
 Phosphoenolpyruvate carboxylase
-glycolysis|3
+glycolysis|4
 an enzyme in the family of carboxy-lyases found in plants and some bacteria that catalyzes the addition of bicarbonate (HCO3−) to phosphoenolpyruvate (PEP) to form the four-carbon compound oxaloacetate and inorganic phosphate
 EC 4.1.1.31
 
 Pyruvate kinase
-glycolysis|4,pentose phosphate|0
+glycolysis|5,pentose phosphate|5
 It catalyzes the transfer of a phosphate group from phosphoenolpyruvate to adenosine diphosphate, yielding one molecule of pyruvate and one molecule of ATP.
 EC 2.7.1.40
 
 Glucose-6-phosphate dehydrogenase
-pentose phosphate|1,glycolysis|0
+pentose phosphate|1,glycolysis|2
 D-glucose 6-phosphate + NADP⁺ ⇌ 6-phospho-D-glucono-1,5-lactone + NADPH + H⁺
 EC 1.1.1.49
 
@@ -54,7 +54,7 @@ It catalyzes the reversible hydration/dehydration of fumarate to malate
 EC 4.2.1.2
 
 Malate dehydrogenase
-TCA cycle|3,glycolysis|0
+TCA cycle|3
 It reversibly catalyzes the oxidation of malate to oxaloacetate using the reduction of NAD+ to NADH.
 EC 1.1.1.37
 
