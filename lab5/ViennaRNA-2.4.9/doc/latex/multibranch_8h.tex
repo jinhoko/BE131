@@ -1,0 +1,65 @@
+\hypertarget{multibranch_8h}{}\section{Vienna\+R\+N\+A/loops/multibranch.h File Reference}
+\label{multibranch_8h}\index{Vienna\+R\+N\+A/loops/multibranch.\+h@{Vienna\+R\+N\+A/loops/multibranch.\+h}}
+
+
+Energy evaluation of multibranch loops for M\+FE and partition function calculations.  
+
+
+Include dependency graph for multibranch.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{multibranch_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{multibranch_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__mfe__backtracking_ga5b62d56c9d47c1e8792b02cd6b95e78b}{vrna\+\_\+\+B\+T\+\_\+mb\+\_\+loop} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$fc, int $\ast$i, int $\ast$j, int $\ast$k, int en, int $\ast$component1, int $\ast$component2)
+\begin{DoxyCompactList}\small\item\em Backtrack the decomposition of a multi branch loop closed by $ (i,j) $. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Basic free energy interface}\par
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__eval__loops__mb_ga91af6d5fcb0aef243a4071cf9e718020}{vrna\+\_\+\+E\+\_\+mb\+\_\+loop\+\_\+stack} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$fc, int i, int j)
+\begin{DoxyCompactList}\small\item\em Evaluate energy of a multi branch helices stacking onto closing pair (i,j) \end{DoxyCompactList}\item 
+int {\bfseries vrna\+\_\+\+E\+\_\+mb\+\_\+loop\+\_\+fast} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$fc, int i, int j, int $\ast$dmli1, int $\ast$dmli2)
+\item 
+int {\bfseries E\+\_\+ml\+\_\+rightmost\+\_\+stem} (int i, int j, \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$fc)
+\item 
+int {\bfseries vrna\+\_\+\+E\+\_\+ml\+\_\+stems\+\_\+fast} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$fc, int i, int j, int $\ast$fmi, int $\ast$dmli)
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Boltzmann weight (partition function) interface}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+s $\ast$ \hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Auxiliary helper arrays for fast exterior loop computations. \end{DoxyCompactList}\item 
+\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+BL} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+mb\+\_\+loop\+\_\+fast} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$fc, int i, int j, \hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t} aux\+\_\+mx)
+\item 
+\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+init} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$fc)
+\item 
+void {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+rotate} (\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t} aux\+\_\+mx)
+\item 
+void {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+free} (\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t} aux\+\_\+mx)
+\item 
+const \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+BL} $\ast$ {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+qqm} (struct vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+s $\ast$aux\+\_\+mx)
+\item 
+const \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+BL} $\ast$ {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast\+\_\+qqm1} (struct vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+s $\ast$aux\+\_\+mx)
+\item 
+\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+BL} {\bfseries vrna\+\_\+exp\+\_\+\+E\+\_\+ml\+\_\+fast} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$fc, int i, int j, \hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\+\_\+mx\+\_\+pf\+\_\+aux\+\_\+ml\+\_\+t} aux\+\_\+mx)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Energy evaluation of multibranch loops for M\+FE and partition function calculations. 
+
+, , 

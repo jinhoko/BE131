@@ -1,0 +1,68 @@
+\hypertarget{neighbor_8h_source}{}\section{neighbor.\+h}
+\label{neighbor_8h_source}\index{Vienna\+R\+N\+A/neighbor.\+h@{Vienna\+R\+N\+A/neighbor.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_NEIGHBOR\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_NEIGHBOR\_H}
+00003 
+00111 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_s} \hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t};
+00112 
+00113 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00114 
+\Hypertarget{neighbor_8h_source_l00119}\hyperlink{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}{00119} \textcolor{preprocessor}{#define VRNA\_MOVESET\_INSERTION   4}
+00120 
+\Hypertarget{neighbor_8h_source_l00125}\hyperlink{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}{00125} \textcolor{preprocessor}{#define VRNA\_MOVESET\_DELETION    8}
+00126 
+\Hypertarget{neighbor_8h_source_l00131}\hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{00131} \textcolor{preprocessor}{#define VRNA\_MOVESET\_SHIFT       16}
+00132 
+\Hypertarget{neighbor_8h_source_l00136}\hyperlink{group__neighbors_ga258084b251b218fba9398826435a4393}{00136} \textcolor{preprocessor}{#define VRNA\_MOVESET\_NO\_LP       32}
+00137 
+\Hypertarget{neighbor_8h_source_l00142}\hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{00142} \textcolor{preprocessor}{#define VRNA\_MOVESET\_DEFAULT     (VRNA\_MOVESET\_INSERTION | VRNA\_MOVESET\_DELETION)}
+00143 
+00144 
+\Hypertarget{neighbor_8h_source_l00156}\hyperlink{group__neighbors}{00156} \textcolor{keyword}{struct }\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_s} \{
+\Hypertarget{neighbor_8h_source_l00157}\hyperlink{group__neighbors_a8af908c74786675a456d0f20cc8fcb9b}{00157}   \textcolor{keywordtype}{int} \hyperlink{group__neighbors_a8af908c74786675a456d0f20cc8fcb9b}{pos\_5};  
+\Hypertarget{neighbor_8h_source_l00158}\hyperlink{group__neighbors_a3849db905a45c4e399991df38705a36b}{00158}   \textcolor{keywordtype}{int} \hyperlink{group__neighbors_a3849db905a45c4e399991df38705a36b}{pos\_3};  
+\Hypertarget{neighbor_8h_source_l00159}\hyperlink{group__neighbors_a181681bc3aab907d93e340df4777e759}{00159}   \hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t} *\hyperlink{group__neighbors_a181681bc3aab907d93e340df4777e759}{next}; 
+00161 \};
+00162 
+00163 \hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t} vrna\_move\_init(\textcolor{keywordtype}{int} \hyperlink{group__neighbors_a8af908c74786675a456d0f20cc8fcb9b}{pos\_5}, \textcolor{keywordtype}{int} \hyperlink{group__neighbors_a3849db905a45c4e399991df38705a36b}{pos\_3});
+00164 
+00168 \textcolor{keywordtype}{void} \hyperlink{group__neighbors_gad085062ae3aa7ee20783debe4a906fad}{vrna\_move\_list\_free}(\hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t} *moves);
+00169 
+00176 \textcolor{keywordtype}{void}
+00177 \hyperlink{group__neighbors_gacdbc5f609b46aeb07d2c7e015677a1e0}{vrna\_move\_apply}(\textcolor{keywordtype}{short}             *pt,
+00178                 \textcolor{keyword}{const} \hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t} *m);
+00179 
+00180 
+00181 \textcolor{keywordtype}{void}
+00182 vrna\_move\_apply\_to\_db(\textcolor{keywordtype}{char}              *structure,
+00183                       \textcolor{keyword}{const} \textcolor{keywordtype}{short}       *pt,
+00184                       \textcolor{keyword}{const} \hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t} *m);
+00185 
+00186 
+00198 \textcolor{keywordtype}{void}
+00199 \hyperlink{group__neighbors_ga5ceb55ee56494b1f5b7aaa758cb722d1}{vrna\_loopidx\_update}(\textcolor{keywordtype}{int}               *loopidx,
+00200                     \textcolor{keyword}{const} \textcolor{keywordtype}{short}       *pt,
+00201                     \textcolor{keywordtype}{int}               length,
+00202                     \textcolor{keyword}{const} \hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t} *m);
+00203 
+00204 
+00220 \hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t} *
+00221 \hyperlink{group__neighbors_gab1473d856b15da2120fe648977798ad5}{vrna\_neighbors}(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00222                \textcolor{keyword}{const} \textcolor{keywordtype}{short}          *pt,
+00223                \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}         options);
+00224 
+00225 
+00247 \hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t} *
+00248 \hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{vrna\_neighbors\_successive}(\textcolor{keyword}{const} \hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *vc,
+00249                           \textcolor{keyword}{const} \hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}           *curr\_move,
+00250                           \textcolor{keyword}{const} \textcolor{keywordtype}{short}                 *prev\_pt,
+00251                           \textcolor{keyword}{const} \hyperlink{group__neighbors_structvrna__move__s}{vrna\_move\_t}           *prev\_neighbors,
+00252                           \textcolor{keywordtype}{int}                         size\_prev\_neighbors,
+00253                           \textcolor{keywordtype}{int}                         *size\_neighbors,
+00254                           \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                options);
+00255 
+00256 
+00260 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* VIENNA\_RNA\_PACKAGE\_NEIGHBOR\_H */}\textcolor{preprocessor}{}
+\end{DoxyCode}

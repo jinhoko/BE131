@@ -1,0 +1,39 @@
+\hypertarget{datastructures_2stream__output_8h_source}{}\section{stream\+\_\+output.\+h}
+\label{datastructures_2stream__output_8h_source}\index{Vienna\+R\+N\+A/datastructures/stream\+\_\+output.\+h@{Vienna\+R\+N\+A/datastructures/stream\+\_\+output.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_STREAM\_OUTPUT\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_STREAM\_OUTPUT\_H}
+00003 
+\Hypertarget{datastructures_2stream__output_8h_source_l00018}\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{00018} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_ordered\_stream\_s *\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\_ostream\_t};
+00019 
+\Hypertarget{datastructures_2stream__output_8h_source_l00034}\hyperlink{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}{00034} \textcolor{keyword}{typedef} void (\hyperlink{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}{vrna\_callback\_stream\_output})(\textcolor{keywordtype}{void}         *auxdata,
+00035                                            \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i,
+00036                                            \textcolor{keywordtype}{void}         *data);
+00037 
+00047 \hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\_ostream\_t}
+00048 \hyperlink{group__buffer__utils_gad23113e66a0910ec2341856e2da56bf6}{vrna\_ostream\_init}(\hyperlink{group__buffer__utils_ga4adb94338a6f0a1a451e03c1bdac0d9d}{vrna\_callback\_stream\_output} *output,
+00049                   \textcolor{keywordtype}{void}                        *auxdata);
+00050 
+00051 
+00059 \textcolor{keywordtype}{void}
+00060 \hyperlink{group__buffer__utils_gaf813ec90e1446ba82c89f9a39688a3b3}{vrna\_ostream\_free}(\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\_ostream\_t} dat);
+00061 
+00062 
+00063 \textcolor{keywordtype}{int}
+00064 vrna\_ostream\_threadsafe(\textcolor{keywordtype}{void});
+00065 
+00066 
+00079 \textcolor{keywordtype}{void}
+00080 \hyperlink{group__buffer__utils_gaebca91932705d71bcbf00bd8d82bd7c8}{vrna\_ostream\_request}(\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\_ostream\_t} dat,
+00081                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}   num);
+00082 
+00083 
+00096 \textcolor{keywordtype}{void}
+00097 \hyperlink{group__buffer__utils_ga6253c42abdeaf3b41a38204865e1f0f7}{vrna\_ostream\_provide}(\hyperlink{group__buffer__utils_ga8da189552af21ab6e4e88bdcc240870c}{vrna\_ostream\_t} dat,
+00098                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}   i,
+00099                      \textcolor{keywordtype}{void}           *data);
+00100 
+00101 
+00107 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

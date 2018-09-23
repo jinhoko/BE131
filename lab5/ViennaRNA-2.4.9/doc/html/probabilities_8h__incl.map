@@ -1,0 +1,16 @@
+<map id="ViennaRNA/plotting/probabilities.h" name="ViennaRNA/plotting/probabilities.h">
+<area shape="rect" id="node2" href="$datastructures_2basic_8h.html" title="Various data structures and pre&#45;processor macros. " alt="" coords="698,95,877,136"/>
+<area shape="rect" id="node16" href="$utils_2structures_8h.html" title="Various utility&#45; and helper&#45;functions for secondary structure parsing, converting, etc. " alt="" coords="1583,355,1775,382"/>
+<area shape="rect" id="node3" href="$constants_8h.html" title="Energy parameter constants. " alt="" coords="618,355,829,382"/>
+<area shape="rect" id="node5" href="$fold__compound_8h.html" title="The Basic Fold Compound API. " alt="" coords="763,184,958,211"/>
+<area shape="rect" id="node6" href="$model_8h.html" title="The model details data structure and its corresponding modifiers. " alt="" coords="1047,355,1189,382"/>
+<area shape="rect" id="node7" href="$params_2basic_8h.html" title="Functions to deal with sets of energy parameters. " alt="" coords="1026,266,1210,293"/>
+<area shape="rect" id="node9" href="$dp__matrices_8h.html" title="Functions to deal with standard dynamic programming (DP) matrices. " alt="" coords="39,266,216,293"/>
+<area shape="rect" id="node10" href="$hard_8h.html" title="Functions and data structures for handling of secondary structure hard constraints. " alt="" coords="240,259,399,300"/>
+<area shape="rect" id="node12" href="$soft_8h.html" title="Functions and data structures for secondary structure soft constraints. " alt="" coords="605,259,764,300"/>
+<area shape="rect" id="node13" href="$grammar_8h.html" title="Implementations for the RNA folding grammar. " alt="" coords="423,266,581,293"/>
+<area shape="rect" id="node14" href="$structured__domains_8h.html" title="This module provides interfaces that deal with additional structured domains in the folding grammar..." alt="" coords="1235,259,1388,300"/>
+<area shape="rect" id="node15" href="$unstructured__domains_8h.html" title="Functions to modify unstructured domains, e.g. to incorporate ligands binding to unpaired stretches..." alt="" coords="1412,259,1579,300"/>
+<area shape="rect" id="node8" href="$sequence_8h.html" title="Functions and data structures related to sequence representations ,. " alt="" coords="789,266,951,293"/>
+<area shape="rect" id="node11" href="$constraints_2basic_8h.html" title="Functions and data structures for constraining secondary structure predictions and evaluation..." alt="" coords="240,348,399,389"/>
+</map>

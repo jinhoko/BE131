@@ -1,0 +1,24 @@
+\hypertarget{MEA_8h_source}{}\section{M\+E\+A.\+h}
+\label{MEA_8h_source}\index{Vienna\+R\+N\+A/\+M\+E\+A.\+h@{Vienna\+R\+N\+A/\+M\+E\+A.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_MEA\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_MEA\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00005 \textcolor{preprocessor}{#include <\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}>}
+00006 
+00026 \textcolor{keywordtype}{float} \hyperlink{group__mea__fold_ga396ec6144c6a74fcbab4cea6b42d76c3}{MEA}(\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}   *p,
+00027           \textcolor{keywordtype}{char}    *structure,
+00028           \textcolor{keywordtype}{double}  gamma);
+00029 
+00030 
+00031 \textcolor{keywordtype}{float} MEA\_seq(\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{plist}             *p,
+00032               \textcolor{keyword}{const} \textcolor{keywordtype}{char}        *sequence,
+00033               \textcolor{keywordtype}{char}              *structure,
+00034               \textcolor{keywordtype}{double}            gamma,
+00035               \hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}  *pf);
+00036 
+00037 
+00038 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

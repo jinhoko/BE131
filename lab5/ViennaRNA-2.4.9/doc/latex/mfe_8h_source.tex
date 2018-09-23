@@ -1,0 +1,56 @@
+\hypertarget{mfe_8h_source}{}\section{mfe.\+h}
+\label{mfe_8h_source}\index{Vienna\+R\+N\+A/mfe.\+h@{Vienna\+R\+N\+A/mfe.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_MFE\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_MFE\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <stdio.h>}
+00005 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00006 
+00082 \textcolor{keywordtype}{float}
+00083 \hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\_mfe}(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00084          \textcolor{keywordtype}{char}                 *structure);
+00085 
+00086 
+00096 \textcolor{keywordtype}{float} \hyperlink{group__mfe__global_gaab22d10c1190f205f16a77cab9d5d3ee}{vrna\_mfe\_dimer}(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00097                      \textcolor{keywordtype}{char}                 *structure);
+00098 
+00099 
+00100 \textcolor{comment}{/* End basic MFE interface */}
+00128 \textcolor{keywordtype}{float}
+00129 \hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\_fold}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequence,
+00130           \textcolor{keywordtype}{char}        *structure);
+00131 
+00132 
+00155 \textcolor{keywordtype}{float}
+00156 \hyperlink{group__mfe__global_gaf973483d8acbc8cc9aacfc8a9b7f0074}{vrna\_circfold}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequence,
+00157               \textcolor{keywordtype}{char}        *structure);
+00158 
+00159 
+00181 \textcolor{keywordtype}{float}
+00182 \hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\_alifold}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequences,
+00183              \textcolor{keywordtype}{char}       *structure);
+00184 
+00185 
+00210 \textcolor{keywordtype}{float}
+00211 \hyperlink{group__mfe__global_ga17a1be7490468c29c335ba9bffacba53}{vrna\_circalifold}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequences,
+00212                  \textcolor{keywordtype}{char}       *structure);
+00213 
+00214 
+00235 \textcolor{keywordtype}{float}
+00236 \hyperlink{group__mfe__global_ga9ef3a297201dbf838a8daff2b45c0c82}{vrna\_cofold}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequence,
+00237             \textcolor{keywordtype}{char}        *structure);
+00238 
+00239 
+00240 \textcolor{comment}{/* End simplified global MFE interface */}
+00243 \textcolor{comment}{/* End group mfe\_global */}
+00255 \textcolor{keywordtype}{int}
+00256 vrna\_backtrack\_from\_intervals(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *vc,
+00257                               \hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}       *bp\_stack,
+00258                               \hyperlink{group__data__structures_structvrna__sect__s}{sect}                  bt\_stack[],
+00259                               \textcolor{keywordtype}{int}                   s);
+00260 
+00261 
+00265 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

@@ -1,0 +1,546 @@
+
+\begin{DoxyItemize}
+\item \hyperlink{install}{Installation and Configuration} describes how to install and configure {\ttfamily R\+N\+Alib} for your requirements
+\item \hyperlink{helloworld}{Hello\+World} presents some small example programs to get a first impression on how to use this library
+\item \hyperlink{helloworld_swig}{Hello\+World (Perl/\+Python)} contains small examples that show how to use R\+N\+Alib even without C/\+C++ programming skills from within your favorite scripting language 
+\end{DoxyItemize}\hypertarget{install}{}\section{Installation and Configuration}\label{install}
+A documentation on how to configure the different features of {\ttfamily R\+N\+Alib}, how to install the Vienna\+R\+NA Package, and finally, how to link you own programs against {\ttfamily R\+N\+Alib}.\hypertarget{install_installation}{}\subsection{Installing the Vienna\+R\+N\+A Package}\label{install_installation}
+For best portability the Vienna\+R\+NA package uses the G\+NU autoconf and automake tools. The instructions below are for installing the Vienna\+R\+NA package from source. However, pre-\/compiled binaries for various Linux distributions, as well as for Windows users are available from Download section of the \href{https://www.tbi.univie.ac.at/RNA}{\tt main Vienna\+R\+NA homepage}.\hypertarget{install_quickstart}{}\subsubsection{Quick-\/start}\label{install_quickstart}
+Usually you\textquotesingle{}ll just unpack, configure and make. To do this type\+:
+
+\begin{DoxyVerb}tar -zxvf ViennaRNA-2.4.8.tar.gz
+cd ViennaRNA-2.4.8
+./configure
+make
+sudo make install
+\end{DoxyVerb}
+\hypertarget{install_userdir_install}{}\subsubsection{Installation without root privileges}\label{install_userdir_install}
+If you do not have root privileges on your computer, you might want to install the Vienna\+R\+NA Package to a location where you actually have write access to. To do so, you can set the installation prefix of the ./configure script like so\+:
+
+\begin{DoxyVerb}./configure --prefix=/home/username/ViennaRNA
+make install
+\end{DoxyVerb}
+
+
+This will install the entire Vienna\+R\+NA Package into a new directory Vienna\+R\+NA directly into the users username home directory.\hypertarget{install_macosx_notes}{}\subsubsection{Notes for Mac\+O\+S X users}\label{install_macosx_notes}
+Although users will find /usr/bin/gcc and /usr/bin/g++ executables in their directory tree, these programs are not at all what they pretend to be. Instead of including the G\+NU programs, Apple decided to install clang/llvm in disguise. Unfortunately, the default version of clang/llvm does not support Open\+MP (yet), but only complains at a late stage of the build process when this support is required. Therefore, it seems necessary to deactivate Open\+MP support by passing the option --disable-\/openmp to the ./configure script.
+
+Additionally, since Mac\+OS X 10.\+5 the perl and python installation distributed with Mac\+OS X always include so called universal-\/binaries (a.\+k.\+a. fat-\/binaries), i.\+e. binaries for multiple architecture types. In order to compile and link the programs, library, and scripting language interfaces of the Vienna\+R\+NA Package for multiple architectures, we\textquotesingle{}ve added a new configure switch that sets up the required changes automatically\+:
+
+\begin{DoxyVerb}./configure --enable-universal-binary
+\end{DoxyVerb}
+
+
+\begin{DoxyNote}{Note}
+Note, that with link time optimization turned on, Mac\+OS X\textquotesingle{}s default compiler (llvm/clang) generates an intermediary binary format that can not easily be combined into a multi-\/architecture library. Therefore, the --enable-\/universal-\/binary switch turns off link time optimization!
+\end{DoxyNote}
+\hypertarget{install_configuration}{}\subsection{Configuring R\+N\+Alib features}\label{install_configuration}
+The Vienna\+R\+NA Package includes additional executable programs such as R\+N\+Aforester, Kinfold, and Kinwalker. Furthermore, we include several features in our C-\/library that may be activated by default, or have to be explicitly turned on at configure-\/time. Below we list a selection of the available configure options that affect the features included in all executable programs, the R\+N\+Alib C-\/library, and the corresponding scripting language interface(s).\hypertarget{install_config_sse}{}\subsubsection{Streaming S\+I\+M\+D Extension (\+S\+S\+E) support}\label{install_config_sse}
+Since version 2.\+3.\+5 our sources contain code that implements a faster multibranch loop decomposition in global M\+FE predictions, as used e.\+g. in R\+N\+Afold. This implementation makes use of modern processors capability to execute particular instructions on multiple data simultaneously (S\+I\+MD -\/ single instruction multiple data, thanks to W. B. Langdon for providing the modified code). Consequently, the time required to assess the minimum of all multibranch loop decompositions is reduced up to about one half compared to the runtime of the original implementation. To make use of this piece of code you need a C\+PU capable to handle S\+S\+E4.\+1 instructions and enable the feature at compile-\/time using the following configure flag\+:
+
+\begin{DoxyVerb}./configure --enable-sse
+\end{DoxyVerb}
+\hypertarget{install_config_swig}{}\subsubsection{Scripting Interfaces}\label{install_config_swig}
+The Vienna\+R\+NA Package comes with scripting language interfaces for Perl 5, Python 2, and Python 3 (provided by swig), that allow one to use the implemented algorithms directly without the need of calling an executable program. The interfaces are build by default whenever the autoconf tool-\/chain detects the required build tools on your system. You may, however, explicitly turn off particular scripting language interface support at configure-\/time, for instance for Perl 5 and Python 2, before the actual installation.
+
+Example\+:
+
+\begin{DoxyVerb}./configure --without-perl --without-python
+\end{DoxyVerb}
+
+
+Disabling the scripting language support all-\/together can be accomplished using the following switch\+: \begin{DoxyVerb}./configure --without-swig
+\end{DoxyVerb}
+\hypertarget{install_config_cluster}{}\subsubsection{Cluster Analysis}\label{install_config_cluster}
+The programs Analyse\+Seqs and Analyse\+Dists offer some cluster analysis tools (split decomposition, statistical geometry, neighbor joining, Ward\textquotesingle{}s method) for sequences and distance data. To also build these programs add
+
+\begin{DoxyVerb}--with-cluster
+\end{DoxyVerb}
+
+
+to your configure options.\hypertarget{install_config_kinfold}{}\subsubsection{Kinfold}\label{install_config_kinfold}
+The Kinfold program can be used to simulate the folding dynamics of an R\+NA molecule, and is compiled by default. Use the
+
+\begin{DoxyVerb}--without-kinfold
+\end{DoxyVerb}
+
+
+option to skip compilation and installation of Kinfold.\hypertarget{install_config_forester}{}\subsubsection{R\+N\+Aforester}\label{install_config_forester}
+The R\+N\+Aforester program is used for comparing secondary structures using tree alignment. Similar to Kinfold, use the
+
+\begin{DoxyVerb}--without-forester
+\end{DoxyVerb}
+
+
+option to skip compilation and installation of R\+N\+Aforester.\hypertarget{install_config_kinwalker}{}\subsubsection{Kinwalker}\label{install_config_kinwalker}
+The Kinwalker algorithm performs co-\/transcriptional folding of R\+N\+As, starting at a user specified structure (default\+: open chain) and ending at the minimum free energy structure. Compilation and installation of this program is deactivated by default. Use the
+
+\begin{DoxyVerb}--with-kinwalker
+\end{DoxyVerb}
+
+
+option to enable building and installation of Kinwalker.\hypertarget{install_config_lto}{}\subsubsection{Link Time Optimization (\+L\+T\+O)}\label{install_config_lto}
+To increase the performance of our implementations, the Vienna\+R\+NA Package tries to make use of the Link Time Optimization (L\+TO) feature of modern C-\/compilers. If you are experiencing any troubles at make-\/time or run-\/time, or the configure script for some reason detects that your compiler supports this feature although it doesn\textquotesingle{}t, you can deactivate it using the flag
+
+\begin{DoxyVerb}./configure --disable-lto
+\end{DoxyVerb}
+
+
+Note, that G\+CC before version 5 is known to produce unreliable L\+TO code, especially in combination with S\+SE (see \hyperlink{install_config_sse}{Streaming S\+I\+MD Extension (S\+SE) support}). We therefore recommend using a more recent compiler (G\+CC 5 or above) or to turn off one of the two features, L\+TO or S\+SE optimized code.\hypertarget{install_config_openmp}{}\subsubsection{Open\+M\+P support}\label{install_config_openmp}
+To enable concurrent computation of our implementations and in some cases parallelization of the algorithms we make use of the Open\+MP A\+PI. This interface is well understood by most modern compilers. However, in some cases it might be necessary to deactivate Open\+MP support and therefore transform {\itshape R\+N\+Alib} into a C-\/library that is not entirely {\itshape thread-\/safe}. To do so, add the following configure option
+
+\begin{DoxyVerb}./configure --disable-openmp
+\end{DoxyVerb}
+\hypertarget{install_config_pthread}{}\subsubsection{P\+O\+S\+I\+X threads (pthread) support}\label{install_config_pthread}
+To enable concurrent computation of multiple input data in R\+N\+Afold, and for our implementation of the concurrent unordered insert, ordered output flush data structure vrna\+\_\+ostream\+\_\+t we make use of P\+O\+S\+IX threads. This should be supported on all modern platforms and usually does not pose any problems. Unfortunately, we use a threadpool implementation that is not compatible with Microsoft Windows yet. Thus, P\+O\+S\+IX thread support can not be activated for Windows builds until we have fixed this problem. If you want to compile R\+N\+Afold and R\+N\+Alib without P\+O\+S\+IX threads support for any other reasons, add the following configure option
+
+\begin{DoxyVerb}./configure --disable-pthreads
+\end{DoxyVerb}
+\hypertarget{install_config_boustrophedon}{}\subsubsection{Stochastic backtracking using Boustrophedon scheme}\label{install_config_boustrophedon}
+Stochastic backtracking for single R\+NA sequences, e.\+g. available through the R\+N\+Asubopt program, received a major speedup by implementing a Boustrophedon scheme (see this article for details). If for some reason you want to deactivate this feature, you can do that by adding the following switch to the configure script\+:
+
+\begin{DoxyVerb}./configure --disable-boustrophedon
+\end{DoxyVerb}
+\hypertarget{install_config_svm}{}\subsubsection{S\+V\+M Z-\/score filter in R\+N\+A\+Lfold}\label{install_config_svm}
+By default, R\+N\+A\+Lfold that comes with the Vienna\+R\+NA Package allows for z-\/score filtering of its predicted results using a support vector machine (S\+VM). However, the library we use to implement this feature (libsvm) is statically linked to our own R\+N\+Alib. If this introduces any problems for your own third-\/party programs that link against R\+N\+Alib, you can safely switch off the z-\/scoring implementation using
+
+\begin{DoxyVerb}./configure --without-svm
+\end{DoxyVerb}
+\hypertarget{install_config_gsl}{}\subsubsection{G\+N\+U Scientific Library}\label{install_config_gsl}
+The new program R\+N\+Apvmin computes a pseudo-\/energy perturbation vector that aims to minimize the discrepancy of predicted, and observed pairing probabilities. For that purpose it implements several methods to solve the optimization problem. Many of them are provided by the G\+NU Scientific Library, which is why the R\+N\+Apvmin program, and the R\+N\+Alib C-\/library are required to be linked against libgsl. If this introduces any problems in your own third-\/party programs that link against R\+N\+Alib, you can turn off a larger portion of available minimizers in R\+N\+Apvmin and linking against libgsl all-\/together, using the switch
+
+\begin{DoxyVerb}./configure --without-gsl
+\end{DoxyVerb}
+\hypertarget{install_config_c11}{}\subsubsection{Disable C11/\+C++11 feature support}\label{install_config_c11}
+By default, we use C11/\+C++11 features in our implementations. This mainly accounts for unnamed unions/structs within {\itshape R\+N\+Alib}. The configure script automatically detects whether or not your compiler understands these features. In case you are using an older compiler, these features will be deactivated by setting a specific pre-\/processor directive. If for some reason you want to deactivate C11/\+C++11 features despite the capabilities of your compiler, use the following configure option\+:
+
+\begin{DoxyVerb}./configure --disable-c11
+\end{DoxyVerb}
+\hypertarget{install_config_deprecated}{}\subsubsection{Enable warnings for use of deprecated symbols}\label{install_config_deprecated}
+Since version 2.\+2 we are in the process of transforming the A\+PI of our {\itshape R\+N\+Alib}. Hence, several symbols are marked as {\itshape deprecated} whenever they have been replaced by the new A\+PI. By default, deprecation warnings at compile time are deactivated. If you want to get your terminal spammed by tons of deprecation warnings, enable them using\+:
+
+\begin{DoxyVerb}./configure --enable-warn-deprecated
+\end{DoxyVerb}
+\hypertarget{install_config_float_pf}{}\subsubsection{Single precision partition function}\label{install_config_float_pf}
+Calculation of partition functions (via R\+N\+Afold -\/p) uses double precision floats by default, to avoid overflow errors on longer sequences. If your machine has little memory and you don\textquotesingle{}t plan to fold sequences over 1000 bases in length you can compile the package to do the computations in single precision by running
+
+\begin{DoxyVerb}./configure --enable-floatpf
+\end{DoxyVerb}
+
+
+\begin{DoxyNote}{Note}
+Using this option is discouraged and not necessary on most modern computers.
+\end{DoxyNote}
+\hypertarget{install_config_help}{}\subsubsection{Help}\label{install_config_help}
+For a complete list of all ./configure options and important environment variables, type
+
+\begin{DoxyVerb}./configure --help
+\end{DoxyVerb}
+
+
+For more general information on the build process see the I\+N\+S\+T\+A\+L\+L.\+configure file.\hypertarget{install_linking}{}\subsection{Linking against R\+N\+Alib}\label{install_linking}
+In order to use our implemented algorithms you simply need to link your program to our {\itshape R\+N\+Alib} C-\/library that usually comes along with the Vienna\+R\+NA Package installation. If you\textquotesingle{}ve installed the Vienna\+R\+NA Package as a pre-\/build binary package, you probably need the corresponding development package, e.\+g. {\itshape viennarna-\/devel}, or {\itshape viennarna-\/dev}. The only thing that is left is to include the Vienna\+R\+NA header files into your source code, e.\+g.\+:
+
+\begin{DoxyVerb}#include <ViennaRNA/mfe.h>
+\end{DoxyVerb}
+
+
+and start using our fast and efficient algorithm implementations.
+
+\begin{DoxySeeAlso}{See also}
+In the mp\+\_\+example and \hyperlink{newAPI_newAPI_examples}{Some Examples using R\+N\+Alib A\+PI v3.\+0} sections, we list a small set of example code that usually is a good starting point for your application.
+\end{DoxySeeAlso}
+\hypertarget{install_linking_flags}{}\subsubsection{Compiler and Linker flags}\label{install_linking_flags}
+Of course, simply adding the Vienna\+R\+NA header files into your source code is usually not enough. You probably need to tell your compiler where to find the header files, and sometimes add additional pre-\/processor directives. Whenever your installation of {\itshape R\+N\+Alib} was build with default settings and the header files were installed into their default location, a simple
+
+\begin{DoxyVerb}-I/usr/include
+\end{DoxyVerb}
+
+
+pre-\/processor/compile flag should suffice. It can even be omitted in this case, since your compiler should search this directory by default anyway. You only need to change the path from {\itshape /usr/include} to the correct location whenever the header files have been installed into a non-\/standard directory.
+
+On the other hand, if you\textquotesingle{}ve compiled {\itshape R\+N\+Alib} with some non-\/default settings then you probably need to define some additional pre-\/processor macros\+:
+
+
+\begin{DoxyItemize}
+\item {\itshape V\+R\+N\+A\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C11\+\_\+\+F\+E\+A\+T\+U\+R\+ES} $\ldots$ Disable C11/\+C++11 features. \begin{DoxyWarning}{Warning}
+Add this directive to your pre-\/processor/compile flags only if {\itshape R\+N\+Alib} was build with the {\itshape --disable-\/c11} configure option. 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{install_config_c11}{Disable C11/\+C++11 feature support} and \hyperlink{group__data__structures_ga21744ae2d6a17309f9327d3547cef0cb}{vrna\+\_\+\+C11\+\_\+features()}
+\end{DoxySeeAlso}
+
+\item {\itshape V\+R\+N\+A\+\_\+\+W\+A\+R\+N\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED} $\ldots$ Enable warnings for using deprecated symbols. \begin{DoxyNote}{Note}
+Adding this directive enables compiler warnings whenever you use symbols in {\itshape R\+N\+Alib} that are marked {\itshape deprecated}. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{install_config_deprecated}{Enable warnings for use of deprecated symbols} and \hyperlink{deprecated}{Deprecated List}
+\end{DoxySeeAlso}
+
+\item {\itshape U\+S\+E\+\_\+\+F\+L\+O\+A\+T\+\_\+\+PF} $\ldots$ Use single precision floating point operations instead of double precision in partition function computations. \begin{DoxyWarning}{Warning}
+Define this macro only if {\itshape R\+N\+Alib} was build with the {\itshape --enable-\/floatpf} configure option! 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{install_config_float_pf}{Single precision partition function}
+\end{DoxySeeAlso}
+
+\end{DoxyItemize}Simply add the corresponding definition(s) to your pre-\/processor/compile flags, for instance\+:
+
+\begin{DoxyVerb}-DVRNA_DISABLE_C11_FEATURES
+\end{DoxyVerb}
+
+
+Finally, linking against {\itshape R\+N\+Alib} is achieved by adding the following linker flag
+
+\begin{DoxyVerb}-L/usr/lib -lRNA -fopenmp
+\end{DoxyVerb}
+
+
+Again, the path to the library, {\itshape /usr/lib}, may be omitted if this path is searched for libraries by default. The second flag tells the linker to include {\itshape lib\+R\+N\+A.\+a}, and the remaining two flags activate \hyperlink{install_config_lto}{Link Time Optimization (L\+TO)} and \hyperlink{install_config_openmp}{Open\+MP support} support, respectively. \begin{DoxyNote}{Note}
+Depending on your linker, the last two flags may differ. 
+
+Depending on your configure time decisions, you can drop one or both of the last flags. 
+
+In case you\textquotesingle{}ve compiled {\itshape R\+N\+Alib} with L\+TO support (See \hyperlink{install_config_lto}{Link Time Optimization (L\+TO)}) and you are using the same compiler for your third-\/party project that links against our library, you may add the
+\begin{DoxyCode}
+-flto 
+\end{DoxyCode}
+ flag to enable Link Time Optimization.
+\end{DoxyNote}
+\hypertarget{install_linking_pkgconfig}{}\subsubsection{The pkg-\/config tool}\label{install_linking_pkgconfig}
+Instead of hard-\/coding the required compiler and linker flags, you can also let the {\itshape pkg-\/config} tool automatically determine the required flags. This tool is usually packaged for any Linux distribution and should be available for Mac\+OS X and Min\+GW as well. We ship a file {\itshape R\+N\+Alib2.\+pc} which is installed along with the static {\itshape lib\+R\+N\+A.\+a} C-\/library and populated with all required compiler and linker flags that correspond to your configure time decisions.
+
+The compiler flags required for properly building your code that uses {\itshape R\+N\+Alib} can be easily obtained via
+
+\begin{DoxyVerb}pkg-config --cflags RNAlib2
+\end{DoxyVerb}
+
+
+You get the corresponding linker flags using
+
+\begin{DoxyVerb}pkg-config --libs RNAlib2
+\end{DoxyVerb}
+
+
+With this widely accepted standard it is also very easy to integrate {\itshape R\+N\+Alib} in your {\itshape autotools} project, just have a look at the {\itshape P\+K\+G\+\_\+\+C\+H\+E\+C\+K\+\_\+\+M\+O\+D\+U\+L\+ES} macro.
+
+ \hypertarget{helloworld}{}\section{Hello\+World}\label{helloworld}
+Below, you\textquotesingle{}ll find some more or less simple C programs showing first steps into using {\itshape R\+N\+Alib}. A complete list of example C programs can be found in the \hyperlink{examples_c}{C Examples} section.
+
+\subsection*{Simple M\+FE prediction for a given sequence }
+
+
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#include <stdlib.h>}
+\textcolor{preprocessor}{#include <stdio.h>}
+\textcolor{preprocessor}{#include <string.h>}
+
+\textcolor{preprocessor}{#include <\hyperlink{fold_8h}{ViennaRNA/fold.h}>}
+\textcolor{preprocessor}{#include <\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}>}
+
+\textcolor{keywordtype}{int}
+main()
+\{
+  \textcolor{comment}{/* The RNA sequence */}
+  \textcolor{keywordtype}{char}  *seq = \textcolor{stringliteral}{"GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA"};
+
+  \textcolor{comment}{/* allocate memory for MFE structure (length + 1) */}
+  \textcolor{keywordtype}{char}  *structure = (\textcolor{keywordtype}{char} *)\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(seq) + 1));
+
+  \textcolor{comment}{/* predict Minmum Free Energy and corresponding secondary structure */}
+  \textcolor{keywordtype}{float} mfe = \hyperlink{group__mfe__global_ga29a33b2895f4e67b0480271ff289afdc}{vrna\_fold}(seq, structure);
+
+  \textcolor{comment}{/* print sequence, structure and MFE */}
+  printf(\textcolor{stringliteral}{"%s\(\backslash\)n%s [ %6.2f ]\(\backslash\)n"}, seq, structure, mfe);
+
+  \textcolor{comment}{/* cleanup memory */}
+  free(structure);
+
+  \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/helloworld\+\_\+mfe.\+c} in the source code tarball
+\end{DoxySeeAlso}
+\subsection*{Simple M\+FE prediction for a multiple sequence alignment }
+
+
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#include <stdlib.h>}
+\textcolor{preprocessor}{#include <stdio.h>}
+\textcolor{preprocessor}{#include <string.h>}
+
+\textcolor{preprocessor}{#include <\hyperlink{alifold_8h}{ViennaRNA/alifold.h}>}
+\textcolor{preprocessor}{#include <\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}>}
+\textcolor{preprocessor}{#include <\hyperlink{utils_2alignments_8h}{ViennaRNA/utils/alignments.h}>}
+
+\textcolor{keywordtype}{int}
+main()
+\{
+  \textcolor{comment}{/* The RNA sequence alignment */}
+  \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *sequences[] = \{
+    \textcolor{stringliteral}{"CUGCCUCACAACGUUUGUGCCUCAGUUACCCGUAGAUGUAGUGAGGGU"},
+    \textcolor{stringliteral}{"CUGCCUCACAACAUUUGUGCCUCAGUUACUCAUAGAUGUAGUGAGGGU"},
+    \textcolor{stringliteral}{"---CUCGACACCACU---GCCUCGGUUACCCAUCGGUGCAGUGCGGGU"},
+    NULL \textcolor{comment}{/* indicates end of alignment */}
+  \};
+
+  \textcolor{comment}{/* compute the consensus sequence */}
+  \textcolor{keywordtype}{char}        *cons = consensus(sequences);
+
+  \textcolor{comment}{/* allocate memory for MFE consensus structure (length + 1) */}
+  \textcolor{keywordtype}{char}        *structure = (\textcolor{keywordtype}{char} *)\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(sequences[0]) + 1));
+
+  \textcolor{comment}{/* predict Minmum Free Energy and corresponding secondary structure */}
+  \textcolor{keywordtype}{float}       mfe = \hyperlink{group__mfe__global_ga6c9d3bef3e92c6d423ffac9f981418c1}{vrna\_alifold}(sequences, structure);
+
+  \textcolor{comment}{/* print consensus sequence, structure and MFE */}
+  printf(\textcolor{stringliteral}{"%s\(\backslash\)n%s [ %6.2f ]\(\backslash\)n"}, cons, structure, mfe);
+
+  \textcolor{comment}{/* cleanup memory */}
+  free(cons);
+  free(structure);
+
+  \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/helloworld\+\_\+mfe\+\_\+comparative.\+c} in the source code tarball
+\end{DoxySeeAlso}
+\subsection*{Simple Base Pair Probability computation }
+
+
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#include <stdlib.h>}
+\textcolor{preprocessor}{#include <stdio.h>}
+\textcolor{preprocessor}{#include <string.h>}
+
+\textcolor{preprocessor}{#include <\hyperlink{fold_8h}{ViennaRNA/fold.h}>}
+\textcolor{preprocessor}{#include <\hyperlink{part__func_8h}{ViennaRNA/part\_func.h}>}
+\textcolor{preprocessor}{#include <\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}>}
+
+\textcolor{keywordtype}{int}
+main()
+\{
+  \textcolor{comment}{/* The RNA sequence */}
+  \textcolor{keywordtype}{char}      *seq = \textcolor{stringliteral}{"GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA"};
+
+  \textcolor{comment}{/* allocate memory for pairing propensity string (length + 1) */}
+  \textcolor{keywordtype}{char}      *propensity = (\textcolor{keywordtype}{char} *)\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(seq) + 1));
+
+  \textcolor{comment}{/* pointers for storing and navigating through base pair probabilities */}
+  \hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t} *ptr, *pair\_probabilities = NULL;
+
+  \textcolor{keywordtype}{float}     en = \hyperlink{group__part__func__global_gac4a2a74a79e49818bc35412a2b392c7e}{vrna\_pf\_fold}(seq, propensity, &pair\_probabilities);
+
+  \textcolor{comment}{/* print sequence, pairing propensity string and ensemble free energy */}
+  printf(\textcolor{stringliteral}{"%s\(\backslash\)n%s [ %6.2f ]\(\backslash\)n"}, seq, propensity, en);
+
+  \textcolor{comment}{/* print all base pairs with probability above 50% */}
+  \textcolor{keywordflow}{for} (ptr = pair\_probabilities; ptr->\hyperlink{group__struct__utils__plist_a0f8bb11ded4e605f816d7ad92eb568f6}{i} != 0; ptr++)
+    \textcolor{keywordflow}{if} (ptr->\hyperlink{group__struct__utils__plist_a9c09385582d8a7ab00485181f4e868b7}{p} > 0.5)
+      printf(\textcolor{stringliteral}{"p(%d, %d) = %g\(\backslash\)n"}, ptr->\hyperlink{group__struct__utils__plist_a0f8bb11ded4e605f816d7ad92eb568f6}{i}, ptr->\hyperlink{group__struct__utils__plist_acada5be62ed6843334a918ca543f0c0d}{j}, ptr->\hyperlink{group__struct__utils__plist_a9c09385582d8a7ab00485181f4e868b7}{p});
+
+  \textcolor{comment}{/* cleanup memory */}
+  free(pair\_probabilities);
+  free(propensity);
+
+  \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/helloworld\+\_\+probabilities.\+c} in the source code tarball
+\end{DoxySeeAlso}
+\subsection*{Deviating from the Default Model }
+
+
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#include <stdlib.h>}
+\textcolor{preprocessor}{#include <stdio.h>}
+\textcolor{preprocessor}{#include <string.h>}
+
+\textcolor{preprocessor}{#include <\hyperlink{model_8h}{ViennaRNA/model.h}>}
+\textcolor{preprocessor}{#include <\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}>}
+\textcolor{preprocessor}{#include <\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}>}
+\textcolor{preprocessor}{#include <\hyperlink{strings_8h}{ViennaRNA/utils/strings.h}>}
+\textcolor{preprocessor}{#include <\hyperlink{mfe_8h}{ViennaRNA/mfe.h}>}
+
+\textcolor{keywordtype}{int}
+main()
+\{
+  \textcolor{comment}{/* initialize random number generator */}
+  \hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\_init\_rand}();
+
+  \textcolor{comment}{/* Generate a random sequence of 50 nucleotides */}
+  \textcolor{keywordtype}{char}      *seq = \hyperlink{group__string__utils_ga4eeb3750dcf860b9f3158249f95dbd7f}{vrna\_random\_string}(50, \textcolor{stringliteral}{"ACGU"});
+
+  \textcolor{comment}{/* allocate memory for MFE structure (length + 1) */}
+  \textcolor{keywordtype}{char}      *structure = (\textcolor{keywordtype}{char} *)\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(seq) + 1));
+
+  \textcolor{comment}{/* create a new model details structure to store the Model Settings */}
+  \hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t} md;
+
+  \textcolor{comment}{/* ALWAYS set default model settings first! */}
+  \hyperlink{group__model__details_ga8ac6ff84936282436f822644bf841f66}{vrna\_md\_set\_default}(&md);
+
+  \textcolor{comment}{/* change temperature and activate G-Quadruplex prediction */}
+  md.\hyperlink{group__model__details_a5f7e5c2b65bada5188443470e576aa4b}{temperature}  = 25.0; \textcolor{comment}{/* 25 Deg Celcius */}
+  md.\hyperlink{group__model__details_af88a511a2b1f526b4c6213de6cb8fd6e}{gquad}        = 1;    \textcolor{comment}{/* Turn-on G-Quadruples support */}
+
+  \textcolor{comment}{/* create a fold compound */}
+  \hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *fc = \hyperlink{group__fold__compound_ga6601d994ba32b11511b36f68b08403be}{vrna\_fold\_compound}(seq, &md, 
+      \hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\_OPTION\_DEFAULT});
+
+  \textcolor{comment}{/* predict Minmum Free Energy and corresponding secondary structure */}
+  \textcolor{keywordtype}{float}                 mfe = \hyperlink{group__mfe__global_gabd3b147371ccf25c577f88bbbaf159fd}{vrna\_mfe}(fc, structure);
+
+  \textcolor{comment}{/* print sequence, structure and MFE */}
+  printf(\textcolor{stringliteral}{"%s\(\backslash\)n%s [ %6.2f ]\(\backslash\)n"}, seq, structure, mfe);
+
+  \textcolor{comment}{/* cleanup memory */}
+  free(structure);
+  \hyperlink{group__fold__compound_ga576a077b418a9c3650e06f8e5d296fc2}{vrna\_fold\_compound\_free}(fc);
+
+  \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+{\ttfamily examples/fold\+\_\+compound\+\_\+md.\+c} in the source code tarball 
+\end{DoxySeeAlso}
+\hypertarget{helloworld_swig}{}\section{Hello\+World (Perl/\+Python)}\label{helloworld_swig}
+\hypertarget{helloworld_swig_helloworld_perl}{}\subsection{Perl5}\label{helloworld_swig_helloworld_perl}
+\subsection*{Simple M\+FE prediction for a given sequence }
+
+
+\begin{DoxyCodeInclude}
+use RNA;
+
+# The RNA sequence
+my $seq = "GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA";
+
+# compute minimum free energy (MFE) and corresponding structure
+my ($ss, $mfe) = RNA::fold($seq);
+
+# print output
+printf "%s\(\backslash\)n%s [ %6.2f ]\(\backslash\)n", $seq, $ss, $mfe;
+\end{DoxyCodeInclude}
+
+
+\subsection*{Simple M\+FE prediction for a multiple sequence alignment }
+
+
+\begin{DoxyCodeInclude}
+use RNA;
+
+# The RNA sequence alignment
+my @sequences = (
+    "CUGCCUCACAACGUUUGUGCCUCAGUUACCCGUAGAUGUAGUGAGGGU",
+    "CUGCCUCACAACAUUUGUGCCUCAGUUACUCAUAGAUGUAGUGAGGGU",
+    "---CUCGACACCACU---GCCUCGGUUACCCAUCGGUGCAGUGCGGGU"
+);
+
+# compute the consensus sequence
+my $cons = RNA::consensus(\(\backslash\)@sequences);
+
+# predict Minmum Free Energy and corresponding secondary structure
+my ($ss, $mfe) = RNA::alifold(\(\backslash\)@sequences);
+
+# print output
+printf "%s\(\backslash\)n%s [ %6.2f ]\(\backslash\)n", $cons, $ss, $mfe;
+\end{DoxyCodeInclude}
+
+
+\subsection*{Deviating from the Default Model }
+
+
+\begin{DoxyCodeInclude}
+use RNA;
+
+# The RNA sequence
+my $seq = "GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA";
+
+# create a new model details structure
+my $md = new RNA::md();
+
+# change temperature and dangle model
+$md->\{temperature\} = 20.0; # 20 Deg Celcius
+$md->\{dangles\}     = 1;    # Dangle Model 1
+
+# create a fold compound
+my $fc = new RNA::fold\_compound($seq, $md);
+
+# predict Minmum Free Energy and corresponding secondary structure
+my ($ss, $mfe) = $fc->mfe();
+
+# print sequence, structure and MFE
+printf "%s\(\backslash\)n%s [ %6.2f ]\(\backslash\)n", $seq, $ss, $mfe;
+
+\end{DoxyCodeInclude}
+\hypertarget{helloworld_swig_helloworld_python}{}\subsection{Python}\label{helloworld_swig_helloworld_python}
+\subsection*{Simple M\+FE prediction for a given sequence }
+
+
+\begin{DoxyCodeInclude}
+import RNA
+
+\textcolor{comment}{# The RNA sequence}
+seq = \textcolor{stringliteral}{"GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA"}
+
+\textcolor{comment}{# compute minimum free energy (MFE) and corresponding structure}
+(ss, mfe) = RNA.fold(seq)
+
+\textcolor{comment}{# print output}
+\textcolor{keywordflow}{print} \textcolor{stringliteral}{"%s\(\backslash\)n%s [ %6.2f ]"} % (seq, ss, mfe)
+\end{DoxyCodeInclude}
+
+
+\subsection*{Simple M\+FE prediction for a multiple sequence alignment }
+
+
+\begin{DoxyCodeInclude}
+\textcolor{keyword}{import} RNA
+
+\textcolor{comment}{# The RNA sequence alignment}
+sequences = [
+    \textcolor{stringliteral}{"CUGCCUCACAACGUUUGUGCCUCAGUUACCCGUAGAUGUAGUGAGGGU"},
+    \textcolor{stringliteral}{"CUGCCUCACAACAUUUGUGCCUCAGUUACUCAUAGAUGUAGUGAGGGU"},
+    \textcolor{stringliteral}{"---CUCGACACCACU---GCCUCGGUUACCCAUCGGUGCAGUGCGGGU"}
+]
+
+\textcolor{comment}{# compute the consensus sequence}
+cons = RNA.consensus(sequences)
+
+\textcolor{comment}{# predict Minmum Free Energy and corresponding secondary structure}
+(ss, mfe) = RNA.alifold(sequences);
+
+\textcolor{comment}{# print output}
+\textcolor{keywordflow}{print} \textcolor{stringliteral}{"%s\(\backslash\)n%s [ %6.2f ]"} % (cons, ss, mfe)
+\end{DoxyCodeInclude}
+
+
+\subsection*{Deviating from the Default Model }
+
+
+\begin{DoxyCodeInclude}
+\textcolor{keyword}{import} RNA
+
+\textcolor{comment}{# The RNA sequence}
+seq = \textcolor{stringliteral}{"GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA"}
+
+\textcolor{comment}{# create a new model details structure}
+md = RNA.md()
+
+\textcolor{comment}{# change temperature and dangle model}
+md.temperature = 20.0 \textcolor{comment}{# 20 Deg Celcius}
+md.dangles     = 1    \textcolor{comment}{# Dangle Model 1}
+
+\textcolor{comment}{# create a fold compound}
+fc = RNA.fold\_compound(seq, md)
+
+\textcolor{comment}{# predict Minmum Free Energy and corresponding secondary structure}
+(ss, mfe) = fc.mfe()
+
+\textcolor{comment}{# print sequence, structure and MFE}
+\textcolor{keywordflow}{print} \textcolor{stringliteral}{"%s\(\backslash\)n%s [ %6.2f ]\(\backslash\)n"} % (seq, ss, mfe)
+\end{DoxyCodeInclude}
+ 

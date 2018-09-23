@@ -1,0 +1,161 @@
+\hypertarget{utils_2basic_8h_source}{}\section{basic.\+h}
+\label{utils_2basic_8h_source}\index{Vienna\+R\+N\+A/utils/basic.\+h@{Vienna\+R\+N\+A/utils/basic.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_UTILS\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_UTILS\_H}
+00003 
+00004 \textcolor{preprocessor}{#ifdef VRNA\_WARN\_DEPRECATED}
+00005 \textcolor{preprocessor}{# if defined(\_\_clang\_\_)}
+00006 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("", msg)))}
+00007 \textcolor{preprocessor}{# elif defined(\_\_GNUC\_\_)}
+00008 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}
+00009 \textcolor{preprocessor}{# else}
+00010 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func}
+00011 \textcolor{preprocessor}{# endif}
+00012 \textcolor{preprocessor}{#else}
+00013 \textcolor{preprocessor}{# define DEPRECATED(func, msg) func}
+00014 \textcolor{preprocessor}{#endif}
+00015 
+00027 \textcolor{preprocessor}{#include <stdio.h>}
+00028 \textcolor{preprocessor}{#include <stdarg.h>}
+00029 
+00030 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00031 
+00032 \textcolor{comment}{/* two helper macros to indicate whether a function should be exported in}
+00033 \textcolor{comment}{the library or stays hidden */}
+00034 \textcolor{preprocessor}{#define PUBLIC}
+00035 \textcolor{preprocessor}{#define PRIVATE static}
+00036 
+\Hypertarget{utils_2basic_8h_source_l00040}\hyperlink{group__utils_gad403c9ea58f1836689404c2931419c8c}{00040} \textcolor{preprocessor}{#define VRNA\_INPUT\_ERROR                  1U}
+00041 
+\Hypertarget{utils_2basic_8h_source_l00044}\hyperlink{group__utils_ga72f3c6ca5c83d2b9baed2922d19c403d}{00044} \textcolor{preprocessor}{#define VRNA\_INPUT\_QUIT                   2U}
+00045 
+\Hypertarget{utils_2basic_8h_source_l00048}\hyperlink{group__utils_ga8e3241b321c9c1a78a69e59e2e019a71}{00048} \textcolor{preprocessor}{#define VRNA\_INPUT\_MISC                   4U}
+00049 
+\Hypertarget{utils_2basic_8h_source_l00057}\hyperlink{group__utils_ga2f0d8069e93d3ac54d9320d6bdb8e7e7}{00057} \textcolor{preprocessor}{#define VRNA\_INPUT\_FASTA\_HEADER           8U}
+00058 
+00059 \textcolor{comment}{/*}
+00060 \textcolor{comment}{ *  @brief  Input flag for get\_input\_line():\(\backslash\)n}
+00061 \textcolor{comment}{ *  Tell get\_input\_line() that we assume to read a nucleotide sequence}
+00062 \textcolor{comment}{ * }
+00063 \textcolor{comment}{ */}
+00064 \textcolor{preprocessor}{#define VRNA\_INPUT\_SEQUENCE               16U}
+00065 
+\Hypertarget{utils_2basic_8h_source_l00070}\hyperlink{group__utils_gac08a9df45b9721b97a47dbfe7a6e5f85}{00070} \textcolor{preprocessor}{#define VRNA\_INPUT\_CONSTRAINT             32U}
+00071 
+\Hypertarget{utils_2basic_8h_source_l00076}\hyperlink{group__utils_ga086742158293217a46ae2f71bb296937}{00076} \textcolor{preprocessor}{#define VRNA\_INPUT\_NO\_TRUNCATION          256U}
+00077 
+\Hypertarget{utils_2basic_8h_source_l00081}\hyperlink{group__utils_ga7a2e8c50a0c7ce82e60da1016e1367fd}{00081} \textcolor{preprocessor}{#define VRNA\_INPUT\_NO\_REST                512U}
+00082 
+\Hypertarget{utils_2basic_8h_source_l00086}\hyperlink{group__utils_ga0de536599b881c787b0943a2671da476}{00086} \textcolor{preprocessor}{#define VRNA\_INPUT\_NO\_SPAN                1024U}
+00087 
+\Hypertarget{utils_2basic_8h_source_l00091}\hyperlink{group__utils_gab4db885222b3b69608310d7c7e63e286}{00091} \textcolor{preprocessor}{#define VRNA\_INPUT\_NOSKIP\_BLANK\_LINES     2048U}
+00092 
+\Hypertarget{utils_2basic_8h_source_l00096}\hyperlink{group__utils_ga305474b93ccb79ae4c7754016a8ddd84}{00096} \textcolor{preprocessor}{#define VRNA\_INPUT\_BLANK\_LINE             4096U}
+00097 
+\Hypertarget{utils_2basic_8h_source_l00101}\hyperlink{group__utils_ga0f6311f11bed1842e3a527ab27b294c6}{00101} \textcolor{preprocessor}{#define VRNA\_INPUT\_NOSKIP\_COMMENTS        128U}
+00102 
+\Hypertarget{utils_2basic_8h_source_l00106}\hyperlink{group__utils_gaf2062e0eeefffd3ed639af460b3d4fab}{00106} \textcolor{preprocessor}{#define VRNA\_INPUT\_COMMENT                8192U}
+00107 
+\Hypertarget{utils_2basic_8h_source_l00111}\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{00111} \textcolor{preprocessor}{#define MIN2(A, B)      ((A) < (B) ? (A) : (B))}
+00112 
+\Hypertarget{utils_2basic_8h_source_l00116}\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{00116} \textcolor{preprocessor}{#define MAX2(A, B)      ((A) > (B) ? (A) : (B))}
+00117 
+\Hypertarget{utils_2basic_8h_source_l00121}\hyperlink{group__utils_ga721b8d5f3abef17f10293f1f7f8c958e}{00121} \textcolor{preprocessor}{#define MIN3(A, B, C)   (MIN2(  (MIN2((A),(B))) ,(C)))}
+00122 
+\Hypertarget{utils_2basic_8h_source_l00126}\hyperlink{group__utils_ga8d577123d2e66d2b7d0bf9af6e172b93}{00126} \textcolor{preprocessor}{#define MAX3(A, B, C)   (MAX2(  (MAX2((A),(B))) ,(C)))}
+00127 
+00128 
+00129 \textcolor{preprocessor}{#ifdef WITH\_DMALLOC}
+00130 \textcolor{comment}{/* use dmalloc library to check for memory management bugs */}
+00131 \textcolor{preprocessor}{#include "dmalloc.h"}
+00132 \textcolor{preprocessor}{#define vrna\_alloc(S)       calloc(1,(S))}
+00133 \textcolor{preprocessor}{#define vrna\_realloc(p, S)  xrealloc(p, S)}
+00134 \textcolor{preprocessor}{#else}
+00135 
+00142 \textcolor{keywordtype}{void}  *\hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\_alloc}(\textcolor{keywordtype}{unsigned} size);
+00143 
+00151 \textcolor{keywordtype}{void}  *\hyperlink{group__utils_ga27f4719a66c6f90d1cca3d1e6e696c6a}{vrna\_realloc}(\textcolor{keywordtype}{void} *p, \textcolor{keywordtype}{unsigned} size);
+00152 
+00153 \textcolor{preprocessor}{#endif}
+00154 
+00158 \textcolor{keywordtype}{void} \hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\_init\_rand}(\textcolor{keywordtype}{void});
+00159 
+00168 \textcolor{keyword}{extern} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \hyperlink{group__utils_gaf9a866c8417afda7368bbac939ab3c47}{xsubi}[3];
+00169 
+00177 \textcolor{keywordtype}{double} \hyperlink{group__utils_ga384e256ebb295d04a14426179db0dd6e}{vrna\_urn}(\textcolor{keywordtype}{void});
+00178 
+00187 \textcolor{keywordtype}{int} \hyperlink{group__utils_ga46111bb3747dbcf4609f0d40ae169ad9}{vrna\_int\_urn}(\textcolor{keywordtype}{int} from, \textcolor{keywordtype}{int} to);
+00188 
+00197 \textcolor{keywordtype}{char}  *\hyperlink{group__utils_gad3bbe8d01afb1310609cb018d5290550}{vrna\_time\_stamp}(\textcolor{keywordtype}{void});
+00198 
+00219 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\_input\_line}(\textcolor{keywordtype}{char} **\textcolor{keywordtype}{string},
+00220                             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options);
+00221 
+00222 
+00236 \textcolor{keywordtype}{int} *\hyperlink{group__utils_ga70b180e9ea764218a82647a1cd347445}{vrna\_idx\_row\_wise}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length);
+00237 
+00252 \textcolor{keywordtype}{int} *\hyperlink{group__utils_ga89ebc69c52fa0c78c9e1974b0017746b}{vrna\_idx\_col\_wise}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length);
+00253 
+00276 \textcolor{keywordtype}{void} \hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{vrna\_message\_error}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *format, ...);
+00277 
+00278 
+00291 \textcolor{keywordtype}{void} \hyperlink{group__message__utils_gabc1a08dea0d84b5c33701732172a8b18}{vrna\_message\_verror}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *format, va\_list args);
+00292 
+00293 
+00305 \textcolor{keywordtype}{void} \hyperlink{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}{vrna\_message\_warning}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *format, ...);
+00306 
+00307 
+00319 \textcolor{keywordtype}{void} \hyperlink{group__message__utils_ga377aa8ec8a49d343063adb22e6311f26}{vrna\_message\_vwarning}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *format, va\_list args);
+00320 
+00321 
+00333 \textcolor{keywordtype}{void} \hyperlink{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}{vrna\_message\_info}(FILE *fp, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *format, ...);
+00334 
+00335 
+00347 \textcolor{keywordtype}{void} \hyperlink{group__message__utils_gad8b8139bd04fbfb51e398e9fcd6908dc}{vrna\_message\_vinfo}(FILE *fp, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *format, va\_list args);
+00348 
+00349 
+00355 \textcolor{keywordtype}{void} \hyperlink{group__message__utils_gaee1dd652ca5b9e56b096963a1576f73b}{vrna\_message\_input\_seq\_simple}(\textcolor{keywordtype}{void});
+00356 
+00357 
+00366 \textcolor{keywordtype}{void} \hyperlink{group__message__utils_gaf4d194d558b0c975f269de01dea52460}{vrna\_message\_input\_seq}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);
+00367 
+00368 \textcolor{keywordtype}{void} vrna\_message\_input\_msa(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);
+00369 
+00374 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00375 
+00376 DEPRECATED(\textcolor{keywordtype}{int}   *get\_indx(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length), \textcolor{stringliteral}{"Use vrna\_idx\_col\_wise() instead"});
+00377 
+00378 DEPRECATED(\textcolor{keywordtype}{int}   *get\_iindx(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length), \textcolor{stringliteral}{"Use vrna\_idx\_row\_wise() instead"});
+00379 
+00392 DEPRECATED(\textcolor{keywordtype}{char}  *\hyperlink{utils_2basic_8h_abe51806d14cff0789a8c1df7dbc45b71}{get\_line}(FILE *fp), \textcolor{stringliteral}{"Use vrna\_read\_line() instead"});
+00393 
+00400 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{utils_2basic_8h_a6bf778117d31b7fd90db435323f4ef74}{print\_tty\_input\_seq}(\textcolor{keywordtype}{void}), \textcolor{stringliteral}{"Use vrna\_message\_input\_seq\_simple() instead"}
+      );
+00401 
+00410 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{utils_2basic_8h_ae4ef89b662a3e9b5b5f0781d9757aba0}{print\_tty\_input\_seq\_str}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s), \textcolor{stringliteral}{"Use
+       vrna\_message\_input\_seq() instead"});
+00411 
+00419 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{utils_2basic_8h_af2355fa8746f2f30fbe71db65dea3d51}{warn\_user}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} message[]), \textcolor{stringliteral}{"Use vrna\_message\_warning() instead"});
+00420 
+00426 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{utils_2basic_8h_a127ce946e56b5a5773781cabe68e38c5}{nrerror}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} message[]), \textcolor{stringliteral}{"Use vrna\_message\_error() instead()"});
+00427 
+00433 DEPRECATED(\textcolor{keywordtype}{void} *\hyperlink{utils_2basic_8h_ad7e1e137b3bf1f7108933d302a7f0177}{space}(\textcolor{keywordtype}{unsigned} size), \textcolor{stringliteral}{"Use vrna\_alloc() instead"});
+00434 
+00440 DEPRECATED(\textcolor{keywordtype}{void} *\hyperlink{utils_2basic_8h_a9037ada838835b1b9db41581a021b0c8}{xrealloc}(\textcolor{keywordtype}{void} *p, \textcolor{keywordtype}{unsigned} size), \textcolor{stringliteral}{"Use vrna\_realloc() instead"});
+00441 
+00446 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{utils_2basic_8h_a8aaa6d9be6f803f496d9b97375c371f3}{init\_rand}(\textcolor{keywordtype}{void}), \textcolor{stringliteral}{"Use vrna\_init\_rand() instead"});
+00447 
+00453 DEPRECATED(\textcolor{keywordtype}{double} \hyperlink{utils_2basic_8h_aaa328491c84996e445d027fde9800f2e}{urn}(\textcolor{keywordtype}{void}), \textcolor{stringliteral}{"Use vrna\_urn() instead"});
+00454 
+00460 DEPRECATED(\textcolor{keywordtype}{int} \hyperlink{utils_2basic_8h_a68ff0849d44f62fe491800378a5ffcb4}{int\_urn}(\textcolor{keywordtype}{int} from, \textcolor{keywordtype}{int} to), \textcolor{stringliteral}{"Use vrna\_int\_urn() instead()"});
+00461 
+00467 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{utils_2basic_8h_ab213334ce977b6d21611cdea6b80c3bf}{filecopy}(FILE *from, FILE *to), \textcolor{stringliteral}{"Use vrna\_file\_copy() instead"});
+00468 
+00474 DEPRECATED(\textcolor{keywordtype}{char} *\hyperlink{utils_2basic_8h_a7afeb906cb36e9d77379eabc6907ac46}{time\_stamp}(\textcolor{keywordtype}{void}), \textcolor{stringliteral}{"Use vrna\_time\_stamp() instead"});
+00475 
+00476 \textcolor{preprocessor}{#endif}
+00477 
+00478 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

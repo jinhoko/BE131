@@ -1,0 +1,49 @@
+\hypertarget{findpath_8h}{}\section{Vienna\+R\+N\+A/findpath.h File Reference}
+\label{findpath_8h}\index{Vienna\+R\+N\+A/findpath.\+h@{Vienna\+R\+N\+A/findpath.\+h}}
+
+
+A breadth-\/first search heuristic for optimal direct folding paths.  
+
+
+Include dependency graph for findpath.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{findpath_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{group__direct__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}
+\begin{DoxyCompactList}\small\item\em An element of a refolding path list.  \hyperlink{group__direct__paths_structvrna__path__s}{More...}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{group__direct__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s} \hyperlink{group__direct__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Typename for the refolding path data structure \hyperlink{group__direct__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{group__direct__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s} \hyperlink{group__direct__paths_gab6b8737d5377e70a7815d04aae7fd884}{path\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Old typename of \hyperlink{group__direct__paths_structvrna__path__s}{vrna\+\_\+path\+\_\+s}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__direct__paths_gad611574a76593e26021f177e7854b6b4}{vrna\+\_\+path\+\_\+findpath\+\_\+saddle} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, const char $\ast$s1, const char $\ast$s2, int width)
+\begin{DoxyCompactList}\small\item\em Find energy of a saddle point between 2 structures (search only direct path) \end{DoxyCompactList}\item 
+int \hyperlink{group__direct__paths_gada8d722e37401b1aea30128b07555771}{vrna\+\_\+path\+\_\+findpath\+\_\+saddle\+\_\+ub} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, const char $\ast$s1, const char $\ast$s2, int width, int maxE)
+\begin{DoxyCompactList}\small\item\em Find energy of a saddle point between 2 structures (search only direct path) \end{DoxyCompactList}\item 
+\hyperlink{group__direct__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t} $\ast$ \hyperlink{group__direct__paths_ga4b2283c4142cafd99678495585fcc842}{vrna\+\_\+path\+\_\+findpath} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, const char $\ast$s1, const char $\ast$s2, int width)
+\begin{DoxyCompactList}\small\item\em Find refolding path between 2 structures (search only direct path) \end{DoxyCompactList}\item 
+\hyperlink{group__direct__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t} $\ast$ \hyperlink{group__direct__paths_ga8d47812616303f40057dfb033869863a}{vrna\+\_\+path\+\_\+findpath\+\_\+ub} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, const char $\ast$s1, const char $\ast$s2, int width, int maxE)
+\begin{DoxyCompactList}\small\item\em Find refolding path between 2 structures (search only direct path) \end{DoxyCompactList}\item 
+int \hyperlink{group__direct__paths_ga4c0dabf032c04eeab9c7370d15db6ad2}{find\+\_\+saddle} (const char $\ast$seq, const char $\ast$s1, const char $\ast$s2, int width)
+\begin{DoxyCompactList}\small\item\em Find energy of a saddle point between 2 structures (search only direct path) \end{DoxyCompactList}\item 
+void \hyperlink{group__direct__paths_ga9056421d716ae89f0ed3f107627f395b}{free\+\_\+path} (\hyperlink{group__direct__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t} $\ast$path)
+\begin{DoxyCompactList}\small\item\em Free memory allocated by \hyperlink{group__direct__paths_gac009a44db824f90a6de5f9c28b9b3222}{get\+\_\+path()} function. \end{DoxyCompactList}\item 
+\hyperlink{group__direct__paths_ga818d4f3d1cf8723d6905990b08d909fe}{vrna\+\_\+path\+\_\+t} $\ast$ \hyperlink{group__direct__paths_gac009a44db824f90a6de5f9c28b9b3222}{get\+\_\+path} (const char $\ast$seq, const char $\ast$s1, const char $\ast$s2, int width)
+\begin{DoxyCompactList}\small\item\em Find refolding path between 2 structures (search only direct path) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A breadth-\/first search heuristic for optimal direct folding paths. 
+

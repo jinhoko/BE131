@@ -1,0 +1,93 @@
+\hypertarget{vrna__config_8h_source}{}\section{vrna\+\_\+config.\+h}
+\label{vrna__config_8h_source}\index{Vienna\+R\+N\+A/vrna\+\_\+config.\+h@{Vienna\+R\+N\+A/vrna\+\_\+config.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_CONFIG\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_CONFIG\_H}
+00003 
+00004 \textcolor{comment}{/* version number */}
+00005 \textcolor{preprocessor}{#define VRNA\_VERSION  "2.4.8"}
+00006 
+00007 \textcolor{preprocessor}{#define VRNA\_VERSION\_MAJOR  2}
+00008 \textcolor{preprocessor}{#define VRNA\_VERSION\_MINOR  4}
+00009 \textcolor{preprocessor}{#define VRNA\_VERSION\_PATCH  8}
+00010 
+00011 \textcolor{comment}{/*}
+00012 \textcolor{comment}{ * The following pre-processor definitions specify whether}
+00013 \textcolor{comment}{ * or not certain features were activated upon build-time}
+00014 \textcolor{comment}{ */}
+00015 
+00016 \textcolor{comment}{/*}
+00017 \textcolor{comment}{ * Build with deactivated C11 Features}
+00018 \textcolor{comment}{ *}
+00019 \textcolor{comment}{ * It this feature is missing, the next line defines}
+00020 \textcolor{comment}{ * 'VRNA\_DISABLE\_C11\_FEATURES'}
+00021 \textcolor{comment}{ */}
+00022 
+00023 
+00024 \textcolor{comment}{/*}
+00025 \textcolor{comment}{ * Build with OpenMP support}
+00026 \textcolor{comment}{ *}
+00027 \textcolor{comment}{ * If this feature is present, the next line defines}
+00028 \textcolor{comment}{ * 'VRNA\_WITH\_OPENMP'}
+00029 \textcolor{comment}{ */}
+00030 \textcolor{preprocessor}{#define VRNA\_WITH\_OPENMP}
+00031 
+00032 \textcolor{comment}{/*}
+00033 \textcolor{comment}{ * Build with single precision partition function}
+00034 \textcolor{comment}{ *}
+00035 \textcolor{comment}{ * If this feature is present, the next line defines}
+00036 \textcolor{comment}{ * 'USE\_FLOAT\_PF'}
+00037 \textcolor{comment}{ */}
+00038 
+00039 
+00040 \textcolor{comment}{/*}
+00041 \textcolor{comment}{ * Build with Boustrophedon speedup in stochastic backtracking}
+00042 \textcolor{comment}{ *}
+00043 \textcolor{comment}{ * If this feature is present, the next line defines}
+00044 \textcolor{comment}{ * 'VRNA\_WITH\_BOUSTROPHEDON'}
+00045 \textcolor{comment}{ */}
+00046 \textcolor{preprocessor}{#define VRNA\_WITH\_BOUSTROPHEDON}
+00047 
+00048 \textcolor{comment}{/*}
+00049 \textcolor{comment}{ * Build with JSON input/output support}
+00050 \textcolor{comment}{ *}
+00051 \textcolor{comment}{ * If this feature is present, the next line defines}
+00052 \textcolor{comment}{ * 'VRNA\_WITH\_JSON\_SUPPORT'}
+00053 \textcolor{comment}{ */}
+00054 \textcolor{preprocessor}{#define VRNA\_WITH\_JSON\_SUPPORT}
+00055 
+00056 \textcolor{comment}{/*}
+00057 \textcolor{comment}{ * Build with Support Vector Machine (SVM) Z-score feature in RNALfold}
+00058 \textcolor{comment}{ *}
+00059 \textcolor{comment}{ * If this feature is present, the next line defines}
+00060 \textcolor{comment}{ * 'VRNA\_WITH\_SVM'}
+00061 \textcolor{comment}{ */}
+00062 \textcolor{preprocessor}{#define VRNA\_WITH\_SVM}
+00063 
+00064 \textcolor{comment}{/*}
+00065 \textcolor{comment}{ * Build with GSL minimizers}
+00066 \textcolor{comment}{ *}
+00067 \textcolor{comment}{ * If this feature is present, the next line defines}
+00068 \textcolor{comment}{ * 'VRNA\_WITH\_GSL'}
+00069 \textcolor{comment}{ */}
+00070 \textcolor{preprocessor}{#define VRNA\_WITH\_GSL}
+00071 
+00072 \textcolor{comment}{/*}
+00073 \textcolor{comment}{ * Build with colored TTY output}
+00074 \textcolor{comment}{ *}
+00075 \textcolor{comment}{ * If this feature is missing, the next line defines}
+00076 \textcolor{comment}{ * 'VRNA\_WITHOUT\_TTY\_COLORS'}
+00077 \textcolor{comment}{ */}
+00078 
+00079 
+00080 \textcolor{comment}{/*}
+00081 \textcolor{comment}{ * Build with Link Time Optimization support}
+00082 \textcolor{comment}{ *}
+00083 \textcolor{comment}{ * If this feature is enabled, the next line defines}
+00084 \textcolor{comment}{ * 'VRNA\_WITH\_LTO'}
+00085 \textcolor{comment}{ */}
+00086 \textcolor{preprocessor}{#define VRNA\_WITH\_LTO}
+00087 
+00088 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

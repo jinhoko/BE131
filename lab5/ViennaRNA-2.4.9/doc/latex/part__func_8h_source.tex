@@ -1,0 +1,190 @@
+\hypertarget{part__func_8h_source}{}\section{part\+\_\+func.\+h}
+\label{part__func_8h_source}\index{Vienna\+R\+N\+A/part\+\_\+func.\+h@{Vienna\+R\+N\+A/part\+\_\+func.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_PART\_FUNC\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_PART\_FUNC\_H}
+00003 
+\Hypertarget{part__func_8h_source_l00008}\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{00008} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_s} \hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_t};
+00009 
+00010 
+00011 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00012 
+\Hypertarget{part__func_8h_source_l00017}\hyperlink{group__pf__cofold_ga5445d8d96a40e9e79b1fa5a7f1a6b7ea}{00017} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_s} \hyperlink{group__part__func__global_structvrna__dimer__pf__s}{cofoldF};
+00018 
+00019 \textcolor{preprocessor}{#endif}
+00020 
+00021 
+00022 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00023 \textcolor{preprocessor}{#include <\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}>}
+00024 \textcolor{preprocessor}{#include <\hyperlink{centroid_8h}{ViennaRNA/centroid.h}>}
+00025 \textcolor{preprocessor}{#include <\hyperlink{equilibrium__probs_8h}{ViennaRNA/equilibrium\_probs.h}>}
+00026 \textcolor{preprocessor}{#include <\hyperlink{boltzmann__sampling_8h}{ViennaRNA/boltzmann\_sampling.h}>}
+00027 
+00028 \textcolor{preprocessor}{#ifdef VRNA\_WARN\_DEPRECATED}
+00029 \textcolor{preprocessor}{# if defined(\_\_clang\_\_)}
+00030 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("", msg)))}
+00031 \textcolor{preprocessor}{# elif defined(\_\_GNUC\_\_)}
+00032 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}
+00033 \textcolor{preprocessor}{# else}
+00034 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func}
+00035 \textcolor{preprocessor}{# endif}
+00036 \textcolor{preprocessor}{#else}
+00037 \textcolor{preprocessor}{# define DEPRECATED(func, msg) func}
+00038 \textcolor{preprocessor}{#endif}
+00039 
+00049 \textcolor{comment}{/*}
+00050 \textcolor{comment}{#################################################}
+00051 \textcolor{comment}{# PARTITION FUNCTION COMPUTATION                #}
+00052 \textcolor{comment}{#################################################}
+00053 \textcolor{comment}{*/}
+00054 
+\Hypertarget{part__func_8h_source_l00095}\hyperlink{group__part__func__global}{00095} \textcolor{keyword}{struct }\hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_s} \{
+00096   \textcolor{comment}{/* free energies for: */}
+\Hypertarget{part__func_8h_source_l00097}\hyperlink{group__part__func__global_a82e31d1fb6e95923fab6036f52c370af}{00097}   \textcolor{keywordtype}{double}  \hyperlink{group__part__func__global_a82e31d1fb6e95923fab6036f52c370af}{F0AB}; 
+\Hypertarget{part__func_8h_source_l00098}\hyperlink{group__part__func__global_a01a87f59db2b7fbf883b056e6f6c673a}{00098}   \textcolor{keywordtype}{double}  \hyperlink{group__part__func__global_a01a87f59db2b7fbf883b056e6f6c673a}{FAB};  
+\Hypertarget{part__func_8h_source_l00099}\hyperlink{group__part__func__global_a7b01cea5721f61badebc29cf0a9c4266}{00099}   \textcolor{keywordtype}{double}  \hyperlink{group__part__func__global_a7b01cea5721f61badebc29cf0a9c4266}{FcAB}; 
+\Hypertarget{part__func_8h_source_l00100}\hyperlink{group__part__func__global_a1aca57247f2c023d08028b1919005b0a}{00100}   \textcolor{keywordtype}{double}  \hyperlink{group__part__func__global_a1aca57247f2c023d08028b1919005b0a}{FA};   
+\Hypertarget{part__func_8h_source_l00101}\hyperlink{group__part__func__global_ab4d307be5400604d3c1d84d58a9981df}{00101}   \textcolor{keywordtype}{double}  \hyperlink{group__part__func__global_ab4d307be5400604d3c1d84d58a9981df}{FB};   
+00102 \};
+00103 
+00137 \textcolor{keywordtype}{float} \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\_pf}(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc, \textcolor{keywordtype}{char} *structure);
+00138 
+00157 \hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_t}
+00158 \hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\_pf\_dimer}(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *vc,
+00159               \textcolor{keywordtype}{char}                  *structure);
+00160 
+00161 \textcolor{comment}{/* End basic global interface */}
+00190 \textcolor{keywordtype}{float} \hyperlink{group__part__func__global_gac4a2a74a79e49818bc35412a2b392c7e}{vrna\_pf\_fold}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence, \textcolor{keywordtype}{char} *structure, \hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t} **pl);
+00191 
+00216 \textcolor{keywordtype}{float} \hyperlink{group__part__func__global_ga87e5a77b6e50dd54e9d032a9b92973be}{vrna\_pf\_circfold}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence, \textcolor{keywordtype}{char} *structure, 
+      \hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t} **pl);
+00217 
+00239 \textcolor{keywordtype}{float} \hyperlink{group__part__func__global_ga374e31a0f326b2c5da5b84e143a63f38}{vrna\_pf\_alifold}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequences, \textcolor{keywordtype}{char} *structure, 
+      \hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t} **pl);
+00240 
+00265 \textcolor{keywordtype}{float} \hyperlink{group__part__func__global_gab70fe6c9a78b79cc5669881720926e1d}{vrna\_pf\_circalifold}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} **sequences, \textcolor{keywordtype}{char} *structure, 
+      \hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t} **pl);
+00266 
+00267 
+00294 \hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\_dimer\_pf\_t}
+00295 \hyperlink{group__part__func__global_gaf2b846f7ac382686f35ff7b9202fdd5c}{vrna\_pf\_co\_fold}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *seq,
+00296                 \textcolor{keywordtype}{char}        *structure,
+00297                 \hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t}   **pl);
+00298 
+00299 
+00300 \textcolor{comment}{/* End simplified global interface */}
+00305 \textcolor{comment}{/*}
+00306 \textcolor{comment}{#################################################}
+00307 \textcolor{comment}{# OTHER PARTITION FUNCTION RELATED DECLARATIONS #}
+00308 \textcolor{comment}{#################################################}
+00309 \textcolor{comment}{*/}
+00310 
+00320 \textcolor{keywordtype}{int} \hyperlink{group__pf__fold_gad2b3594f0b50b68029e0f54fdce59313}{vrna\_pf\_float\_precision}(\textcolor{keywordtype}{void});
+00321 
+00322 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00323 
+00324 \textcolor{comment}{/*}
+00325 \textcolor{comment}{#################################################}
+00326 \textcolor{comment}{# DEPRECATED FUNCTIONS                          #}
+00327 \textcolor{comment}{#################################################}
+00328 \textcolor{comment}{*/}
+00329 
+00342 \textcolor{keyword}{extern}  \textcolor{keywordtype}{int} \hyperlink{group__subopt__stochbt_gacd79b1a570e6ad9be24cb11fe8cae30a}{st\_back};
+00343 
+00384 DEPRECATED(\textcolor{keywordtype}{float}   \hyperlink{group__part__func__global__deprecated_gac4f95bee734b2563a3d6e9932117ebdf}{pf\_fold\_par}(  \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence,
+00385                       \textcolor{keywordtype}{char} *structure,
+00386                       \hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t} *parameters,
+00387                       \textcolor{keywordtype}{int} calculate\_bppm,
+00388                       \textcolor{keywordtype}{int} is\_constrained,
+00389                       \textcolor{keywordtype}{int} is\_circular),
+00390 \textcolor{stringliteral}{"Use the new API and vrna\_pf() instead"});
+00391 
+00431 DEPRECATED(\textcolor{keywordtype}{float}   \hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\_fold}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence,
+00432                 \textcolor{keywordtype}{char} *structure),
+00433 \textcolor{stringliteral}{"Use vrna\_pf\_fold() or vrna\_pf() instead"});
+00434 
+00461 DEPRECATED(\textcolor{keywordtype}{float}   \hyperlink{group__part__func__global__deprecated_ga819ce5fca8984004ac81c4a3b04cb735}{pf\_circ\_fold}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence,
+00462                       \textcolor{keywordtype}{char} *structure),
+00463 \textcolor{stringliteral}{"Use vrna\_pf\_circfold() or vrna\_pf() instead"});
+00464 
+00475 DEPRECATED(\textcolor{keywordtype}{char}    *\hyperlink{group__subopt__stochbt_gac03ca6db186bb3bf0a2a326d7fb3ba03}{pbacktrack}(\textcolor{keywordtype}{char} *sequence), \textcolor{stringliteral}{"Use vrna\_pbacktrack() instead"});
+00476 
+00477 DEPRECATED(\textcolor{keywordtype}{char}    *pbacktrack5(\textcolor{keywordtype}{char} *sequence, \textcolor{keywordtype}{int} length), \textcolor{stringliteral}{"Use vrna\_pbacktrack5() instead"});
+00478 
+00494 DEPRECATED(\textcolor{keywordtype}{char}    *\hyperlink{group__subopt__stochbt_ga00474051204ac9ad576b3e45174d03ff}{pbacktrack\_circ}(\textcolor{keywordtype}{char} *sequence), \textcolor{stringliteral}{"Use vrna\_pbacktrack() instead"});
+00495 
+00514 DEPRECATED(\textcolor{keywordtype}{void}  \hyperlink{group__part__func__global__deprecated_gae73db3f49a94f0f72e067ecd12681dbd}{free\_pf\_arrays}(\textcolor{keywordtype}{void}), \textcolor{stringliteral}{"This function is obsolete"});
+00515 
+00527 DEPRECATED(\textcolor{keywordtype}{void}  \hyperlink{group__part__func__global__deprecated_ga384e927890f9c034ff09fa66da102d28}{update\_pf\_params}(\textcolor{keywordtype}{int} length), \textcolor{stringliteral}{"This function is obsolete"});
+00528 
+00537 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{group__part__func__global__deprecated_gaafe2d1b21f5418b123b088aa395e827d}{update\_pf\_params\_par}(\textcolor{keywordtype}{int} length, 
+      \hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t} *parameters),
+00538 \textcolor{stringliteral}{"Use the new API with vrna\_fold\_compound\_t instead"});
+00539 
+00557 DEPRECATED(\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}  *\hyperlink{group__part__func__global__deprecated_gac5ac7ee281aae1c5cc5898a841178073}{export\_bppm}(\textcolor{keywordtype}{void}),
+00558 \textcolor{stringliteral}{"Use the new API with vrna\_fold\_compound\_t instead"});
+00559 
+00560 
+00577 DEPRECATED(\textcolor{keywordtype}{int} \hyperlink{group__part__func__global__deprecated_ga42faebdfce6f070c5f89adfc8427525c}{get\_pf\_arrays}(\textcolor{keywordtype}{short} **S\_p,
+00578                   \textcolor{keywordtype}{short} **S1\_p,
+00579                   \textcolor{keywordtype}{char} **ptype\_p,
+00580                   \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL} **qb\_p,
+00581                   \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL} **qm\_p,
+00582                   \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL} **q1k\_p,
+00583                   \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL} **qln\_p),
+00584 \textcolor{stringliteral}{"Use the new API with vrna\_fold\_compound\_t instead"});
+00585 
+00591 DEPRECATED(\textcolor{keywordtype}{double} \hyperlink{group__part__func__global__deprecated_ga189e2a1ec6cc32c53ea72f7543b0441e}{get\_subseq\_F}(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j),
+00592 \textcolor{stringliteral}{"Use the new API with vrna\_fold\_compound\_t instead"});
+00593 
+00594 
+00606 DEPRECATED(\textcolor{keywordtype}{double}  \hyperlink{group__part__func__global__deprecated_ga79cbc375af65f11609feb6b055269e7d}{mean\_bp\_distance}(\textcolor{keywordtype}{int} length),
+00607 \textcolor{stringliteral}{"Use vrna\_mean\_bp\_distance() or vrna\_mean\_bp\_distance\_pr() instead"});
+00608 
+00626 DEPRECATED(\textcolor{keywordtype}{double} \hyperlink{group__part__func__global__deprecated_gad5ba36cef8d01cf4244cc09b9bf1ce1d}{mean\_bp\_distance\_pr}(\textcolor{keywordtype}{int} length, \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL} *
+      \hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr}),
+00627 \textcolor{stringliteral}{"Use vrna\_mean\_bp\_distance() or vrna\_mean\_bp\_distance\_pr() instead"});
+00628 
+00636 DEPRECATED(\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t} *\hyperlink{group__part__func__global__deprecated_ga8f18624bcd0b47d1a266d9e5527e5362}{stackProb}(\textcolor{keywordtype}{double} cutoff), \textcolor{stringliteral}{"Use vrna\_stack\_prob() instead"});
+00637 
+00638 
+00646 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{group__part__func__global__deprecated_ga15176e23eceeff8c7d14eabcfec8a2af}{init\_pf\_fold}(\textcolor{keywordtype}{int} length), \textcolor{stringliteral}{"This function is obsolete"});
+00647 
+00652 DEPRECATED(\textcolor{keywordtype}{char} *\hyperlink{part__func_8h_ae89a63bd83e75a80b2ba36d20b31ce81}{centroid}(\textcolor{keywordtype}{int} length, \textcolor{keywordtype}{double} *dist),
+00653 \textcolor{stringliteral}{"Use vrna\_centroid() instead"});
+00654 
+00659 DEPRECATED(\textcolor{keywordtype}{char} *\hyperlink{part__func_8h_a4e99e951dfdc006fe56c3a59374378ed}{get\_centroid\_struct\_gquad\_pr}(\textcolor{keywordtype}{int} length,
+00660                                   \textcolor{keywordtype}{double} *dist),
+00661 \textcolor{stringliteral}{"Use vrna\_centroid() instead"});
+00662 
+00668 DEPRECATED(\textcolor{keywordtype}{double} \hyperlink{part__func_8h_ae9556ba7ded44fe2321b6f67c3fc02a3}{mean\_bp\_dist}(\textcolor{keywordtype}{int} length),
+00669 \textcolor{stringliteral}{"Use vrna\_mean\_bp\_distance() or vrna\_mean\_bp\_distance\_pr() instead"});
+00670 
+00674 DEPRECATED(\textcolor{keywordtype}{double} \hyperlink{part__func_8h_a68ba6f3a48e08ca131ab54621ce3a2d7}{expLoopEnergy}(\textcolor{keywordtype}{int} u1,
+00675                                 \textcolor{keywordtype}{int} u2,
+00676                                 \textcolor{keywordtype}{int} type,
+00677                                 \textcolor{keywordtype}{int} type2,
+00678                                 \textcolor{keywordtype}{short} si1,
+00679                                 \textcolor{keywordtype}{short} sj1,
+00680                                 \textcolor{keywordtype}{short} sp1,
+00681                                 \textcolor{keywordtype}{short} sq1),
+00682 \textcolor{stringliteral}{""});
+00683 
+00687 DEPRECATED(\textcolor{keywordtype}{double} \hyperlink{part__func_8h_a7b6ab474cc80accc48010ccfcc59f96b}{expHairpinEnergy}( \textcolor{keywordtype}{int} u,
+00688                                     \textcolor{keywordtype}{int} type,
+00689                                     \textcolor{keywordtype}{short} si1,
+00690                                     \textcolor{keywordtype}{short} sj1,
+00691                                     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\textcolor{keywordtype}{string}),
+00692 \textcolor{stringliteral}{""});
+00693 
+00694 \textcolor{comment}{/* this doesn't work if free\_pf\_arrays() is called before */}
+00695 DEPRECATED(\textcolor{keywordtype}{void} assign\_plist\_gquad\_from\_pr(\hyperlink{group__struct__utils__plist_structvrna__elem__prob__s}{vrna\_ep\_t} **pl,
+00696                                 \textcolor{keywordtype}{int} length,
+00697                                 \textcolor{keywordtype}{double} cut\_off),
+00698 \textcolor{stringliteral}{"Use vrna\_plist\_from\_probs() instead"});
+00699 
+00700 \textcolor{preprocessor}{#endif}
+00701 
+00702 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

@@ -1,0 +1,46 @@
+\hypertarget{part__func__up_8h_source}{}\section{part\+\_\+func\+\_\+up.\+h}
+\label{part__func__up_8h_source}\index{Vienna\+R\+N\+A/part\+\_\+func\+\_\+up.\+h@{Vienna\+R\+N\+A/part\+\_\+func\+\_\+up.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_PART\_FUNC\_UP\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_PART\_FUNC\_UP\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00005 
+00006 \textcolor{preprocessor}{#define   RNA\_UP\_MODE\_1   1U}
+00007 \textcolor{preprocessor}{#define   RNA\_UP\_MODE\_2   2U}
+00008 \textcolor{preprocessor}{#define   RNA\_UP\_MODE\_3   4U}
+00009 
+00059 \hyperlink{group__data__structures_structpu__contrib}{pu\_contrib} *\hyperlink{group__up__cofold_ga5b4ee40e190d2f633cd01cf0d2fe93cf}{pf\_unstru}(\textcolor{keywordtype}{char} *sequence,
+00060                       \textcolor{keywordtype}{int} max\_w);
+00061 
+00104 \hyperlink{group__data__structures_structinteract}{interact} *\hyperlink{group__up__cofold_ga1aa0aa02bc3a724f87360c03097afd00}{pf\_interact}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,
+00105                       \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,
+00106                       \hyperlink{group__data__structures_structpu__contrib}{pu\_contrib} *p\_c,
+00107                       \hyperlink{group__data__structures_structpu__contrib}{pu\_contrib} *p\_c2,
+00108                       \textcolor{keywordtype}{int} max\_w,
+00109                       \textcolor{keywordtype}{char} *cstruc,
+00110                       \textcolor{keywordtype}{int} incr3,
+00111                       \textcolor{keywordtype}{int} incr5);
+00112 
+00116 \textcolor{keywordtype}{void} \hyperlink{group__up__cofold_gadde308fd5f696dc271b1532aa96fd12f}{free\_interact}(\hyperlink{group__data__structures_structinteract}{interact} *pin);
+00117 
+00121 \textcolor{keywordtype}{int} Up\_plot(\hyperlink{group__data__structures_structpu__contrib}{pu\_contrib} *p\_c,
+00122             \hyperlink{group__data__structures_structpu__contrib}{pu\_contrib} *p\_c\_sh,
+00123             \hyperlink{group__data__structures_structinteract}{interact} *pint,
+00124             \textcolor{keywordtype}{char} *ofile,
+00125             \textcolor{keywordtype}{int} **unpaired\_values,
+00126             \textcolor{keywordtype}{char} *select\_contrib,
+00127             \textcolor{keywordtype}{char} *head,
+00128             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} mode);
+00129 
+00133 \hyperlink{group__data__structures_structpu__contrib}{pu\_contrib}  *get\_pu\_contrib\_struct( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} n,
+00134                                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} w);
+00135 
+00139 \textcolor{keywordtype}{void}        \hyperlink{group__up__cofold_gac20bd61824981d45ce0dc9934aa56df8}{free\_pu\_contrib\_struct}(\hyperlink{group__data__structures_structpu__contrib}{pu\_contrib} *pu);
+00140 
+00141 \textcolor{keywordtype}{void}
+00142 free\_pu\_contrib(\hyperlink{group__data__structures_structpu__contrib}{pu\_contrib} *pu);
+00143 
+00148 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

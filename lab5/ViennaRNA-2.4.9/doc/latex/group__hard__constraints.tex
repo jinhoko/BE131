@@ -1,0 +1,628 @@
+\hypertarget{group__hard__constraints}{}\section{Hard Constraints}
+\label{group__hard__constraints}\index{Hard Constraints@{Hard Constraints}}
+
+
+This module covers all functionality for hard constraints in secondary structure prediction.  
+
+
+
+
+\subsection{Detailed Description}
+This module covers all functionality for hard constraints in secondary structure prediction. 
+
+Collaboration diagram for Hard Constraints\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{group__hard__constraints}
+\end{center}
+\end{figure}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{hard_8h}{hard.\+h}
+\begin{DoxyCompactList}\small\item\em Functions and data structures for handling of secondary structure hard constraints. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{group__hard__constraints_structvrna__hc__s}{vrna\+\_\+hc\+\_\+s}
+\begin{DoxyCompactList}\small\item\em The hard constraints data structure.  \hyperlink{group__hard__constraints_structvrna__hc__s}{More...}\end{DoxyCompactList}\item 
+struct \hyperlink{group__hard__constraints_structvrna__hc__up__s}{vrna\+\_\+hc\+\_\+up\+\_\+s}
+\begin{DoxyCompactList}\small\item\em A single hard constraint for a single nucleotide.  \hyperlink{group__hard__constraints_structvrna__hc__up__s}{More...}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB}~16384U
+\begin{DoxyCompactList}\small\item\em Flag for \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()} to indicate that constraint is passed in pseudo dot-\/bracket notation. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hard__constraints_ga29ebe940110d60ab798fdacbcdbbfb7d}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+E\+N\+F\+O\+R\+C\+E\+\_\+\+BP}~32768U
+\begin{DoxyCompactList}\small\item\em Switch for dot-\/bracket structure constraint to enforce base pairs. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE}~65536U
+\begin{DoxyCompactList}\small\item\em Flag that is used to indicate the pipe \textquotesingle{}$\vert$\textquotesingle{} sign in pseudo dot-\/bracket notation of hard constraints. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT}~131072U
+\begin{DoxyCompactList}\small\item\em dot \textquotesingle{}.\textquotesingle{} switch for structure constraints (no constraint at all) \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X}~262144U
+\begin{DoxyCompactList}\small\item\em \textquotesingle{}x\textquotesingle{} switch for structure constraint (base must not pair) \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK}~1048576U
+\begin{DoxyCompactList}\small\item\em round brackets \textquotesingle{}(\textquotesingle{},\textquotesingle{})\textquotesingle{} switch for structure constraint (base i pairs base j) \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hard__constraints_ga5c17253f5a39d1d49b0fb11f5196982a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+R\+A\+M\+OL}~2097152U
+\begin{DoxyCompactList}\small\item\em Flag that is used to indicate the character \textquotesingle{}l\textquotesingle{} in pseudo dot-\/bracket notation of hard constraints. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hard__constraints_ga31d0ebb9755ca8a4acafc14f00ca755d}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+E\+R\+M\+OL}~4194304U
+\begin{DoxyCompactList}\small\item\em Flag that is used to indicate the character \textquotesingle{}e\textquotesingle{} in pseudo dot-\/bracket notation of hard constraints. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hard__constraints_ga75cfab03cdc97c95b3ce8bb29f52b08e}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+G\+Q\+U\+AD}~8388608U
+\begin{DoxyCompactList}\small\item\em \textquotesingle{}+\textquotesingle{} switch for structure constraint (base is involved in a gquad) \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hard__constraints_ga10ce6bd2355945f3c8161b7a30a2c322}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+W\+U\+SS}~33554432U
+\begin{DoxyCompactList}\small\item\em Flag to indicate Washington University Secondary Structure (W\+U\+SS) notation of the hard constraint string. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hard__constraints_ga1c3864bdc92147a4d93de2b1b4356177}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+E\+F\+A\+U\+LT}
+\begin{DoxyCompactList}\small\item\em Switch for dot-\/bracket structure constraint with default symbols. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_ga9418eda62a5dec070896702c279d2548}\label{group__hard__constraints_ga9418eda62a5dec070896702c279d2548}} 
+\#define \hyperlink{group__hard__constraints_ga9418eda62a5dec070896702c279d2548}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+L\+O\+OP}~(unsigned char)0x01
+\begin{DoxyCompactList}\small\item\em Hard constraints flag, base pair in the exterior loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_ga79203702b197b6b9d3b78eed40663eb1}\label{group__hard__constraints_ga79203702b197b6b9d3b78eed40663eb1}} 
+\#define \hyperlink{group__hard__constraints_ga79203702b197b6b9d3b78eed40663eb1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+H\+P\+\_\+\+L\+O\+OP}~(unsigned char)0x02
+\begin{DoxyCompactList}\small\item\em Hard constraints flag, base pair encloses hairpin loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_ga21feeab3a9e5fa5a9e3d9ac0fcf5994f}\label{group__hard__constraints_ga21feeab3a9e5fa5a9e3d9ac0fcf5994f}} 
+\#define \hyperlink{group__hard__constraints_ga21feeab3a9e5fa5a9e3d9ac0fcf5994f}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+OP}~(unsigned char)0x04
+\begin{DoxyCompactList}\small\item\em Hard constraints flag, base pair encloses an interior loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_ga0536288e04ff6332ecdc23ca4705402b}\label{group__hard__constraints_ga0536288e04ff6332ecdc23ca4705402b}} 
+\#define \hyperlink{group__hard__constraints_ga0536288e04ff6332ecdc23ca4705402b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+O\+P\+\_\+\+E\+NC}~(unsigned char)0x08
+\begin{DoxyCompactList}\small\item\em Hard constraints flag, base pair encloses a multi branch loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_ga456ecd2ff00056bb64da8dd4f61bbfc5}\label{group__hard__constraints_ga456ecd2ff00056bb64da8dd4f61bbfc5}} 
+\#define \hyperlink{group__hard__constraints_ga456ecd2ff00056bb64da8dd4f61bbfc5}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+OP}~(unsigned char)0x10
+\begin{DoxyCompactList}\small\item\em Hard constraints flag, base pair is enclosed in an interior loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_ga02a3d703ddbcfce393e4bbfcb9db7077}\label{group__hard__constraints_ga02a3d703ddbcfce393e4bbfcb9db7077}} 
+\#define \hyperlink{group__hard__constraints_ga02a3d703ddbcfce393e4bbfcb9db7077}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+O\+P\+\_\+\+E\+NC}~(unsigned char)0x20
+\begin{DoxyCompactList}\small\item\em Hard constraints flag, base pair is enclosed in a multi branch loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_ga886d9127c49bb982a4b67cd7581e8a5a}\label{group__hard__constraints_ga886d9127c49bb982a4b67cd7581e8a5a}} 
+\#define \hyperlink{group__hard__constraints_ga886d9127c49bb982a4b67cd7581e8a5a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+A\+L\+L\+\_\+\+L\+O\+O\+PS}
+\begin{DoxyCompactList}\small\item\em Constraint context flag indicating any loop context. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__hard__constraints_gac7e4c4f8abe3163a68110c5bff24e01d}\label{group__hard__constraints_gac7e4c4f8abe3163a68110c5bff24e01d}} 
+typedef struct \hyperlink{group__hard__constraints_structvrna__hc__s}{vrna\+\_\+hc\+\_\+s} \hyperlink{group__hard__constraints_gac7e4c4f8abe3163a68110c5bff24e01d}{vrna\+\_\+hc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Typename for the hard constraints data structure \hyperlink{group__hard__constraints_structvrna__hc__s}{vrna\+\_\+hc\+\_\+s}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_ga8cd53427a942a81c87ec526bbff32ef9}\label{group__hard__constraints_ga8cd53427a942a81c87ec526bbff32ef9}} 
+typedef struct \hyperlink{group__hard__constraints_structvrna__hc__up__s}{vrna\+\_\+hc\+\_\+up\+\_\+s} \hyperlink{group__hard__constraints_ga8cd53427a942a81c87ec526bbff32ef9}{vrna\+\_\+hc\+\_\+up\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Typename for the single nucleotide hard constraint data structure \hyperlink{group__hard__constraints_structvrna__hc__up__s}{vrna\+\_\+hc\+\_\+up\+\_\+s}. \end{DoxyCompactList}\item 
+typedef unsigned char() \hyperlink{group__hard__constraints_gae465f1d4a3d8b6592b38ecbb0d9f613d}{vrna\+\_\+callback\+\_\+hc\+\_\+evaluate}(int i, int j, int k, int l, unsigned char d, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Callback to evaluate whether or not a particular decomposition step is contributing to the solution space. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__hard__constraints_ga36ff456c43bf920629cee5a236e4f0ff}{vrna\+\_\+hc\+\_\+init} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc)
+\begin{DoxyCompactList}\small\item\em Initialize/\+Reset hard constraints to default values. \end{DoxyCompactList}\item 
+void \hyperlink{group__hard__constraints_ga447d88e06ad97bb225cd83310ace8345}{vrna\+\_\+hc\+\_\+add\+\_\+up} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, int i, unsigned char option)
+\begin{DoxyCompactList}\small\item\em Make a certain nucleotide unpaired. \end{DoxyCompactList}\item 
+int \hyperlink{group__hard__constraints_ga5070f296c8af2baea10951525519464f}{vrna\+\_\+hc\+\_\+add\+\_\+up\+\_\+batch} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, \hyperlink{group__hard__constraints_ga8cd53427a942a81c87ec526bbff32ef9}{vrna\+\_\+hc\+\_\+up\+\_\+t} $\ast$constraints)
+\begin{DoxyCompactList}\small\item\em Apply a list of hard constraints for single nucleotides. \end{DoxyCompactList}\item 
+void \hyperlink{group__hard__constraints_ga7cba95ebe2ceb5ec9a5768f2232854fd}{vrna\+\_\+hc\+\_\+add\+\_\+bp} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, int i, int j, unsigned char option)
+\begin{DoxyCompactList}\small\item\em Favorize/\+Enforce a certain base pair (i,j) \end{DoxyCompactList}\item 
+void \hyperlink{group__hard__constraints_gaed50398ade2d4852c9e82592fe76046c}{vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+nonspecific} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, int i, int d, unsigned char option)
+\begin{DoxyCompactList}\small\item\em Enforce a nucleotide to be paired (upstream/downstream) \end{DoxyCompactList}\item 
+void \hyperlink{group__hard__constraints_ga696dcf77887d856c6f21ea266d8b9ca2}{vrna\+\_\+hc\+\_\+free} (\hyperlink{group__hard__constraints_gac7e4c4f8abe3163a68110c5bff24e01d}{vrna\+\_\+hc\+\_\+t} $\ast$hc)
+\begin{DoxyCompactList}\small\item\em Free the memory allocated by a \hyperlink{group__hard__constraints_gac7e4c4f8abe3163a68110c5bff24e01d}{vrna\+\_\+hc\+\_\+t} data structure. \end{DoxyCompactList}\item 
+int \hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, const char $\ast$constraint, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Add hard constraints from pseudo dot-\/bracket notation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Data Structure Documentation}
+\index{vrna\+\_\+hc\+\_\+s@{vrna\+\_\+hc\+\_\+s}}\label{structvrna__hc__s}
+\Hypertarget{group__hard__constraints_structvrna__hc__s}
+\subsubsection{struct vrna\+\_\+hc\+\_\+s}
+The hard constraints data structure. 
+
+The content of this data structure determines the decomposition pattern used in the folding recursions. Attribute \textquotesingle{}matrix\textquotesingle{} is used as source for the branching pattern of the decompositions during all folding recursions. Any entry in matrix\mbox{[}i,j\mbox{]} consists of the 6 L\+SB that allows one to distinguish the following types of base pairs\+:
+\begin{DoxyItemize}
+\item in the exterior loop (\hyperlink{group__hard__constraints_ga9418eda62a5dec070896702c279d2548}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+L\+O\+OP})
+\item enclosing a hairpin (\hyperlink{group__hard__constraints_ga79203702b197b6b9d3b78eed40663eb1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+H\+P\+\_\+\+L\+O\+OP})
+\item enclosing an interior loop (\hyperlink{group__hard__constraints_ga21feeab3a9e5fa5a9e3d9ac0fcf5994f}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+OP})
+\item enclosed by an exterior loop (\hyperlink{group__hard__constraints_ga0536288e04ff6332ecdc23ca4705402b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+O\+P\+\_\+\+E\+NC})
+\item enclosing a multi branch loop (\hyperlink{group__hard__constraints_ga456ecd2ff00056bb64da8dd4f61bbfc5}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+OP})
+\item enclosed by a multi branch loop (\hyperlink{group__hard__constraints_ga02a3d703ddbcfce393e4bbfcb9db7077}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+O\+P\+\_\+\+E\+NC})
+\end{DoxyItemize}
+
+The four linear arrays \textquotesingle{}up\+\_\+xxx\textquotesingle{} provide the number of available unpaired nucleotides (including position i) 3\textquotesingle{} of each position in the sequence.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga36ff456c43bf920629cee5a236e4f0ff}{vrna\+\_\+hc\+\_\+init()}, \hyperlink{group__hard__constraints_ga696dcf77887d856c6f21ea266d8b9ca2}{vrna\+\_\+hc\+\_\+free()}, \hyperlink{group__hard__constraints_ga9418eda62a5dec070896702c279d2548}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga79203702b197b6b9d3b78eed40663eb1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+H\+P\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga21feeab3a9e5fa5a9e3d9ac0fcf5994f}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga456ecd2ff00056bb64da8dd4f61bbfc5}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga02a3d703ddbcfce393e4bbfcb9db7077}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+O\+P\+\_\+\+E\+NC} 
+\end{DoxySeeAlso}
+
+
+Collaboration diagram for vrna\+\_\+hc\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structvrna__hc__s__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__hard__constraints_a60094038af04093b2fee9b883266ff75}\label{group__hard__constraints_a60094038af04093b2fee9b883266ff75}} 
+int $\ast$ \hyperlink{group__hard__constraints_a60094038af04093b2fee9b883266ff75}{up\+\_\+ext}
+\begin{DoxyCompactList}\small\item\em A linear array that holds the number of allowed unpaired nucleotides in an exterior loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_a853255558e7e7d9eb382ac142ac8de3d}\label{group__hard__constraints_a853255558e7e7d9eb382ac142ac8de3d}} 
+int $\ast$ \hyperlink{group__hard__constraints_a853255558e7e7d9eb382ac142ac8de3d}{up\+\_\+hp}
+\begin{DoxyCompactList}\small\item\em A linear array that holds the number of allowed unpaired nucleotides in a hairpin loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_a455f994af0ec892d84fee1bf60d14a81}\label{group__hard__constraints_a455f994af0ec892d84fee1bf60d14a81}} 
+int $\ast$ \hyperlink{group__hard__constraints_a455f994af0ec892d84fee1bf60d14a81}{up\+\_\+int}
+\begin{DoxyCompactList}\small\item\em A linear array that holds the number of allowed unpaired nucleotides in an interior loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_aa318079c2e3cfaca8dc589cc478d3b29}\label{group__hard__constraints_aa318079c2e3cfaca8dc589cc478d3b29}} 
+int $\ast$ \hyperlink{group__hard__constraints_aa318079c2e3cfaca8dc589cc478d3b29}{up\+\_\+ml}
+\begin{DoxyCompactList}\small\item\em A linear array that holds the number of allowed unpaired nucleotides in a multi branched loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_a85714afbf27012165ec80c564bd62931}\label{group__hard__constraints_a85714afbf27012165ec80c564bd62931}} 
+\hyperlink{group__hard__constraints_gae465f1d4a3d8b6592b38ecbb0d9f613d}{vrna\+\_\+callback\+\_\+hc\+\_\+evaluate} $\ast$ \hyperlink{group__hard__constraints_a85714afbf27012165ec80c564bd62931}{f}
+\begin{DoxyCompactList}\small\item\em A function pointer that returns whether or not a certain decomposition may be evaluated. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_acef3d722142cb5f4a8e114e5fbce3b1a}\label{group__hard__constraints_acef3d722142cb5f4a8e114e5fbce3b1a}} 
+void $\ast$ \hyperlink{group__hard__constraints_acef3d722142cb5f4a8e114e5fbce3b1a}{data}
+\begin{DoxyCompactList}\small\item\em A pointer to some structure where the user may store necessary data to evaluate its generic hard constraint function. \end{DoxyCompactList}\item 
+\hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata} $\ast$ \hyperlink{group__hard__constraints_a970e0e202c9e46ebc7640ddc43357ba6}{free\+\_\+data}
+\begin{DoxyCompactList}\small\item\em A pointer to a function to free memory occupied by auxiliary data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_a6ff99f530ca7ca9719e164321d051bde}\label{group__hard__constraints_a6ff99f530ca7ca9719e164321d051bde}} 
+unsigned char $\ast$ \hyperlink{group__hard__constraints_a6ff99f530ca7ca9719e164321d051bde}{matrix}
+\begin{DoxyCompactList}\small\item\em Upper triangular matrix that encodes where a base pair or unpaired nucleotide is allowed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\paragraph{Field Documentation}
+\mbox{\Hypertarget{group__hard__constraints_a970e0e202c9e46ebc7640ddc43357ba6}\label{group__hard__constraints_a970e0e202c9e46ebc7640ddc43357ba6}} 
+\index{vrna\+\_\+hc\+\_\+s@{vrna\+\_\+hc\+\_\+s}!free\+\_\+data@{free\+\_\+data}}
+\index{free\+\_\+data@{free\+\_\+data}!vrna\+\_\+hc\+\_\+s@{vrna\+\_\+hc\+\_\+s}}
+\subparagraph{\texorpdfstring{free\+\_\+data}{free\_data}}
+{\footnotesize\ttfamily \hyperlink{group__fold__compound_ga7806651f51b195013839a218b3bbd5a3}{vrna\+\_\+callback\+\_\+free\+\_\+auxdata}$\ast$ vrna\+\_\+hc\+\_\+s\+::free\+\_\+data}
+
+
+
+A pointer to a function to free memory occupied by auxiliary data. 
+
+The function this pointer is pointing to will be called upon destruction of the \hyperlink{group__hard__constraints_structvrna__hc__s}{vrna\+\_\+hc\+\_\+s}, and provided with the \hyperlink{group__hard__constraints_acef3d722142cb5f4a8e114e5fbce3b1a}{vrna\+\_\+hc\+\_\+s.\+data} pointer that may hold auxiliary data. Hence, to avoid leaking memory, the user may use this pointer to free memory occupied by auxiliary data. \index{vrna\+\_\+hc\+\_\+up\+\_\+s@{vrna\+\_\+hc\+\_\+up\+\_\+s}}\label{structvrna__hc__up__s}
+\Hypertarget{group__hard__constraints_structvrna__hc__up__s}
+\subsubsection{struct vrna\+\_\+hc\+\_\+up\+\_\+s}
+A single hard constraint for a single nucleotide. \subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__hard__constraints_a67a98def263c534a8c57298098da16e8}\label{group__hard__constraints_a67a98def263c534a8c57298098da16e8}} 
+int \hyperlink{group__hard__constraints_a67a98def263c534a8c57298098da16e8}{position}
+\begin{DoxyCompactList}\small\item\em The sequence position (1-\/based) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__hard__constraints_a468414760f373f7dc0eb1fd47cf708d0}\label{group__hard__constraints_a468414760f373f7dc0eb1fd47cf708d0}} 
+unsigned char \hyperlink{group__hard__constraints_a468414760f373f7dc0eb1fd47cf708d0}{options}
+\begin{DoxyCompactList}\small\item\em The hard constraint option. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}\label{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}} 
+\index{Hard Constraints@{Hard Constraints}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB}{VRNA\_CONSTRAINT\_DB}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB~16384U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Flag for \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()} to indicate that constraint is passed in pseudo dot-\/bracket notation. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}, \hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__hard__constraints_ga29ebe940110d60ab798fdacbcdbbfb7d}\label{group__hard__constraints_ga29ebe940110d60ab798fdacbcdbbfb7d}} 
+\index{Hard Constraints@{Hard Constraints}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+E\+N\+F\+O\+R\+C\+E\+\_\+\+BP@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+E\+N\+F\+O\+R\+C\+E\+\_\+\+BP}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+E\+N\+F\+O\+R\+C\+E\+\_\+\+BP@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+E\+N\+F\+O\+R\+C\+E\+\_\+\+BP}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+E\+N\+F\+O\+R\+C\+E\+\_\+\+BP}{VRNA\_CONSTRAINT\_DB\_ENFORCE\_BP}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+E\+N\+F\+O\+R\+C\+E\+\_\+\+BP~32768U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Switch for dot-\/bracket structure constraint to enforce base pairs. 
+
+This flag should be used to really enforce base pairs given in dot-\/bracket constraint rather than just weakly-\/enforcing them.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}, \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}, \hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}\label{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}} 
+\index{Hard Constraints@{Hard Constraints}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE}{VRNA\_CONSTRAINT\_DB\_PIPE}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE~65536U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Flag that is used to indicate the pipe \textquotesingle{}$\vert$\textquotesingle{} sign in pseudo dot-\/bracket notation of hard constraints. 
+
+Use this definition to indicate the pipe sign \textquotesingle{}$\vert$\textquotesingle{} (paired with another base)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}, \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}, \hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}\label{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}} 
+\index{Hard Constraints@{Hard Constraints}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT}{VRNA\_CONSTRAINT\_DB\_DOT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT~131072U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+dot \textquotesingle{}.\textquotesingle{} switch for structure constraints (no constraint at all) 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}, \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}, \hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}\label{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}} 
+\index{Hard Constraints@{Hard Constraints}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X}{VRNA\_CONSTRAINT\_DB\_X}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X~262144U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+\textquotesingle{}x\textquotesingle{} switch for structure constraint (base must not pair) 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}, \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}, \hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}\label{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}} 
+\index{Hard Constraints@{Hard Constraints}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK}{VRNA\_CONSTRAINT\_DB\_RND\_BRACK}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK~1048576U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+round brackets \textquotesingle{}(\textquotesingle{},\textquotesingle{})\textquotesingle{} switch for structure constraint (base i pairs base j) 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}, \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}, \hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__hard__constraints_ga5c17253f5a39d1d49b0fb11f5196982a}\label{group__hard__constraints_ga5c17253f5a39d1d49b0fb11f5196982a}} 
+\index{Hard Constraints@{Hard Constraints}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+R\+A\+M\+OL@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+R\+A\+M\+OL}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+R\+A\+M\+OL@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+R\+A\+M\+OL}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+R\+A\+M\+OL}{VRNA\_CONSTRAINT\_DB\_INTRAMOL}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+R\+A\+M\+OL~2097152U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Flag that is used to indicate the character \textquotesingle{}l\textquotesingle{} in pseudo dot-\/bracket notation of hard constraints. 
+
+Use this definition to indicate the usage of \textquotesingle{}l\textquotesingle{} character (intramolecular pairs only)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}, \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}, \hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__hard__constraints_ga31d0ebb9755ca8a4acafc14f00ca755d}\label{group__hard__constraints_ga31d0ebb9755ca8a4acafc14f00ca755d}} 
+\index{Hard Constraints@{Hard Constraints}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+E\+R\+M\+OL@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+E\+R\+M\+OL}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+E\+R\+M\+OL@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+E\+R\+M\+OL}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+E\+R\+M\+OL}{VRNA\_CONSTRAINT\_DB\_INTERMOL}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+E\+R\+M\+OL~4194304U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Flag that is used to indicate the character \textquotesingle{}e\textquotesingle{} in pseudo dot-\/bracket notation of hard constraints. 
+
+Use this definition to indicate the usage of \textquotesingle{}e\textquotesingle{} character (intermolecular pairs only)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}, \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}, \hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__hard__constraints_ga75cfab03cdc97c95b3ce8bb29f52b08e}\label{group__hard__constraints_ga75cfab03cdc97c95b3ce8bb29f52b08e}} 
+\index{Hard Constraints@{Hard Constraints}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+G\+Q\+U\+AD@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+G\+Q\+U\+AD}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+G\+Q\+U\+AD@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+G\+Q\+U\+AD}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+G\+Q\+U\+AD}{VRNA\_CONSTRAINT\_DB\_GQUAD}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+G\+Q\+U\+AD~8388608U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+\textquotesingle{}+\textquotesingle{} switch for structure constraint (base is involved in a gquad) 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}, \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}, \hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()}
+\end{DoxySeeAlso}
+\begin{DoxyWarning}{Warning}
+This flag is for future purposes only! No implementation recognizes it yet. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{group__hard__constraints_ga10ce6bd2355945f3c8161b7a30a2c322}\label{group__hard__constraints_ga10ce6bd2355945f3c8161b7a30a2c322}} 
+\index{Hard Constraints@{Hard Constraints}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+W\+U\+SS@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+W\+U\+SS}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+W\+U\+SS@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+W\+U\+SS}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+W\+U\+SS}{VRNA\_CONSTRAINT\_DB\_WUSS}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+W\+U\+SS~33554432U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Flag to indicate Washington University Secondary Structure (W\+U\+SS) notation of the hard constraint string. 
+
+This secondary structure notation for R\+N\+As is usually used as consensus secondary structure (S\+S\+\_\+cons) entry in Stockholm formatted files \mbox{\Hypertarget{group__hard__constraints_ga1c3864bdc92147a4d93de2b1b4356177}\label{group__hard__constraints_ga1c3864bdc92147a4d93de2b1b4356177}} 
+\index{Hard Constraints@{Hard Constraints}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+E\+F\+A\+U\+LT@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+E\+F\+A\+U\+LT}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+E\+F\+A\+U\+LT@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+E\+F\+A\+U\+LT}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+E\+F\+A\+U\+LT}{VRNA\_CONSTRAINT\_DB\_DEFAULT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+E\+F\+A\+U\+LT}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(\hyperlink{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}{VRNA\_CONSTRAINT\_DB} \(\backslash\)
+   | \hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{VRNA\_CONSTRAINT\_DB\_PIPE} \(\backslash\)
+   | \hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{VRNA\_CONSTRAINT\_DB\_DOT} \(\backslash\)
+   | \hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{VRNA\_CONSTRAINT\_DB\_X} \(\backslash\)
+   | \hyperlink{hard_8h_ad54c1315a47d55653dcaa5de6e544b77}{VRNA\_CONSTRAINT\_DB\_ANG\_BRACK} \(\backslash\)
+   | \hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{VRNA\_CONSTRAINT\_DB\_RND\_BRACK} \(\backslash\)
+   | \hyperlink{group__hard__constraints_ga5c17253f5a39d1d49b0fb11f5196982a}{VRNA\_CONSTRAINT\_DB\_INTRAMOL} \(\backslash\)
+   | \hyperlink{group__hard__constraints_ga31d0ebb9755ca8a4acafc14f00ca755d}{VRNA\_CONSTRAINT\_DB\_INTERMOL} \(\backslash\)
+   | \hyperlink{group__hard__constraints_ga75cfab03cdc97c95b3ce8bb29f52b08e}{VRNA\_CONSTRAINT\_DB\_GQUAD} \(\backslash\)
+  )
+\end{DoxyCode}
+
+
+Switch for dot-\/bracket structure constraint with default symbols. 
+
+This flag conveniently combines all possible symbols in dot-\/bracket notation for hard constraints and \hyperlink{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB}
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}, \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}, \hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()} 
+\end{DoxySeeAlso}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{group__hard__constraints_gae465f1d4a3d8b6592b38ecbb0d9f613d}\label{group__hard__constraints_gae465f1d4a3d8b6592b38ecbb0d9f613d}} 
+\index{Hard Constraints@{Hard Constraints}!vrna\+\_\+callback\+\_\+hc\+\_\+evaluate@{vrna\+\_\+callback\+\_\+hc\+\_\+evaluate}}
+\index{vrna\+\_\+callback\+\_\+hc\+\_\+evaluate@{vrna\+\_\+callback\+\_\+hc\+\_\+evaluate}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{vrna\+\_\+callback\+\_\+hc\+\_\+evaluate}{vrna\_callback\_hc\_evaluate}}
+{\footnotesize\ttfamily typedef unsigned char() vrna\+\_\+callback\+\_\+hc\+\_\+evaluate(int i, int j, int k, int l, unsigned char d, void $\ast$data)}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Callback to evaluate whether or not a particular decomposition step is contributing to the solution space. 
+
+This is the prototype for callback functions used by the folding recursions to evaluate generic hard constraints. The first four parameters passed indicate the delimiting nucleotide positions of the decomposition, and the parameter {\ttfamily denotes} the decomposition step. The last parameter {\ttfamily data} is the auxiliary data structure associated to the hard constraints via \hyperlink{hard_8h_a128920e0af52e4196a9d59fa13336c7c}{vrna\+\_\+hc\+\_\+add\+\_\+data()}, or N\+U\+LL if no auxiliary data was added.
+
+\begin{DoxyRefDesc}{Notes on Callback Functions}
+\item[\hyperlink{callbacks__callbacks000012}{Notes on Callback Functions}]This callback enables one to over-\/rule default hard constraints in secondary structure decompositions. \end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__constraints_ga8bd41ebc8039378d242e4e8c273716a5}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+HP}, \hyperlink{group__constraints_gaeab04f34d7730cff2d651d782f95d857}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+IL}, \hyperlink{group__constraints_gaa15b1185673f0b9e900c4748d45f388f}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+ML}, \hyperlink{group__constraints_ga735517266f2e35e1374b8f1ea77ef23e}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+ML}, \hyperlink{group__constraints_ga4a23054c75d8efc785de50e3ea87602f}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+S\+T\+EM}, \hyperlink{group__constraints_ga7f4cb9ff7a33e67f0539bd39e7b19a78}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+ML}, \hyperlink{group__constraints_gae6478dda14e50e2f2cb9ef333a29256e}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+UP}, \hyperlink{group__constraints_ga63d8ceb8c96ae3b463e529e28cc0fe98}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+S\+T\+EM}, \hyperlink{group__constraints_ga4fe48d575830b16c208e280e01ab1497}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+AL}, \hyperlink{group__constraints_ga437adf5115c1999304eff26b41e4c9b6}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+XT}, \hyperlink{group__constraints_gaff1ddaffe86d984623910b40cc8a8717}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+UP}, \hyperlink{group__constraints_gae44b5ace0d9b4a29088069ecb4cec441}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM}, \hyperlink{group__constraints_ga803bd818b3f4b2b0a4a5cfa2f7dc2045}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+E\+XT}, \hyperlink{group__constraints_gabb09c5b78b75a44502fc77b950125c1e}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M\+\_\+\+E\+XT}, \hyperlink{group__constraints_ga06efd054c9271438f6d82d4559d9e69f}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM}, \hyperlink{group__constraints_ga2e75d7a77118735b32f25422d9686719}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M1}, \hyperlink{hard_8h_af220427ba7ecc8e786a07b7799658f18}{vrna\+\_\+hc\+\_\+add\+\_\+f()}, \hyperlink{hard_8h_a128920e0af52e4196a9d59fa13336c7c}{vrna\+\_\+hc\+\_\+add\+\_\+data()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Left (5\textquotesingle{}) delimiter position of substructure \\
+\hline
+{\em j} & Right (3\textquotesingle{}) delimiter position of substructure \\
+\hline
+{\em k} & Left delimiter of decomposition \\
+\hline
+{\em l} & Right delimiter of decomposition \\
+\hline
+{\em d} & Decomposition step indicator \\
+\hline
+{\em data} & Auxiliary data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A non-\/zero value if the decomposition is valid, 0 otherwise 
+\end{DoxyReturn}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__hard__constraints_ga36ff456c43bf920629cee5a236e4f0ff}\label{group__hard__constraints_ga36ff456c43bf920629cee5a236e4f0ff}} 
+\index{Hard Constraints@{Hard Constraints}!vrna\+\_\+hc\+\_\+init@{vrna\+\_\+hc\+\_\+init}}
+\index{vrna\+\_\+hc\+\_\+init@{vrna\+\_\+hc\+\_\+init}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{vrna\+\_\+hc\+\_\+init()}{vrna\_hc\_init()}}
+{\footnotesize\ttfamily void vrna\+\_\+hc\+\_\+init (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Initialize/\+Reset hard constraints to default values. 
+
+This function resets the hard constraints to their default values, i.\+e. all positions may be unpaired in all contexts, and base pairs are allowed in all contexts, if they resemble canonical pairs. Previously set hard constraints will be removed vefore initialization.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga7cba95ebe2ceb5ec9a5768f2232854fd}{vrna\+\_\+hc\+\_\+add\+\_\+bp()}, \hyperlink{group__hard__constraints_gaed50398ade2d4852c9e82592fe76046c}{vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+nonspecific()}, \hyperlink{group__hard__constraints_ga447d88e06ad97bb225cd83310ace8345}{vrna\+\_\+hc\+\_\+add\+\_\+up()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{S\+W\+I\+G Wrapper Notes}
+\item[\hyperlink{wrappers__wrappers000012}{S\+W\+I\+G Wrapper Notes}]This function is attached as method {\bfseries hc\+\_\+init()} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__hard__constraints_ga447d88e06ad97bb225cd83310ace8345}\label{group__hard__constraints_ga447d88e06ad97bb225cd83310ace8345}} 
+\index{Hard Constraints@{Hard Constraints}!vrna\+\_\+hc\+\_\+add\+\_\+up@{vrna\+\_\+hc\+\_\+add\+\_\+up}}
+\index{vrna\+\_\+hc\+\_\+add\+\_\+up@{vrna\+\_\+hc\+\_\+add\+\_\+up}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{vrna\+\_\+hc\+\_\+add\+\_\+up()}{vrna\_hc\_add\_up()}}
+{\footnotesize\ttfamily void vrna\+\_\+hc\+\_\+add\+\_\+up (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{int}]{i,  }\item[{unsigned char}]{option }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Make a certain nucleotide unpaired. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga7cba95ebe2ceb5ec9a5768f2232854fd}{vrna\+\_\+hc\+\_\+add\+\_\+bp()}, \hyperlink{group__hard__constraints_gaed50398ade2d4852c9e82592fe76046c}{vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+nonspecific()}, \hyperlink{group__hard__constraints_ga36ff456c43bf920629cee5a236e4f0ff}{vrna\+\_\+hc\+\_\+init()}, \hyperlink{group__hard__constraints_ga9418eda62a5dec070896702c279d2548}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga79203702b197b6b9d3b78eed40663eb1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+H\+P\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga21feeab3a9e5fa5a9e3d9ac0fcf5994f}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga456ecd2ff00056bb64da8dd4f61bbfc5}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga886d9127c49bb982a4b67cd7581e8a5a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+A\+L\+L\+\_\+\+L\+O\+O\+PS}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} the hard constraints are associated with \\
+\hline
+{\em i} & The position that needs to stay unpaired (1-\/based) \\
+\hline
+{\em option} & The options flag indicating how/where to store the hard constraints \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__hard__constraints_ga5070f296c8af2baea10951525519464f}\label{group__hard__constraints_ga5070f296c8af2baea10951525519464f}} 
+\index{Hard Constraints@{Hard Constraints}!vrna\+\_\+hc\+\_\+add\+\_\+up\+\_\+batch@{vrna\+\_\+hc\+\_\+add\+\_\+up\+\_\+batch}}
+\index{vrna\+\_\+hc\+\_\+add\+\_\+up\+\_\+batch@{vrna\+\_\+hc\+\_\+add\+\_\+up\+\_\+batch}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{vrna\+\_\+hc\+\_\+add\+\_\+up\+\_\+batch()}{vrna\_hc\_add\_up\_batch()}}
+{\footnotesize\ttfamily int vrna\+\_\+hc\+\_\+add\+\_\+up\+\_\+batch (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{\hyperlink{group__hard__constraints_ga8cd53427a942a81c87ec526bbff32ef9}{vrna\+\_\+hc\+\_\+up\+\_\+t} $\ast$}]{constraints }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Apply a list of hard constraints for single nucleotides. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} the hard constraints are associated with \\
+\hline
+{\em constraints} & The list off constraints to apply, last entry must have position attribute set to 0 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__hard__constraints_ga7cba95ebe2ceb5ec9a5768f2232854fd}\label{group__hard__constraints_ga7cba95ebe2ceb5ec9a5768f2232854fd}} 
+\index{Hard Constraints@{Hard Constraints}!vrna\+\_\+hc\+\_\+add\+\_\+bp@{vrna\+\_\+hc\+\_\+add\+\_\+bp}}
+\index{vrna\+\_\+hc\+\_\+add\+\_\+bp@{vrna\+\_\+hc\+\_\+add\+\_\+bp}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{vrna\+\_\+hc\+\_\+add\+\_\+bp()}{vrna\_hc\_add\_bp()}}
+{\footnotesize\ttfamily void vrna\+\_\+hc\+\_\+add\+\_\+bp (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{unsigned char}]{option }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Favorize/\+Enforce a certain base pair (i,j) 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_gaed50398ade2d4852c9e82592fe76046c}{vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+nonspecific()}, \hyperlink{group__hard__constraints_ga447d88e06ad97bb225cd83310ace8345}{vrna\+\_\+hc\+\_\+add\+\_\+up()}, \hyperlink{group__hard__constraints_ga36ff456c43bf920629cee5a236e4f0ff}{vrna\+\_\+hc\+\_\+init()}, \hyperlink{group__hard__constraints_ga9418eda62a5dec070896702c279d2548}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga79203702b197b6b9d3b78eed40663eb1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+H\+P\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga21feeab3a9e5fa5a9e3d9ac0fcf5994f}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga0536288e04ff6332ecdc23ca4705402b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+O\+P\+\_\+\+E\+NC}, \hyperlink{group__hard__constraints_ga456ecd2ff00056bb64da8dd4f61bbfc5}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga02a3d703ddbcfce393e4bbfcb9db7077}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+O\+P\+\_\+\+E\+NC}, \hyperlink{hard_8h_a1aa55f2c6347e670e003b1a765632dad}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+E\+N\+F\+O\+R\+CE}, \hyperlink{group__hard__constraints_ga886d9127c49bb982a4b67cd7581e8a5a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+A\+L\+L\+\_\+\+L\+O\+O\+PS}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} the hard constraints are associated with \\
+\hline
+{\em i} & The 5\textquotesingle{} located nucleotide position of the base pair (1-\/based) \\
+\hline
+{\em j} & The 3\textquotesingle{} located nucleotide position of the base pair (1-\/based) \\
+\hline
+{\em option} & The options flag indicating how/where to store the hard constraints \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__hard__constraints_gaed50398ade2d4852c9e82592fe76046c}\label{group__hard__constraints_gaed50398ade2d4852c9e82592fe76046c}} 
+\index{Hard Constraints@{Hard Constraints}!vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+nonspecific@{vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+nonspecific}}
+\index{vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+nonspecific@{vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+nonspecific}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+nonspecific()}{vrna\_hc\_add\_bp\_nonspecific()}}
+{\footnotesize\ttfamily void vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+nonspecific (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{int}]{i,  }\item[{int}]{d,  }\item[{unsigned char}]{option }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Enforce a nucleotide to be paired (upstream/downstream) 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga7cba95ebe2ceb5ec9a5768f2232854fd}{vrna\+\_\+hc\+\_\+add\+\_\+bp()}, \hyperlink{group__hard__constraints_ga447d88e06ad97bb225cd83310ace8345}{vrna\+\_\+hc\+\_\+add\+\_\+up()}, \hyperlink{group__hard__constraints_ga36ff456c43bf920629cee5a236e4f0ff}{vrna\+\_\+hc\+\_\+init()}, \hyperlink{group__hard__constraints_ga9418eda62a5dec070896702c279d2548}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga79203702b197b6b9d3b78eed40663eb1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+H\+P\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga21feeab3a9e5fa5a9e3d9ac0fcf5994f}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga0536288e04ff6332ecdc23ca4705402b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+O\+P\+\_\+\+E\+NC}, \hyperlink{group__hard__constraints_ga456ecd2ff00056bb64da8dd4f61bbfc5}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+OP}, \hyperlink{group__hard__constraints_ga02a3d703ddbcfce393e4bbfcb9db7077}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+O\+P\+\_\+\+E\+NC}, \hyperlink{group__hard__constraints_ga886d9127c49bb982a4b67cd7581e8a5a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+A\+L\+L\+\_\+\+L\+O\+O\+PS}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} the hard constraints are associated with \\
+\hline
+{\em i} & The position that needs to stay unpaired (1-\/based) \\
+\hline
+{\em d} & The direction of base pairing ( $ d < 0 $\+: pairs upstream, $ d > 0 $\+: pairs downstream, $ d == 0 $\+: no direction) \\
+\hline
+{\em option} & The options flag indicating in which loop type context the pairs may appear \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__hard__constraints_ga696dcf77887d856c6f21ea266d8b9ca2}\label{group__hard__constraints_ga696dcf77887d856c6f21ea266d8b9ca2}} 
+\index{Hard Constraints@{Hard Constraints}!vrna\+\_\+hc\+\_\+free@{vrna\+\_\+hc\+\_\+free}}
+\index{vrna\+\_\+hc\+\_\+free@{vrna\+\_\+hc\+\_\+free}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{vrna\+\_\+hc\+\_\+free()}{vrna\_hc\_free()}}
+{\footnotesize\ttfamily void vrna\+\_\+hc\+\_\+free (\begin{DoxyParamCaption}\item[{\hyperlink{group__hard__constraints_gac7e4c4f8abe3163a68110c5bff24e01d}{vrna\+\_\+hc\+\_\+t} $\ast$}]{hc }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Free the memory allocated by a \hyperlink{group__hard__constraints_gac7e4c4f8abe3163a68110c5bff24e01d}{vrna\+\_\+hc\+\_\+t} data structure. 
+
+Use this function to free all memory that was allocated for a data structure of type \hyperlink{group__hard__constraints_gac7e4c4f8abe3163a68110c5bff24e01d}{vrna\+\_\+hc\+\_\+t} .
+
+\begin{DoxySeeAlso}{See also}
+get\+\_\+hard\+\_\+constraints(), \hyperlink{group__hard__constraints_gac7e4c4f8abe3163a68110c5bff24e01d}{vrna\+\_\+hc\+\_\+t} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}\label{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}} 
+\index{Hard Constraints@{Hard Constraints}!vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db@{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db}}
+\index{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db@{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db}!Hard Constraints@{Hard Constraints}}
+\subsubsection{\texorpdfstring{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}{vrna\_hc\_add\_from\_db()}}
+{\footnotesize\ttfamily int vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{const char $\ast$}]{constraint,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Add hard constraints from pseudo dot-\/bracket notation. 
+
+This function allows one to apply hard constraints from a pseudo dot-\/bracket notation. The {\ttfamily options} parameter controls, which characters are recognized by the parser. Use the \hyperlink{group__hard__constraints_ga1c3864bdc92147a4d93de2b1b4356177}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+E\+F\+A\+U\+LT} convenience macro, if you want to allow all known characters
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE}, \hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT}, \hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X}, \hyperlink{hard_8h_ad54c1315a47d55653dcaa5de6e544b77}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+A\+N\+G\+\_\+\+B\+R\+A\+CK}, \hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK}, \hyperlink{group__hard__constraints_ga5c17253f5a39d1d49b0fb11f5196982a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+R\+A\+M\+OL}, \hyperlink{group__hard__constraints_ga31d0ebb9755ca8a4acafc14f00ca755d}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+E\+R\+M\+OL}, \hyperlink{group__hard__constraints_ga75cfab03cdc97c95b3ce8bb29f52b08e}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+G\+Q\+U\+AD}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound \\
+\hline
+{\em constraint} & A pseudo dot-\/bracket notation of the hard constraint. \\
+\hline
+{\em options} & The option flags\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{S\+W\+I\+G Wrapper Notes}
+\item[\hyperlink{wrappers__wrappers000016}{S\+W\+I\+G Wrapper Notes}]This function is attached as method {\bfseries hc\+\_\+add\+\_\+from\+\_\+db()} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}

@@ -1,0 +1,59 @@
+\hypertarget{neighbor_8h}{}\section{Vienna\+R\+N\+A/neighbor.h File Reference}
+\label{neighbor_8h}\index{Vienna\+R\+N\+A/neighbor.\+h@{Vienna\+R\+N\+A/neighbor.\+h}}
+
+
+Methods to compute the neighbors of an R\+NA secondary structure.  
+
+
+Include dependency graph for neighbor.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{neighbor_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{neighbor_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+s}
+\begin{DoxyCompactList}\small\item\em An atomic representation of the transition / move from one structure to its neighbor.  \hyperlink{group__neighbors_structvrna__move__s}{More...}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+I\+N\+S\+E\+R\+T\+I\+ON}~4
+\begin{DoxyCompactList}\small\item\em Option flag indicating insertion move. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+D\+E\+L\+E\+T\+I\+ON}~8
+\begin{DoxyCompactList}\small\item\em Option flag indicating deletion move. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+S\+H\+I\+FT}~16
+\begin{DoxyCompactList}\small\item\em Option flag indicating shift move. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__neighbors_ga258084b251b218fba9398826435a4393}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+N\+O\+\_\+\+LP}~32
+\begin{DoxyCompactList}\small\item\em Option flag indicating moves without lonely base pairs. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+D\+E\+F\+A\+U\+LT}~(\hyperlink{group__neighbors_gaf39028db9c70d3be528929182a3f2d5a}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+I\+N\+S\+E\+R\+T\+I\+ON} $\vert$ \hyperlink{group__neighbors_gac05db9392c6647e3e9a6982096c5b384}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+D\+E\+L\+E\+T\+I\+ON})
+\begin{DoxyCompactList}\small\item\em Option flag indicating default move set, i.\+e. insertions/deletion of a base pair. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__neighbors_gad085062ae3aa7ee20783debe4a906fad}{vrna\+\_\+move\+\_\+list\+\_\+free} (\hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+t} $\ast$moves)
+\item 
+void \hyperlink{group__neighbors_gacdbc5f609b46aeb07d2c7e015677a1e0}{vrna\+\_\+move\+\_\+apply} (short $\ast$pt, const \hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+t} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Apply a particular move / transition to a secondary structure, i.\+e. transform a structure. \end{DoxyCompactList}\item 
+void \hyperlink{group__neighbors_ga5ceb55ee56494b1f5b7aaa758cb722d1}{vrna\+\_\+loopidx\+\_\+update} (int $\ast$loopidx, const short $\ast$pt, int length, const \hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+t} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Alters the loop\+Indices array that was constructed with \hyperlink{group__struct__utils_ga03e15af299be0866ff21da880c74b92e}{vrna\+\_\+loopidx\+\_\+from\+\_\+ptable()}. \end{DoxyCompactList}\item 
+\hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+t} $\ast$ \hyperlink{group__neighbors_gab1473d856b15da2120fe648977798ad5}{vrna\+\_\+neighbors} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, const short $\ast$pt, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Generate neighbors of a secondary structure. \end{DoxyCompactList}\item 
+\hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+t} $\ast$ \hyperlink{group__neighbors_gae5aaa1c5a1f22e889843f3edbdd04714}{vrna\+\_\+neighbors\+\_\+successive} (const \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, const \hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+t} $\ast$curr\+\_\+move, const short $\ast$prev\+\_\+pt, const \hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+t} $\ast$prev\+\_\+neighbors, int size\+\_\+prev\+\_\+neighbors, int $\ast$size\+\_\+neighbors, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Generate neighbors of a secondary structure (the fast way) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Methods to compute the neighbors of an R\+NA secondary structure. 
+

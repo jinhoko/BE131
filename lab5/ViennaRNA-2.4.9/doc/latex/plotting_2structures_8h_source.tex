@@ -1,0 +1,75 @@
+\hypertarget{plotting_2structures_8h_source}{}\section{structures.\+h}
+\label{plotting_2structures_8h_source}\index{Vienna\+R\+N\+A/plotting/structures.\+h@{Vienna\+R\+N\+A/plotting/structures.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_PLOT\_STRUCTURE\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_PLOT\_STRUCTURE\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <\hyperlink{model_8h}{ViennaRNA/model.h}>}
+00005 \textcolor{preprocessor}{#include <\hyperlink{layouts_8h}{ViennaRNA/plotting/layouts.h}>}
+00006 
+00007 \textcolor{preprocessor}{#ifdef VRNA\_WARN\_DEPRECATED}
+00008 \textcolor{preprocessor}{# if defined(\_\_clang\_\_)}
+00009 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("", msg)))}
+00010 \textcolor{preprocessor}{# elif defined(\_\_GNUC\_\_)}
+00011 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}
+00012 \textcolor{preprocessor}{# else}
+00013 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func}
+00014 \textcolor{preprocessor}{# endif}
+00015 \textcolor{preprocessor}{#else}
+00016 \textcolor{preprocessor}{# define DEPRECATED(func, msg) func}
+00017 \textcolor{preprocessor}{#endif}
+00018 
+00030 \textcolor{comment}{/* write PostScript drawing of structure to file with annotation */}
+00031 \textcolor{keywordtype}{int} PS\_rna\_plot\_snoop\_a(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\textcolor{keywordtype}{string},
+00032                         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure,
+00033                         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *ssfile,
+00034                         \textcolor{keywordtype}{int} *relative\_access,
+00035                         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *seqs[]);
+00036 
+00050 \textcolor{keywordtype}{int} \hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\_file\_PS\_rnaplot}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *seq,
+00051                           \textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure,
+00052                           \textcolor{keyword}{const} \textcolor{keywordtype}{char} *file,
+00053                           \hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}  *md\_p);
+00054 
+00074 \textcolor{keywordtype}{int} \hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\_file\_PS\_rnaplot\_a}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *seq,
+00075                             \textcolor{keyword}{const} \textcolor{keywordtype}{char} *structure,
+00076                             \textcolor{keyword}{const} \textcolor{keywordtype}{char} *file,
+00077                             \textcolor{keyword}{const} \textcolor{keywordtype}{char} *pre,
+00078                             \textcolor{keyword}{const} \textcolor{keywordtype}{char} *post,
+00079                             \hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}  *md\_p);
+00080 
+00093 \textcolor{keywordtype}{int} \hyperlink{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}{gmlRNA}( \textcolor{keywordtype}{char} *\textcolor{keywordtype}{string},
+00094             \textcolor{keywordtype}{char} *structure,
+00095             \textcolor{keywordtype}{char} *ssfile,
+00096             \textcolor{keywordtype}{char} option);
+00097 
+00108 \textcolor{keywordtype}{int} \hyperlink{group__plotting__utils_gadd368528755f9a830727b680243541df}{ssv\_rna\_plot}( \textcolor{keywordtype}{char} *\textcolor{keywordtype}{string},
+00109                   \textcolor{keywordtype}{char} *structure,
+00110                   \textcolor{keywordtype}{char} *ssfile);
+00111 
+00120 \textcolor{keywordtype}{int} \hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\_rna\_plot}( \textcolor{keywordtype}{char} *\textcolor{keywordtype}{string},
+00121                   \textcolor{keywordtype}{char} *structure,
+00122                   \textcolor{keywordtype}{char} *ssfile);
+00123 
+00132 \textcolor{keywordtype}{int} \hyperlink{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}{xrna\_plot}(\textcolor{keywordtype}{char} *\textcolor{keywordtype}{string},
+00133               \textcolor{keywordtype}{char} *structure,
+00134               \textcolor{keywordtype}{char} *ssfile);
+00135 
+00136 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00137 
+00143 DEPRECATED(\textcolor{keywordtype}{int} \hyperlink{group__plotting__utils_ga0873c7cc4cd7a11c9a2cea19dde7e9c9}{PS\_rna\_plot}(\textcolor{keywordtype}{char} *\textcolor{keywordtype}{string}, \textcolor{keywordtype}{char} *structure, \textcolor{keywordtype}{char} *file),
+00144 \textcolor{stringliteral}{"Use vrna\_file\_PS\_rnaplot() instead"});
+00145 
+00152 DEPRECATED(\textcolor{keywordtype}{int} \hyperlink{group__plotting__utils_ga47856b2504b566588785597b6ebb8271}{PS\_rna\_plot\_a}(\textcolor{keywordtype}{char} *\textcolor{keywordtype}{string}, \textcolor{keywordtype}{char} *structure, \textcolor{keywordtype}{char} *file, \textcolor{keywordtype}{char} *pre, \textcolor{keywordtype}{char} *post)
+      ,
+00153 \textcolor{stringliteral}{"Use vrna\_file\_PS\_rnaplot\_a() instead"});
+00154 
+00161 DEPRECATED(\textcolor{keywordtype}{int} \hyperlink{group__plotting__utils_ga32fa0f97625119e9d24dd2e7153abc4f}{PS\_rna\_plot\_a\_gquad}(\textcolor{keywordtype}{char} *\textcolor{keywordtype}{string}, \textcolor{keywordtype}{char} *structure, \textcolor{keywordtype}{char} *ssfile, \textcolor{keywordtype}{char} *
+      pre, \textcolor{keywordtype}{char} *post),
+00162 \textcolor{stringliteral}{"Use vrna\_file\_PS\_rnaplot\_a() instead"});
+00163 
+00164 \textcolor{preprocessor}{#endif}
+00165 
+00170 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

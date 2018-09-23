@@ -1,0 +1,84 @@
+\hypertarget{hash__tables_8h_source}{}\section{hash\+\_\+tables.\+h}
+\label{hash__tables_8h_source}\index{Vienna\+R\+N\+A/datastructures/hash\+\_\+tables.\+h@{Vienna\+R\+N\+A/datastructures/hash\+\_\+tables.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_HASH\_UTIL\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_HASH\_UTIL\_H}
+00003 
+00004 \textcolor{comment}{/* Taken from the barriers tool and modified by GE. */}
+00005 
+\Hypertarget{hash__tables_8h_source_l00035}\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{00035} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_hash\_table\_s *\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\_hash\_table\_t};
+00036 
+00037 
+\Hypertarget{hash__tables_8h_source_l00045}\hyperlink{group__hash__table__utils_gace4adf608f9dc246f66f6264d30c0f8d}{00045} \textcolor{keyword}{typedef} int (\hyperlink{group__hash__table__utils_gace4adf608f9dc246f66f6264d30c0f8d}{vrna\_callback\_ht\_compare\_entries})(\textcolor{keywordtype}{void} *x,
+00046                                                \textcolor{keywordtype}{void} *y);
+00047 
+00048 
+\Hypertarget{hash__tables_8h_source_l00056}\hyperlink{group__hash__table__utils_ga8533dc0cb44035d5fdb05e3c28922d2b}{00056} \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} int (\hyperlink{group__hash__table__utils_ga8533dc0cb44035d5fdb05e3c28922d2b}{vrna\_callback\_ht\_hash\_function})(\textcolor{keywordtype}{void}          *x,
+00057                                                       \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} hashtable\_size);
+00058 
+00059 
+\Hypertarget{hash__tables_8h_source_l00066}\hyperlink{group__hash__table__utils_ga3ff18cc70db8bb6f8cfee2c2b1542afc}{00066} \textcolor{keyword}{typedef} int (\hyperlink{group__hash__table__utils_ga3ff18cc70db8bb6f8cfee2c2b1542afc}{vrna\_callback\_ht\_free\_entry})(\textcolor{keywordtype}{void} *x);
+00067 
+00068 
+00094 \hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\_hash\_table\_t}
+00095 \hyperlink{group__hash__table__utils_ga37d1c7e13087a2b7c1b87fda34577c29}{vrna\_ht\_init}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}                     b,
+00096              \hyperlink{group__hash__table__utils_gace4adf608f9dc246f66f6264d30c0f8d}{vrna\_callback\_ht\_compare\_entries} *compare\_function,
+00097              \hyperlink{group__hash__table__utils_ga8533dc0cb44035d5fdb05e3c28922d2b}{vrna\_callback\_ht\_hash\_function}   *hash\_function,
+00098              \hyperlink{group__hash__table__utils_ga3ff18cc70db8bb6f8cfee2c2b1542afc}{vrna\_callback\_ht\_free\_entry}      *free\_hash\_entry);
+00099 
+00100 
+00107 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}
+00108 \hyperlink{group__hash__table__utils_ga1d7a50bb20b32275e742ec575966412b}{vrna\_ht\_size}(\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\_hash\_table\_t} ht);
+00109 
+00110 
+00117 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}
+00118 \hyperlink{group__hash__table__utils_ga928e7a27a9d34d254ce3855f1ab1d190}{vrna\_ht\_collisions}(\textcolor{keyword}{struct} vrna\_hash\_table\_s *ht);
+00119 
+00120 
+00135 \textcolor{keywordtype}{void} *
+00136 \hyperlink{group__hash__table__utils_ga38f124472c8e7e75f067d3b27b43da09}{vrna\_ht\_get}(\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\_hash\_table\_t} ht,
+00137             \textcolor{keywordtype}{void}              *x);
+00138 
+00139 
+00155 \textcolor{keywordtype}{int}
+00156 \hyperlink{group__hash__table__utils_ga4d2189ce8048f031a15ca5e4b290d494}{vrna\_ht\_insert}(\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\_hash\_table\_t}  ht,
+00157                \textcolor{keywordtype}{void}               *x);
+00158 
+00159 
+00171 \textcolor{keywordtype}{void}
+00172 \hyperlink{group__hash__table__utils_ga1162aa0d1bd82af7420bb727a87d3e2f}{vrna\_ht\_remove}(\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\_hash\_table\_t}  ht,
+00173                \textcolor{keywordtype}{void}               *x);
+00174 
+00175 
+00187 \textcolor{keywordtype}{void}
+00188 \hyperlink{group__hash__table__utils_gab90583f8f7395e735c865ad2ebdb3c29}{vrna\_ht\_clear}(\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\_hash\_table\_t} ht);
+00189 
+00190 
+00201 \textcolor{keywordtype}{void}
+00202 \hyperlink{group__hash__table__utils_ga479db024c70437aa2576d60b373c5262}{vrna\_ht\_free}(\hyperlink{group__hash__table__utils_gabc7c6f41b718c8e23929e528891a89c4}{vrna\_hash\_table\_t} ht);
+00203 
+00204 
+00205 \textcolor{comment}{/* End of abstract interface */}
+\Hypertarget{hash__tables_8h_source_l00217}\hyperlink{group__hash__table__utils}{00217} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{
+\Hypertarget{hash__tables_8h_source_l00218}\hyperlink{group__hash__table__utils_a094ce43244eced065ea0e5fa50287a25}{00218}   \textcolor{keywordtype}{char}  *\hyperlink{group__hash__table__utils_a094ce43244eced065ea0e5fa50287a25}{structure}; 
+\Hypertarget{hash__tables_8h_source_l00219}\hyperlink{group__hash__table__utils_afffab6040a5cfc3ac465d94d8538d88a}{00219}   \textcolor{keywordtype}{float} \hyperlink{group__hash__table__utils_afffab6040a5cfc3ac465d94d8538d88a}{energy};     
+00220 \} \hyperlink{group__hash__table__utils_structvrna__ht__entry__db__t}{vrna\_ht\_entry\_db\_t};
+00221 
+00222 
+00236 \textcolor{keywordtype}{int}
+00237 \hyperlink{group__hash__table__utils_gac4ec0b8372d50d7347a63f140f340962}{vrna\_ht\_db\_comp}(\textcolor{keywordtype}{void}  *x,
+00238                 \textcolor{keywordtype}{void}  *y);
+00239 
+00240 
+00255 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}
+00256 \hyperlink{group__hash__table__utils_gad133721a3cd2f8ca259fe315d86035a7}{vrna\_ht\_db\_hash\_func}(\textcolor{keywordtype}{void}           *x,
+00257                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}  hashtable\_size);
+00258 
+00259 
+00271 \textcolor{keywordtype}{int} \hyperlink{group__hash__table__utils_gabcdcd0d070b3dfd2634a09e7838acf66}{vrna\_ht\_db\_free\_entry}(\textcolor{keywordtype}{void} *hash\_entry);
+00272 
+00273 
+00274 \textcolor{comment}{/* End of dot-bracket interface */}
+00281 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}
