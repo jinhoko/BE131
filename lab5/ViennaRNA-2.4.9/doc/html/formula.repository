@@ -1,0 +1,153 @@
+\form#0:$\ldots$
+\form#1:$ \ldots $
+\form#2:$ 1- $
+\form#3:$ i $
+\form#4:$ j $
+\form#5:$ k $
+\form#6:$ [i:j] $
+\form#7:$ [k:l] $
+\form#8:$ i-j $
+\form#9:$ k-l $
+\form#10:$ (i,j), \ldots, (i+(k-1), j-(k-1)) $
+\form#11:$ p \in [i:j] $
+\form#12:$ q \in [k:l] $
+\form#13:$ (i,j) $
+\form#14:$ (p,q) $
+\form#15:$ i < p < j < q $
+\form#16:$ p < i < q < j $
+\form#17:$ E_{ij} $
+\form#18:\[ E_{ij} = \min \left[ \max_{(i,k) \in \{GC, CG, AU, UA, GU, UG\}} E_{ik}, \max_{(k,j) \in \{GC, CG, AU, UA, GU, UG\}} E_{kj} \right]. \]
+\form#19:$ e $
+\form#20:$ kcal / mol $
+\form#21:$ m $
+\form#22:$ -5 kcal/mol $
+\form#23:$p(s)$
+\form#24:$s$
+\form#25:$E(s)$
+\form#26:\[ p(s) \propto e^{-\beta E(s)} \text{ with } \beta = \frac{1}{kT} \]
+\form#27:$k \approx 1.987 \cdot 10^{-3} \frac{kcal}{mol~K}$
+\form#28:$T$
+\form#29:\[ Z = \sum_{s \in \Omega} e^{-\beta E(s)} \]
+\form#30:$\Omega$
+\form#31:\[ p(s) = \frac{e^{-\beta E(s)}}{Z} \]
+\form#32:$Z$
+\form#33:$q1k(k) = Q(1, k)$
+\form#34:$qln(l) = Q(l, n)$
+\form#35:$ <d(S)> = \sum_{(i,j) \in S} (1-p_{ij}) + \sum_{(i,j) \notin S} p_{ij} $
+\form#36:$p_ij>0.5$
+\form#37:$k$
+\form#38:$<d> = \sum_{a,b} p_a p_b d(S_a,S_b)$
+\form#39:$p_ij$
+\form#40:$<d> = \sum_{ij} p_{ij}(1-p_{ij})$
+\form#41:$(i,j)$
+\form#42:$(i+1, j-1)$
+\form#43:$ p > \textrm{cutoff} $
+\form#44:$ p $
+\form#45:\[ p(s) = \frac{exp(-\beta E(s)}{Z} \]
+\form#46:\[ Z = \sum_s exp(-\beta E(s)),\quad\mathrm{with}\quad\beta = \frac{1}{RT} \]
+\form#47:$R$
+\form#48:$[0:1]$
+\form#49:$ \ge 1 $
+\form#50:$E$
+\form#51:$10 cal/mol$
+\form#52:$q = exp(-\beta E)$
+\form#53:$\beta = \frac{1}{RT}$
+\form#54:$E_{max}$
+\form#55:$E_{saddle} < E_{max}$
+\form#56:$\Sigma$
+\form#57:$ \Sigma = \{A,U,C,G\} $
+\form#58:$\mathrm{strlen}(\mathrm{sequence})+1$
+\form#59:$-kT \cdot \log(p)$
+\form#60:$p$
+\form#61:\[ A(S) = \sum_{(i,j) \in S} 2 \gamma p_{ij} + \sum_{i \notin S} p^u_i \]
+\form#62:$\gamma$
+\form#63:$ exp(-E / (b \cdot kT))$
+\form#64:$exp{((-F/kT)/length)}$
+\form#65:$F$
+\form#66:$Q$
+\form#67:$G = -RT \cdot \log(Q) $
+\form#68:$\Delta G = - RT \ln Z$
+\form#69:$ N \times M $
+\form#70:$N$
+\form#71:$M$
+\form#72:$X[100][5]$
+\form#73:$ F(\vec\epsilon) = \sum_{i = 1}^n{ \frac{\epsilon_i^2}{\tau^2} } + \sum_{i = 1}^n{ \frac{(p_i(\vec\epsilon) - q_i)^2}{\sigma^2} } \to min $
+\form#74:$ F(\vec\epsilon) = \sum_{i = 1}^n{ \frac{|\epsilon_i|}{\tau^2} } + \sum_{i = 1}^n{ \frac{|p_i(\vec\epsilon) - q_i|}{\sigma^2} } \to min $
+\form#75:\[ F(\vec\epsilon) = \sum_{\mu}{ \frac{\epsilon_{\mu}^2}{\tau^2} } + \sum_{i = 1}^n{ \frac{(p_i(\vec\epsilon) - q_i)^2}{\sigma^2} } \to \min. \]
+\form#76:$ 1~J = 1~kg \cdot m^2 s^{-2} $
+\form#77:$ 1~kJ = 1,000~J $
+\form#78:$ 1~cal_{IT} = 4.1868~J $
+\form#79:$ 1~dacal_{IT} = 10~cal_{IT} = 41.868~J $
+\form#80:$ 1~kcal_{IT} = 4.1868~kJ $
+\form#81:$ 1~cal_{th} = 4.184~J $
+\form#82:$ 1~dacal_{th} = 10~cal_{th} = 41.84~J $
+\form#83:$ 1~kcal_{th} = 4.184~kJ $
+\form#84:$ 1~g~\mathrm{TNT} = 1,000~cal_{th} = 4,184~J $
+\form#85:$ 1~kg~\mathrm{TNT} = 1,000~kcal_{th} = 4,184~kJ $
+\form#86:$ 1~t~\mathrm{TNT} = 1,000,000~kcal_{th} = 4,184~MJ $
+\form#87:$ 1~eV = 1.602176565 \times 10^{-19}~J $
+\form#88:$ 1~W \cdot h = 1~W \cdot 3,600 s = 3,600~J = 3.6~kJ $
+\form#89:$ 1~kW \cdot h = 1~kW \cdot 3,600~s = 3,600~kJ = 3.6~MJ $
+\form#90:$ [^{\circ}C] = [K] - 273.15 $
+\form#91:$ [^{\circ}F] = [K] \times \frac{9}{5} - 459.67 $
+\form#92:$ [^{\circ}R] = [K] \times \frac{9}{5} $
+\form#93:$ [^{\circ}N] = ([K] - 273.15) \times \frac{33}{100} $
+\form#94:$ [^{\circ}De] = (373.15 - [K]) \time \frac{3}{2} $
+\form#95:$ [^{\circ}R{\acute e}] = ([K] - 273.15) \times \frac{4}{5} $
+\form#96:$ [^{\circ}\mathrm{R{\o}}] = ([K] - 273.15) \times \frac{21}{40} + 7.5 $
+\form#97:$f(i,j)$
+\form#98:$[i,j]$
+\form#99:$i$
+\form#100:$j$
+\form#101:$ [i,j] $
+\form#102:$ exp(-E / kT) $
+\form#103:$ E $
+\form#104:$\hat{q}[i,j] = q[i,j] / s^{(j-i+1)}$
+\form#105:$ s = exp((sfact * MFE) / kT / length )$
+\form#106:$ exp(-\Delta G / kT) $
+\form#107:$ e^{-E/(\alpha \cdot K \cdot T)} $
+\form#108:$\Delta G$
+\form#109:$10^{-2} * \mathrm{kcal}/\mathrm{mol}$
+\form#110:$e^{-\Delta G/kT} $
+\form#111:$(i - 1)$
+\form#112:$(j+1)$
+\form#113:$-1$
+\form#114:$size + 2$
+\form#115:$(k,l)$
+\form#116:$(n+m)$
+\form#117:$[i:j]$
+\form#118:$[i:k]$
+\form#119:$[l:j]$
+\form#120:$[k:l]$
+\form#121:$(l,j)$
+\form#122:$(i,k)$
+\form#123:$(l,j-1)$
+\form#124:$ d < 0 $
+\form#125:$ d > 0 $
+\form#126:$ d == 0 $
+\form#127:$k_d = 0.32 \mu mol / l $
+\form#128:\[ \Delta G_{\text{SHAPE}}(i) = m \ln(\text{SHAPE reactivity}(i)+1)+ b \]
+\form#129:$ b $
+\form#130:$ q_i $
+\form#131:\[ \Delta G_{\text{SHAPE}}(x,i) = \beta\ |x_i - q_i| \]
+\form#132:$ x_i=0 $
+\form#133:$ x_i=1 $
+\form#134:$ \beta $
+\form#135:$ |x_i - q_i| $
+\form#136:$ \hat{E} $
+\form#137:$ dacal/mol $
+\form#138:$ 1 dacal/mol = 10 cal/mol $
+\form#139:$ exp(- \hat{E} / kT) $
+\form#140:$ cal/mol $
+\form#141:$P^t$
+\form#142:$rs$
+\form#143:$[0,1]$
+\form#144:$ P^{t}_x[i] = X[i] * rs$
+\form#145:$P^{t}_y[i] = Y[i] * rs$
+\form#146:$ H = - \sum_c p_c \cdot \log_2 p_c $
+\form#147:$ p(i,j) = S_i + S_j - p_ij*ln(p_ij) $
+\form#148:$x == y $
+\form#149:$2^b -1$
+\form#150:$ 1 \leq i < j \leq n $
+\form#151:$i $
+\form#152:$ 1 \leq i \leq n $

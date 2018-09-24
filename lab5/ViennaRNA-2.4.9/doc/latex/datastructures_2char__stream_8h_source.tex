@@ -1,0 +1,205 @@
+\hypertarget{datastructures_2char__stream_8h_source}{}\section{char\+\_\+stream.\+h}
+\label{datastructures_2char__stream_8h_source}\index{Vienna\+R\+N\+A/datastructures/char\+\_\+stream.\+h@{Vienna\+R\+N\+A/datastructures/char\+\_\+stream.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_CHAR\_STREAM\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_CHAR\_STREAM\_H}
+00003 
+00016 \textcolor{preprocessor}{#include <stdarg.h>}
+00017 
+00018 \textcolor{comment}{/* below is our own implementation of a dynamic char * stream */}
+00019 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_cstr\_s *vrna\_cstr\_t;
+00020 
+00021 vrna\_cstr\_t
+00022 vrna\_cstr(\textcolor{keywordtype}{size\_t}  size,
+00023           FILE    *output);
+00024 
+00025 
+00026 \textcolor{keywordtype}{void}
+00027 vrna\_cstr\_free(vrna\_cstr\_t buf);
+00028 
+00029 
+00030 \textcolor{keywordtype}{void}
+00031 vrna\_cstr\_close(vrna\_cstr\_t buf);
+00032 
+00033 
+00034 \textcolor{keywordtype}{void}
+00035 vrna\_cstr\_fflush(\textcolor{keyword}{struct} vrna\_cstr\_s *buf);
+00036 
+00037 
+00038 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *
+00039 vrna\_cstr\_string(vrna\_cstr\_t buf);
+00040 
+00041 
+00042 \textcolor{keywordtype}{int}
+00043 vrna\_cstr\_vprintf(vrna\_cstr\_t buf,
+00044                   \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *format,
+00045                   va\_list     args);
+00046 
+00047 
+00048 \textcolor{keywordtype}{int}
+00049 vrna\_cstr\_printf(vrna\_cstr\_t  buf,
+00050                  \textcolor{keyword}{const} \textcolor{keywordtype}{char}   *format,
+00051                  ...);
+00052 
+00053 
+00054 \textcolor{keywordtype}{void}
+00055 vrna\_cstr\_message\_info(vrna\_cstr\_t  buf,
+00056                        \textcolor{keyword}{const} \textcolor{keywordtype}{char}   *format,
+00057                        ...);
+00058 
+00059 
+00060 \textcolor{keywordtype}{void}
+00061 vrna\_cstr\_message\_vinfo(vrna\_cstr\_t buf,
+00062                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *format,
+00063                         va\_list     args);
+00064 
+00065 
+00066 \textcolor{keywordtype}{void}
+00067 vrna\_cstr\_message\_warning(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,
+00068                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *format,
+00069                           ...);
+00070 
+00071 
+00072 \textcolor{keywordtype}{void}
+00073 vrna\_cstr\_message\_vwarning(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,
+00074                            \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *format,
+00075                            va\_list            args);
+00076 
+00077 
+00078 \textcolor{keywordtype}{void}
+00079 vrna\_cstr\_print\_fasta\_header(vrna\_cstr\_t  buf,
+00080                              \textcolor{keyword}{const} \textcolor{keywordtype}{char}   *head);
+00081 
+00082 
+00083 \textcolor{keywordtype}{void}
+00084 vrna\_cstr\_printf\_structure(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,
+00085                            \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *structure,
+00086                            \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *format,
+00087                            ...);
+00088 
+00089 
+00090 \textcolor{keywordtype}{void}
+00091 vrna\_cstr\_vprintf\_structure(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,
+00092                             \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *structure,
+00093                             \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *format,
+00094                             va\_list             args);
+00095 
+00096 
+00097 \textcolor{keywordtype}{void}
+00098 vrna\_cstr\_printf\_comment(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,
+00099                          \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *format,
+00100                          ...);
+00101 
+00102 
+00103 \textcolor{keywordtype}{void}
+00104 vrna\_cstr\_vprintf\_comment(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,
+00105                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *format,
+00106                           va\_list             args);
+00107 
+00108 
+00109 \textcolor{keywordtype}{void}
+00110 vrna\_cstr\_printf\_thead(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,
+00111                        \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *format,
+00112                        ...);
+00113 
+00114 
+00115 \textcolor{keywordtype}{void}
+00116 vrna\_cstr\_vprintf\_thead(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,
+00117                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *format,
+00118                         va\_list             args);
+00119 
+00120 
+00121 \textcolor{keywordtype}{void}
+00122 vrna\_cstr\_printf\_tbody(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,
+00123                        \textcolor{keyword}{const} \textcolor{keywordtype}{char}         *format,
+00124                        ...);
+00125 
+00126 
+00127 \textcolor{keywordtype}{void}
+00128 vrna\_cstr\_vprintf\_tbody(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,
+00129                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}          *format,
+00130                         va\_list             args);
+00131 
+00132 
+00133 \textcolor{keywordtype}{void}
+00134 vrna\_cstr\_print\_eval\_sd\_corr(\textcolor{keyword}{struct} vrna\_cstr\_s *buf);
+00135 
+00136 
+00137 \textcolor{keywordtype}{void}
+00138 vrna\_cstr\_print\_eval\_ext\_loop(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,
+00139                               \textcolor{keywordtype}{int}                 energy);
+00140 
+00141 
+00142 \textcolor{keywordtype}{void}
+00143 vrna\_cstr\_print\_eval\_hp\_loop(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,
+00144                              \textcolor{keywordtype}{int}                i,
+00145                              \textcolor{keywordtype}{int}                j,
+00146                              \textcolor{keywordtype}{char}               si,
+00147                              \textcolor{keywordtype}{char}               sj,
+00148                              \textcolor{keywordtype}{int}                energy);
+00149 
+00150 
+00151 \textcolor{keywordtype}{void}
+00152 vrna\_cstr\_print\_eval\_hp\_loop\_revert(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,
+00153                                     \textcolor{keywordtype}{int}                 i,
+00154                                     \textcolor{keywordtype}{int}                 j,
+00155                                     \textcolor{keywordtype}{char}                si,
+00156                                     \textcolor{keywordtype}{char}                sj,
+00157                                     \textcolor{keywordtype}{int}                 energy);
+00158 
+00159 
+00160 \textcolor{keywordtype}{void}
+00161 vrna\_cstr\_print\_eval\_int\_loop(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,
+00162                               \textcolor{keywordtype}{int}                 i,
+00163                               \textcolor{keywordtype}{int}                 j,
+00164                               \textcolor{keywordtype}{char}                si,
+00165                               \textcolor{keywordtype}{char}                sj,
+00166                               \textcolor{keywordtype}{int}                 k,
+00167                               \textcolor{keywordtype}{int}                 l,
+00168                               \textcolor{keywordtype}{char}                sk,
+00169                               \textcolor{keywordtype}{char}                sl,
+00170                               \textcolor{keywordtype}{int}                 energy);
+00171 
+00172 
+00173 \textcolor{keywordtype}{void}
+00174 vrna\_cstr\_print\_eval\_int\_loop\_revert(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,
+00175                                      \textcolor{keywordtype}{int}                i,
+00176                                      \textcolor{keywordtype}{int}                j,
+00177                                      \textcolor{keywordtype}{char}               si,
+00178                                      \textcolor{keywordtype}{char}               sj,
+00179                                      \textcolor{keywordtype}{int}                k,
+00180                                      \textcolor{keywordtype}{int}                l,
+00181                                      \textcolor{keywordtype}{char}               sk,
+00182                                      \textcolor{keywordtype}{char}               sl,
+00183                                      \textcolor{keywordtype}{int}                energy);
+00184 
+00185 
+00186 \textcolor{keywordtype}{void}
+00187 vrna\_cstr\_print\_eval\_mb\_loop(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,
+00188                              \textcolor{keywordtype}{int}                i,
+00189                              \textcolor{keywordtype}{int}                j,
+00190                              \textcolor{keywordtype}{char}               si,
+00191                              \textcolor{keywordtype}{char}               sj,
+00192                              \textcolor{keywordtype}{int}                energy);
+00193 
+00194 
+00195 \textcolor{keywordtype}{void}
+00196 vrna\_cstr\_print\_eval\_mb\_loop\_revert(\textcolor{keyword}{struct} vrna\_cstr\_s  *buf,
+00197                                     \textcolor{keywordtype}{int}                 i,
+00198                                     \textcolor{keywordtype}{int}                 j,
+00199                                     \textcolor{keywordtype}{char}                si,
+00200                                     \textcolor{keywordtype}{char}                sj,
+00201                                     \textcolor{keywordtype}{int}                 energy);
+00202 
+00203 
+00204 \textcolor{keywordtype}{void}
+00205 vrna\_cstr\_print\_eval\_gquad(\textcolor{keyword}{struct} vrna\_cstr\_s *buf,
+00206                            \textcolor{keywordtype}{int}                i,
+00207                            \textcolor{keywordtype}{int}                L,
+00208                            \textcolor{keywordtype}{int}                l[3],
+00209                            \textcolor{keywordtype}{int}                energy);
+00210 
+00211 
+00216 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

@@ -1,0 +1,52 @@
+\hypertarget{grammar_8h_source}{}\section{grammar.\+h}
+\label{grammar_8h_source}\index{Vienna\+R\+N\+A/grammar.\+h@{Vienna\+R\+N\+A/grammar.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_GRAMMAR\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_GRAMMAR\_H}
+00003 
+00016 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00017 
+00018 \textcolor{keyword}{typedef} int (vrna\_callback\_gr\_rule)(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *vc,
+00019                                     \textcolor{keywordtype}{int}                   i,
+00020                                     \textcolor{keywordtype}{int}                   j,
+00021                                     \textcolor{keywordtype}{void}                  *data);
+00022 
+00023 
+00024 \textcolor{keyword}{typedef} \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL} (vrna\_callback\_gr\_rule\_exp)(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00025                                                \textcolor{keywordtype}{int}                  i,
+00026                                                \textcolor{keywordtype}{int}                  j,
+00027                                                \textcolor{keywordtype}{void}                 *data);
+00028 
+00029 
+00030 \textcolor{keyword}{typedef} void (vrna\_callback\_gr\_cond)(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *fc,
+00031                                      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}        stage,
+00032                                      \textcolor{keywordtype}{void}                 *data);
+00033 
+00034 
+00035 \textcolor{keyword}{typedef} void (vrna\_callback\_gr\_free\_data)(\textcolor{keywordtype}{void} *data);
+00036 
+00037 
+00038 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{group__grammar_structvrna__gr__aux__s}{vrna\_gr\_aux\_s} \hyperlink{group__grammar_structvrna__gr__aux__s}{vrna\_gr\_aux\_t};
+00039 
+00040 
+\Hypertarget{grammar_8h_source_l00041}\hyperlink{group__grammar}{00041} \textcolor{keyword}{struct }\hyperlink{group__grammar_structvrna__gr__aux__s}{vrna\_gr\_aux\_s} \{
+\Hypertarget{grammar_8h_source_l00042}\hyperlink{group__grammar_ad4b601db6dc2e18854042b096ee780cc}{00042}   vrna\_callback\_gr\_cond       *\hyperlink{group__grammar_ad4b601db6dc2e18854042b096ee780cc}{cb\_proc}; 
+00044   vrna\_callback\_gr\_rule       *cb\_aux\_f;
+00045   vrna\_callback\_gr\_rule       *cb\_aux\_c;
+00046   vrna\_callback\_gr\_rule       *cb\_aux\_m;
+00047   vrna\_callback\_gr\_rule       *cb\_aux\_m1;
+00048   vrna\_callback\_gr\_rule       *cb\_aux;
+00049 
+00050   vrna\_callback\_gr\_rule\_exp   *cb\_aux\_exp\_f;
+00051   vrna\_callback\_gr\_rule\_exp   *cb\_aux\_exp\_c;
+00052   vrna\_callback\_gr\_rule\_exp   *cb\_aux\_exp\_m;
+00053   vrna\_callback\_gr\_rule\_exp   *cb\_aux\_exp\_m1;
+00054   vrna\_callback\_gr\_rule\_exp   *cb\_aux\_exp;
+00055 
+00056   \textcolor{keywordtype}{void}                        *data;
+00057   vrna\_callback\_gr\_free\_data  *free\_data;
+00058 \};
+00059 
+00069 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

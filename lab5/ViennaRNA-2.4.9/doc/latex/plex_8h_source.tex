@@ -1,0 +1,72 @@
+\hypertarget{plex_8h_source}{}\section{plex.\+h}
+\label{plex_8h_source}\index{Vienna\+R\+N\+A/plex.\+h@{Vienna\+R\+N\+A/plex.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_PLEX\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_PLEX\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00005 
+00006 
+00007 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \hyperlink{group__subopt__wuchty_ga873cf8ed69e0437f8efa8b1fec854a0e}{subopt\_sorted};
+00008 
+00012 \hyperlink{group__data__structures_structduplexT}{duplexT}** Lduplexfold(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,
+00013                       \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,
+00014                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} threshold,
+00015                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} extension\_cost,
+00016                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} alignment\_length,
+00017                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} delta,
+00018                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} fast,
+00019                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_a,
+00020                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_b,
+00021                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_a,
+00022                       \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_b);
+00023 
+00027 \hyperlink{group__data__structures_structduplexT}{duplexT}** Lduplexfold\_XS( \textcolor{keyword}{const} \textcolor{keywordtype}{char}*s1,
+00028                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}* s2,
+00029                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} **access\_s1,
+00030                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} **access\_s2,
+00031                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} threshold,
+00032                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} delta,
+00033                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} alignment\_length,
+00034                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} fast,
+00035                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_a,
+00036                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_b,
+00037                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_a,
+00038                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_b);\textcolor{comment}{/* , const int target\_dead, const int query\_dead); */}
+00039 
+00043 \hyperlink{group__data__structures_structduplexT}{duplexT}** Lduplexfold\_C(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,
+00044                         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,
+00045                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} threshold,
+00046                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} extension\_cost,
+00047                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} alignment\_length,
+00048                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} delta,
+00049                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} fast,
+00050                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* structure,
+00051                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_a,
+00052                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_b,
+00053                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_a,
+00054                         \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_b);
+00055 
+00060 \hyperlink{group__data__structures_structduplexT}{duplexT}** Lduplexfold\_CXS(\textcolor{keyword}{const} \textcolor{keywordtype}{char}*s1,
+00061                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}* s2,
+00062                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} **access\_s1,
+00063                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} **access\_s2,
+00064                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} threshold,
+00065                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} delta,
+00066                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} alignment\_length,
+00067                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} fast,
+00068                           \textcolor{keyword}{const} \textcolor{keywordtype}{char}* structure,
+00069                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_a,
+00070                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} il\_b,
+00071                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_a,
+00072                           \textcolor{keyword}{const} \textcolor{keywordtype}{int} b\_b); \textcolor{comment}{/*, const int target\_dead, const int query\_dead); */}
+00073 
+00074 
+00075 
+00076 
+00077 \textcolor{keywordtype}{int}      arraySize(\hyperlink{group__data__structures_structduplexT}{duplexT}** array);
+00078 \textcolor{keywordtype}{void}     freeDuplexT(\hyperlink{group__data__structures_structduplexT}{duplexT}** array);
+00079 
+00080 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

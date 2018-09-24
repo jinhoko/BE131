@@ -1,0 +1,189 @@
+\hypertarget{multibranch_8h_source}{}\section{multibranch.\+h}
+\label{multibranch_8h_source}\index{Vienna\+R\+N\+A/loops/multibranch.\+h@{Vienna\+R\+N\+A/loops/multibranch.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_LOOPS\_MULTIBRANCH\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_LOOPS\_MULTIBRANCH\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <\hyperlink{utils_2basic_8h}{ViennaRNA/utils/basic.h}>}
+00005 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00006 \textcolor{preprocessor}{#include <\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}>}
+00007 
+00008 \textcolor{preprocessor}{#ifdef VRNA\_WARN\_DEPRECATED}
+00009 \textcolor{preprocessor}{# if defined(DEPRECATED)}
+00010 \textcolor{preprocessor}{#   undef DEPRECATED}
+00011 \textcolor{preprocessor}{# endif}
+00012 \textcolor{preprocessor}{# if defined(\_\_clang\_\_)}
+00013 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("", msg)))}
+00014 \textcolor{preprocessor}{# elif defined(\_\_GNUC\_\_)}
+00015 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}
+00016 \textcolor{preprocessor}{# else}
+00017 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func}
+00018 \textcolor{preprocessor}{# endif}
+00019 \textcolor{preprocessor}{#else}
+00020 \textcolor{preprocessor}{# define DEPRECATED(func, msg) func}
+00021 \textcolor{preprocessor}{#endif}
+00022 
+00023 \textcolor{preprocessor}{#ifdef \_\_GNUC\_\_}
+00024 \textcolor{preprocessor}{# define INLINE inline}
+00025 \textcolor{preprocessor}{#else}
+00026 \textcolor{preprocessor}{# define INLINE}
+00027 \textcolor{preprocessor}{#endif}
+00028 
+00053 \textcolor{keywordtype}{int}
+00054 \hyperlink{group__eval__loops__mb_ga91af6d5fcb0aef243a4071cf9e718020}{vrna\_E\_mb\_loop\_stack}(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *fc,
+00055                      \textcolor{keywordtype}{int}                  i,
+00056                      \textcolor{keywordtype}{int}                  j);
+00057 
+00058 
+00059 \textcolor{keywordtype}{int}
+00060 vrna\_E\_mb\_loop\_fast(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *fc,
+00061                     \textcolor{keywordtype}{int}                   i,
+00062                     \textcolor{keywordtype}{int}                   j,
+00063                     \textcolor{keywordtype}{int}                   *dmli1,
+00064                     \textcolor{keywordtype}{int}                   *dmli2);
+00065 
+00066 
+00067 \textcolor{keywordtype}{int}
+00068 \hyperlink{group__eval__loops__mb_ga91af6d5fcb0aef243a4071cf9e718020}{vrna\_E\_mb\_loop\_stack}(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *fc,
+00069                      \textcolor{keywordtype}{int}                  i,
+00070                      \textcolor{keywordtype}{int}                  j);
+00071 
+00072 
+00073 \textcolor{keywordtype}{int}
+00074 E\_ml\_rightmost\_stem(\textcolor{keywordtype}{int}                   i,
+00075                     \textcolor{keywordtype}{int}                   j,
+00076                     \hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *fc);
+00077 
+00078 
+00079 \textcolor{keywordtype}{int}
+00080 vrna\_E\_ml\_stems\_fast(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *fc,
+00081                      \textcolor{keywordtype}{int}                  i,
+00082                      \textcolor{keywordtype}{int}                  j,
+00083                      \textcolor{keywordtype}{int}                  *fmi,
+00084                      \textcolor{keywordtype}{int}                  *dmli);
+00085 
+00086 
+00087 \textcolor{comment}{/* End basic interface */}
+\Hypertarget{multibranch_8h_source_l00103}\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{00103} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }vrna\_mx\_pf\_aux\_ml\_s *\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\_mx\_pf\_aux\_ml\_t};
+00104 
+00105 
+00106 \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}
+00107 vrna\_exp\_E\_mb\_loop\_fast(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *fc,
+00108                         \textcolor{keywordtype}{int}                   i,
+00109                         \textcolor{keywordtype}{int}                   j,
+00110                         \hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\_mx\_pf\_aux\_ml\_t}   aux\_mx);
+00111 
+00112 
+00113 \hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\_mx\_pf\_aux\_ml\_t}
+00114 vrna\_exp\_E\_ml\_fast\_init(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *fc);
+00115 
+00116 
+00117 \textcolor{keywordtype}{void}
+00118 vrna\_exp\_E\_ml\_fast\_rotate(\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\_mx\_pf\_aux\_ml\_t} aux\_mx);
+00119 
+00120 
+00121 \textcolor{keywordtype}{void}
+00122 vrna\_exp\_E\_ml\_fast\_free(\hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\_mx\_pf\_aux\_ml\_t} aux\_mx);
+00123 
+00124 
+00125 \textcolor{keyword}{const} \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL} *
+00126 vrna\_exp\_E\_ml\_fast\_qqm(\textcolor{keyword}{struct} vrna\_mx\_pf\_aux\_ml\_s *aux\_mx);
+00127 
+00128 
+00129 \textcolor{keyword}{const} \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL} *
+00130 vrna\_exp\_E\_ml\_fast\_qqm1(\textcolor{keyword}{struct} vrna\_mx\_pf\_aux\_ml\_s *aux\_mx);
+00131 
+00132 
+00133 \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}
+00134 vrna\_exp\_E\_ml\_fast(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *fc,
+00135                    \textcolor{keywordtype}{int}                  i,
+00136                    \textcolor{keywordtype}{int}                  j,
+00137                    \hyperlink{group__eval__loops__mb_ga39a8cc1385dcb542a60a9393cde6a1e3}{vrna\_mx\_pf\_aux\_ml\_t}  aux\_mx);
+00138 
+00139 
+00140 \textcolor{comment}{/* End partition function interface */}
+00168 \textcolor{keywordtype}{int}
+00169 \hyperlink{group__mfe__backtracking_ga5b62d56c9d47c1e8792b02cd6b95e78b}{vrna\_BT\_mb\_loop}(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *fc,
+00170                 \textcolor{keywordtype}{int}                   *i,
+00171                 \textcolor{keywordtype}{int}                   *j,
+00172                 \textcolor{keywordtype}{int}                   *k,
+00173                 \textcolor{keywordtype}{int}                   en,
+00174                 \textcolor{keywordtype}{int}                   *component1,
+00175                 \textcolor{keywordtype}{int}                   *component2);
+00176 
+00177 
+00178 \textcolor{keywordtype}{int}
+00179 vrna\_BT\_mb\_loop\_fake(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *fc,
+00180                      \textcolor{keywordtype}{int}                  *u,
+00181                      \textcolor{keywordtype}{int}                  *i,
+00182                      \textcolor{keywordtype}{int}                  *j,
+00183                      \hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}      *bp\_stack,
+00184                      \textcolor{keywordtype}{int}                  *stack\_count);
+00185 
+00186 
+00187 \textcolor{keywordtype}{int}
+00188 vrna\_BT\_mb\_loop\_split(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *fc,
+00189                       \textcolor{keywordtype}{int}                   *i,
+00190                       \textcolor{keywordtype}{int}                   *j,
+00191                       \textcolor{keywordtype}{int}                   *k,
+00192                       \textcolor{keywordtype}{int}                   *l,
+00193                       \textcolor{keywordtype}{int}                   *component1,
+00194                       \textcolor{keywordtype}{int}                   *component2,
+00195                       \hyperlink{group__data__structures_structvrna__bp__stack__s}{vrna\_bp\_stack\_t}       *bp\_stack,
+00196                       \textcolor{keywordtype}{int}                   *stack\_count);
+00197 
+00198 
+00204 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00205 
+00230 PRIVATE INLINE \textcolor{keywordtype}{int}
+00231 E\_MLstem(\textcolor{keywordtype}{int}          type,
+00232          \textcolor{keywordtype}{int}          si1,
+00233          \textcolor{keywordtype}{int}          sj1,
+00234          \hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t} *P)
+00235 \{
+00236   \textcolor{keywordtype}{int} energy = 0;
+00237 
+00238   \textcolor{keywordflow}{if} (si1 >= 0 && sj1 >= 0)
+00239     energy += P->mismatchM[type][si1][sj1];
+00240   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (si1 >= 0)
+00241     energy += P->dangle5[type][si1];
+00242   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (sj1 >= 0)
+00243     energy += P->dangle3[type][sj1];
+00244 
+00245   \textcolor{keywordflow}{if} (type > 2)
+00246     energy += P->TerminalAU;
+00247 
+00248   energy += P->MLintern[type];
+00249 
+00250   \textcolor{keywordflow}{return} energy;
+00251 \}
+00252 
+00253 
+00260 PRIVATE INLINE \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL}
+00261 exp\_E\_MLstem(\textcolor{keywordtype}{int}              type,
+00262              \textcolor{keywordtype}{int}              si1,
+00263              \textcolor{keywordtype}{int}              sj1,
+00264              \hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t} *P)
+00265 \{
+00266   \textcolor{keywordtype}{double} energy = 1.0;
+00267 
+00268   \textcolor{keywordflow}{if} (si1 >= 0 && sj1 >= 0)
+00269     energy = P->expmismatchM[type][si1][sj1];
+00270   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (si1 >= 0)
+00271     energy = P->expdangle5[type][si1];
+00272   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (sj1 >= 0)
+00273     energy = P->expdangle3[type][sj1];
+00274 
+00275   \textcolor{keywordflow}{if} (type > 2)
+00276     energy *= P->expTermAU;
+00277 
+00278   energy *= P->expMLintern[type];
+00279   \textcolor{keywordflow}{return} (\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{FLT\_OR\_DBL})energy;
+00280 \}
+00281 
+00282 
+00283 \textcolor{preprocessor}{#endif}
+00284 
+00289 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

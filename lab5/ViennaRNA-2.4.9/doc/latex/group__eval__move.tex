@@ -1,0 +1,107 @@
+\hypertarget{group__eval__move}{}\section{Energy Evaluation for Atomic Moves}
+\label{group__eval__move}\index{Energy Evaluation for Atomic Moves@{Energy Evaluation for Atomic Moves}}
+
+
+Functions to evaluate the free energy change of a structure after application of (a set of) atomic moves.  
+
+
+
+
+\subsection{Detailed Description}
+Functions to evaluate the free energy change of a structure after application of (a set of) atomic moves. 
+
+Here, atomic moves are not to be confused with moves of actual physical atoms. Instead, an atomic move is considered the smallest conformational change a secondary structure can undergo to form another, distinguishable structure. We currently support the following moves \subparagraph*{Atomic Moves\+:}
+
+
+\begin{DoxyItemize}
+\item Opening (dissociation) of a single base pair
+\item Closing (formation) of a single base pair
+\item Shifting one pairing partner of an existing pair to a different location 
+\end{DoxyItemize}Collaboration diagram for Energy Evaluation for Atomic Moves\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{group__eval__move}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{group__eval__move_gaff1b9e4f4d17b434b0a822fe783672c1}{vrna\+\_\+eval\+\_\+move} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, const char $\ast$structure, int m1, int m2)
+\begin{DoxyCompactList}\small\item\em Calculate energy of a move (closing or opening of a base pair) \end{DoxyCompactList}\item 
+int \hyperlink{group__eval__move_ga123dabc119ea98c968a5e903cc46f0fb}{vrna\+\_\+eval\+\_\+move\+\_\+pt} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, short $\ast$pt, int m1, int m2)
+\begin{DoxyCompactList}\small\item\em Calculate energy of a move (closing or opening of a base pair) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__eval__move_gaff1b9e4f4d17b434b0a822fe783672c1}\label{group__eval__move_gaff1b9e4f4d17b434b0a822fe783672c1}} 
+\index{Energy Evaluation for Atomic Moves@{Energy Evaluation for Atomic Moves}!vrna\+\_\+eval\+\_\+move@{vrna\+\_\+eval\+\_\+move}}
+\index{vrna\+\_\+eval\+\_\+move@{vrna\+\_\+eval\+\_\+move}!Energy Evaluation for Atomic Moves@{Energy Evaluation for Atomic Moves}}
+\subsubsection{\texorpdfstring{vrna\+\_\+eval\+\_\+move()}{vrna\_eval\_move()}}
+{\footnotesize\ttfamily float vrna\+\_\+eval\+\_\+move (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{m1,  }\item[{int}]{m2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{eval_8h}{Vienna\+R\+N\+A/eval.\+h}$>$}
+
+
+
+Calculate energy of a move (closing or opening of a base pair) 
+
+If the parameters m1 and m2 are negative, it is deletion (opening) of a base pair, otherwise it is insertion (opening).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__eval__move_ga123dabc119ea98c968a5e903cc46f0fb}{vrna\+\_\+eval\+\_\+move\+\_\+pt()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+{\em structure} & secondary structure in dot-\/bracket notation \\
+\hline
+{\em m1} & first coordinate of base pair \\
+\hline
+{\em m2} & second coordinate of base pair \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+energy change of the move in kcal/mol (\hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{I\+NF} / 100. upon any error)
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{S\+W\+I\+G Wrapper Notes}
+\item[\hyperlink{wrappers__wrappers000037}{S\+W\+I\+G Wrapper Notes}]This function is attached as method {\bfseries eval\+\_\+move()} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__eval__move_ga123dabc119ea98c968a5e903cc46f0fb}\label{group__eval__move_ga123dabc119ea98c968a5e903cc46f0fb}} 
+\index{Energy Evaluation for Atomic Moves@{Energy Evaluation for Atomic Moves}!vrna\+\_\+eval\+\_\+move\+\_\+pt@{vrna\+\_\+eval\+\_\+move\+\_\+pt}}
+\index{vrna\+\_\+eval\+\_\+move\+\_\+pt@{vrna\+\_\+eval\+\_\+move\+\_\+pt}!Energy Evaluation for Atomic Moves@{Energy Evaluation for Atomic Moves}}
+\subsubsection{\texorpdfstring{vrna\+\_\+eval\+\_\+move\+\_\+pt()}{vrna\_eval\_move\_pt()}}
+{\footnotesize\ttfamily int vrna\+\_\+eval\+\_\+move\+\_\+pt (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{short $\ast$}]{pt,  }\item[{int}]{m1,  }\item[{int}]{m2 }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{eval_8h}{Vienna\+R\+N\+A/eval.\+h}$>$}
+
+
+
+Calculate energy of a move (closing or opening of a base pair) 
+
+If the parameters m1 and m2 are negative, it is deletion (opening) of a base pair, otherwise it is insertion (opening).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__eval__move_gaff1b9e4f4d17b434b0a822fe783672c1}{vrna\+\_\+eval\+\_\+move()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+{\em pt} & the pair table of the secondary structure \\
+\hline
+{\em m1} & first coordinate of base pair \\
+\hline
+{\em m2} & second coordinate of base pair \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+energy change of the move in 10cal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{S\+W\+I\+G Wrapper Notes}
+\item[\hyperlink{wrappers__wrappers000038}{S\+W\+I\+G Wrapper Notes}]This function is attached as method {\bfseries eval\+\_\+move\+\_\+pt()} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}

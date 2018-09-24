@@ -1,0 +1,525 @@
+\hypertarget{group__part__func__global}{}\section{Global Partition Function and Equilibrium Probabilities}
+\label{group__part__func__global}\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+
+
+Variations of the global partition function algorithm.  
+
+
+
+
+\subsection{Detailed Description}
+Variations of the global partition function algorithm. 
+
+We provide implementations of the global partition function algorithm for
+\begin{DoxyItemize}
+\item Single sequences,
+\item Multiple sequence alignments (M\+SA), and
+\item R\+N\+A-\/\+R\+NA hybrids 
+\end{DoxyItemize}Collaboration diagram for Global Partition Function and Equilibrium Probabilities\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__part__func__global}
+\end{center}
+\end{figure}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__kl__neighborhood__pf}{Computing Partition Functions of a Distance Based Partitioning}
+\begin{DoxyCompactList}\small\item\em Compute the partition function and stochastically sample secondary structures for a partitioning of the secondary structure space according to the base pair distance to two fixed reference structures. \end{DoxyCompactList}\item 
+\hyperlink{group__part__func__global__deprecated}{Deprecated Interface for Global Partition Function Computation}
+\end{DoxyCompactItemize}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{part__func_8h}{part\+\_\+func.\+h}
+\begin{DoxyCompactList}\small\item\em Partition function implementations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{group__part__func__global_structvrna__dimer__pf__s}{vrna\+\_\+dimer\+\_\+pf\+\_\+s}
+\begin{DoxyCompactList}\small\item\em Data structure returned by \hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}  \hyperlink{group__part__func__global_structvrna__dimer__pf__s}{More...}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__part__func__global_gaa1e39e73afb51fbaf4ae38f0c066c46b}{vrna\+\_\+pf\+\_\+dimer\+\_\+probs} (double F\+AB, double FA, double FB, \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$pr\+AB, const \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$prA, const \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$prB, int Alength, const \hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t} $\ast$exp\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Compute Boltzmann probabilities of dimerization without homodimers. \end{DoxyCompactList}\item 
+double \hyperlink{group__part__func__global_ga882c35d9dd775c1275593b3b6a966bec}{vrna\+\_\+pr\+\_\+structure} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$fc, const char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the equilibrium probability of a particular secondary structure. \end{DoxyCompactList}\item 
+\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$ \hyperlink{group__part__func__global_ga94f6efc0b8d8712b023452794a0a5bd2}{vrna\+\_\+plist\+\_\+from\+\_\+probs} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, double cut\+\_\+off)
+\begin{DoxyCompactList}\small\item\em Create a \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} from base pair probability matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Base pair related probability computations}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{group__part__func__global_gad3f0c240512e6d43e2e4d4c2076021f5}{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr} (int length, \hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+BL} $\ast$\hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr})
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance in the thermodynamic ensemble from a probability matrix. \end{DoxyCompactList}\item 
+double \hyperlink{group__part__func__global_gaa6b8983b559b9ef4b2e1b31113ea317b}{vrna\+\_\+mean\+\_\+bp\+\_\+distance} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc)
+\begin{DoxyCompactList}\small\item\em Get the mean base pair distance in the thermodynamic ensemble. \end{DoxyCompactList}\item 
+\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$ \hyperlink{group__part__func__global_ga132664bf29fdc30bb5ea715491d1ab22}{vrna\+\_\+stack\+\_\+prob} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, double cutoff)
+\begin{DoxyCompactList}\small\item\em Compute stacking probabilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Basic global partition function interface}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Compute the partition function $Q$ for a given R\+NA sequence, or sequence alignment. \end{DoxyCompactList}\item 
+\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t} \hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, char $\ast$structure)
+\begin{DoxyCompactList}\small\item\em Calculate partition function and base pair probabilities of nucleic acid/nucleic acid dimers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Simplified global partition function computation using sequence(s) or multiple sequence alignment(s)}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{group__part__func__global_gac4a2a74a79e49818bc35412a2b392c7e}{vrna\+\_\+pf\+\_\+fold} (const char $\ast$sequence, char $\ast$structure, \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Compute Partition function $Q$ (and base pair probabilities) for an R\+NA sequence using a comparative method. \end{DoxyCompactList}\item 
+float \hyperlink{group__part__func__global_ga87e5a77b6e50dd54e9d032a9b92973be}{vrna\+\_\+pf\+\_\+circfold} (const char $\ast$sequence, char $\ast$structure, \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Compute Partition function $Q$ (and base pair probabilities) for a circular R\+NA sequences using a comparative method. \end{DoxyCompactList}\item 
+float \hyperlink{group__part__func__global_ga374e31a0f326b2c5da5b84e143a63f38}{vrna\+\_\+pf\+\_\+alifold} (const char $\ast$$\ast$sequences, char $\ast$structure, \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Compute Partition function $Q$ (and base pair probabilities) for an R\+NA sequence alignment using a comparative method. \end{DoxyCompactList}\item 
+float \hyperlink{group__part__func__global_gab70fe6c9a78b79cc5669881720926e1d}{vrna\+\_\+pf\+\_\+circalifold} (const char $\ast$$\ast$sequences, char $\ast$structure, \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Compute Partition function $Q$ (and base pair probabilities) for an alignment of circular R\+NA sequences using a comparative method. \end{DoxyCompactList}\item 
+\hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t} \hyperlink{group__part__func__global_gaf2b846f7ac382686f35ff7b9202fdd5c}{vrna\+\_\+pf\+\_\+co\+\_\+fold} (const char $\ast$seq, char $\ast$structure, \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$$\ast$pl)
+\begin{DoxyCompactList}\small\item\em Calculate partition function and base pair probabilities of nucleic acid/nucleic acid dimers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Data Structure Documentation}
+\index{vrna\+\_\+dimer\+\_\+pf\+\_\+s@{vrna\+\_\+dimer\+\_\+pf\+\_\+s}}\label{structvrna__dimer__pf__s}
+\Hypertarget{group__part__func__global_structvrna__dimer__pf__s}
+\subsubsection{struct vrna\+\_\+dimer\+\_\+pf\+\_\+s}
+Data structure returned by \hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()} \subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__part__func__global_a82e31d1fb6e95923fab6036f52c370af}\label{group__part__func__global_a82e31d1fb6e95923fab6036f52c370af}} 
+double \hyperlink{group__part__func__global_a82e31d1fb6e95923fab6036f52c370af}{F0\+AB}
+\begin{DoxyCompactList}\small\item\em Null model without Duplex\+Init. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__part__func__global_a01a87f59db2b7fbf883b056e6f6c673a}\label{group__part__func__global_a01a87f59db2b7fbf883b056e6f6c673a}} 
+double \hyperlink{group__part__func__global_a01a87f59db2b7fbf883b056e6f6c673a}{F\+AB}
+\begin{DoxyCompactList}\small\item\em all states with Duplex\+Init correction \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__part__func__global_a7b01cea5721f61badebc29cf0a9c4266}\label{group__part__func__global_a7b01cea5721f61badebc29cf0a9c4266}} 
+double \hyperlink{group__part__func__global_a7b01cea5721f61badebc29cf0a9c4266}{Fc\+AB}
+\begin{DoxyCompactList}\small\item\em true hybrid states only \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__part__func__global_a1aca57247f2c023d08028b1919005b0a}\label{group__part__func__global_a1aca57247f2c023d08028b1919005b0a}} 
+double \hyperlink{group__part__func__global_a1aca57247f2c023d08028b1919005b0a}{FA}
+\begin{DoxyCompactList}\small\item\em monomer A \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__part__func__global_ab4d307be5400604d3c1d84d58a9981df}\label{group__part__func__global_ab4d307be5400604d3c1d84d58a9981df}} 
+double \hyperlink{group__part__func__global_ab4d307be5400604d3c1d84d58a9981df}{FB}
+\begin{DoxyCompactList}\small\item\em monomer B \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__part__func__global_gad3f0c240512e6d43e2e4d4c2076021f5}\label{group__part__func__global_gad3f0c240512e6d43e2e4d4c2076021f5}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr@{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr}}
+\index{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr@{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr()}{vrna\_mean\_bp\_distance\_pr()}}
+{\footnotesize\ttfamily double vrna\+\_\+mean\+\_\+bp\+\_\+distance\+\_\+pr (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{\hyperlink{group__data__structures_ga31125aeace516926bf7f251f759b6126}{F\+L\+T\+\_\+\+O\+R\+\_\+\+D\+BL} $\ast$}]{pr }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{equilibrium__probs_8h}{Vienna\+R\+N\+A/equilibrium\+\_\+probs.\+h}$>$}
+
+
+
+Get the mean base pair distance in the thermodynamic ensemble from a probability matrix. 
+
+$<d> = \sum_{a,b} p_a p_b d(S_a,S_b)$~\newline
+this can be computed from the pair probs $p_ij$ as~\newline
+ $<d> = \sum_{ij} p_{ij}(1-p_{ij})$
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & The length of the sequence \\
+\hline
+{\em pr} & The matrix containing the base pair probabilities \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mean pair distance of the structure ensemble 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global_gaa6b8983b559b9ef4b2e1b31113ea317b}\label{group__part__func__global_gaa6b8983b559b9ef4b2e1b31113ea317b}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+mean\+\_\+bp\+\_\+distance@{vrna\+\_\+mean\+\_\+bp\+\_\+distance}}
+\index{vrna\+\_\+mean\+\_\+bp\+\_\+distance@{vrna\+\_\+mean\+\_\+bp\+\_\+distance}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+mean\+\_\+bp\+\_\+distance()}{vrna\_mean\_bp\_distance()}}
+{\footnotesize\ttfamily double vrna\+\_\+mean\+\_\+bp\+\_\+distance (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{equilibrium__probs_8h}{Vienna\+R\+N\+A/equilibrium\+\_\+probs.\+h}$>$}
+
+
+
+Get the mean base pair distance in the thermodynamic ensemble. 
+
+$<d> = \sum_{a,b} p_a p_b d(S_a,S_b)$~\newline
+this can be computed from the pair probs $p_ij$ as~\newline
+ $<d> = \sum_{ij} p_{ij}(1-p_{ij})$
+
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound data structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mean pair distance of the structure ensemble
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{S\+W\+I\+G Wrapper Notes}
+\item[\hyperlink{wrappers__wrappers000091}{S\+W\+I\+G Wrapper Notes}]This function is attached as method {\bfseries \hyperlink{group__part__func__global__deprecated_ga79cbc375af65f11609feb6b055269e7d}{mean\+\_\+bp\+\_\+distance()}} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__part__func__global_ga132664bf29fdc30bb5ea715491d1ab22}\label{group__part__func__global_ga132664bf29fdc30bb5ea715491d1ab22}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+stack\+\_\+prob@{vrna\+\_\+stack\+\_\+prob}}
+\index{vrna\+\_\+stack\+\_\+prob@{vrna\+\_\+stack\+\_\+prob}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+stack\+\_\+prob()}{vrna\_stack\_prob()}}
+{\footnotesize\ttfamily \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}$\ast$ vrna\+\_\+stack\+\_\+prob (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{double}]{cutoff }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{equilibrium__probs_8h}{Vienna\+R\+N\+A/equilibrium\+\_\+probs.\+h}$>$}
+
+
+
+Compute stacking probabilities. 
+
+For each possible base pair $(i,j)$, compute the probability of a stack $(i,j)$, $(i+1, j-1)$.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound data structure with precomputed base pair probabilities \\
+\hline
+{\em cutoff} & A cutoff value that limits the output to stacks with $ p > \textrm{cutoff} $. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of stacks with enclosing base pair $(i,j)$ and probabiltiy $ p $ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global_gaa1e39e73afb51fbaf4ae38f0c066c46b}\label{group__part__func__global_gaa1e39e73afb51fbaf4ae38f0c066c46b}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+pf\+\_\+dimer\+\_\+probs@{vrna\+\_\+pf\+\_\+dimer\+\_\+probs}}
+\index{vrna\+\_\+pf\+\_\+dimer\+\_\+probs@{vrna\+\_\+pf\+\_\+dimer\+\_\+probs}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+pf\+\_\+dimer\+\_\+probs()}{vrna\_pf\_dimer\_probs()}}
+{\footnotesize\ttfamily void vrna\+\_\+pf\+\_\+dimer\+\_\+probs (\begin{DoxyParamCaption}\item[{double}]{F\+AB,  }\item[{double}]{FA,  }\item[{double}]{FB,  }\item[{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$}]{pr\+AB,  }\item[{const \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$}]{prA,  }\item[{const \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$}]{prB,  }\item[{int}]{Alength,  }\item[{const \hyperlink{group__energy__parameters_ga01d8b92fe734df8d79a6169482c7d8d8}{vrna\+\_\+exp\+\_\+param\+\_\+t} $\ast$}]{exp\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{equilibrium__probs_8h}{Vienna\+R\+N\+A/equilibrium\+\_\+probs.\+h}$>$}
+
+
+
+Compute Boltzmann probabilities of dimerization without homodimers. 
+
+Given the pair probabilities and free energies (in the null model) for a dimer AB and the two constituent monomers A and B, compute the conditional pair probabilities given that a dimer AB actually forms. Null model pair probabilities are given as a list as produced by \hyperlink{group__part__func__global_ga94f6efc0b8d8712b023452794a0a5bd2}{vrna\+\_\+plist\+\_\+from\+\_\+probs()}, the dimer probabilities \textquotesingle{}pr\+AB\textquotesingle{} are modified in place.
+
+
+\begin{DoxyParams}{Parameters}
+{\em F\+AB} & free energy of dimer AB \\
+\hline
+{\em FA} & free energy of monomer A \\
+\hline
+{\em FB} & free energy of monomer B \\
+\hline
+{\em pr\+AB} & pair probabilities for dimer \\
+\hline
+{\em prA} & pair probabilities monomer \\
+\hline
+{\em prB} & pair probabilities monomer \\
+\hline
+{\em Alength} & Length of molecule A \\
+\hline
+{\em exp\+\_\+params} & The precomputed Boltzmann factors \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__part__func__global_ga882c35d9dd775c1275593b3b6a966bec}\label{group__part__func__global_ga882c35d9dd775c1275593b3b6a966bec}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+pr\+\_\+structure@{vrna\+\_\+pr\+\_\+structure}}
+\index{vrna\+\_\+pr\+\_\+structure@{vrna\+\_\+pr\+\_\+structure}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+pr\+\_\+structure()}{vrna\_pr\_structure()}}
+{\footnotesize\ttfamily double vrna\+\_\+pr\+\_\+structure (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{fc,  }\item[{const char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{equilibrium__probs_8h}{Vienna\+R\+N\+A/equilibrium\+\_\+probs.\+h}$>$}
+
+
+
+Compute the equilibrium probability of a particular secondary structure. 
+
+The probability $p(s)$ of a particular secondary structure $s$ can be computed as \[ p(s) = \frac{exp(-\beta E(s)}{Z} \] from the structures free energy $E(s)$ and the partition function \[ Z = \sum_s exp(-\beta E(s)),\quad\mathrm{with}\quad\beta = \frac{1}{RT} \] where $R$ is the gas constant and $T$ the thermodynamic temperature.
+
+\begin{DoxyPrecond}{Precondition}
+The fold compound {\ttfamily fc} must have went through a call to \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()} to fill the dynamic programming matrices with the corresponding partition function.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em fc} & The fold compound data structure with precomputed partition function \\
+\hline
+{\em structure} & The secondary structure to compute the probability for in dot-\/bracket notation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The probability of the input structure (range $[0:1]$) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}\label{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+pf@{vrna\+\_\+pf}}
+\index{vrna\+\_\+pf@{vrna\+\_\+pf}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+pf()}{vrna\_pf()}}
+{\footnotesize\ttfamily float vrna\+\_\+pf (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute the partition function $Q$ for a given R\+NA sequence, or sequence alignment. 
+
+If {\itshape structure} is not a N\+U\+LL pointer on input, it contains on return a string consisting of the letters \char`\"{} . , $\vert$ \{ \} ( ) \char`\"{} denoting bases that are essentially unpaired, weakly paired, strongly paired without preference, weakly upstream (downstream) paired, or strongly up-\/ (down-\/)stream paired bases, respectively. If the model\textquotesingle{}s compute\+\_\+bpp is set to 0 base pairing probabilities will not be computed (saving C\+PU time), otherwise after calculations took place \hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr} will contain the probability that bases {\itshape i} and {\itshape j} pair.
+
+\begin{DoxyNote}{Note}
+This function is polymorphic. It accepts \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} of type \hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447da7e264dd3cf2dc9b6448caabcb7763cd6}{V\+R\+N\+A\+\_\+\+F\+C\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+I\+N\+G\+LE}, and \hyperlink{group__fold__compound_gga01a4ff86fa71deaaa5d1abbd95a1447dab821ce46ea3cf665be97df22a76f5023}{V\+R\+N\+A\+\_\+\+F\+C\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+O\+M\+P\+A\+R\+A\+T\+I\+VE}.
+
+This function may return \hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{I\+NF} / 100. in case of contradicting constraints or numerical over-\//underflow. In the latter case, a corresponding warning will be issued to {\ttfamily stdout}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}, \hyperlink{group__fold__compound_ga6601d994ba32b11511b36f68b08403be}{vrna\+\_\+fold\+\_\+compound()}, \hyperlink{group__part__func__global_gac4a2a74a79e49818bc35412a2b392c7e}{vrna\+\_\+pf\+\_\+fold()}, \hyperlink{group__part__func__global_ga87e5a77b6e50dd54e9d032a9b92973be}{vrna\+\_\+pf\+\_\+circfold()}, \hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}, \hyperlink{group__part__func__global_ga374e31a0f326b2c5da5b84e143a63f38}{vrna\+\_\+pf\+\_\+alifold()}, \hyperlink{group__part__func__global_gab70fe6c9a78b79cc5669881720926e1d}{vrna\+\_\+pf\+\_\+circalifold()}, \hyperlink{group__struct__utils_ga0c28c410a5ab22d6ab9c77a84e8d5b44}{vrna\+\_\+db\+\_\+from\+\_\+probs()}, \hyperlink{group__energy__parameters_gab1f3016f96aa96bff020cdd904605afa}{vrna\+\_\+exp\+\_\+params()}, \hyperlink{group__aln__utils_gaf6421a1318586c59fea6a127ed9f65f3}{vrna\+\_\+aln\+\_\+pinfo()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em vc} & The fold compound data structure \\
+\hline
+\mbox{\tt in,out}  & {\em structure} & A pointer to the character array where position-\/wise pairing propensity will be stored. (Maybe N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gibbs free energy of the ensemble ( $G = -RT \cdot \log(Q) $) in kcal/mol
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{S\+W\+I\+G Wrapper Notes}
+\item[\hyperlink{wrappers__wrappers000089}{S\+W\+I\+G Wrapper Notes}]This function is attached as method {\bfseries pf()} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}\label{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+pf\+\_\+dimer@{vrna\+\_\+pf\+\_\+dimer}}
+\index{vrna\+\_\+pf\+\_\+dimer@{vrna\+\_\+pf\+\_\+dimer}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+pf\+\_\+dimer()}{vrna\_pf\_dimer()}}
+{\footnotesize\ttfamily \hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t} vrna\+\_\+pf\+\_\+dimer (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{char $\ast$}]{structure }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Calculate partition function and base pair probabilities of nucleic acid/nucleic acid dimers. 
+
+This is the cofold partition function folding.
+
+\begin{DoxyNote}{Note}
+This function may return \hyperlink{constants_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{I\+NF} / 100. for the {\ttfamily FA}, {\ttfamily FB}, {\ttfamily F\+AB}, {\ttfamily F0\+AB} members of the output data structure in case of contradicting constraints or numerical over-\//underflow. In the latter case, a corresponding warning will be issued to {\ttfamily stdout}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__fold__compound_ga6601d994ba32b11511b36f68b08403be}{vrna\+\_\+fold\+\_\+compound()} for how to retrieve the necessary data structure
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & the fold compound data structure \\
+\hline
+{\em structure} & Will hold the structure or constraints \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vrna\+\_\+dimer\+\_\+pf\+\_\+t structure containing a set of energies needed for concentration computations.
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{S\+W\+I\+G Wrapper Notes}
+\item[\hyperlink{wrappers__wrappers000090}{S\+W\+I\+G Wrapper Notes}]This function is attached as method {\bfseries pf\+\_\+dimer()} to objects of type {\itshape fold\+\_\+compound} \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__part__func__global_gac4a2a74a79e49818bc35412a2b392c7e}\label{group__part__func__global_gac4a2a74a79e49818bc35412a2b392c7e}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+pf\+\_\+fold@{vrna\+\_\+pf\+\_\+fold}}
+\index{vrna\+\_\+pf\+\_\+fold@{vrna\+\_\+pf\+\_\+fold}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+pf\+\_\+fold()}{vrna\_pf\_fold()}}
+{\footnotesize\ttfamily float vrna\+\_\+pf\+\_\+fold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure,  }\item[{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$$\ast$}]{pl }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute Partition function $Q$ (and base pair probabilities) for an R\+NA sequence using a comparative method. 
+
+This simplified interface to \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()} computes the partition function and, if required, base pair probabilities for an R\+NA sequence using default options. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, and the data structure \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__part__func__global_ga87e5a77b6e50dd54e9d032a9b92973be}{vrna\+\_\+pf\+\_\+circfold()}, \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, \hyperlink{group__fold__compound_ga6601d994ba32b11511b36f68b08403be}{vrna\+\_\+fold\+\_\+compound()}, \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & R\+NA sequence \\
+\hline
+{\em structure} & A pointer to the character array where position-\/wise pairing propensity will be stored. (Maybe N\+U\+LL) \\
+\hline
+{\em pl} & A pointer to a list of \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} to store pairing probabilities (Maybe N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gibbs free energy of the ensemble ( $G = -RT \cdot \log(Q) $) in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global_ga87e5a77b6e50dd54e9d032a9b92973be}\label{group__part__func__global_ga87e5a77b6e50dd54e9d032a9b92973be}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+pf\+\_\+circfold@{vrna\+\_\+pf\+\_\+circfold}}
+\index{vrna\+\_\+pf\+\_\+circfold@{vrna\+\_\+pf\+\_\+circfold}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+pf\+\_\+circfold()}{vrna\_pf\_circfold()}}
+{\footnotesize\ttfamily float vrna\+\_\+pf\+\_\+circfold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sequence,  }\item[{char $\ast$}]{structure,  }\item[{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$$\ast$}]{pl }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute Partition function $Q$ (and base pair probabilities) for a circular R\+NA sequences using a comparative method. 
+
+This simplified interface to \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()} computes the partition function and, if required, base pair probabilities for a circular R\+NA sequence using default options. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, and the data structure \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} instead.
+\end{DoxyNote}
+Folding of circular R\+NA sequences is handled as a post-\/processing step of the forward recursions. See \cite{hofacker:2006} for further details.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__part__func__global_gac4a2a74a79e49818bc35412a2b392c7e}{vrna\+\_\+pf\+\_\+fold()}, \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, \hyperlink{group__fold__compound_ga6601d994ba32b11511b36f68b08403be}{vrna\+\_\+fold\+\_\+compound()}, \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & A circular R\+NA sequence \\
+\hline
+{\em structure} & A pointer to the character array where position-\/wise pairing propensity will be stored. (Maybe N\+U\+LL) \\
+\hline
+{\em pl} & A pointer to a list of \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} to store pairing probabilities (Maybe N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gibbs free energy of the ensemble ( $G = -RT \cdot \log(Q) $) in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global_ga374e31a0f326b2c5da5b84e143a63f38}\label{group__part__func__global_ga374e31a0f326b2c5da5b84e143a63f38}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+pf\+\_\+alifold@{vrna\+\_\+pf\+\_\+alifold}}
+\index{vrna\+\_\+pf\+\_\+alifold@{vrna\+\_\+pf\+\_\+alifold}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+pf\+\_\+alifold()}{vrna\_pf\_alifold()}}
+{\footnotesize\ttfamily float vrna\+\_\+pf\+\_\+alifold (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sequences,  }\item[{char $\ast$}]{structure,  }\item[{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$$\ast$}]{pl }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute Partition function $Q$ (and base pair probabilities) for an R\+NA sequence alignment using a comparative method. 
+
+This simplified interface to \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()} computes the partition function and, if required, base pair probabilities for an R\+NA sequence alignment using default options. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, and the data structure \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__part__func__global_gab70fe6c9a78b79cc5669881720926e1d}{vrna\+\_\+pf\+\_\+circalifold()}, \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, \hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}, \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & R\+NA sequence alignment \\
+\hline
+{\em structure} & A pointer to the character array where position-\/wise pairing propensity will be stored. (Maybe N\+U\+LL) \\
+\hline
+{\em pl} & A pointer to a list of \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} to store pairing probabilities (Maybe N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gibbs free energy of the ensemble ( $G = -RT \cdot \log(Q) $) in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global_gab70fe6c9a78b79cc5669881720926e1d}\label{group__part__func__global_gab70fe6c9a78b79cc5669881720926e1d}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+pf\+\_\+circalifold@{vrna\+\_\+pf\+\_\+circalifold}}
+\index{vrna\+\_\+pf\+\_\+circalifold@{vrna\+\_\+pf\+\_\+circalifold}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+pf\+\_\+circalifold()}{vrna\_pf\_circalifold()}}
+{\footnotesize\ttfamily float vrna\+\_\+pf\+\_\+circalifold (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{sequences,  }\item[{char $\ast$}]{structure,  }\item[{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$$\ast$}]{pl }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Compute Partition function $Q$ (and base pair probabilities) for an alignment of circular R\+NA sequences using a comparative method. 
+
+This simplified interface to \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()} computes the partition function and, if required, base pair probabilities for an R\+NA sequence alignment using default options. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, and the data structure \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} instead.
+\end{DoxyNote}
+Folding of circular R\+NA sequences is handled as a post-\/processing step of the forward recursions. See \cite{hofacker:2006} for further details.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__part__func__global_ga374e31a0f326b2c5da5b84e143a63f38}{vrna\+\_\+pf\+\_\+alifold()}, \hyperlink{group__part__func__global_ga29e256d688ad221b78d37f427e0e99bc}{vrna\+\_\+pf()}, \hyperlink{group__fold__compound_gad6bacc816af274922b13d947f708aa0c}{vrna\+\_\+fold\+\_\+compound\+\_\+comparative()}, \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sequences} & Sequence alignment of circular R\+N\+As \\
+\hline
+{\em structure} & A pointer to the character array where position-\/wise pairing propensity will be stored. (Maybe N\+U\+LL) \\
+\hline
+{\em pl} & A pointer to a list of \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} to store pairing probabilities (Maybe N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Gibbs free energy of the ensemble ( $G = -RT \cdot \log(Q) $) in kcal/mol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global_ga94f6efc0b8d8712b023452794a0a5bd2}\label{group__part__func__global_ga94f6efc0b8d8712b023452794a0a5bd2}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+plist\+\_\+from\+\_\+probs@{vrna\+\_\+plist\+\_\+from\+\_\+probs}}
+\index{vrna\+\_\+plist\+\_\+from\+\_\+probs@{vrna\+\_\+plist\+\_\+from\+\_\+probs}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+plist\+\_\+from\+\_\+probs()}{vrna\_plist\_from\_probs()}}
+{\footnotesize\ttfamily \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t}$\ast$ vrna\+\_\+plist\+\_\+from\+\_\+probs (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{double}]{cut\+\_\+off }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2structures_8h}{Vienna\+R\+N\+A/utils/structures.\+h}$>$}
+
+
+
+Create a \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} from base pair probability matrix. 
+
+The probability matrix provided via the \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} is parsed and all pair probabilities above the given threshold are used to create an entry in the plist
+
+The end of the plist is marked by sequence positions i as well as j equal to 0. This condition should be used to stop looping over its entries
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em vc} & The fold compound \\
+\hline
+\mbox{\tt in}  & {\em cut\+\_\+off} & The cutoff value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the plist that is to be created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__part__func__global_gaf2b846f7ac382686f35ff7b9202fdd5c}\label{group__part__func__global_gaf2b846f7ac382686f35ff7b9202fdd5c}} 
+\index{Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}!vrna\+\_\+pf\+\_\+co\+\_\+fold@{vrna\+\_\+pf\+\_\+co\+\_\+fold}}
+\index{vrna\+\_\+pf\+\_\+co\+\_\+fold@{vrna\+\_\+pf\+\_\+co\+\_\+fold}!Global Partition Function and Equilibrium Probabilities@{Global Partition Function and Equilibrium Probabilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+pf\+\_\+co\+\_\+fold()}{vrna\_pf\_co\_fold()}}
+{\footnotesize\ttfamily \hyperlink{group__pf__cofold_ga444df1587c9a2ca15b8eb25188f629c3}{vrna\+\_\+dimer\+\_\+pf\+\_\+t} vrna\+\_\+pf\+\_\+co\+\_\+fold (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{char $\ast$}]{structure,  }\item[{\hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} $\ast$$\ast$}]{pl }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{part__func_8h}{Vienna\+R\+N\+A/part\+\_\+func.\+h}$>$}
+
+
+
+Calculate partition function and base pair probabilities of nucleic acid/nucleic acid dimers. 
+
+This simplified interface to \hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()} computes the partition function and, if required, base pair probabilities for an R\+N\+A-\/\+R\+NA interaction using default options. Memory required for dynamic programming (DP) matrices will be allocated and free\textquotesingle{}d on-\/the-\/fly. Hence, after return of this function, the recursively filled matrices are not available any more for any post-\/processing.
+
+\begin{DoxyNote}{Note}
+In case you want to use the filled DP matrices for any subsequent post-\/processing step, or you require other conditions than specified by the default model details, use \hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}, and the data structure \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} instead.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__part__func__global_ga4e5c7d06c302a7c59fc0d64dc142ca63}{vrna\+\_\+pf\+\_\+dimer()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & Two concatenated R\+NA sequences with a delimiting \textquotesingle{}\&\textquotesingle{} in between \\
+\hline
+{\em structure} & A pointer to the character array where position-\/wise pairing propensity will be stored. (Maybe N\+U\+LL) \\
+\hline
+{\em pl} & A pointer to a list of \hyperlink{group__struct__utils__plist_gab9ac98ab55ded9fb90043b024b915aca}{vrna\+\_\+ep\+\_\+t} to store pairing probabilities (Maybe N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vrna\+\_\+dimer\+\_\+pf\+\_\+t structure containing a set of energies needed for concentration computations. 
+\end{DoxyReturn}

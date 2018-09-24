@@ -1,0 +1,650 @@
+\hypertarget{group__constraints}{}\section{Constraining the R\+NA Folding Grammar}
+\label{group__constraints}\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+
+
+This module provides general functions that allow for an easy control of constrained secondary structure prediction and evaluation.  
+
+
+
+
+\subsection{Detailed Description}
+This module provides general functions that allow for an easy control of constrained secondary structure prediction and evaluation. 
+
+Secondary Structure constraints can be subdivided into two groups\+:
+
+
+\begin{DoxyItemize}
+\item \hyperlink{group__hard__constraints}{Hard Constraints}, and
+\item \hyperlink{group__soft__constraints}{Soft Constraints}.
+\end{DoxyItemize}
+
+While Hard-\/\+Constraints directly influence the production rules used in the folding recursions by allowing, disallowing, or enforcing certain decomposition steps, Soft-\/constraints on the other hand are used to change position specific contributions in the recursions by adding bonuses/penalties in form of pseudo free energies to certain loop configurations.
+
+Secondary structure constraints are always applied at decomposition level, i.\+e. in each step of the recursive structure decomposition, for instance during M\+FE prediction. Below is a visualization of the decomposition scheme
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{recursions}}
+\end{DoxyImageNoCaption}
+
+
+For \hyperlink{group__hard__constraints}{Hard Constraints} the following option flags may be used to constrain the pairing behavior of single, or pairs of nucleotides\+:
+
+
+\begin{DoxyItemize}
+\item \hyperlink{group__hard__constraints_ga9418eda62a5dec070896702c279d2548}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+L\+O\+OP} -\/ Hard constraints flag, base pair in the exterior loop.
+\item \hyperlink{group__hard__constraints_ga79203702b197b6b9d3b78eed40663eb1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+H\+P\+\_\+\+L\+O\+OP} -\/ Hard constraints flag, base pair encloses hairpin loop.
+\item \hyperlink{group__hard__constraints_ga21feeab3a9e5fa5a9e3d9ac0fcf5994f}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+OP} -\/ Hard constraints flag, base pair encloses an interior loop.
+\item \hyperlink{group__hard__constraints_ga0536288e04ff6332ecdc23ca4705402b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+I\+N\+T\+\_\+\+L\+O\+O\+P\+\_\+\+E\+NC} -\/ Hard constraints flag, base pair encloses a multi branch loop.
+\item \hyperlink{group__hard__constraints_ga456ecd2ff00056bb64da8dd4f61bbfc5}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+OP} -\/ Hard constraints flag, base pair is enclosed in an interior loop.
+\item \hyperlink{group__hard__constraints_ga02a3d703ddbcfce393e4bbfcb9db7077}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+M\+B\+\_\+\+L\+O\+O\+P\+\_\+\+E\+NC} -\/ Hard constraints flag, base pair is enclosed in a multi branch loop.
+\item \hyperlink{hard_8h_a1aa55f2c6347e670e003b1a765632dad}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+E\+N\+F\+O\+R\+CE} -\/ Hard constraint flag to indicate enforcement of constraints.
+\item \hyperlink{hard_8h_a9fcac36535850ff612c7e6b1305304a1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+N\+O\+\_\+\+R\+E\+M\+O\+VE} -\/ Hard constraint flag to indicate not to remove base pairs that conflict with a given constraint.
+\item \hyperlink{group__hard__constraints_ga886d9127c49bb982a4b67cd7581e8a5a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+C\+O\+N\+T\+E\+X\+T\+\_\+\+A\+L\+L\+\_\+\+L\+O\+O\+PS} -\/ Constraint context flag indicating any loop context.
+\end{DoxyItemize}
+
+However, for \hyperlink{group__soft__constraints}{Soft Constraints} we do not allow for simple loop type dependent constraining. But soft constraints are equipped with generic constraint support. This enables the user to pass arbitrary callback functions that return auxiliary energy contributions for evaluation the evaluation of any decomposition.
+
+The callback will then always be notified about the type of decomposition that is happening, and the corresponding delimiting sequence positions. The following decomposition steps are distinguished, and should be captured by the user\textquotesingle{}s implementation of the callback\+:
+
+
+\begin{DoxyItemize}
+\item \hyperlink{group__constraints_ga8bd41ebc8039378d242e4e8c273716a5}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+HP} -\/ Flag passed to generic softt constraints callback to indicate hairpin loop decomposition step.
+\item \hyperlink{group__constraints_gaeab04f34d7730cff2d651d782f95d857}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+IL} -\/ Indicator for interior loop decomposition step.
+\item \hyperlink{group__constraints_gaa15b1185673f0b9e900c4748d45f388f}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+ML} -\/ Indicator for multibranch loop decomposition step.
+\item \hyperlink{group__constraints_ga735517266f2e35e1374b8f1ea77ef23e}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+ML} -\/ Indicator for decomposition of multibranch loop part.
+\item \hyperlink{group__constraints_ga4a23054c75d8efc785de50e3ea87602f}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+S\+T\+EM} -\/ Indicator for decomposition of multibranch loop part.
+\item \hyperlink{group__constraints_ga7f4cb9ff7a33e67f0539bd39e7b19a78}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+ML} -\/ Indicator for decomposition of multibranch loop part.
+\item \hyperlink{group__constraints_gae6478dda14e50e2f2cb9ef333a29256e}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+UP} -\/ Indicator for decomposition of multibranch loop part.
+\item \hyperlink{group__constraints_ga63d8ceb8c96ae3b463e529e28cc0fe98}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+S\+T\+EM} -\/ Indicator for decomposition of multibranch loop part.
+\item \hyperlink{group__constraints_ga4fe48d575830b16c208e280e01ab1497}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+AL} -\/ Indicator for decomposition of multibranch loop part.
+\item \hyperlink{group__constraints_ga437adf5115c1999304eff26b41e4c9b6}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+XT} -\/ Indicator for decomposition of exterior loop part.
+\item \hyperlink{group__constraints_gaff1ddaffe86d984623910b40cc8a8717}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+UP} -\/ Indicator for decomposition of exterior loop part.
+\item \hyperlink{group__constraints_gae44b5ace0d9b4a29088069ecb4cec441}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM} -\/ Indicator for decomposition of exterior loop part.
+\item \hyperlink{group__constraints_ga803bd818b3f4b2b0a4a5cfa2f7dc2045}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+E\+XT} -\/ Indicator for decomposition of exterior loop part.
+\item \hyperlink{group__constraints_gabb09c5b78b75a44502fc77b950125c1e}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M\+\_\+\+E\+XT} -\/ Indicator for decomposition of exterior loop part.
+\item \hyperlink{group__constraints_gae7554cd3ff089360c02e4920229e221c}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M\+\_\+\+O\+U\+T\+S\+I\+DE} -\/ Indicator for decomposition of exterior loop part.
+\item \hyperlink{group__constraints_ga06efd054c9271438f6d82d4559d9e69f}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM} -\/ Indicator for decomposition of exterior loop part.
+\item \hyperlink{group__constraints_ga2e75d7a77118735b32f25422d9686719}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M1} -\/ Indicator for decomposition of exterior loop part.
+\end{DoxyItemize}
+
+Simplified interfaces to the soft constraints framework can be obtained by the implementations in the submodules
+
+
+\begin{DoxyItemize}
+\item \hyperlink{group__SHAPE__reactivities}{S\+H\+A\+PE Reactivity Data} and
+\item ligands.
+\end{DoxyItemize}
+
+An implementation that generates soft constraints for unpaired nucleotides by minimizing the discrepancy between their predicted and expected pairing probability is available in submodule \hyperlink{group__perturbation}{Generate Soft Constraints from Data}. Collaboration diagram for Constraining the R\+NA Folding Grammar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__constraints}
+\end{center}
+\end{figure}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__hard__constraints}{Hard Constraints}
+\begin{DoxyCompactList}\small\item\em This module covers all functionality for hard constraints in secondary structure prediction. \end{DoxyCompactList}\item 
+\hyperlink{group__soft__constraints}{Soft Constraints}
+\begin{DoxyCompactList}\small\item\em Functions and data structures for secondary structure soft constraints. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{constraints_2basic_8h}{basic.\+h}
+\begin{DoxyCompactList}\small\item\em Functions and data structures for constraining secondary structure predictions and evaluation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__constraints_ga62e0ed0c33002c09423de4e646f85a2b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+F\+I\+LE}~0
+\begin{DoxyCompactList}\small\item\em Flag for \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()} to indicate that constraints are present in a text file. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga62aa195893d02d1a79ca94952748df36}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+M\+FE}~0
+\begin{DoxyCompactList}\small\item\em Indicate generation of constraints for M\+FE folding. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga03fb5000c19b9a2082bf4ea30a543045}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+PF}~\hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{V\+R\+N\+A\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+PF}
+\begin{DoxyCompactList}\small\item\em Indicate generation of constraints for partition function computation. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga8bd41ebc8039378d242e4e8c273716a5}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+HP}~(unsigned char)1
+\begin{DoxyCompactList}\small\item\em Flag passed to generic softt constraints callback to indicate hairpin loop decomposition step. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_gaeab04f34d7730cff2d651d782f95d857}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+IL}~(unsigned char)2
+\begin{DoxyCompactList}\small\item\em Indicator for interior loop decomposition step. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_gaa15b1185673f0b9e900c4748d45f388f}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+ML}~(unsigned char)3
+\begin{DoxyCompactList}\small\item\em Indicator for multibranch loop decomposition step. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga735517266f2e35e1374b8f1ea77ef23e}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+ML}~(unsigned char)5
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga4a23054c75d8efc785de50e3ea87602f}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+S\+T\+EM}~(unsigned char)6
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga7f4cb9ff7a33e67f0539bd39e7b19a78}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+ML}~(unsigned char)7
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_gae6478dda14e50e2f2cb9ef333a29256e}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+UP}~(unsigned char)8
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga63d8ceb8c96ae3b463e529e28cc0fe98}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+S\+T\+EM}~(unsigned char)9
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga4fe48d575830b16c208e280e01ab1497}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+AL}~(unsigned char)10
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga0224727f7b8ad2f23eb0a3fd28d8b3fb}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+A\+L\+\_\+\+E\+NC}~(unsigned char)11
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of multibranch loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga437adf5115c1999304eff26b41e4c9b6}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+XT}~(unsigned char)12
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_gaff1ddaffe86d984623910b40cc8a8717}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+UP}~(unsigned char)13
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_gae44b5ace0d9b4a29088069ecb4cec441}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM}~(unsigned char)14
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga803bd818b3f4b2b0a4a5cfa2f7dc2045}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+E\+XT}~(unsigned char)15
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_gabb09c5b78b75a44502fc77b950125c1e}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M\+\_\+\+E\+XT}~(unsigned char)16
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__constraints_gae7554cd3ff089360c02e4920229e221c}\label{group__constraints_gae7554cd3ff089360c02e4920229e221c}} 
+\#define \hyperlink{group__constraints_gae7554cd3ff089360c02e4920229e221c}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M\+\_\+\+O\+U\+T\+S\+I\+DE}~(unsigned char)17
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga06efd054c9271438f6d82d4559d9e69f}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM}~(unsigned char)18
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__constraints_ga2e75d7a77118735b32f25422d9686719}{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M1}~(unsigned char)19
+\begin{DoxyCompactList}\small\item\em Indicator for decomposition of exterior loop part. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, const char $\ast$constraint, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Add constraints to a \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} data structure. \end{DoxyCompactList}\item 
+void \hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options} (unsigned int option)
+\begin{DoxyCompactList}\small\item\em Print a help message for pseudo dot-\/bracket structure constraint characters to stdout. (constraint support is specified by option parameter) \end{DoxyCompactList}\item 
+void \hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all} (void)
+\begin{DoxyCompactList}\small\item\em Print structure constraint characters to stdout (full constraint support) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__constraints_ga62e0ed0c33002c09423de4e646f85a2b}\label{group__constraints_ga62e0ed0c33002c09423de4e646f85a2b}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+F\+I\+LE@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+F\+I\+LE}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+F\+I\+LE@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+F\+I\+LE}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+F\+I\+LE}{VRNA\_CONSTRAINT\_FILE}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+F\+I\+LE~0}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Flag for \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()} to indicate that constraints are present in a text file. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()} 
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000148}{Deprecated}]Use 0 instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__constraints_ga62aa195893d02d1a79ca94952748df36}\label{group__constraints_ga62aa195893d02d1a79ca94952748df36}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+M\+FE@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+M\+FE}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+M\+FE@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+M\+FE}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+M\+FE}{VRNA\_CONSTRAINT\_SOFT\_MFE}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+M\+FE~0}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicate generation of constraints for M\+FE folding. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000149}{Deprecated}]This flag has no meaning anymore, since constraints are now always stored!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__constraints_ga03fb5000c19b9a2082bf4ea30a543045}\label{group__constraints_ga03fb5000c19b9a2082bf4ea30a543045}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+PF@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+PF}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+PF@{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+PF}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+PF}{VRNA\_CONSTRAINT\_SOFT\_PF}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+S\+O\+F\+T\+\_\+\+PF~\hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{V\+R\+N\+A\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+PF}}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicate generation of constraints for partition function computation. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000150}{Deprecated}]Use \hyperlink{group__fold__compound_gabfbadcddda3e74ce7f49035ef8f058f7}{V\+R\+N\+A\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+PF} instead!\end{DoxyRefDesc}
+\mbox{\Hypertarget{group__constraints_ga8bd41ebc8039378d242e4e8c273716a5}\label{group__constraints_ga8bd41ebc8039378d242e4e8c273716a5}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+HP@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+HP}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+HP@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+HP}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+HP}{VRNA\_DECOMP\_PAIR\_HP}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+HP~(unsigned char)1}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Flag passed to generic softt constraints callback to indicate hairpin loop decomposition step. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a hairpin loop enclosed by the base pair $(i,j)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_hp}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gaeab04f34d7730cff2d651d782f95d857}\label{group__constraints_gaeab04f34d7730cff2d651d782f95d857}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+IL@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+IL}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+IL@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+IL}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+IL}{VRNA\_DECOMP\_PAIR\_IL}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+IL~(unsigned char)2}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for interior loop decomposition step. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an interior loop enclosed by the base pair $(i,j)$, and enclosing the base pair $(k,l)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_il}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gaa15b1185673f0b9e900c4748d45f388f}\label{group__constraints_gaa15b1185673f0b9e900c4748d45f388f}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+ML@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+ML}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+ML@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+ML}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+ML}{VRNA\_DECOMP\_PAIR\_ML}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+P\+A\+I\+R\+\_\+\+ML~(unsigned char)3}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for multibranch loop decomposition step. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop enclosed by the base pair $(i,j)$, and consisting of some enclosed multi loop content from k to l.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga735517266f2e35e1374b8f1ea77ef23e}\label{group__constraints_ga735517266f2e35e1374b8f1ea77ef23e}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+ML@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+ML}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+ML@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+ML}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+ML}{VRNA\_DECOMP\_ML\_ML\_ML}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+ML~(unsigned char)5}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, which will be decomposed into two multibranch loop parts $[i:k]$, and $[l:j]$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_ml_ml}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga4a23054c75d8efc785de50e3ea87602f}\label{group__constraints_ga4a23054c75d8efc785de50e3ea87602f}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+S\+T\+EM@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+S\+T\+EM}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+S\+T\+EM@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+S\+T\+EM}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+S\+T\+EM}{VRNA\_DECOMP\_ML\_STEM}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+S\+T\+EM~(unsigned char)6}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, which will be considered a single stem branching off with base pair $(k,l)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_stem}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga7f4cb9ff7a33e67f0539bd39e7b19a78}\label{group__constraints_ga7f4cb9ff7a33e67f0539bd39e7b19a78}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+ML@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+ML}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+ML@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+ML}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+ML}{VRNA\_DECOMP\_ML\_ML}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+ML~(unsigned char)7}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, which will be decomposed into a (usually) smaller multibranch loop part $[k:l]$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_ml}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gae6478dda14e50e2f2cb9ef333a29256e}\label{group__constraints_gae6478dda14e50e2f2cb9ef333a29256e}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+UP@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+UP}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+UP@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+UP}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+UP}{VRNA\_DECOMP\_ML\_UP}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+UP~(unsigned char)8}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, which will be considered a multibranch loop part that only consists of unpaired nucleotides.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_up}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga63d8ceb8c96ae3b463e529e28cc0fe98}\label{group__constraints_ga63d8ceb8c96ae3b463e529e28cc0fe98}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+S\+T\+EM@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+S\+T\+EM}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+S\+T\+EM@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+S\+T\+EM}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+S\+T\+EM}{VRNA\_DECOMP\_ML\_ML\_STEM}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+M\+L\+\_\+\+S\+T\+EM~(unsigned char)9}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, which will decomposed into a multibranch loop part $[i:k]$, and a stem with enclosing base pair $(l,j)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_ml_stem}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga4fe48d575830b16c208e280e01ab1497}\label{group__constraints_ga4fe48d575830b16c208e280e01ab1497}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+AL@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+AL}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+AL@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+AL}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+AL}{VRNA\_DECOMP\_ML\_COAXIAL}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+AL~(unsigned char)10}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, where two stems with enclosing pairs $(i,k)$ and $(l,j)$ are coaxially stacking onto each other.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_coaxial}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga0224727f7b8ad2f23eb0a3fd28d8b3fb}\label{group__constraints_ga0224727f7b8ad2f23eb0a3fd28d8b3fb}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+A\+L\+\_\+\+E\+NC@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+A\+L\+\_\+\+E\+NC}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+A\+L\+\_\+\+E\+NC@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+A\+L\+\_\+\+E\+NC}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+A\+L\+\_\+\+E\+NC}{VRNA\_DECOMP\_ML\_COAXIAL\_ENC}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+M\+L\+\_\+\+C\+O\+A\+X\+I\+A\+L\+\_\+\+E\+NC~(unsigned char)11}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of multibranch loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates a multibranch loop part in the interval $[i:j]$, where two stems with enclosing pairs $(i,k)$ and $(l,j)$ are coaxially stacking onto each other.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ml_coaxial}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga437adf5115c1999304eff26b41e4c9b6}\label{group__constraints_ga437adf5115c1999304eff26b41e4c9b6}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+XT@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+XT}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+XT@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+XT}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+XT}{VRNA\_DECOMP\_EXT\_EXT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+XT~(unsigned char)12}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be decomposed into a (usually) smaller exterior loop part $[k:l]$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_ext}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gaff1ddaffe86d984623910b40cc8a8717}\label{group__constraints_gaff1ddaffe86d984623910b40cc8a8717}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+UP@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+UP}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+UP@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+UP}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+UP}{VRNA\_DECOMP\_EXT\_UP}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+UP~(unsigned char)13}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be considered as an exterior loop component consisting of only unpaired nucleotides.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_up}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gae44b5ace0d9b4a29088069ecb4cec441}\label{group__constraints_gae44b5ace0d9b4a29088069ecb4cec441}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM}{VRNA\_DECOMP\_EXT\_STEM}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM~(unsigned char)14}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be considered a stem with enclosing pair $(k,l)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_stem}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga803bd818b3f4b2b0a4a5cfa2f7dc2045}\label{group__constraints_ga803bd818b3f4b2b0a4a5cfa2f7dc2045}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+E\+XT@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+E\+XT}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+E\+XT@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+E\+XT}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+E\+XT}{VRNA\_DECOMP\_EXT\_EXT\_EXT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+E\+XT~(unsigned char)15}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be decomposed into two exterior loop parts $[i:k]$ and $[l:j]$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_ext_ext}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_gabb09c5b78b75a44502fc77b950125c1e}\label{group__constraints_gabb09c5b78b75a44502fc77b950125c1e}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M\+\_\+\+E\+XT@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M\+\_\+\+E\+XT}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M\+\_\+\+E\+XT@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M\+\_\+\+E\+XT}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M\+\_\+\+E\+XT}{VRNA\_DECOMP\_EXT\_STEM\_EXT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M\+\_\+\+E\+XT~(unsigned char)16}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be decomposed into a stem branching off with base pair $(i,k)$, and an exterior loop part $[l:j]$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_stem_ext}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga06efd054c9271438f6d82d4559d9e69f}\label{group__constraints_ga06efd054c9271438f6d82d4559d9e69f}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM}{VRNA\_DECOMP\_EXT\_EXT\_STEM}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+EM~(unsigned char)18}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be decomposed into an exterior loop part $[i:k]$, and a stem branching off with base pair $(l,j)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_ext_stem}}
+\end{DoxyImageNoCaption}
+ \mbox{\Hypertarget{group__constraints_ga2e75d7a77118735b32f25422d9686719}\label{group__constraints_ga2e75d7a77118735b32f25422d9686719}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M1@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M1}}
+\index{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M1@{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M1}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M1}{VRNA\_DECOMP\_EXT\_EXT\_STEM1}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+D\+E\+C\+O\+M\+P\+\_\+\+E\+X\+T\+\_\+\+E\+X\+T\+\_\+\+S\+T\+E\+M1~(unsigned char)19}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Indicator for decomposition of exterior loop part. 
+
+This flag notifies the soft or hard constraint callback function that the current decomposition step evaluates an exterior loop part in the interval $[i:j]$, which will be decomposed into an exterior loop part $[i:k]$, and a stem branching off with base pair $(l,j-1)$.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{decomp_ext_ext_stem1}}
+\end{DoxyImageNoCaption}
+ 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}\label{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!vrna\+\_\+constraints\+\_\+add@{vrna\+\_\+constraints\+\_\+add}}
+\index{vrna\+\_\+constraints\+\_\+add@{vrna\+\_\+constraints\+\_\+add}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{vrna\+\_\+constraints\+\_\+add()}{vrna\_constraints\_add()}}
+{\footnotesize\ttfamily void vrna\+\_\+constraints\+\_\+add (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{const char $\ast$}]{constraint,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{constraints_2basic_8h}{Vienna\+R\+N\+A/constraints/basic.\+h}$>$}
+
+
+
+Add constraints to a \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} data structure. 
+
+Use this function to add/update the hard/soft constraints The function allows for passing a string \textquotesingle{}constraint\textquotesingle{} that can either be a filename that points to a constraints definition file or it may be a pseudo dot-\/bracket notation indicating hard constraints. For the latter, the user has to pass the \hyperlink{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB} option. Also, the user has to specify, which characters are allowed to be interpreted as constraints by passing the corresponding options via the third parameter.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga36ff456c43bf920629cee5a236e4f0ff}{vrna\+\_\+hc\+\_\+init()}, \hyperlink{group__hard__constraints_ga447d88e06ad97bb225cd83310ace8345}{vrna\+\_\+hc\+\_\+add\+\_\+up()}, \hyperlink{group__hard__constraints_ga5070f296c8af2baea10951525519464f}{vrna\+\_\+hc\+\_\+add\+\_\+up\+\_\+batch()}, \hyperlink{group__hard__constraints_ga7cba95ebe2ceb5ec9a5768f2232854fd}{vrna\+\_\+hc\+\_\+add\+\_\+bp()}, \hyperlink{group__soft__constraints_ga9d977a1681356778cc66dceafbe5b032}{vrna\+\_\+sc\+\_\+init()}, \hyperlink{group__soft__constraints_ga99ed63f3ef9e7fe3997932030487a344}{vrna\+\_\+sc\+\_\+set\+\_\+up()}, \hyperlink{group__soft__constraints_ga8e4334b24bc91453fbcda490a4e331af}{vrna\+\_\+sc\+\_\+set\+\_\+bp()}, \hyperlink{group__SHAPE__reactivities_ga57d612b58e1c61dd6cfcb5a843f8f1b3}{vrna\+\_\+sc\+\_\+add\+\_\+\+S\+H\+A\+P\+E\+\_\+deigan()}, \hyperlink{group__SHAPE__reactivities_gaf3c65a045060aef5c4e41693d30af58c}{vrna\+\_\+sc\+\_\+add\+\_\+\+S\+H\+A\+P\+E\+\_\+zarringhalam()}, \hyperlink{group__hard__constraints_ga696dcf77887d856c6f21ea266d8b9ca2}{vrna\+\_\+hc\+\_\+free()}, \hyperlink{group__soft__constraints_ga6d55446448d69346fc313b993c4fb3e8}{vrna\+\_\+sc\+\_\+free()}, \hyperlink{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB}, \hyperlink{group__hard__constraints_ga1c3864bdc92147a4d93de2b1b4356177}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+E\+F\+A\+U\+LT}, \hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE}, \hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT}, \hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X}, \hyperlink{hard_8h_ad54c1315a47d55653dcaa5de6e544b77}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+A\+N\+G\+\_\+\+B\+R\+A\+CK}, \hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK}, \hyperlink{group__hard__constraints_ga5c17253f5a39d1d49b0fb11f5196982a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+R\+A\+M\+OL}, \hyperlink{group__hard__constraints_ga31d0ebb9755ca8a4acafc14f00ca755d}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+E\+R\+M\+OL}, \hyperlink{group__hard__constraints_ga75cfab03cdc97c95b3ce8bb29f52b08e}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+G\+Q\+U\+AD}
+\end{DoxySeeAlso}
+The following is an example for adding hard constraints given in pseudo dot-\/bracket notation. Here, {\ttfamily vc} is the \hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} object, {\ttfamily structure} is a char array with the hard constraint in dot-\/bracket notation, and {\ttfamily enforce\+Constraints} is a flag indicating whether or not constraints for base pairs should be enforced instead of just doing a removal of base pair that conflict with the constraint.
+
+
+\begin{DoxyCodeInclude}
+      \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} constraint\_options = \hyperlink{group__hard__constraints_ga1c3864bdc92147a4d93de2b1b4356177}{VRNA\_CONSTRAINT\_DB\_DEFAULT};
+
+      \textcolor{keywordflow}{if} (enforceConstraints)
+        constraint\_options |= \hyperlink{group__hard__constraints_ga29ebe940110d60ab798fdacbcdbbfb7d}{VRNA\_CONSTRAINT\_DB\_ENFORCE\_BP};
+
+      \textcolor{keywordflow}{if} (canonicalBPonly)
+        constraint\_options |= VRNA\_CONSTRAINT\_DB\_CANONICAL\_BP;
+
+      \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\_constraints\_add}(fc, (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *)cstruc, constraint\_options);
+\end{DoxyCodeInclude}
+ In constrat to the above, constraints may also be read from file\+:
+
+
+\begin{DoxyCodeInclude}
+    \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\_constraints\_add}(fc, constraints\_file, 
+      \hyperlink{group__fold__compound_gacea5b7ee6181c485f36e2afa0e9089e4}{VRNA\_OPTION\_DEFAULT});
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{group__hard__constraints_ga5b4de3247b67358080c176b94591a8e6}{vrna\+\_\+hc\+\_\+add\+\_\+from\+\_\+db()}, \hyperlink{group__hard__constraints_ga447d88e06ad97bb225cd83310ace8345}{vrna\+\_\+hc\+\_\+add\+\_\+up()}, \hyperlink{group__hard__constraints_ga5070f296c8af2baea10951525519464f}{vrna\+\_\+hc\+\_\+add\+\_\+up\+\_\+batch()} vrna\+\_\+hc\+\_\+add\+\_\+bp\+\_\+unspecific(), \hyperlink{group__hard__constraints_ga7cba95ebe2ceb5ec9a5768f2232854fd}{vrna\+\_\+hc\+\_\+add\+\_\+bp()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em vc} & The fold compound \\
+\hline
+{\em constraint} & A string with either the filename of the constraint definitions or a pseudo dot-\/bracket notation of the hard constraint. May be N\+U\+LL. \\
+\hline
+{\em options} & The option flags \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}\label{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!vrna\+\_\+message\+\_\+constraint\+\_\+options@{vrna\+\_\+message\+\_\+constraint\+\_\+options}}
+\index{vrna\+\_\+message\+\_\+constraint\+\_\+options@{vrna\+\_\+message\+\_\+constraint\+\_\+options}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{vrna\+\_\+message\+\_\+constraint\+\_\+options()}{vrna\_message\_constraint\_options()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+constraint\+\_\+options (\begin{DoxyParamCaption}\item[{unsigned int}]{option }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Print a help message for pseudo dot-\/bracket structure constraint characters to stdout. (constraint support is specified by option parameter) 
+
+Currently available options are\+:~\newline
+\hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE} (paired with another base)~\newline
+\hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT} (no constraint at all)~\newline
+\hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X} (base must not pair)~\newline
+\hyperlink{hard_8h_ad54c1315a47d55653dcaa5de6e544b77}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+A\+N\+G\+\_\+\+B\+R\+A\+CK} (paired downstream/upstream)~\newline
+\hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK} (base i pairs base j)~\newline
+ pass a collection of options as one value like this\+: \begin{DoxyVerb}vrna_message_constraints(option_1 | option_2 | option_n) \end{DoxyVerb}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()}, \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB}, \hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE}, \hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT}, \hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X}, \hyperlink{hard_8h_ad54c1315a47d55653dcaa5de6e544b77}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+A\+N\+G\+\_\+\+B\+R\+A\+CK}, \hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK}, \hyperlink{group__hard__constraints_ga31d0ebb9755ca8a4acafc14f00ca755d}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+E\+R\+M\+OL}, \hyperlink{group__hard__constraints_ga5c17253f5a39d1d49b0fb11f5196982a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+R\+A\+M\+OL}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em option} & Option switch that tells which constraint help will be printed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}\label{group__constraints_gaec7e13fa0465c2acc7a621d1aecb709f}} 
+\index{Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}!vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all@{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all}}
+\index{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all@{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all}!Constraining the R\+N\+A Folding Grammar@{Constraining the R\+N\+A Folding Grammar}}
+\subsubsection{\texorpdfstring{vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all()}{vrna\_message\_constraint\_options\_all()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+constraint\+\_\+options\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{hard_8h}{Vienna\+R\+N\+A/constraints/hard.\+h}$>$}
+
+
+
+Print structure constraint characters to stdout (full constraint support) 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__constraints_gaa1f20b53bf09ac2e6b0dbb13f7d89670}{vrna\+\_\+message\+\_\+constraint\+\_\+options()}, \hyperlink{group__constraints_ga35a401f680969a556858a8dd5f1d07cc}{vrna\+\_\+constraints\+\_\+add()}, \hyperlink{group__hard__constraints_ga4bfc2f15c4f261c62a11af9d2aa80c90}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+DB}, \hyperlink{group__hard__constraints_ga13053547a2de5532b64b64d35e097ae1}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+P\+I\+PE}, \hyperlink{group__hard__constraints_ga369bea82eae75fbe626f409fa425747e}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+D\+OT}, \hyperlink{group__hard__constraints_ga7283bbe0f8954f7b030ecc3f2d1932b2}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+X}, \hyperlink{hard_8h_ad54c1315a47d55653dcaa5de6e544b77}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+A\+N\+G\+\_\+\+B\+R\+A\+CK}, \hyperlink{group__hard__constraints_gac17b034852c914bc5879954c65d7e74b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+R\+N\+D\+\_\+\+B\+R\+A\+CK}, \hyperlink{group__hard__constraints_ga31d0ebb9755ca8a4acafc14f00ca755d}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+E\+R\+M\+OL}, \hyperlink{group__hard__constraints_ga5c17253f5a39d1d49b0fb11f5196982a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+N\+T\+\_\+\+D\+B\+\_\+\+I\+N\+T\+R\+A\+M\+OL} 
+\end{DoxySeeAlso}

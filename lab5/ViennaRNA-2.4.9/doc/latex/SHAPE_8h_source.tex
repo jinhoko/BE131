@@ -1,0 +1,56 @@
+\hypertarget{SHAPE_8h_source}{}\section{S\+H\+A\+P\+E.\+h}
+\label{SHAPE_8h_source}\index{Vienna\+R\+N\+A/constraints/\+S\+H\+A\+P\+E.\+h@{Vienna\+R\+N\+A/constraints/\+S\+H\+A\+P\+E.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_CONSTRAINTS\_SHAPE\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_CONSTRAINTS\_SHAPE\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00005 
+00023 \textcolor{keywordtype}{void} vrna\_constraints\_add\_SHAPE(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00024                                 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_file,
+00025                                 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_method,
+00026                                 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_conversion,
+00027                                 \textcolor{keywordtype}{int} verbose,
+00028                                 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} constraint\_type);
+00029 
+00030 \textcolor{keywordtype}{void} vrna\_constraints\_add\_SHAPE\_ali(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00031                                     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_method,
+00032                                     \textcolor{keyword}{const} \textcolor{keywordtype}{char} **shape\_files,
+00033                                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}  *shape\_file\_association,
+00034                                     \textcolor{keywordtype}{int} verbose,
+00035                                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} constraint\_type);
+00061 \textcolor{keywordtype}{int} \hyperlink{group__SHAPE__reactivities_ga57d612b58e1c61dd6cfcb5a843f8f1b3}{vrna\_sc\_add\_SHAPE\_deigan}( \hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00062                               \textcolor{keyword}{const} \textcolor{keywordtype}{double} *reactivities,
+00063                               \textcolor{keywordtype}{double} m,
+00064                               \textcolor{keywordtype}{double} b,
+00065                               \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options);
+00066 
+00079 \textcolor{keywordtype}{int} \hyperlink{group__SHAPE__reactivities_ga04ba85da63d8c793bb8001d1e6f800ba}{vrna\_sc\_add\_SHAPE\_deigan\_ali}( 
+      \hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00080                                   \textcolor{keyword}{const} \textcolor{keywordtype}{char} **shape\_files,
+00081                                   \textcolor{keyword}{const} \textcolor{keywordtype}{int} *shape\_file\_association,
+00082                                   \textcolor{keywordtype}{double} m,
+00083                                   \textcolor{keywordtype}{double} b,
+00084                                   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options);
+00085 
+00108 \textcolor{keywordtype}{int} \hyperlink{group__SHAPE__reactivities_gaf3c65a045060aef5c4e41693d30af58c}{vrna\_sc\_add\_SHAPE\_zarringhalam}( 
+      \hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00109                                     \textcolor{keyword}{const} \textcolor{keywordtype}{double} *reactivities,
+00110                                     \textcolor{keywordtype}{double} b,
+00111                                     \textcolor{keywordtype}{double} default\_value,
+00112                                     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_conversion,
+00113                                     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} options);
+00114 
+00127 \textcolor{keywordtype}{int} \hyperlink{SHAPE_8h_a71b84eb0dd69e5c256f4ecf8f78cf314}{vrna\_sc\_SHAPE\_parse\_method}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *method\_string,
+00128                                 \textcolor{keywordtype}{char} *method,
+00129                                 \textcolor{keywordtype}{float} *param\_1,
+00130                                 \textcolor{keywordtype}{float} *param\_2);
+00131 
+00146 \textcolor{keywordtype}{int} \hyperlink{group__SHAPE__reactivities_ga67675b3ed48744489a3bcfa4174197cb}{vrna\_sc\_SHAPE\_to\_pr}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *shape\_conversion,
+00147                         \textcolor{keywordtype}{double} *values,
+00148                         \textcolor{keywordtype}{int} length,
+00149                         \textcolor{keywordtype}{double} default\_value);
+00150 
+00151 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

@@ -1,0 +1,344 @@
+\hypertarget{group__energy__parameters__convert}{}\section{Converting Energy Parameter Files}
+\label{group__energy__parameters__convert}\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+
+
+Convert energy parameter files into the latest format.  
+
+
+
+
+\subsection{Detailed Description}
+Convert energy parameter files into the latest format. 
+
+To preserve some backward compatibility the R\+N\+Alib also provides functions to convert energy parameter files from the format used in version 1.\+4-\/1.\+8 into the new format used since version 2.\+0 Collaboration diagram for Converting Energy Parameter Files\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__energy__parameters__convert}
+\end{center}
+\end{figure}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{1_88_84__epars_8h}{1.\+8.\+4\+\_\+epars.\+h}
+\begin{DoxyCompactList}\small\item\em Free energy parameters for parameter file conversion. \end{DoxyCompactList}\item 
+file \hyperlink{1_88_84__intloops_8h}{1.\+8.\+4\+\_\+intloops.\+h}
+\begin{DoxyCompactList}\small\item\em Free energy parameters for interior loop contributions needed by the parameter file conversion functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__energy__parameters__convert_ga8dc6aee5a806c49b71557152f9616bc4}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+A\+LL}~1U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gaf66fe2cb11dfcfd32d791049c254a8a4}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+HP}~2U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gad23522d63f8d4c50d5a5deee9bee3ef2}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+T\+A\+CK}~4U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gaa892c7b4957459090f3e08da298cc347}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+HP}~8U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_ga4ff223fb1f9c62cd92d9ab811ad03d55}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+NT}~16U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gaf5d3743219f83c6348155cd81e755bbb}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+1N}~32U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_ga78382ec622ba99e0ac2262317bdd7316}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+23}~64U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gae67af9f1cdf7baf2865481282a5d1034}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+M\+U\+L\+TI}~128U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gaf14ead7ef1fdbe725ade653750fc51e3}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+E\+XT}~256U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_ga036ffd996d8c8a9acf631760dd1da24b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E5}~512U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_ga34a8a5479ef885834ef32f3fb43d79bc}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E3}~1024U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_ga079aafefd5f8ab57ee5120099a34bd25}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+11}~2048U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gacf770881d9034431ebe741642342a1f9}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+21}~4096U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gaa307671e2631cdacad9cbe4c6583b05f}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+22}~8192U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_ga7092fe0be4de6f02cc0bf08e81af726a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+B\+U\+L\+GE}~16384U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gac5c2289fdf8ff1b980976d1613ff943a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+NT}~32768U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gaf2c8755d64eff3852aa45df9ac80a4fe}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+ML}~65536U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_ga46d5b1535ae86060b6317565b7c6b40b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+I\+SC}~131072U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gaa1ff48a79642d69579d1766561ec6db6}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+P\+E\+C\+I\+A\+L\+\_\+\+HP}~262144U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_ga0d4e8a836bb4864ab5129c085dbf592d}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+V\+A\+N\+I\+L\+LA}~524288U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_ga2eb0462f16939ddacdaf751a88d675ce}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+N\+I\+N\+IO}~1048576U
+\item 
+\#define \hyperlink{group__energy__parameters__convert_gac86976e9c2a55b3a6481ea60044f6098}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+U\+MP}~2097152U
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__energy__parameters__convert_gafbe538bc4eb2cf2a33326e1010005f8a}{convert\+\_\+parameter\+\_\+file} (const char $\ast$iname, const char $\ast$oname, unsigned int options)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__energy__parameters__convert_ga8dc6aee5a806c49b71557152f9616bc4}\label{group__energy__parameters__convert_ga8dc6aee5a806c49b71557152f9616bc4}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+A\+LL@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+A\+LL}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+A\+LL@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+A\+LL}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+A\+LL}{VRNA\_CONVERT\_OUTPUT\_ALL}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+A\+LL~1U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of a complete parameter set \mbox{\Hypertarget{group__energy__parameters__convert_gaf66fe2cb11dfcfd32d791049c254a8a4}\label{group__energy__parameters__convert_gaf66fe2cb11dfcfd32d791049c254a8a4}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+HP@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+HP}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+HP@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+HP}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+HP}{VRNA\_CONVERT\_OUTPUT\_HP}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+HP~2U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of hairpin contributions \mbox{\Hypertarget{group__energy__parameters__convert_gad23522d63f8d4c50d5a5deee9bee3ef2}\label{group__energy__parameters__convert_gad23522d63f8d4c50d5a5deee9bee3ef2}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+T\+A\+CK@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+T\+A\+CK}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+T\+A\+CK@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+T\+A\+CK}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+T\+A\+CK}{VRNA\_CONVERT\_OUTPUT\_STACK}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+T\+A\+CK~4U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of base pair stack contributions \mbox{\Hypertarget{group__energy__parameters__convert_gaa892c7b4957459090f3e08da298cc347}\label{group__energy__parameters__convert_gaa892c7b4957459090f3e08da298cc347}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+HP@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+HP}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+HP@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+HP}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+HP}{VRNA\_CONVERT\_OUTPUT\_MM\_HP}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+HP~8U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of hairpin mismatch contribution \mbox{\Hypertarget{group__energy__parameters__convert_ga4ff223fb1f9c62cd92d9ab811ad03d55}\label{group__energy__parameters__convert_ga4ff223fb1f9c62cd92d9ab811ad03d55}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+NT@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+NT}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+NT@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+NT}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+NT}{VRNA\_CONVERT\_OUTPUT\_MM\_INT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+NT~16U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of interior loop mismatch contribution \mbox{\Hypertarget{group__energy__parameters__convert_gaf5d3743219f83c6348155cd81e755bbb}\label{group__energy__parameters__convert_gaf5d3743219f83c6348155cd81e755bbb}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+1N@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+1N}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+1N@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+1N}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+1N}{VRNA\_CONVERT\_OUTPUT\_MM\_INT\_1N}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+1N~32U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of 1\+:n interior loop mismatch contribution \mbox{\Hypertarget{group__energy__parameters__convert_ga78382ec622ba99e0ac2262317bdd7316}\label{group__energy__parameters__convert_ga78382ec622ba99e0ac2262317bdd7316}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+23@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+23}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+23@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+23}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+23}{VRNA\_CONVERT\_OUTPUT\_MM\_INT\_23}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+23~64U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of 2\+:3 interior loop mismatch contribution \mbox{\Hypertarget{group__energy__parameters__convert_gae67af9f1cdf7baf2865481282a5d1034}\label{group__energy__parameters__convert_gae67af9f1cdf7baf2865481282a5d1034}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+M\+U\+L\+TI@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+M\+U\+L\+TI}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+M\+U\+L\+TI@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+M\+U\+L\+TI}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+M\+U\+L\+TI}{VRNA\_CONVERT\_OUTPUT\_MM\_MULTI}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+M\+U\+L\+TI~128U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of multi loop mismatch contribution \mbox{\Hypertarget{group__energy__parameters__convert_gaf14ead7ef1fdbe725ade653750fc51e3}\label{group__energy__parameters__convert_gaf14ead7ef1fdbe725ade653750fc51e3}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+E\+XT@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+E\+XT}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+E\+XT@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+E\+XT}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+E\+XT}{VRNA\_CONVERT\_OUTPUT\_MM\_EXT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+E\+XT~256U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of exterior loop mismatch contribution \mbox{\Hypertarget{group__energy__parameters__convert_ga036ffd996d8c8a9acf631760dd1da24b}\label{group__energy__parameters__convert_ga036ffd996d8c8a9acf631760dd1da24b}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E5@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E5}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E5@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E5}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E5}{VRNA\_CONVERT\_OUTPUT\_DANGLE5}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E5~512U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of 5\textquotesingle{} dangle conctribution \mbox{\Hypertarget{group__energy__parameters__convert_ga34a8a5479ef885834ef32f3fb43d79bc}\label{group__energy__parameters__convert_ga34a8a5479ef885834ef32f3fb43d79bc}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E3@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E3}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E3@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E3}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E3}{VRNA\_CONVERT\_OUTPUT\_DANGLE3}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E3~1024U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of 3\textquotesingle{} dangle contribution \mbox{\Hypertarget{group__energy__parameters__convert_ga079aafefd5f8ab57ee5120099a34bd25}\label{group__energy__parameters__convert_ga079aafefd5f8ab57ee5120099a34bd25}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+11@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+11}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+11@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+11}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+11}{VRNA\_CONVERT\_OUTPUT\_INT\_11}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+11~2048U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of 1\+:1 interior loop contribution \mbox{\Hypertarget{group__energy__parameters__convert_gacf770881d9034431ebe741642342a1f9}\label{group__energy__parameters__convert_gacf770881d9034431ebe741642342a1f9}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+21@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+21}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+21@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+21}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+21}{VRNA\_CONVERT\_OUTPUT\_INT\_21}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+21~4096U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of 2\+:1 interior loop contribution \mbox{\Hypertarget{group__energy__parameters__convert_gaa307671e2631cdacad9cbe4c6583b05f}\label{group__energy__parameters__convert_gaa307671e2631cdacad9cbe4c6583b05f}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+22@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+22}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+22@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+22}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+22}{VRNA\_CONVERT\_OUTPUT\_INT\_22}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+22~8192U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of 2\+:2 interior loop contribution \mbox{\Hypertarget{group__energy__parameters__convert_ga7092fe0be4de6f02cc0bf08e81af726a}\label{group__energy__parameters__convert_ga7092fe0be4de6f02cc0bf08e81af726a}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+B\+U\+L\+GE@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+B\+U\+L\+GE}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+B\+U\+L\+GE@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+B\+U\+L\+GE}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+B\+U\+L\+GE}{VRNA\_CONVERT\_OUTPUT\_BULGE}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+B\+U\+L\+GE~16384U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of bulge loop contribution \mbox{\Hypertarget{group__energy__parameters__convert_gac5c2289fdf8ff1b980976d1613ff943a}\label{group__energy__parameters__convert_gac5c2289fdf8ff1b980976d1613ff943a}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+NT@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+NT}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+NT@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+NT}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+NT}{VRNA\_CONVERT\_OUTPUT\_INT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+NT~32768U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of interior loop contribution \mbox{\Hypertarget{group__energy__parameters__convert_gaf2c8755d64eff3852aa45df9ac80a4fe}\label{group__energy__parameters__convert_gaf2c8755d64eff3852aa45df9ac80a4fe}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+ML@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+ML}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+ML@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+ML}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+ML}{VRNA\_CONVERT\_OUTPUT\_ML}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+ML~65536U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of multi loop contribution \mbox{\Hypertarget{group__energy__parameters__convert_ga46d5b1535ae86060b6317565b7c6b40b}\label{group__energy__parameters__convert_ga46d5b1535ae86060b6317565b7c6b40b}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+I\+SC@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+I\+SC}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+I\+SC@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+I\+SC}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+I\+SC}{VRNA\_CONVERT\_OUTPUT\_MISC}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+I\+SC~131072U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of misc contributions (such as terminal\+AU) \mbox{\Hypertarget{group__energy__parameters__convert_gaa1ff48a79642d69579d1766561ec6db6}\label{group__energy__parameters__convert_gaa1ff48a79642d69579d1766561ec6db6}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+P\+E\+C\+I\+A\+L\+\_\+\+HP@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+P\+E\+C\+I\+A\+L\+\_\+\+HP}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+P\+E\+C\+I\+A\+L\+\_\+\+HP@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+P\+E\+C\+I\+A\+L\+\_\+\+HP}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+P\+E\+C\+I\+A\+L\+\_\+\+HP}{VRNA\_CONVERT\_OUTPUT\_SPECIAL\_HP}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+P\+E\+C\+I\+A\+L\+\_\+\+HP~262144U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of special hairpin contributions (tri-\/, tetra-\/, hexa-\/loops) \mbox{\Hypertarget{group__energy__parameters__convert_ga0d4e8a836bb4864ab5129c085dbf592d}\label{group__energy__parameters__convert_ga0d4e8a836bb4864ab5129c085dbf592d}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+V\+A\+N\+I\+L\+LA@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+V\+A\+N\+I\+L\+LA}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+V\+A\+N\+I\+L\+LA@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+V\+A\+N\+I\+L\+LA}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+V\+A\+N\+I\+L\+LA}{VRNA\_CONVERT\_OUTPUT\_VANILLA}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+V\+A\+N\+I\+L\+LA~524288U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of given parameters only~\newline
+\begin{DoxyNote}{Note}
+This option overrides all other output options, except \hyperlink{group__energy__parameters__convert_gac86976e9c2a55b3a6481ea60044f6098}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+U\+MP} ! 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__energy__parameters__convert_ga2eb0462f16939ddacdaf751a88d675ce}\label{group__energy__parameters__convert_ga2eb0462f16939ddacdaf751a88d675ce}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+N\+I\+N\+IO@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+N\+I\+N\+IO}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+N\+I\+N\+IO@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+N\+I\+N\+IO}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+N\+I\+N\+IO}{VRNA\_CONVERT\_OUTPUT\_NINIO}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+N\+I\+N\+IO~1048576U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate printing of interior loop asymmetry contribution \mbox{\Hypertarget{group__energy__parameters__convert_gac86976e9c2a55b3a6481ea60044f6098}\label{group__energy__parameters__convert_gac86976e9c2a55b3a6481ea60044f6098}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+U\+MP@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+U\+MP}}
+\index{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+U\+MP@{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+U\+MP}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+U\+MP}{VRNA\_CONVERT\_OUTPUT\_DUMP}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+U\+MP~2097152U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Flag to indicate dumping the energy contributions from the library instead of an input file 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__energy__parameters__convert_gafbe538bc4eb2cf2a33326e1010005f8a}\label{group__energy__parameters__convert_gafbe538bc4eb2cf2a33326e1010005f8a}} 
+\index{Converting Energy Parameter Files@{Converting Energy Parameter Files}!convert\+\_\+parameter\+\_\+file@{convert\+\_\+parameter\+\_\+file}}
+\index{convert\+\_\+parameter\+\_\+file@{convert\+\_\+parameter\+\_\+file}!Converting Energy Parameter Files@{Converting Energy Parameter Files}}
+\subsubsection{\texorpdfstring{convert\+\_\+parameter\+\_\+file()}{convert\_parameter\_file()}}
+{\footnotesize\ttfamily void convert\+\_\+parameter\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{iname,  }\item[{const char $\ast$}]{oname,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{convert_8h}{Vienna\+R\+N\+A/params/convert.\+h}$>$}
+
+Convert/dump a Vienna 1.\+8.\+4 formatted energy parameter file
+
+The options argument allows one to control the different output modes.~\newline
+Currently available options are\+:~\newline
+\hyperlink{group__energy__parameters__convert_ga8dc6aee5a806c49b71557152f9616bc4}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+A\+LL}, \hyperlink{group__energy__parameters__convert_gaf66fe2cb11dfcfd32d791049c254a8a4}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+HP}, \hyperlink{group__energy__parameters__convert_gad23522d63f8d4c50d5a5deee9bee3ef2}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+T\+A\+CK}~\newline
+\hyperlink{group__energy__parameters__convert_gaa892c7b4957459090f3e08da298cc347}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+HP}, \hyperlink{group__energy__parameters__convert_ga4ff223fb1f9c62cd92d9ab811ad03d55}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+NT}, \hyperlink{group__energy__parameters__convert_gaf5d3743219f83c6348155cd81e755bbb}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+1N}~\newline
+\hyperlink{group__energy__parameters__convert_ga78382ec622ba99e0ac2262317bdd7316}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+I\+N\+T\+\_\+23}, \hyperlink{group__energy__parameters__convert_gae67af9f1cdf7baf2865481282a5d1034}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+M\+U\+L\+TI}, \hyperlink{group__energy__parameters__convert_gaf14ead7ef1fdbe725ade653750fc51e3}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+M\+\_\+\+E\+XT}~\newline
+\hyperlink{group__energy__parameters__convert_ga036ffd996d8c8a9acf631760dd1da24b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E5}, \hyperlink{group__energy__parameters__convert_ga34a8a5479ef885834ef32f3fb43d79bc}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+N\+G\+L\+E3}, \hyperlink{group__energy__parameters__convert_ga079aafefd5f8ab57ee5120099a34bd25}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+11}~\newline
+\hyperlink{group__energy__parameters__convert_gacf770881d9034431ebe741642342a1f9}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+21}, \hyperlink{group__energy__parameters__convert_gaa307671e2631cdacad9cbe4c6583b05f}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+N\+T\+\_\+22}, \hyperlink{group__energy__parameters__convert_ga7092fe0be4de6f02cc0bf08e81af726a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+B\+U\+L\+GE}~\newline
+\hyperlink{group__energy__parameters__convert_gac5c2289fdf8ff1b980976d1613ff943a}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+I\+NT}, \hyperlink{group__energy__parameters__convert_gaf2c8755d64eff3852aa45df9ac80a4fe}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+ML}, \hyperlink{group__energy__parameters__convert_ga46d5b1535ae86060b6317565b7c6b40b}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+I\+SC}~\newline
+\hyperlink{group__energy__parameters__convert_gaa1ff48a79642d69579d1766561ec6db6}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+S\+P\+E\+C\+I\+A\+L\+\_\+\+HP}, \hyperlink{group__energy__parameters__convert_ga0d4e8a836bb4864ab5129c085dbf592d}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+V\+A\+N\+I\+L\+LA}, \hyperlink{group__energy__parameters__convert_ga2eb0462f16939ddacdaf751a88d675ce}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+N\+I\+N\+IO}~\newline
+\hyperlink{group__energy__parameters__convert_gac86976e9c2a55b3a6481ea60044f6098}{V\+R\+N\+A\+\_\+\+C\+O\+N\+V\+E\+R\+T\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+U\+MP}
+
+The defined options are fine for bitwise compare-\/ and assignment-\/operations, e. g.\+: pass a collection of options as a single value like this\+: \begin{DoxyVerb}convert_parameter_file(ifile, ofile, option_1 | option_2 | option_n) \end{DoxyVerb}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em iname} & The input file name (If N\+U\+LL input is read from stdin) \\
+\hline
+{\em oname} & The output file name (If N\+U\+LL output is written to stdout) \\
+\hline
+{\em options} & The options (as described above) \\
+\hline
+\end{DoxyParams}

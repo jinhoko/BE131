@@ -1,0 +1,68 @@
+\hypertarget{concentrations_8h_source}{}\section{concentrations.\+h}
+\label{concentrations_8h_source}\index{Vienna\+R\+N\+A/concentrations.\+h@{Vienna\+R\+N\+A/concentrations.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_CONCENTRATIONS\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_CONCENTRATIONS\_H}
+00003 
+00004 \textcolor{preprocessor}{#ifdef VRNA\_WARN\_DEPRECATED}
+00005 \textcolor{preprocessor}{# if defined(\_\_clang\_\_)}
+00006 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("", msg)))}
+00007 \textcolor{preprocessor}{# elif defined(\_\_GNUC\_\_)}
+00008 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}
+00009 \textcolor{preprocessor}{# else}
+00010 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func}
+00011 \textcolor{preprocessor}{# endif}
+00012 \textcolor{preprocessor}{#else}
+00013 \textcolor{preprocessor}{# define DEPRECATED(func, msg) func}
+00014 \textcolor{preprocessor}{#endif}
+00015 
+\Hypertarget{concentrations_8h_source_l00028}\hyperlink{group__pf__cofold_gac48c2723444ecfdceafcfd525ca98322}{00028} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_s} \hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_t};
+00029 
+00030 
+00031 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00032 
+\Hypertarget{concentrations_8h_source_l00036}\hyperlink{group__pf__cofold_ga46244c7adf5040580291c45b465f4efa}{00036} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_s} \hyperlink{structvrna__dimer__conc__s}{ConcEnt};
+00037 
+00038 \textcolor{preprocessor}{#endif}
+00039 
+00040 \textcolor{preprocessor}{#include <\hyperlink{fold__compound_8h}{ViennaRNA/fold\_compound.h}>}
+00041 \textcolor{preprocessor}{#include <\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}>}
+00042 
+\Hypertarget{concentrations_8h_source_l00046}\hyperlink{structvrna__dimer__conc__s}{00046} \textcolor{keyword}{struct }\hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_s} \{
+\Hypertarget{concentrations_8h_source_l00047}\hyperlink{structvrna__dimer__conc__s_a6e64ce1afbc93756afef06c0e3ccce97}{00047}   \textcolor{keywordtype}{double}  \hyperlink{structvrna__dimer__conc__s_a6e64ce1afbc93756afef06c0e3ccce97}{Ac\_start};   
+\Hypertarget{concentrations_8h_source_l00048}\hyperlink{structvrna__dimer__conc__s_a5763381efee22a0bbec2f2d0754f7697}{00048}   \textcolor{keywordtype}{double}  \hyperlink{structvrna__dimer__conc__s_a5763381efee22a0bbec2f2d0754f7697}{Bc\_start};   
+\Hypertarget{concentrations_8h_source_l00049}\hyperlink{structvrna__dimer__conc__s_aef56a1fe8d7f07e7b5d9a65417dda8a4}{00049}   \textcolor{keywordtype}{double}  \hyperlink{structvrna__dimer__conc__s_aef56a1fe8d7f07e7b5d9a65417dda8a4}{ABc};        
+00050   \textcolor{keywordtype}{double}  AAc;
+00051   \textcolor{keywordtype}{double}  BBc;
+00052   \textcolor{keywordtype}{double}  Ac;
+00053   \textcolor{keywordtype}{double}  Bc;
+00054 \};
+00055 
+00056 
+00076 \hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_t} *\hyperlink{group__pf__cofold_ga83b8d5d0f7875d6d5013b208f23e3356}{vrna\_pf\_dimer\_concentrations}(\textcolor{keywordtype}{double}        
+                FcAB,
+00077                                                 \textcolor{keywordtype}{double}                  FcAA,
+00078                                                 \textcolor{keywordtype}{double}                  FcBB,
+00079                                                 \textcolor{keywordtype}{double}                  FEA,
+00080                                                 \textcolor{keywordtype}{double}                  FEB,
+00081                                                 \textcolor{keyword}{const} \textcolor{keywordtype}{double}            *startconc,
+00082                                                 \textcolor{keyword}{const} \hyperlink{group__energy__parameters_structvrna__exp__param__s}{vrna\_exp\_param\_t}  *exp\_params);
+00083 
+00084 
+00089 \textcolor{comment}{/*}
+00090 \textcolor{comment}{ #################################################}
+00091 \textcolor{comment}{ # DEPRECATED FUNCTIONS                          #}
+00092 \textcolor{comment}{ #################################################}
+00093 \textcolor{comment}{ */}
+00094 
+00115 DEPRECATED(\hyperlink{structvrna__dimer__conc__s}{vrna\_dimer\_conc\_t} *\hyperlink{concentrations_8h_a163159722a422ba90335a601fc34b8fb}{get\_concentrations}(\textcolor{keywordtype}{double} FEAB,
+00116                                                  \textcolor{keywordtype}{double} FEAA,
+00117                                                  \textcolor{keywordtype}{double} FEBB,
+00118                                                  \textcolor{keywordtype}{double} FEA,
+00119                                                  \textcolor{keywordtype}{double} FEB,
+00120                                                  \textcolor{keywordtype}{double} *startconc),
+00121           \textcolor{stringliteral}{"Use vrna\_pf\_dimer\_concentrations() instead"});
+00122 
+00123 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

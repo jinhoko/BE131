@@ -1,0 +1,21 @@
+\hypertarget{constraints_8h_source}{}\section{constraints.\+h}
+\label{constraints_8h_source}\index{Vienna\+R\+N\+A/constraints.\+h@{Vienna\+R\+N\+A/constraints.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_CONSTRAINTS\_DEPRECATED\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_CONSTRAINTS\_DEPRECATED\_H}
+00003 
+00010 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00011 \textcolor{preprocessor}{# ifdef VRNA\_WARN\_DEPRECATED}
+00012 \textcolor{preprocessor}{#warning "Including deprecated header file <ViennaRNA/constraints.h>! Use <ViennaRNA/constraints/basic.h>
+       instead!"}
+00013 \textcolor{preprocessor}{# endif}
+00014 \textcolor{preprocessor}{#include <\hyperlink{constraints_2basic_8h}{ViennaRNA/constraints/basic.h}>}
+00015 \textcolor{preprocessor}{#include <\hyperlink{hard_8h}{ViennaRNA/constraints/hard.h}>}
+00016 \textcolor{preprocessor}{#include <\hyperlink{soft_8h}{ViennaRNA/constraints/soft.h}>}
+00017 \textcolor{preprocessor}{#include <\hyperlink{SHAPE_8h}{ViennaRNA/constraints/SHAPE.h}>}
+00018 \textcolor{preprocessor}{#include <\hyperlink{ligand_8h}{ViennaRNA/constraints/ligand.h}>}
+00019 \textcolor{preprocessor}{#endif}
+00020 
+00021 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

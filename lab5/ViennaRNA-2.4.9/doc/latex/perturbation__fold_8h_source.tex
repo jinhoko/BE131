@@ -1,0 +1,47 @@
+\hypertarget{perturbation__fold_8h_source}{}\section{perturbation\+\_\+fold.\+h}
+\label{perturbation__fold_8h_source}\index{Vienna\+R\+N\+A/perturbation\+\_\+fold.\+h@{Vienna\+R\+N\+A/perturbation\+\_\+fold.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_PERTURBATION\_FOLD\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_PERTURBATION\_FOLD\_H}
+00003 
+00004 \textcolor{preprocessor}{#include "\hyperlink{data__structures_8h}{data\_structures.h}"}
+00005 
+\Hypertarget{perturbation__fold_8h_source_l00024}\hyperlink{group__perturbation_ga81e10993d1ae728e4e02022b33155a12}{00024} \textcolor{preprocessor}{#define VRNA\_OBJECTIVE\_FUNCTION\_QUADRATIC 0}
+00025 
+\Hypertarget{perturbation__fold_8h_source_l00033}\hyperlink{group__perturbation_gac070dfb9cafaeb14d5652bd9adf0f6b1}{00033} \textcolor{preprocessor}{#define VRNA\_OBJECTIVE\_FUNCTION\_ABSOLUTE 1}
+00034 
+\Hypertarget{perturbation__fold_8h_source_l00040}\hyperlink{group__perturbation_gae5126200d80dbb282f46083fffc606bf}{00040} \textcolor{preprocessor}{#define VRNA\_MINIMIZER\_DEFAULT 0}
+00041 
+\Hypertarget{perturbation__fold_8h_source_l00049}\hyperlink{group__perturbation_gab1d89db58e8c497795a5005f5dbc8c4a}{00049} \textcolor{preprocessor}{#define VRNA\_MINIMIZER\_CONJUGATE\_FR 1}
+00050 
+\Hypertarget{perturbation__fold_8h_source_l00058}\hyperlink{group__perturbation_ga5aaeafe1b0aa77a5cda18943ff94b02f}{00058} \textcolor{preprocessor}{#define VRNA\_MINIMIZER\_CONJUGATE\_PR 2}
+00059 
+\Hypertarget{perturbation__fold_8h_source_l00067}\hyperlink{group__perturbation_ga9be8a702cddf58235571ace11cc41b22}{00067} \textcolor{preprocessor}{#define VRNA\_MINIMIZER\_VECTOR\_BFGS 3}
+00068 
+\Hypertarget{perturbation__fold_8h_source_l00076}\hyperlink{group__perturbation_ga7b0a65c6c92fa1d8012383ba9d3dcb4f}{00076} \textcolor{preprocessor}{#define VRNA\_MINIMIZER\_VECTOR\_BFGS2 4}
+00077 
+\Hypertarget{perturbation__fold_8h_source_l00085}\hyperlink{group__perturbation_ga9ecd2144c2ebed7533233da3986521b0}{00085} \textcolor{preprocessor}{#define VRNA\_MINIMIZER\_STEEPEST\_DESCENT 5}
+00086 
+\Hypertarget{perturbation__fold_8h_source_l00096}\hyperlink{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}{00096} \textcolor{keyword}{typedef} void (*\hyperlink{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}{progress\_callback})(\textcolor{keywordtype}{int}     iteration,
+00097                                   \textcolor{keywordtype}{double}  score,
+00098                                   \textcolor{keywordtype}{double}  *epsilon);
+00099 
+00139 \textcolor{keywordtype}{void} \hyperlink{group__perturbation_gaa124bdc20d88001c38ade590c4bcc3c4}{vrna\_sc\_minimize\_pertubation}(
+      \hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *vc,
+00140                                   \textcolor{keyword}{const} \textcolor{keywordtype}{double}          *q\_prob\_unpaired,
+00141                                   \textcolor{keywordtype}{int}                   objective\_function,
+00142                                   \textcolor{keywordtype}{double}                sigma\_squared,
+00143                                   \textcolor{keywordtype}{double}                tau\_squared,
+00144                                   \textcolor{keywordtype}{int}                   algorithm,
+00145                                   \textcolor{keywordtype}{int}                   sample\_size,
+00146                                   \textcolor{keywordtype}{double}                *epsilon,
+00147                                   \textcolor{keywordtype}{double}                initialStepSize,
+00148                                   \textcolor{keywordtype}{double}                minStepSize,
+00149                                   \textcolor{keywordtype}{double}                minImprovement,
+00150                                   \textcolor{keywordtype}{double}                minimizerTolerance,
+00151                                   \hyperlink{group__perturbation_gaa715397c7afd2d2955c315512a3d571a}{progress\_callback}     callback);
+00152 
+00153 
+00154 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

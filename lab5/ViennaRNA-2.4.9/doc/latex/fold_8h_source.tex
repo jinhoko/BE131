@@ -1,0 +1,138 @@
+\hypertarget{fold_8h_source}{}\section{fold.\+h}
+\label{fold_8h_source}\index{Vienna\+R\+N\+A/fold.\+h@{Vienna\+R\+N\+A/fold.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_FOLD\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_FOLD\_H}
+00003 
+00004 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00005 
+00006 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00007 \textcolor{preprocessor}{#include <\hyperlink{params_2basic_8h}{ViennaRNA/params/basic.h}>}
+00008 \textcolor{preprocessor}{#include <\hyperlink{mfe_8h}{ViennaRNA/mfe.h}>}
+00009 \textcolor{preprocessor}{#include <\hyperlink{eval_8h}{ViennaRNA/eval.h}>}
+00010 
+00011 \textcolor{preprocessor}{#ifdef VRNA\_WARN\_DEPRECATED}
+00012 \textcolor{preprocessor}{# if defined(\_\_clang\_\_)}
+00013 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated("", msg)))}
+00014 \textcolor{preprocessor}{# elif defined(\_\_GNUC\_\_)}
+00015 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func \_\_attribute\_\_ ((deprecated(msg)))}
+00016 \textcolor{preprocessor}{# else}
+00017 \textcolor{preprocessor}{#  define DEPRECATED(func, msg) func}
+00018 \textcolor{preprocessor}{# endif}
+00019 \textcolor{preprocessor}{#else}
+00020 \textcolor{preprocessor}{# define DEPRECATED(func, msg) func}
+00021 \textcolor{preprocessor}{#endif}
+00022 
+00077 DEPRECATED(\textcolor{keywordtype}{float}
+00078 \hyperlink{group__mfe__global__deprecated_ga2bc41df5d71fee6fd8da9904ee65d8fb}{fold\_par}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence,
+00079           \textcolor{keywordtype}{char} *structure,
+00080           \hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t} *parameters,
+00081           \textcolor{keywordtype}{int} is\_constrained,
+00082           \textcolor{keywordtype}{int} is\_circular),
+00083 \textcolor{stringliteral}{"Use the new API and vrna\_mfe() instead"});
+00084 
+00101 DEPRECATED(\textcolor{keywordtype}{float} \hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence, \textcolor{keywordtype}{char} *structure),
+00102 \textcolor{stringliteral}{"Use vrna\_fold() or vrna\_mfe() instead"});
+00103 
+00120 DEPRECATED(\textcolor{keywordtype}{float} \hyperlink{group__mfe__global__deprecated_ga4ac63ab3e8d9a80ced28b8052d94e423}{circfold}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sequence, \textcolor{keywordtype}{char} *structure),
+00121 \textcolor{stringliteral}{"Use vrna\_circfold() or vrna\_mfe() instead"});
+00122 
+00123 
+00130 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{group__mfe__global__deprecated_ga107fdfe5fd641868156bfd849f6866c7}{free\_arrays}(\textcolor{keywordtype}{void}),
+00131 \textcolor{stringliteral}{"This function is obsolete"});
+00132 
+00133 
+00134 
+00141 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{group__mfe__global__deprecated_ga41bf8f6fa15b94471f7095cad9f0ccf3}{update\_fold\_params}(\textcolor{keywordtype}{void}),
+00142 \textcolor{stringliteral}{"This function is obsolete"});
+00143 
+00150 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{group__mfe__global__deprecated_gae66dc422efb8f5d56717d92d6002a9f8}{update\_fold\_params\_par}(\hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t} *parameters),
+00151 \textcolor{stringliteral}{"Use the new API with vrna\_fold\_compound\_t datastructure instead"});
+00152 
+00158 DEPRECATED(\textcolor{keywordtype}{void}
+00159 \hyperlink{group__mfe__global__deprecated_ga99641b8dbb40891da5490d3cc271e607}{export\_fold\_arrays}( \textcolor{keywordtype}{int} **f5\_p,
+00160                     \textcolor{keywordtype}{int} **c\_p,
+00161                     \textcolor{keywordtype}{int} **fML\_p,
+00162                     \textcolor{keywordtype}{int} **fM1\_p,
+00163                     \textcolor{keywordtype}{int} **indx\_p,
+00164                     \textcolor{keywordtype}{char} **ptype\_p),
+00165 \textcolor{stringliteral}{"Use the new API with vrna\_fold\_compound\_t datastructure instead"});
+00166 
+00172 DEPRECATED(\textcolor{keywordtype}{void}
+00173 \hyperlink{group__mfe__global__deprecated_ga6606ec0ec964ea506fdadb997a1a5328}{export\_fold\_arrays\_par}( \textcolor{keywordtype}{int} **f5\_p,
+00174                         \textcolor{keywordtype}{int} **c\_p,
+00175                         \textcolor{keywordtype}{int} **fML\_p,
+00176                         \textcolor{keywordtype}{int} **fM1\_p,
+00177                         \textcolor{keywordtype}{int} **indx\_p,
+00178                         \textcolor{keywordtype}{char} **ptype\_p,
+00179                         \hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t} **P\_p),
+00180 \textcolor{stringliteral}{"Use the new API with vrna\_fold\_compound\_t datastructure instead"});
+00181 
+00187 DEPRECATED(\textcolor{keywordtype}{void}
+00188 \hyperlink{group__mfe__global__deprecated_ga04d5d639fd4473ca766436a9bae5665c}{export\_circfold\_arrays}( \textcolor{keywordtype}{int} *Fc\_p,
+00189                         \textcolor{keywordtype}{int} *FcH\_p,
+00190                         \textcolor{keywordtype}{int} *FcI\_p,
+00191                         \textcolor{keywordtype}{int} *FcM\_p,
+00192                         \textcolor{keywordtype}{int} **fM2\_p,
+00193                         \textcolor{keywordtype}{int} **f5\_p,
+00194                         \textcolor{keywordtype}{int} **c\_p,
+00195                         \textcolor{keywordtype}{int} **fML\_p,
+00196                         \textcolor{keywordtype}{int} **fM1\_p,
+00197                         \textcolor{keywordtype}{int} **indx\_p,
+00198                         \textcolor{keywordtype}{char} **ptype\_p),
+00199 \textcolor{stringliteral}{"Use the new API with vrna\_fold\_compound\_t datastructure instead"});
+00200 
+00206 DEPRECATED(\textcolor{keywordtype}{void}
+00207 \hyperlink{group__mfe__global__deprecated_ga004bb901e7fd2f8d5ae68f9530318ce1}{export\_circfold\_arrays\_par}( \textcolor{keywordtype}{int} *Fc\_p,
+00208                             \textcolor{keywordtype}{int} *FcH\_p,
+00209                             \textcolor{keywordtype}{int} *FcI\_p,
+00210                             \textcolor{keywordtype}{int} *FcM\_p,
+00211                             \textcolor{keywordtype}{int} **fM2\_p,
+00212                             \textcolor{keywordtype}{int} **f5\_p,
+00213                             \textcolor{keywordtype}{int} **c\_p,
+00214                             \textcolor{keywordtype}{int} **fML\_p,
+00215                             \textcolor{keywordtype}{int} **fM1\_p,
+00216                             \textcolor{keywordtype}{int} **indx\_p,
+00217                             \textcolor{keywordtype}{char} **ptype\_p,
+00218                             \hyperlink{group__energy__parameters_structvrna__param__s}{vrna\_param\_t} **P\_p),
+00219 \textcolor{stringliteral}{"Use the new API with vrna\_fold\_compound\_t datastructure instead"});
+00220 
+00221 
+00222 
+00223 \textcolor{comment}{/* finally moved the loop energy function declarations to this header...  */}
+00224 \textcolor{comment}{/* BUT: The functions only exist for backward compatibility reasons!      */}
+00225 \textcolor{comment}{/* You better include "loop\_energies.h" and call the functions:           */}
+00226 \textcolor{comment}{/* E\_Hairpin() and E\_IntLoop() which are (almost) threadsafe as they get  */}
+00227 \textcolor{comment}{/* a pointer to the energy parameter data structure as additional argument */}
+00228 
+00233 DEPRECATED(\textcolor{keywordtype}{int} \hyperlink{group__mfe__global__deprecated_ga2163034a25c6115d894b199e97e03f6c}{LoopEnergy}(\textcolor{keywordtype}{int} n1,
+00234                           \textcolor{keywordtype}{int} n2,
+00235                           \textcolor{keywordtype}{int} type,
+00236                           \textcolor{keywordtype}{int} type\_2,
+00237                           \textcolor{keywordtype}{int} si1,
+00238                           \textcolor{keywordtype}{int} sj1,
+00239                           \textcolor{keywordtype}{int} sp1,
+00240                           \textcolor{keywordtype}{int} sq1),
+00241 \textcolor{stringliteral}{"This function is obsolete"});
+00242 
+00247 DEPRECATED(\textcolor{keywordtype}{int} \hyperlink{group__mfe__global__deprecated_gab327ce11972f5ac069d52c8dedfdb700}{HairpinE}(\textcolor{keywordtype}{int} size,
+00248                         \textcolor{keywordtype}{int} type,
+00249                         \textcolor{keywordtype}{int} si1,
+00250                         \textcolor{keywordtype}{int} sj1,
+00251                         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\textcolor{keywordtype}{string}),
+00252 \textcolor{stringliteral}{"Use E\_Hairpin() instead"});
+00253 
+00259 DEPRECATED(\textcolor{keywordtype}{void} \hyperlink{group__mfe__global__deprecated_gac3f0a28d9cb609d388b155445073fd20}{initialize\_fold}(\textcolor{keywordtype}{int} length),
+00260 \textcolor{stringliteral}{"This function is obsolete"});
+00261 
+00265 DEPRECATED(\textcolor{keywordtype}{char} *backtrack\_fold\_from\_pair(\textcolor{keywordtype}{char} *sequence,
+00266                                           \textcolor{keywordtype}{int} i,
+00267                                           \textcolor{keywordtype}{int} j),
+00268 \textcolor{stringliteral}{"This function is obsolete. Consider using vrna\_backtrack\_from\_intervals() instead"});
+00269 
+00270 
+00271 \textcolor{preprocessor}{#endif}
+00272 
+00277 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

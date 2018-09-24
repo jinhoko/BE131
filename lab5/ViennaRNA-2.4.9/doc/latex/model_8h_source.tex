@@ -1,0 +1,368 @@
+\hypertarget{model_8h_source}{}\section{model.\+h}
+\label{model_8h_source}\index{Vienna\+R\+N\+A/model.\+h@{Vienna\+R\+N\+A/model.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_MODEL\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_MODEL\_H}
+00003 
+00017 \textcolor{preprocessor}{#ifndef NBASES}
+00018 \textcolor{preprocessor}{#define NBASES 8}
+00019 \textcolor{preprocessor}{#endif}
+00020 
+\Hypertarget{model_8h_source_l00022}\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{00022} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_s} \hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t};
+00023 
+\Hypertarget{model_8h_source_l00030}\hyperlink{group__model__details_gaf47f9850b3b4763479f7a7e7a15648a2}{00030} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_TEMPERATURE    37.0}
+00031 
+\Hypertarget{model_8h_source_l00036}\hyperlink{group__model__details_ga5505389cba74a18bbc116d2bb20256fa}{00036} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_PF\_SCALE       -1}
+00037 
+\Hypertarget{model_8h_source_l00042}\hyperlink{group__model__details_ga383d3ac8d08c3b6221754b50871c1200}{00042} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_BETA\_SCALE     1.}
+00043 
+\Hypertarget{model_8h_source_l00047}\hyperlink{group__model__details_ga2aa7bc2cae774b83a5c468f824c27a42}{00047} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_DANGLES        2}
+00048 
+\Hypertarget{model_8h_source_l00053}\hyperlink{group__model__details_gabd1ab224e1048defd45c165ed7d1c108}{00053} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_SPECIAL\_HP     1}
+00054 
+\Hypertarget{model_8h_source_l00059}\hyperlink{group__model__details_gab72462726dd60ed0d43339bbf7ee08ad}{00059} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_NO\_LP          0}
+00060 
+\Hypertarget{model_8h_source_l00065}\hyperlink{group__model__details_ga34702f7d14d38b877ba8e475281e97e2}{00065} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_NO\_GU          0}
+00066 
+\Hypertarget{model_8h_source_l00071}\hyperlink{group__model__details_ga5308de46faaca4b9fd16045864901ee7}{00071} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_NO\_GU\_CLOSURE  0}
+00072 
+\Hypertarget{model_8h_source_l00077}\hyperlink{group__model__details_ga22059033db7bcd875c51fec32425490a}{00077} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_CIRC           0}
+00078 
+\Hypertarget{model_8h_source_l00083}\hyperlink{group__model__details_ga793ed812e86f43799b14b2deee917f23}{00083} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_GQUAD          0}
+00084 
+\Hypertarget{model_8h_source_l00089}\hyperlink{group__model__details_ga63f6006a02ba2d89148441f406c309e7}{00089} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_UNIQ\_ML        0}
+00090 
+\Hypertarget{model_8h_source_l00095}\hyperlink{group__model__details_ga6fcf6b2d0f89256cdbd166486c9b6e1e}{00095} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_ENERGY\_SET     0}
+00096 
+\Hypertarget{model_8h_source_l00101}\hyperlink{group__model__details_ga3fda8006ab84baf817bd8e5ccbc6bb35}{00101} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_BACKTRACK      1}
+00102 
+\Hypertarget{model_8h_source_l00107}\hyperlink{group__model__details_gad0e81fcaca53c4a826c68e0796de2afb}{00107} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_BACKTRACK\_TYPE 'F'}
+00108 
+\Hypertarget{model_8h_source_l00113}\hyperlink{group__model__details_ga1d6cd5051940b126c248147c011bac6c}{00113} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_COMPUTE\_BPP    1}
+00114 
+\Hypertarget{model_8h_source_l00119}\hyperlink{group__model__details_ga7cb6f4ae8fdebff6746a4410814f2977}{00119} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_MAX\_BP\_SPAN    -1}
+00120 
+\Hypertarget{model_8h_source_l00125}\hyperlink{group__model__details_ga8de04a9cb57e811e313b0f9f207f6bdb}{00125} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_WINDOW\_SIZE    -1}
+00126 
+\Hypertarget{model_8h_source_l00131}\hyperlink{group__model__details_ga938f68463e84fe060aa6502f428a517d}{00131} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_LOG\_ML         0}
+00132 
+\Hypertarget{model_8h_source_l00137}\hyperlink{group__model__details_ga2a5bbfc1edf33077e39466d2d9807115}{00137} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_ALI\_OLD\_EN     0}
+00138 
+\Hypertarget{model_8h_source_l00143}\hyperlink{group__model__details_ga64b3ab65a9ca42d4ad1d05e193083147}{00143} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_ALI\_RIBO       0}
+00144 
+\Hypertarget{model_8h_source_l00149}\hyperlink{group__model__details_gaaaf3d73d6abc18d3889676952bfedb96}{00149} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_ALI\_CV\_FACT    1.}
+00150 
+\Hypertarget{model_8h_source_l00154}\hyperlink{group__model__details_ga8f774daaafec28160c1ca5d09f2cbdba}{00154} \textcolor{preprocessor}{#define VRNA\_MODEL\_DEFAULT\_ALI\_NC\_FACT    1.}
+00155 
+00156 
+00157 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00158 
+00159 \textcolor{preprocessor}{#ifndef MAXALPHA}
+00160 
+\Hypertarget{model_8h_source_l00163}\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{00163} \textcolor{preprocessor}{#define MAXALPHA              20}
+00164 \textcolor{preprocessor}{#endif}
+00165 
+00166 \textcolor{preprocessor}{#endif}
+00167 
+\Hypertarget{model_8h_source_l00177}\hyperlink{group__model__details}{00177} \textcolor{keyword}{struct }\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_s} \{
+\Hypertarget{model_8h_source_l00178}\hyperlink{group__model__details_a5f7e5c2b65bada5188443470e576aa4b}{00178}   \textcolor{keywordtype}{double}  \hyperlink{group__model__details_a5f7e5c2b65bada5188443470e576aa4b}{temperature};                      
+\Hypertarget{model_8h_source_l00179}\hyperlink{group__model__details_a19524bf1d8d7ab590ed36edbbcaaba2c}{00179}   \textcolor{keywordtype}{double}  \hyperlink{group__model__details_a19524bf1d8d7ab590ed36edbbcaaba2c}{betaScale};                        
+\Hypertarget{model_8h_source_l00180}\hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{00180}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles};                          
+\Hypertarget{model_8h_source_l00204}\hyperlink{group__model__details_add64a96d23e77ef1d0ddf8dfc5228143}{00204}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_add64a96d23e77ef1d0ddf8dfc5228143}{special\_hp};                       
+\Hypertarget{model_8h_source_l00205}\hyperlink{group__model__details_a753200bf21cee0ea2df64afe43999f5d}{00205}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_a753200bf21cee0ea2df64afe43999f5d}{noLP};                             
+\Hypertarget{model_8h_source_l00206}\hyperlink{group__model__details_ad64a5eaf9c4550e7525b36a725fec4b2}{00206}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_ad64a5eaf9c4550e7525b36a725fec4b2}{noGU};                             
+\Hypertarget{model_8h_source_l00207}\hyperlink{group__model__details_a7e883db1f33f8f3baa5c9b140350c78e}{00207}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_a7e883db1f33f8f3baa5c9b140350c78e}{noGUclosure};                      
+\Hypertarget{model_8h_source_l00208}\hyperlink{group__model__details_ae259f89a94acae0c7f1412603e7f57b5}{00208}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_ae259f89a94acae0c7f1412603e7f57b5}{logML};                            
+\Hypertarget{model_8h_source_l00209}\hyperlink{group__model__details_a92762e1008503d4623ff5c01e358a464}{00209}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_a92762e1008503d4623ff5c01e358a464}{circ};                             
+\Hypertarget{model_8h_source_l00210}\hyperlink{group__model__details_af88a511a2b1f526b4c6213de6cb8fd6e}{00210}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_af88a511a2b1f526b4c6213de6cb8fd6e}{gquad};                            
+\Hypertarget{model_8h_source_l00211}\hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{00211}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{uniq\_ML};                          
+\Hypertarget{model_8h_source_l00212}\hyperlink{group__model__details_a5eee4e3b468eb690d1407e0178dafb3f}{00212}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_a5eee4e3b468eb690d1407e0178dafb3f}{energy\_set};                       
+\Hypertarget{model_8h_source_l00213}\hyperlink{group__model__details_a31f4471608cbdd03887f63c281823adb}{00213}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_a31f4471608cbdd03887f63c281823adb}{backtrack};                        
+\Hypertarget{model_8h_source_l00214}\hyperlink{group__model__details_abb265da25121d22ed11c8435861f0e53}{00214}   \textcolor{keywordtype}{char}    \hyperlink{group__model__details_abb265da25121d22ed11c8435861f0e53}{backtrack\_type};                   
+\Hypertarget{model_8h_source_l00215}\hyperlink{group__model__details_aa0c3e03d9064363e27adcc92b8d0380f}{00215}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_aa0c3e03d9064363e27adcc92b8d0380f}{compute\_bpp};                      
+\Hypertarget{model_8h_source_l00216}\hyperlink{group__model__details_a3fde4ac9eaf972f503c7a76726cefb59}{00216}   \textcolor{keywordtype}{char}    \hyperlink{group__model__details_a3fde4ac9eaf972f503c7a76726cefb59}{nonstandards}[64];                 
+\Hypertarget{model_8h_source_l00217}\hyperlink{group__model__details_a659e5fcc6e8c9f1a68e7de6548eef3b0}{00217}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_a659e5fcc6e8c9f1a68e7de6548eef3b0}{max\_bp\_span};                      
+\Hypertarget{model_8h_source_l00219}\hyperlink{group__model__details_a9ed7ba42fcc46915c5c0c524f3d255f5}{00219}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_a9ed7ba42fcc46915c5c0c524f3d255f5}{min\_loop\_size};                    
+\Hypertarget{model_8h_source_l00223}\hyperlink{group__model__details_abea42f9229f8d8d6bcbedef316315bfc}{00223}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_abea42f9229f8d8d6bcbedef316315bfc}{window\_size};                      
+\Hypertarget{model_8h_source_l00224}\hyperlink{group__model__details_ab53aec4503130877973c6111ae6f0f76}{00224}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_ab53aec4503130877973c6111ae6f0f76}{oldAliEn};                         
+\Hypertarget{model_8h_source_l00225}\hyperlink{group__model__details_a3df2ae4bd9c133ef8ab92a53b1d035ec}{00225}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_a3df2ae4bd9c133ef8ab92a53b1d035ec}{ribo};                             
+\Hypertarget{model_8h_source_l00226}\hyperlink{group__model__details_a62ebefb9d0643e5c4c8a2ec84a105ce6}{00226}   \textcolor{keywordtype}{double}  \hyperlink{group__model__details_a62ebefb9d0643e5c4c8a2ec84a105ce6}{cv\_fact};                          
+\Hypertarget{model_8h_source_l00227}\hyperlink{group__model__details_abcf568e6124bfcb2f847ff4eb0dfded6}{00227}   \textcolor{keywordtype}{double}  \hyperlink{group__model__details_abcf568e6124bfcb2f847ff4eb0dfded6}{nc\_fact};                          
+\Hypertarget{model_8h_source_l00228}\hyperlink{group__model__details_ab6f4cabaa9b4726b13592486d5bc21c7}{00228}   \textcolor{keywordtype}{double}  \hyperlink{group__model__details_ab6f4cabaa9b4726b13592486d5bc21c7}{sfact};                            
+\Hypertarget{model_8h_source_l00229}\hyperlink{group__model__details_ad082d0fea31e002b90cdfe5e6382f8b0}{00229}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_ad082d0fea31e002b90cdfe5e6382f8b0}{rtype}[8];                         
+\Hypertarget{model_8h_source_l00230}\hyperlink{group__model__details_a66136cf9abc8ff790ec0d33245d68fd5}{00230}   \textcolor{keywordtype}{short}   \hyperlink{group__model__details_a66136cf9abc8ff790ec0d33245d68fd5}{alias}[\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA} + 1];              
+\Hypertarget{model_8h_source_l00231}\hyperlink{group__model__details_ab4da594c638707e212f64aadb54a7454}{00231}   \textcolor{keywordtype}{int}     \hyperlink{group__model__details_ab4da594c638707e212f64aadb54a7454}{pair}[\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA} + 1][\hyperlink{group__model__details_ga05a5ffe718aa431d97419a12fb082379}{MAXALPHA} + 1]; 
+00232 \};
+00233 
+00234 
+00243 \textcolor{keywordtype}{void}
+00244 \hyperlink{group__model__details_ga8ac6ff84936282436f822644bf841f66}{vrna\_md\_set\_default}(\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t} *md);
+00245 
+00246 
+00259 \textcolor{keywordtype}{void}
+00260 \hyperlink{group__model__details_ga36ae40b8c3b82362f5798ad5b047b814}{vrna\_md\_update}(\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t} *md);
+00261 
+00262 
+00273 \hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t} *
+00274 \hyperlink{group__model__details_ga619057a740918b5fb01808362bb67aea}{vrna\_md\_copy}(\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}        *md\_to,
+00275              \textcolor{keyword}{const} \hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}  *md\_from);
+00276 
+00277 
+00283 \textcolor{keywordtype}{char} *
+00284 \hyperlink{group__model__details_ga3a7469f0725a849af6ba61a57dfd60ce}{vrna\_md\_option\_string}(\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t} *md);
+00285 
+00286 
+00287 \textcolor{keywordtype}{void}
+00288 vrna\_md\_set\_nonstandards(\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t}  *md,
+00289                          \textcolor{keyword}{const} \textcolor{keywordtype}{char} *ns\_bases);
+00290 
+00291 
+00309 \textcolor{keywordtype}{void}
+00310 \hyperlink{group__model__details_ga70834424cf804d149937de89f80ceb45}{vrna\_md\_defaults\_reset}(\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t} *md\_p);
+00311 
+00312 
+00318 \textcolor{keywordtype}{void}
+00319 \hyperlink{group__model__details_gaf9e527e9a2f7e6fd6e42bc6e602f5445}{vrna\_md\_defaults\_temperature}(\textcolor{keywordtype}{double} T);
+00320 
+00321 
+00327 \textcolor{keywordtype}{double}
+00328 \hyperlink{group__model__details_ga96b24a74437f9ba46c4e06343155bf46}{vrna\_md\_defaults\_temperature\_get}(\textcolor{keywordtype}{void});
+00329 
+00330 
+00338 \textcolor{keywordtype}{void}
+00339 \hyperlink{group__model__details_gae984567db36c3f9b8731ecc917abf3a2}{vrna\_md\_defaults\_betaScale}(\textcolor{keywordtype}{double} b);
+00340 
+00341 
+00348 \textcolor{keywordtype}{double}
+00349 \hyperlink{group__model__details_gabb8780f5410c52f970d75b044059bd09}{vrna\_md\_defaults\_betaScale\_get}(\textcolor{keywordtype}{void});
+00350 
+00351 
+00357 \textcolor{keywordtype}{void}
+00358 \hyperlink{group__model__details_gac76a5374def8e5e4e644ff6e4cc72dee}{vrna\_md\_defaults\_dangles}(\textcolor{keywordtype}{int} d);
+00359 
+00360 
+00366 \textcolor{keywordtype}{int}
+00367 \hyperlink{group__model__details_ga67ca06f95ae133778c79a4493c9817b8}{vrna\_md\_defaults\_dangles\_get}(\textcolor{keywordtype}{void});
+00368 
+00369 
+00375 \textcolor{keywordtype}{void}
+00376 \hyperlink{group__model__details_gafff6449a02744add0308e653230c15fc}{vrna\_md\_defaults\_special\_hp}(\textcolor{keywordtype}{int} flag);
+00377 
+00378 
+00384 \textcolor{keywordtype}{int}
+00385 \hyperlink{group__model__details_ga1d68a6efdaa1253cc63fd9cd06452559}{vrna\_md\_defaults\_special\_hp\_get}(\textcolor{keywordtype}{void});
+00386 
+00387 
+00393 \textcolor{keywordtype}{void}
+00394 \hyperlink{group__model__details_ga2f88ffc393ac9d7987849c965fd29ea8}{vrna\_md\_defaults\_noLP}(\textcolor{keywordtype}{int} flag);
+00395 
+00396 
+00402 \textcolor{keywordtype}{int}
+00403 \hyperlink{group__model__details_ga934344888fbacaed538bbbfe910f2aa6}{vrna\_md\_defaults\_noLP\_get}(\textcolor{keywordtype}{void});
+00404 
+00405 
+00411 \textcolor{keywordtype}{void}
+00412 \hyperlink{group__model__details_ga98218f85c7a957a1d1ddf4627fdf5a39}{vrna\_md\_defaults\_noGU}(\textcolor{keywordtype}{int} flag);
+00413 
+00414 
+00420 \textcolor{keywordtype}{int}
+00421 \hyperlink{group__model__details_ga5faa7d4e536d7fe36ec25428c0cf2563}{vrna\_md\_defaults\_noGU\_get}(\textcolor{keywordtype}{void});
+00422 
+00423 
+00429 \textcolor{keywordtype}{void}
+00430 \hyperlink{group__model__details_gade5b9951d71ca2fb357a4e6c0c18ccd1}{vrna\_md\_defaults\_noGUclosure}(\textcolor{keywordtype}{int} flag);
+00431 
+00432 
+00438 \textcolor{keywordtype}{int}
+00439 \hyperlink{group__model__details_ga4f7fdad083243a5348d63320ddaa70f3}{vrna\_md\_defaults\_noGUclosure\_get}(\textcolor{keywordtype}{void});
+00440 
+00441 
+00447 \textcolor{keywordtype}{void}
+00448 \hyperlink{group__model__details_ga3de50a73455d88c3957386933b8e1f90}{vrna\_md\_defaults\_logML}(\textcolor{keywordtype}{int} flag);
+00449 
+00450 
+00456 \textcolor{keywordtype}{int}
+00457 \hyperlink{group__model__details_ga93f04e070d529c5d0bb87c9681f6ad29}{vrna\_md\_defaults\_logML\_get}(\textcolor{keywordtype}{void});
+00458 
+00459 
+00465 \textcolor{keywordtype}{void}
+00466 \hyperlink{group__model__details_ga4e1deb3e91a8a99e5c6dd905a5eb0186}{vrna\_md\_defaults\_circ}(\textcolor{keywordtype}{int} flag);
+00467 
+00468 
+00474 \textcolor{keywordtype}{int}
+00475 \hyperlink{group__model__details_gad3a7e58de344ad93a08925f58f94f6fb}{vrna\_md\_defaults\_circ\_get}(\textcolor{keywordtype}{void});
+00476 
+00477 
+00483 \textcolor{keywordtype}{void}
+00484 \hyperlink{group__model__details_ga0685ca2aeb39af76f2421fc308163dce}{vrna\_md\_defaults\_gquad}(\textcolor{keywordtype}{int} flag);
+00485 
+00486 
+00492 \textcolor{keywordtype}{int}
+00493 \hyperlink{group__model__details_gae645b8612f879eb38b45244fa9eddb9e}{vrna\_md\_defaults\_gquad\_get}(\textcolor{keywordtype}{void});
+00494 
+00495 
+00502 \textcolor{keywordtype}{void}
+00503 \hyperlink{group__model__details_ga59b944f61c5d2babec2d4c48c820de67}{vrna\_md\_defaults\_uniq\_ML}(\textcolor{keywordtype}{int} flag);
+00504 
+00505 
+00511 \textcolor{keywordtype}{int}
+00512 \hyperlink{group__model__details_gab48e70fd024bf838404bcbcca0c874a0}{vrna\_md\_defaults\_uniq\_ML\_get}(\textcolor{keywordtype}{void});
+00513 
+00514 
+00520 \textcolor{keywordtype}{void}
+00521 \hyperlink{group__model__details_ga8dd29c55787a4576277e1907e92d810c}{vrna\_md\_defaults\_energy\_set}(\textcolor{keywordtype}{int} e);
+00522 
+00523 
+00529 \textcolor{keywordtype}{int}
+00530 \hyperlink{group__model__details_ga017ed6afb1cba2b7f242412cab618b53}{vrna\_md\_defaults\_energy\_set\_get}(\textcolor{keywordtype}{void});
+00531 
+00532 
+00538 \textcolor{keywordtype}{void}
+00539 \hyperlink{group__model__details_ga978c468b2fe96a70d5191e3dd17d5599}{vrna\_md\_defaults\_backtrack}(\textcolor{keywordtype}{int} flag);
+00540 
+00541 
+00547 \textcolor{keywordtype}{int}
+00548 \hyperlink{group__model__details_ga90da1156e6883ddd68527c2830706648}{vrna\_md\_defaults\_backtrack\_get}(\textcolor{keywordtype}{void});
+00549 
+00550 
+00556 \textcolor{keywordtype}{void}
+00557 \hyperlink{group__model__details_ga68305274de96b56b7799575e222560d8}{vrna\_md\_defaults\_backtrack\_type}(\textcolor{keywordtype}{char} t);
+00558 
+00559 
+00565 \textcolor{keywordtype}{char}
+00566 \hyperlink{group__model__details_ga1425b4ebd0e034dead66d79becd64143}{vrna\_md\_defaults\_backtrack\_type\_get}(\textcolor{keywordtype}{void});
+00567 
+00568 
+00574 \textcolor{keywordtype}{void}
+00575 \hyperlink{group__model__details_gaf1b5db10f1f476767f9a95f8a78e3132}{vrna\_md\_defaults\_compute\_bpp}(\textcolor{keywordtype}{int} flag);
+00576 
+00577 
+00583 \textcolor{keywordtype}{int}
+00584 \hyperlink{group__model__details_gaa3a537e61fbe0518673bf9f73fd820f3}{vrna\_md\_defaults\_compute\_bpp\_get}(\textcolor{keywordtype}{void});
+00585 
+00586 
+00592 \textcolor{keywordtype}{void}
+00593 \hyperlink{group__model__details_ga4c4bc962f09b4480cb8499f1cf8ae4ec}{vrna\_md\_defaults\_max\_bp\_span}(\textcolor{keywordtype}{int} span);
+00594 
+00595 
+00601 \textcolor{keywordtype}{int}
+00602 \hyperlink{group__model__details_gaa60f989e062fecd4d4bac89c1883da85}{vrna\_md\_defaults\_max\_bp\_span\_get}(\textcolor{keywordtype}{void});
+00603 
+00604 
+00610 \textcolor{keywordtype}{void}
+00611 \hyperlink{group__model__details_gac152f1e78c1058a10261022c8dfda0f7}{vrna\_md\_defaults\_min\_loop\_size}(\textcolor{keywordtype}{int} size);
+00612 
+00613 
+00619 \textcolor{keywordtype}{int}
+00620 \hyperlink{group__model__details_ga5cc691174a75c652807dc361b617632a}{vrna\_md\_defaults\_min\_loop\_size\_get}(\textcolor{keywordtype}{void});
+00621 
+00622 
+00628 \textcolor{keywordtype}{void}
+00629 \hyperlink{group__model__details_ga7b802ce0e8c3181bf5cb580de6d5b26a}{vrna\_md\_defaults\_window\_size}(\textcolor{keywordtype}{int} size);
+00630 
+00631 
+00637 \textcolor{keywordtype}{int}
+00638 \hyperlink{group__model__details_ga670146a9aa3ba77f4d422d60b7c30ac9}{vrna\_md\_defaults\_window\_size\_get}(\textcolor{keywordtype}{void});
+00639 
+00640 
+00648 \textcolor{keywordtype}{void}
+00649 \hyperlink{group__model__details_ga41521d5b9fb7e0f31e7ea73f5792afab}{vrna\_md\_defaults\_oldAliEn}(\textcolor{keywordtype}{int} flag);
+00650 
+00651 
+00657 \textcolor{keywordtype}{int}
+00658 \hyperlink{group__model__details_ga2374492b5019df88022fe4c05f0f3630}{vrna\_md\_defaults\_oldAliEn\_get}(\textcolor{keywordtype}{void});
+00659 
+00660 
+00666 \textcolor{keywordtype}{void}
+00667 \hyperlink{group__model__details_ga937c45e1d06fd6168730a9b08d130be3}{vrna\_md\_defaults\_ribo}(\textcolor{keywordtype}{int} flag);
+00668 
+00669 
+00675 \textcolor{keywordtype}{int}
+00676 \hyperlink{group__model__details_ga169027f0c0561ea7d87b655e4b336bfc}{vrna\_md\_defaults\_ribo\_get}(\textcolor{keywordtype}{void});
+00677 
+00678 
+00684 \textcolor{keywordtype}{void}
+00685 \hyperlink{group__model__details_gad3a3f40baafd91a6ce80a91a68e20053}{vrna\_md\_defaults\_cv\_fact}(\textcolor{keywordtype}{double} factor);
+00686 
+00687 
+00693 \textcolor{keywordtype}{double}
+00694 \hyperlink{group__model__details_gae59c68393807217b0a2497adb64d3ee3}{vrna\_md\_defaults\_cv\_fact\_get}(\textcolor{keywordtype}{void});
+00695 
+00696 
+00702 \textcolor{keywordtype}{void}
+00703 \hyperlink{group__model__details_gac35e596c850dce3ad55c49119fd7d471}{vrna\_md\_defaults\_nc\_fact}(\textcolor{keywordtype}{double} factor);
+00704 
+00705 
+00711 \textcolor{keywordtype}{double}
+00712 \hyperlink{group__model__details_ga7ac759eaa7159bf5f022745f5da59508}{vrna\_md\_defaults\_nc\_fact\_get}(\textcolor{keywordtype}{void});
+00713 
+00714 
+00720 \textcolor{keywordtype}{void}
+00721 \hyperlink{group__model__details_ga3f73d3029d3d0025d4cc311510cd95a3}{vrna\_md\_defaults\_sfact}(\textcolor{keywordtype}{double} factor);
+00722 
+00723 
+00729 \textcolor{keywordtype}{double}
+00730 \hyperlink{group__model__details_gab2df6aab954b63fd3592d18e90285dae}{vrna\_md\_defaults\_sfact\_get}(\textcolor{keywordtype}{void});
+00731 
+00732 
+00733 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00734 
+00735 \textcolor{preprocessor}{#define model\_detailsT        vrna\_md\_t               }\textcolor{comment}{/* restore compatibility of struct rename */}\textcolor{preprocessor}{}
+00736 
+00737 \textcolor{comment}{/* BEGIN deprecated global variables: */}
+00738 
+00748 \textcolor{keyword}{extern} \textcolor{keywordtype}{double} \hyperlink{group__model__details_a5f7e5c2b65bada5188443470e576aa4b}{temperature};
+00749 
+00761 \textcolor{keyword}{extern} \textcolor{keywordtype}{double} \hyperlink{group__model__details_gad3b22044065acc6dee0af68931b52cfd}{pf\_scale};
+00762 
+00784 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \hyperlink{group__model__details_adcda4ff2ea77748ae0e8700288282efc}{dangles};
+00785 
+00791 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \hyperlink{group__model__details_ga4f6265bdf0ead7ff4628a360adbfd77e}{tetra\_loop};
+00792 
+00800 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  \hyperlink{group__model__details_ga097eccaabd6ae8b4fef83cccff85bb5d}{noLonelyPairs};
+00801 
+00805 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  \hyperlink{group__model__details_ad64a5eaf9c4550e7525b36a725fec4b2}{noGU};
+00806 
+00810 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  \hyperlink{group__model__details_gaa8d1c7b92489179e1eafa562b7bdd259}{no\_closingGU};
+00811 
+00815 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  \hyperlink{group__model__details_a92762e1008503d4623ff5c01e358a464}{circ};
+00816 
+00820 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  \hyperlink{group__model__details_af88a511a2b1f526b4c6213de6cb8fd6e}{gquad};
+00821 
+00825 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}  \hyperlink{group__model__details_ade065b814a4e2e72ead93ab502613ed2}{uniq\_ML};
+00826 
+00834 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \hyperlink{group__model__details_a5eee4e3b468eb690d1407e0178dafb3f}{energy\_set};
+00835 
+00842 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \hyperlink{group__model__details_gad512b5dd4dbec60faccfe137bb474489}{do\_backtrack};
+00843 
+00851 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} \hyperlink{group__model__details_abb265da25121d22ed11c8435861f0e53}{backtrack\_type};
+00852 
+00860 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} *\hyperlink{group__model__details_a3fde4ac9eaf972f503c7a76726cefb59}{nonstandards};
+00861 
+00867 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    \hyperlink{group__model__details_a659e5fcc6e8c9f1a68e7de6548eef3b0}{max\_bp\_span};
+00868 
+00872 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    \hyperlink{group__model__details_ab53aec4503130877973c6111ae6f0f76}{oldAliEn};
+00873 
+00877 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    \hyperlink{group__model__details_a3df2ae4bd9c133ef8ab92a53b1d035ec}{ribo};
+00878 
+00879 \textcolor{keyword}{extern} \textcolor{keywordtype}{double} \hyperlink{group__model__details_a62ebefb9d0643e5c4c8a2ec84a105ce6}{cv\_fact};
+00880 
+00881 \textcolor{keyword}{extern} \textcolor{keywordtype}{double} \hyperlink{group__model__details_abcf568e6124bfcb2f847ff4eb0dfded6}{nc\_fact};
+00882 
+00884 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}    \hyperlink{group__model__details_ae259f89a94acae0c7f1412603e7f57b5}{logML};
+00885 
+00886 \textcolor{comment}{/* END deprecated global variables: */}
+00887 
+00901 \textcolor{keywordtype}{void}
+00902 \hyperlink{group__model__details_gabad896c3650d420f3f3ddefc69e2bceb}{set\_model\_details}(\hyperlink{group__model__details_structvrna__md__s}{vrna\_md\_t} *md);
+00903 
+00904 
+00905 \textcolor{keywordtype}{char} *
+00906 option\_string(\textcolor{keywordtype}{void});
+00907 
+00908 
+00909 \textcolor{preprocessor}{#endif}
+00910 
+00914 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

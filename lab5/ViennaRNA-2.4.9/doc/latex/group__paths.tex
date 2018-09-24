@@ -1,0 +1,237 @@
+\hypertarget{group__paths}{}\section{Refolding Paths of Secondary Structures}
+\label{group__paths}\index{Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}}
+
+
+\subsection{Detailed Description}
+Collaboration diagram for Refolding Paths of Secondary Structures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__paths}
+\end{center}
+\end{figure}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__direct__paths}{Direct Refolding Paths between two Secondary Structures}
+\begin{DoxyCompactList}\small\item\em Heuristics to explore direct, optimal (re-\/)folding paths between two secondary structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{findpath_8h}{findpath.\+h}
+\begin{DoxyCompactList}\small\item\em A breadth-\/first search heuristic for optimal direct folding paths. \end{DoxyCompactList}\item 
+file \hyperlink{walk_8h}{walk.\+h}
+\begin{DoxyCompactList}\small\item\em Methods to generate particular paths such as gradient or random walks through the energy landscape of an R\+NA sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__paths_ga705cea2b3243a38a2d6e3b1e141ed061}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT}~128
+\begin{DoxyCompactList}\small\item\em Option flag to request a steepest descent / gradient path. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__paths_ga0b84bd36bfd783130297797c51dd85ae}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+R\+A\+N\+D\+OM}~256
+\begin{DoxyCompactList}\small\item\em Option flag to request a random walk path. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT}~512
+\begin{DoxyCompactList}\small\item\em Option flag to omit returning the transition path. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__paths_gaf1bb1f8fec8d24e3b821f621b19f77b4}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+D\+E\+F\+A\+U\+LT}~(\hyperlink{group__paths_ga705cea2b3243a38a2d6e3b1e141ed061}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT} $\vert$ \hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+D\+E\+F\+A\+U\+LT})
+\begin{DoxyCompactList}\small\item\em Option flag to request defaults (steepest descent / default move set) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+t} $\ast$ \hyperlink{group__paths_gab6aee4143f8b103518d5cbfe6bfe5eae}{vrna\+\_\+path} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, short $\ast$pt, unsigned int steps, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Compute a path, store the final structure, and return a list of transition moves from the start to the final structure. \end{DoxyCompactList}\item 
+\hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+t} $\ast$ \hyperlink{group__paths_gae92cce443a8a64f7b7fb89867b7d6125}{vrna\+\_\+path\+\_\+gradient} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, short $\ast$pt, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Compute a steepest descent / gradient path, store the final structure, and return a list of transition moves from the start to the final structure. \end{DoxyCompactList}\item 
+\hyperlink{group__neighbors_structvrna__move__s}{vrna\+\_\+move\+\_\+t} $\ast$ \hyperlink{group__paths_ga9234756c337078fa599529d3db70d913}{vrna\+\_\+path\+\_\+random} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, short $\ast$pt, unsigned int steps, unsigned int options)
+\begin{DoxyCompactList}\small\item\em Generate a random walk / path of a given length, store the final structure, and return a list of transition moves from the start to the final structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__paths_ga705cea2b3243a38a2d6e3b1e141ed061}\label{group__paths_ga705cea2b3243a38a2d6e3b1e141ed061}} 
+\index{Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}!V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT@{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT}}
+\index{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT@{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT}!Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT}{VRNA\_PATH\_STEEPEST\_DESCENT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT~128}
+
+
+
+{\ttfamily \#include $<$\hyperlink{walk_8h}{Vienna\+R\+N\+A/walk.\+h}$>$}
+
+
+
+Option flag to request a steepest descent / gradient path. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__paths_gab6aee4143f8b103518d5cbfe6bfe5eae}{vrna\+\_\+path()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__paths_ga0b84bd36bfd783130297797c51dd85ae}\label{group__paths_ga0b84bd36bfd783130297797c51dd85ae}} 
+\index{Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}!V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+R\+A\+N\+D\+OM@{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+R\+A\+N\+D\+OM}}
+\index{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+R\+A\+N\+D\+OM@{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+R\+A\+N\+D\+OM}!Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+R\+A\+N\+D\+OM}{VRNA\_PATH\_RANDOM}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+R\+A\+N\+D\+OM~256}
+
+
+
+{\ttfamily \#include $<$\hyperlink{walk_8h}{Vienna\+R\+N\+A/walk.\+h}$>$}
+
+
+
+Option flag to request a random walk path. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__paths_gab6aee4143f8b103518d5cbfe6bfe5eae}{vrna\+\_\+path()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}\label{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}} 
+\index{Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}!V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT@{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT}}
+\index{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT@{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT}!Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT}{VRNA\_PATH\_NO\_TRANSITION\_OUTPUT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT~512}
+
+
+
+{\ttfamily \#include $<$\hyperlink{walk_8h}{Vienna\+R\+N\+A/walk.\+h}$>$}
+
+
+
+Option flag to omit returning the transition path. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__paths_gab6aee4143f8b103518d5cbfe6bfe5eae}{vrna\+\_\+path()}, \hyperlink{group__paths_gae92cce443a8a64f7b7fb89867b7d6125}{vrna\+\_\+path\+\_\+gradient()}, \hyperlink{group__paths_ga9234756c337078fa599529d3db70d913}{vrna\+\_\+path\+\_\+random()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__paths_gaf1bb1f8fec8d24e3b821f621b19f77b4}\label{group__paths_gaf1bb1f8fec8d24e3b821f621b19f77b4}} 
+\index{Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}!V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+D\+E\+F\+A\+U\+LT@{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+D\+E\+F\+A\+U\+LT}}
+\index{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+D\+E\+F\+A\+U\+LT@{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+D\+E\+F\+A\+U\+LT}!Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+D\+E\+F\+A\+U\+LT}{VRNA\_PATH\_DEFAULT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+D\+E\+F\+A\+U\+LT~(\hyperlink{group__paths_ga705cea2b3243a38a2d6e3b1e141ed061}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT} $\vert$ \hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+D\+E\+F\+A\+U\+LT})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{walk_8h}{Vienna\+R\+N\+A/walk.\+h}$>$}
+
+
+
+Option flag to request defaults (steepest descent / default move set) 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__paths_gab6aee4143f8b103518d5cbfe6bfe5eae}{vrna\+\_\+path()}, \hyperlink{group__paths_ga705cea2b3243a38a2d6e3b1e141ed061}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT}, \hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+D\+E\+F\+A\+U\+LT} 
+\end{DoxySeeAlso}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__paths_gab6aee4143f8b103518d5cbfe6bfe5eae}\label{group__paths_gab6aee4143f8b103518d5cbfe6bfe5eae}} 
+\index{Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}!vrna\+\_\+path@{vrna\+\_\+path}}
+\index{vrna\+\_\+path@{vrna\+\_\+path}!Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}}
+\subsubsection{\texorpdfstring{vrna\+\_\+path()}{vrna\_path()}}
+{\footnotesize\ttfamily vrna\+\_\+path (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{short $\ast$}]{pt,  }\item[{unsigned int}]{steps,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{walk_8h}{Vienna\+R\+N\+A/walk.\+h}$>$}
+
+
+
+Compute a path, store the final structure, and return a list of transition moves from the start to the final structure. 
+
+This function computes, given a start structure in pair table format, a transition path, updates the pair table to the final structure of the path. Finally, if not requested otherwise by using the \hyperlink{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT} flag in the {\ttfamily options} field, this function returns a list of individual transitions that lead from the start to the final structure if requested.
+
+The currently available transition paths are
+\begin{DoxyItemize}
+\item Steepest Descent / Gradient walk (flag\+: \hyperlink{group__paths_ga705cea2b3243a38a2d6e3b1e141ed061}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT})
+\item Random walk (flag\+: \hyperlink{group__paths_ga0b84bd36bfd783130297797c51dd85ae}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+R\+A\+N\+D\+OM})
+\end{DoxyItemize}
+
+The type of transitions must be set through the {\ttfamily options} parameter
+
+\begin{DoxyNote}{Note}
+Since the result is written to the input structure you may want to use \hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()} before calling this function to keep the initial structure
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__paths_gae92cce443a8a64f7b7fb89867b7d6125}{vrna\+\_\+path\+\_\+gradient()}, \hyperlink{group__paths_ga9234756c337078fa599529d3db70d913}{vrna\+\_\+path\+\_\+random()}, \hyperlink{group__struct__utils__pair__table_gae829fb8bb7f694c12a9c0bbc34c77c60}{vrna\+\_\+ptable()}, \hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()}, \hyperlink{group__fold__compound_ga6601d994ba32b11511b36f68b08403be}{vrna\+\_\+fold\+\_\+compound()} \hyperlink{group__paths_ga705cea2b3243a38a2d6e3b1e141ed061}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+S\+T\+E\+E\+P\+E\+S\+T\+\_\+\+D\+E\+S\+C\+E\+NT}, \hyperlink{group__paths_ga0b84bd36bfd783130297797c51dd85ae}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+R\+A\+N\+D\+OM}, \hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+D\+E\+F\+A\+U\+LT}, \hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+S\+H\+I\+FT}, \hyperlink{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+\mbox{\tt in,out}  & {\em pt} & The pair table containing the start structure. Used to update to the final structure after execution of this function \\
+\hline
+\mbox{\tt in}  & {\em options} & Options to modify the behavior of this function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of transition moves (default), or N\+U\+LL (if options \& \hyperlink{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT})
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{S\+W\+I\+G Wrapper Notes}
+\item[\hyperlink{wrappers__wrappers000099}{S\+W\+I\+G Wrapper Notes}]This function is attached as an overloaded method {\itshape path()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to \hyperlink{group__paths_gaf1bb1f8fec8d24e3b821f621b19f77b4}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+D\+E\+F\+A\+U\+LT} if it is omitted. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__paths_gae92cce443a8a64f7b7fb89867b7d6125}\label{group__paths_gae92cce443a8a64f7b7fb89867b7d6125}} 
+\index{Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}!vrna\+\_\+path\+\_\+gradient@{vrna\+\_\+path\+\_\+gradient}}
+\index{vrna\+\_\+path\+\_\+gradient@{vrna\+\_\+path\+\_\+gradient}!Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}}
+\subsubsection{\texorpdfstring{vrna\+\_\+path\+\_\+gradient()}{vrna\_path\_gradient()}}
+{\footnotesize\ttfamily vrna\+\_\+path\+\_\+gradient (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{short $\ast$}]{pt,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{walk_8h}{Vienna\+R\+N\+A/walk.\+h}$>$}
+
+
+
+Compute a steepest descent / gradient path, store the final structure, and return a list of transition moves from the start to the final structure. 
+
+This function computes, given a start structure in pair table format, a steepest descent path, updates the pair table to the final structure of the path. Finally, if not requested otherwise by using the \hyperlink{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT} flag in the {\ttfamily options} field, this function returns a list of individual transitions that lead from the start to the final structure if requested.
+
+\begin{DoxyNote}{Note}
+Since the result is written to the input structure you may want to use \hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()} before calling this function to keep the initial structure
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__paths_ga9234756c337078fa599529d3db70d913}{vrna\+\_\+path\+\_\+random()}, \hyperlink{group__paths_gab6aee4143f8b103518d5cbfe6bfe5eae}{vrna\+\_\+path()}, \hyperlink{group__struct__utils__pair__table_gae829fb8bb7f694c12a9c0bbc34c77c60}{vrna\+\_\+ptable()}, \hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()}, \hyperlink{group__fold__compound_ga6601d994ba32b11511b36f68b08403be}{vrna\+\_\+fold\+\_\+compound()} \hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+D\+E\+F\+A\+U\+LT}, \hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+S\+H\+I\+FT}, \hyperlink{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+\mbox{\tt in,out}  & {\em pt} & The pair table containing the start structure. Used to update to the final structure after execution of this function \\
+\hline
+\mbox{\tt in}  & {\em options} & Options to modify the behavior of this function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of transition moves (default), or N\+U\+LL (if options \& \hyperlink{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT})
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{S\+W\+I\+G Wrapper Notes}
+\item[\hyperlink{wrappers__wrappers000100}{S\+W\+I\+G Wrapper Notes}]This function is attached as an overloaded method {\itshape path\+\_\+gradient()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to \hyperlink{group__paths_gaf1bb1f8fec8d24e3b821f621b19f77b4}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+D\+E\+F\+A\+U\+LT} if it is omitted. \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__paths_ga9234756c337078fa599529d3db70d913}\label{group__paths_ga9234756c337078fa599529d3db70d913}} 
+\index{Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}!vrna\+\_\+path\+\_\+random@{vrna\+\_\+path\+\_\+random}}
+\index{vrna\+\_\+path\+\_\+random@{vrna\+\_\+path\+\_\+random}!Refolding Paths of Secondary Structures@{Refolding Paths of Secondary Structures}}
+\subsubsection{\texorpdfstring{vrna\+\_\+path\+\_\+random()}{vrna\_path\_random()}}
+{\footnotesize\ttfamily vrna\+\_\+path\+\_\+random (\begin{DoxyParamCaption}\item[{\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$}]{vc,  }\item[{short $\ast$}]{pt,  }\item[{unsigned int}]{steps,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{walk_8h}{Vienna\+R\+N\+A/walk.\+h}$>$}
+
+
+
+Generate a random walk / path of a given length, store the final structure, and return a list of transition moves from the start to the final structure. 
+
+This function generates, given a start structure in pair table format, a random walk / path, updates the pair table to the final structure of the path. Finally, if not requested otherwise by using the \hyperlink{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT} flag in the {\ttfamily options} field, this function returns a list of individual transitions that lead from the start to the final structure if requested.
+
+\begin{DoxyNote}{Note}
+Since the result is written to the input structure you may want to use \hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()} before calling this function to keep the initial structure
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__paths_gae92cce443a8a64f7b7fb89867b7d6125}{vrna\+\_\+path\+\_\+gradient()}, \hyperlink{group__paths_gab6aee4143f8b103518d5cbfe6bfe5eae}{vrna\+\_\+path()}, \hyperlink{group__struct__utils__pair__table_gae829fb8bb7f694c12a9c0bbc34c77c60}{vrna\+\_\+ptable()}, \hyperlink{group__struct__utils__pair__table_ga2daefbbd6d9f8803731651882f54332d}{vrna\+\_\+ptable\+\_\+copy()}, \hyperlink{group__fold__compound_ga6601d994ba32b11511b36f68b08403be}{vrna\+\_\+fold\+\_\+compound()} \hyperlink{group__neighbors_gaa5ffec4dd0d02df320f123e6888154d1}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+D\+E\+F\+A\+U\+LT}, \hyperlink{group__neighbors_ga68ea27c81de4b74e48b775c04052590b}{V\+R\+N\+A\+\_\+\+M\+O\+V\+E\+S\+E\+T\+\_\+\+S\+H\+I\+FT}, \hyperlink{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em vc} & A vrna\+\_\+fold\+\_\+compound\+\_\+t containing the energy parameters and model details \\
+\hline
+\mbox{\tt in,out}  & {\em pt} & The pair table containing the start structure. Used to update to the final structure after execution of this function \\
+\hline
+\mbox{\tt in}  & {\em steps} & The length of the path, i.\+e. the total number of transitions / moves \\
+\hline
+\mbox{\tt in}  & {\em options} & Options to modify the behavior of this function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of transition moves (default), or N\+U\+LL (if options \& \hyperlink{group__paths_ga1ee63e54ecf136491e12ff03ede2622d}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+N\+O\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N\+\_\+\+O\+U\+T\+P\+UT})
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{S\+W\+I\+G Wrapper Notes}
+\item[\hyperlink{wrappers__wrappers000101}{S\+W\+I\+G Wrapper Notes}]This function is attached as an overloaded method {\itshape path\+\_\+gradient()} to objects of type {\itshape fold\+\_\+compound}. The optional parameter {\ttfamily options} defaults to \hyperlink{group__paths_gaf1bb1f8fec8d24e3b821f621b19f77b4}{V\+R\+N\+A\+\_\+\+P\+A\+T\+H\+\_\+\+D\+E\+F\+A\+U\+LT} if it is omitted. \end{DoxyRefDesc}

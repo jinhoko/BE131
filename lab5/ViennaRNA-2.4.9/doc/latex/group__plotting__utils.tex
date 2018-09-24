@@ -1,0 +1,588 @@
+\hypertarget{group__plotting__utils}{}\section{Plotting}
+\label{group__plotting__utils}\index{Plotting@{Plotting}}
+
+
+Functions for Creating Secondary Structure Plots, Dot-\/\+Plots, and More.  
+
+
+
+
+\subsection{Detailed Description}
+Functions for Creating Secondary Structure Plots, Dot-\/\+Plots, and More. 
+
+Collaboration diagram for Plotting\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{group__plotting__utils}
+\end{center}
+\end{figure}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__annotation__utils}{Annotation}
+\begin{DoxyCompactList}\small\item\em Functions to generate annotations for Secondary Structure Plots, Dot-\/\+Plots, and Others. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{plotting_2alignments_8h}{alignments.\+h}
+\begin{DoxyCompactList}\small\item\em Various functions for plotting Sequence / Structure Alignments. \end{DoxyCompactList}\item 
+file \hyperlink{layouts_8h}{layouts.\+h}
+\begin{DoxyCompactList}\small\item\em Secondary structure plot layout algorithms. \end{DoxyCompactList}\item 
+file \hyperlink{plotting_2naview_8h}{naview.\+h}
+\item 
+file \hyperlink{probabilities_8h}{probabilities.\+h}
+\begin{DoxyCompactList}\small\item\em Various functions for plotting R\+NA secondary structures, dot-\/plots and other visualizations. \end{DoxyCompactList}\item 
+file \hyperlink{plotting_2structures_8h}{structures.\+h}
+\begin{DoxyCompactList}\small\item\em Various functions for plotting R\+NA secondary structures. \end{DoxyCompactList}\item 
+file \hyperlink{plotting_2utils_8h}{utils.\+h}
+\begin{DoxyCompactList}\small\item\em Various utilities to assist in plotting secondary structures and consensus structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{group__plotting__utils_structCOORDINATE}{C\+O\+O\+R\+D\+I\+N\+A\+TE}
+\begin{DoxyCompactList}\small\item\em this is a workarround for the S\+W\+IG Perl Wrapper R\+NA plot function that returns an array of type \hyperlink{group__plotting__utils_structCOORDINATE}{C\+O\+O\+R\+D\+I\+N\+A\+TE}  \hyperlink{group__plotting__utils_structCOORDINATE}{More...}\end{DoxyCompactList}\item 
+struct \hyperlink{group__plotting__utils_structvrna__dotplot__auxdata__t}{vrna\+\_\+dotplot\+\_\+auxdata\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__plotting__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+I\+M\+P\+LE}~0
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape simple} \end{DoxyCompactList}\item 
+\#define \hyperlink{group__plotting__utils_ga94d4c863ecac2f220f76658afb92f964}{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+A\+V\+I\+EW}~1
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape Naview} \end{DoxyCompactList}\item 
+\#define \hyperlink{group__plotting__utils_ga8c9eac631348da92136c8363ecdd9fb9}{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+I\+R\+C\+U\+L\+AR}~2
+\begin{DoxyCompactList}\small\item\em Definition of Plot type {\itshape Circular} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__plotting__utils_ga821802c3685e37e15182341f6217470d}\label{group__plotting__utils_ga821802c3685e37e15182341f6217470d}} 
+int \hyperlink{group__plotting__utils_ga821802c3685e37e15182341f6217470d}{P\+S\+\_\+color\+\_\+aln} (const char $\ast$structure, const char $\ast$filename, const char $\ast$seqs\mbox{[}$\,$\mbox{]}, const char $\ast$names\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Produce Post\+Script sequence alignment color-\/annotated by consensus structure. \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_ga76b5c0637db9385a553cdd8e66e61eca}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln} (const char $\ast$filename, const char $\ast$$\ast$seqs, const char $\ast$$\ast$names, const char $\ast$structure, int columns)
+\item 
+int \hyperlink{group__plotting__utils_ga2881c9b855baff948f92b93262df9ff6}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln\+\_\+sub} (const char $\ast$filename, const char $\ast$$\ast$seqs, const char $\ast$$\ast$names, const char $\ast$structure, int start, int end, int columns)
+\item 
+int \hyperlink{group__plotting__utils_gaab48d4dac655d688abe921389ac2847c}{ali\+P\+S\+\_\+color\+\_\+aln} (const char $\ast$structure, const char $\ast$filename, const char $\ast$seqs\mbox{[}$\,$\mbox{]}, const char $\ast$names\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{group__plotting__utils_gaf4b9173e7d3fd361c3c85e6def194123}{simple\+\_\+xy\+\_\+coordinates} (short $\ast$pair\+\_\+table, float $\ast$X, float $\ast$Y)
+\begin{DoxyCompactList}\small\item\em Calculate nucleotide coordinates for secondary structure plot the {\itshape Simple way} \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_gac4ea13d35308f09940178d2b05a248c2}{simple\+\_\+circplot\+\_\+coordinates} (short $\ast$pair\+\_\+table, float $\ast$x, float $\ast$y)
+\begin{DoxyCompactList}\small\item\em Calculate nucleotide coordinates for {\itshape Circular Plot} \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_ga00ea223b5cf02eb2faae5ff29f0d5e12}{P\+S\+\_\+dot\+\_\+plot\+\_\+list} (char $\ast$seq, char $\ast$filename, \hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist} $\ast$pl, \hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist} $\ast$mf, char $\ast$comment)
+\begin{DoxyCompactList}\small\item\em Produce a postscript dot-\/plot from two pair lists. \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_ga689a97a7e3b8a2df14728b8204d9d57b}{P\+S\+\_\+dot\+\_\+plot} (char $\ast$string, char $\ast$file)
+\begin{DoxyCompactList}\small\item\em Produce postscript dot-\/plot. \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot} (const char $\ast$seq, const char $\ast$structure, const char $\ast$file, \hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t} $\ast$md\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a} (const char $\ast$seq, const char $\ast$structure, const char $\ast$file, const char $\ast$pre, const char $\ast$post, \hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t} $\ast$md\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}{gml\+R\+NA} (char $\ast$string, char $\ast$structure, char $\ast$ssfile, char option)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Graph Meta Language (gml) and write it to a file. \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_gadd368528755f9a830727b680243541df}{ssv\+\_\+rna\+\_\+plot} (char $\ast$string, char $\ast$structure, char $\ast$ssfile)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in S\+Struct\+View format. \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot} (char $\ast$string, char $\ast$structure, char $\ast$ssfile)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure plot in S\+VG format and write it to a file. \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}{xrna\+\_\+plot} (char $\ast$string, char $\ast$structure, char $\ast$ssfile)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure plot for further editing in X\+R\+NA. \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_ga0873c7cc4cd7a11c9a2cea19dde7e9c9}{P\+S\+\_\+rna\+\_\+plot} (char $\ast$string, char $\ast$structure, char $\ast$file)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_ga47856b2504b566588785597b6ebb8271}{P\+S\+\_\+rna\+\_\+plot\+\_\+a} (char $\ast$string, char $\ast$structure, char $\ast$file, char $\ast$pre, char $\ast$post)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{}. \end{DoxyCompactList}\item 
+int \hyperlink{group__plotting__utils_ga32fa0f97625119e9d24dd2e7153abc4f}{P\+S\+\_\+rna\+\_\+plot\+\_\+a\+\_\+gquad} (char $\ast$string, char $\ast$structure, char $\ast$ssfile, char $\ast$pre, char $\ast$post)
+\begin{DoxyCompactList}\small\item\em Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{} (detect and draw g-\/quadruplexes) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__plotting__utils_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}
+\begin{DoxyCompactList}\small\item\em Switch for changing the secondary structure layout algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Data Structure Documentation}
+\index{C\+O\+O\+R\+D\+I\+N\+A\+TE@{C\+O\+O\+R\+D\+I\+N\+A\+TE}}\label{structCOORDINATE}
+\Hypertarget{group__plotting__utils_structCOORDINATE}
+\subsubsection{struct C\+O\+O\+R\+D\+I\+N\+A\+TE}
+this is a workarround for the S\+W\+IG Perl Wrapper R\+NA plot function that returns an array of type \hyperlink{group__plotting__utils_structCOORDINATE}{C\+O\+O\+R\+D\+I\+N\+A\+TE} \index{vrna\+\_\+dotplot\+\_\+auxdata\+\_\+t@{vrna\+\_\+dotplot\+\_\+auxdata\+\_\+t}}\label{structvrna__dotplot__auxdata__t}
+\Hypertarget{group__plotting__utils_structvrna__dotplot__auxdata__t}
+\subsubsection{struct vrna\+\_\+dotplot\+\_\+auxdata\+\_\+t}
+
+
+Collaboration diagram for vrna\+\_\+dotplot\+\_\+auxdata\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{structvrna__dotplot__auxdata__t__coll__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__plotting__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}\label{group__plotting__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}} 
+\index{Plotting@{Plotting}!V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+I\+M\+P\+LE@{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+I\+M\+P\+LE}}
+\index{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+I\+M\+P\+LE@{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+I\+M\+P\+LE}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+I\+M\+P\+LE}{VRNA\_PLOT\_TYPE\_SIMPLE}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+I\+M\+P\+LE~0}
+
+
+
+{\ttfamily \#include $<$\hyperlink{layouts_8h}{Vienna\+R\+N\+A/plotting/layouts.\+h}$>$}
+
+
+
+Definition of Plot type {\itshape simple} 
+
+This is the plot type definition for several R\+NA structure plotting functions telling them to use {\bfseries Simple} plotting algorithm
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__plotting__utils_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}, \hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a()}, \hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot()}, \hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot()}, \hyperlink{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}{gml\+R\+N\+A()}, \hyperlink{group__plotting__utils_gadd368528755f9a830727b680243541df}{ssv\+\_\+rna\+\_\+plot()}, \hyperlink{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}{xrna\+\_\+plot()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__plotting__utils_ga94d4c863ecac2f220f76658afb92f964}\label{group__plotting__utils_ga94d4c863ecac2f220f76658afb92f964}} 
+\index{Plotting@{Plotting}!V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+A\+V\+I\+EW@{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+A\+V\+I\+EW}}
+\index{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+A\+V\+I\+EW@{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+A\+V\+I\+EW}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+A\+V\+I\+EW}{VRNA\_PLOT\_TYPE\_NAVIEW}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+A\+V\+I\+EW~1}
+
+
+
+{\ttfamily \#include $<$\hyperlink{layouts_8h}{Vienna\+R\+N\+A/plotting/layouts.\+h}$>$}
+
+
+
+Definition of Plot type {\itshape Naview} 
+
+This is the plot type definition for several R\+NA structure plotting functions telling them to use {\bfseries Naview} plotting algorithm
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__plotting__utils_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}, \hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a()}, \hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot()}, \hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot()}, \hyperlink{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}{gml\+R\+N\+A()}, \hyperlink{group__plotting__utils_gadd368528755f9a830727b680243541df}{ssv\+\_\+rna\+\_\+plot()}, \hyperlink{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}{xrna\+\_\+plot()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__plotting__utils_ga8c9eac631348da92136c8363ecdd9fb9}\label{group__plotting__utils_ga8c9eac631348da92136c8363ecdd9fb9}} 
+\index{Plotting@{Plotting}!V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+I\+R\+C\+U\+L\+AR@{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+I\+R\+C\+U\+L\+AR}}
+\index{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+I\+R\+C\+U\+L\+AR@{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+I\+R\+C\+U\+L\+AR}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+I\+R\+C\+U\+L\+AR}{VRNA\_PLOT\_TYPE\_CIRCULAR}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+I\+R\+C\+U\+L\+AR~2}
+
+
+
+{\ttfamily \#include $<$\hyperlink{layouts_8h}{Vienna\+R\+N\+A/plotting/layouts.\+h}$>$}
+
+
+
+Definition of Plot type {\itshape Circular} 
+
+This is the plot type definition for several R\+NA structure plotting functions telling them to produce a {\bfseries Circular plot}
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__plotting__utils_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}, \hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a()}, \hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot()}, \hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot()}, \hyperlink{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}{gml\+R\+N\+A()}, \hyperlink{group__plotting__utils_gadd368528755f9a830727b680243541df}{ssv\+\_\+rna\+\_\+plot()}, \hyperlink{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}{xrna\+\_\+plot()} 
+\end{DoxySeeAlso}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__plotting__utils_ga76b5c0637db9385a553cdd8e66e61eca}\label{group__plotting__utils_ga76b5c0637db9385a553cdd8e66e61eca}} 
+\index{Plotting@{Plotting}!vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln@{vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln}}
+\index{vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln@{vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln()}{vrna\_file\_PS\_aln()}}
+{\footnotesize\ttfamily int vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{const char $\ast$$\ast$}]{seqs,  }\item[{const char $\ast$$\ast$}]{names,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{columns }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2alignments_8h}{Vienna\+R\+N\+A/plotting/alignments.\+h}$>$}
+
+
+\begin{DoxyParams}{Parameters}
+{\em columns} & The number of columns before the alignment is wrapped as a new block (values less than 1 indicate no wrapping) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__plotting__utils_ga2881c9b855baff948f92b93262df9ff6}\label{group__plotting__utils_ga2881c9b855baff948f92b93262df9ff6}} 
+\index{Plotting@{Plotting}!vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln\+\_\+sub@{vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln\+\_\+sub}}
+\index{vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln\+\_\+sub@{vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln\+\_\+sub}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln\+\_\+sub()}{vrna\_file\_PS\_aln\_sub()}}
+{\footnotesize\ttfamily int vrna\+\_\+file\+\_\+\+P\+S\+\_\+aln\+\_\+sub (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{const char $\ast$$\ast$}]{seqs,  }\item[{const char $\ast$$\ast$}]{names,  }\item[{const char $\ast$}]{structure,  }\item[{int}]{start,  }\item[{int}]{end,  }\item[{int}]{columns }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2alignments_8h}{Vienna\+R\+N\+A/plotting/alignments.\+h}$>$}
+
+
+\begin{DoxyParams}{Parameters}
+{\em columns} & The number of columns before the alignment is wrapped as a new block (values less than 1 indicate no wrapping) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__plotting__utils_gaab48d4dac655d688abe921389ac2847c}\label{group__plotting__utils_gaab48d4dac655d688abe921389ac2847c}} 
+\index{Plotting@{Plotting}!ali\+P\+S\+\_\+color\+\_\+aln@{ali\+P\+S\+\_\+color\+\_\+aln}}
+\index{ali\+P\+S\+\_\+color\+\_\+aln@{ali\+P\+S\+\_\+color\+\_\+aln}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{ali\+P\+S\+\_\+color\+\_\+aln()}{aliPS\_color\_aln()}}
+{\footnotesize\ttfamily int ali\+P\+S\+\_\+color\+\_\+aln (\begin{DoxyParamCaption}\item[{const char $\ast$}]{structure,  }\item[{const char $\ast$}]{filename,  }\item[{const char $\ast$}]{seqs\mbox{[}$\,$\mbox{]},  }\item[{const char $\ast$}]{names\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2alignments_8h}{Vienna\+R\+N\+A/plotting/alignments.\+h}$>$}
+
+P\+S\+\_\+color\+\_\+aln for duplexes \mbox{\Hypertarget{group__plotting__utils_gaf4b9173e7d3fd361c3c85e6def194123}\label{group__plotting__utils_gaf4b9173e7d3fd361c3c85e6def194123}} 
+\index{Plotting@{Plotting}!simple\+\_\+xy\+\_\+coordinates@{simple\+\_\+xy\+\_\+coordinates}}
+\index{simple\+\_\+xy\+\_\+coordinates@{simple\+\_\+xy\+\_\+coordinates}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{simple\+\_\+xy\+\_\+coordinates()}{simple\_xy\_coordinates()}}
+{\footnotesize\ttfamily int simple\+\_\+xy\+\_\+coordinates (\begin{DoxyParamCaption}\item[{short $\ast$}]{pair\+\_\+table,  }\item[{float $\ast$}]{X,  }\item[{float $\ast$}]{Y }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{layouts_8h}{Vienna\+R\+N\+A/plotting/layouts.\+h}$>$}
+
+
+
+Calculate nucleotide coordinates for secondary structure plot the {\itshape Simple way} 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__struct__utils__deprecated_ga89c32307ee50a0026f4a3131fac0845a}{make\+\_\+pair\+\_\+table()}, \hyperlink{group__plotting__utils_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}, \hyperlink{group__plotting__utils_gac4ea13d35308f09940178d2b05a248c2}{simple\+\_\+circplot\+\_\+coordinates()}, naview\+\_\+xy\+\_\+coordinates(), \hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a()}, \hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot}, \hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em pair\+\_\+table} & The pair table of the secondary structure \\
+\hline
+{\em X} & a pointer to an array with enough allocated space to hold the x coordinates \\
+\hline
+{\em Y} & a pointer to an array with enough allocated space to hold the y coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of sequence on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_gac4ea13d35308f09940178d2b05a248c2}\label{group__plotting__utils_gac4ea13d35308f09940178d2b05a248c2}} 
+\index{Plotting@{Plotting}!simple\+\_\+circplot\+\_\+coordinates@{simple\+\_\+circplot\+\_\+coordinates}}
+\index{simple\+\_\+circplot\+\_\+coordinates@{simple\+\_\+circplot\+\_\+coordinates}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{simple\+\_\+circplot\+\_\+coordinates()}{simple\_circplot\_coordinates()}}
+{\footnotesize\ttfamily int simple\+\_\+circplot\+\_\+coordinates (\begin{DoxyParamCaption}\item[{short $\ast$}]{pair\+\_\+table,  }\item[{float $\ast$}]{x,  }\item[{float $\ast$}]{y }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{layouts_8h}{Vienna\+R\+N\+A/plotting/layouts.\+h}$>$}
+
+
+
+Calculate nucleotide coordinates for {\itshape Circular Plot} 
+
+This function calculates the coordinates of nucleotides mapped in equal distancies onto a unit circle.
+
+\begin{DoxyNote}{Note}
+In order to draw nice arcs using quadratic bezier curves that connect base pairs one may calculate a second tangential point $P^t$ in addition to the actual R\textsuperscript{2} coordinates. the simplest way to do so may be to compute a radius scaling factor $rs$ in the interval $[0,1]$ that weights the proportion of base pair span to the actual length of the sequence. This scaling factor can then be used to calculate the coordinates for $P^t$, i.\+e. $ P^{t}_x[i] = X[i] * rs$ and $P^{t}_y[i] = Y[i] * rs$.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__struct__utils__deprecated_ga89c32307ee50a0026f4a3131fac0845a}{make\+\_\+pair\+\_\+table()}, \hyperlink{group__plotting__utils_ga5964c4581431b098b80027d6e14dcdd4}{rna\+\_\+plot\+\_\+type}, \hyperlink{group__plotting__utils_gaf4b9173e7d3fd361c3c85e6def194123}{simple\+\_\+xy\+\_\+coordinates()}, naview\+\_\+xy\+\_\+coordinates(), \hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a()}, \hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot}, \hyperlink{group__plotting__utils_gae7853539b5df98f294b4af434e979304}{svg\+\_\+rna\+\_\+plot()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em pair\+\_\+table} & The pair table of the secondary structure \\
+\hline
+{\em x} & a pointer to an array with enough allocated space to hold the x coordinates \\
+\hline
+{\em y} & a pointer to an array with enough allocated space to hold the y coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of sequence on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_ga00ea223b5cf02eb2faae5ff29f0d5e12}\label{group__plotting__utils_ga00ea223b5cf02eb2faae5ff29f0d5e12}} 
+\index{Plotting@{Plotting}!P\+S\+\_\+dot\+\_\+plot\+\_\+list@{P\+S\+\_\+dot\+\_\+plot\+\_\+list}}
+\index{P\+S\+\_\+dot\+\_\+plot\+\_\+list@{P\+S\+\_\+dot\+\_\+plot\+\_\+list}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{P\+S\+\_\+dot\+\_\+plot\+\_\+list()}{PS\_dot\_plot\_list()}}
+{\footnotesize\ttfamily int P\+S\+\_\+dot\+\_\+plot\+\_\+list (\begin{DoxyParamCaption}\item[{char $\ast$}]{seq,  }\item[{char $\ast$}]{filename,  }\item[{\hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist} $\ast$}]{pl,  }\item[{\hyperlink{group__data__structures_ga9608eed021ebfbdd7a901cfdc446c8e9}{plist} $\ast$}]{mf,  }\item[{char $\ast$}]{comment }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{probabilities_8h}{Vienna\+R\+N\+A/plotting/probabilities.\+h}$>$}
+
+
+
+Produce a postscript dot-\/plot from two pair lists. 
+
+This function reads two plist structures (e.\+g. base pair probabilities and a secondary structure) as produced by \hyperlink{group__part__func__global__deprecated_ga1cc05aaa9b0e7df2d3887e98321c2030}{assign\+\_\+plist\+\_\+from\+\_\+pr()} and \hyperlink{group__part__func__global__deprecated_gab61df77cf7949cd516181fce0c3d7d78}{assign\+\_\+plist\+\_\+from\+\_\+db()} and produces a postscript \char`\"{}dot plot\char`\"{} that is written to \textquotesingle{}filename\textquotesingle{}.~\newline
+Using base pair probabilities in the first and mfe structure in the second plist, the resulting \char`\"{}dot plot\char`\"{} represents each base pairing probability by a square of corresponding area in a upper triangle matrix. The lower part of the matrix contains the minimum free energy structure.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__part__func__global__deprecated_ga1cc05aaa9b0e7df2d3887e98321c2030}{assign\+\_\+plist\+\_\+from\+\_\+pr()}, \hyperlink{group__part__func__global__deprecated_gab61df77cf7949cd516181fce0c3d7d78}{assign\+\_\+plist\+\_\+from\+\_\+db()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & The R\+NA sequence \\
+\hline
+{\em filename} & A filename for the postscript output \\
+\hline
+{\em pl} & The base pair probability pairlist \\
+\hline
+{\em mf} & The mfe secondary structure pairlist \\
+\hline
+{\em comment} & A comment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if postscript was successfully written, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_ga689a97a7e3b8a2df14728b8204d9d57b}\label{group__plotting__utils_ga689a97a7e3b8a2df14728b8204d9d57b}} 
+\index{Plotting@{Plotting}!P\+S\+\_\+dot\+\_\+plot@{P\+S\+\_\+dot\+\_\+plot}}
+\index{P\+S\+\_\+dot\+\_\+plot@{P\+S\+\_\+dot\+\_\+plot}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{P\+S\+\_\+dot\+\_\+plot()}{PS\_dot\_plot()}}
+{\footnotesize\ttfamily int P\+S\+\_\+dot\+\_\+plot (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{probabilities_8h}{Vienna\+R\+N\+A/plotting/probabilities.\+h}$>$}
+
+
+
+Produce postscript dot-\/plot. 
+
+Wrapper to P\+S\+\_\+dot\+\_\+plot\+\_\+list
+
+Reads base pair probabilities produced by \hyperlink{group__part__func__global__deprecated_gadc3db3d98742427e7001a7fd36ef28c2}{pf\+\_\+fold()} from the global array \hyperlink{fold__vars_8h_ac98ec419070aee6831b44e5c700f090f}{pr} and the pair list \hyperlink{fold__vars_8h_a0244a629b5ab4f58b77590c3dfd130dc}{base\+\_\+pair} produced by \hyperlink{group__mfe__global__deprecated_gaadafcb0f140795ae62e5ca027e335a9b}{fold()} and produces a postscript \char`\"{}dot plot\char`\"{} that is written to \textquotesingle{}filename\textquotesingle{}. The \char`\"{}dot plot\char`\"{} represents each base pairing probability by a square of corresponding area in a upper triangle matrix. The lower part of the matrix contains the minimum free energy \begin{DoxyNote}{Note}
+DO N\+OT U\+SE T\+H\+IS F\+U\+N\+C\+T\+I\+ON A\+N\+Y\+M\+O\+RE S\+I\+N\+CE IT IS N\+OT T\+H\+R\+E\+A\+D\+S\+A\+FE
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000159}{Deprecated}]This function is deprecated and will be removed soon! Use \hyperlink{group__plotting__utils_ga00ea223b5cf02eb2faae5ff29f0d5e12}{P\+S\+\_\+dot\+\_\+plot\+\_\+list()} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}\label{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}} 
+\index{Plotting@{Plotting}!vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot@{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot}}
+\index{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot@{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot()}{vrna\_file\_PS\_rnaplot()}}
+{\footnotesize\ttfamily int vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{const char $\ast$}]{structure,  }\item[{const char $\ast$}]{file,  }\item[{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t} $\ast$}]{md\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2structures_8h}{Vienna\+R\+N\+A/plotting/structures.\+h}$>$}
+
+
+
+Produce a secondary structure graph in Post\+Script and write it to \textquotesingle{}filename\textquotesingle{}. 
+
+Note that this function has changed from previous versions and now expects the structure to be plotted in dot-\/bracket notation as an argument. It does not make use of the global \hyperlink{fold__vars_8h_a0244a629b5ab4f58b77590c3dfd130dc}{base\+\_\+pair} array anymore.
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & The R\+NA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em file} & The filename of the postscript output \\
+\hline
+{\em md\+\_\+p} & Model parameters used to generate a commandline option string in the output (Maybe N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}\label{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}} 
+\index{Plotting@{Plotting}!vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a@{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a}}
+\index{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a@{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a()}{vrna\_file\_PS\_rnaplot\_a()}}
+{\footnotesize\ttfamily int vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a (\begin{DoxyParamCaption}\item[{const char $\ast$}]{seq,  }\item[{const char $\ast$}]{structure,  }\item[{const char $\ast$}]{file,  }\item[{const char $\ast$}]{pre,  }\item[{const char $\ast$}]{post,  }\item[{\hyperlink{group__model__details_ga1f8a10e12a0a1915f2a4eff0b28ea17c}{vrna\+\_\+md\+\_\+t} $\ast$}]{md\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2structures_8h}{Vienna\+R\+N\+A/plotting/structures.\+h}$>$}
+
+
+
+Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{}. 
+
+Same as \hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot()} but adds extra Post\+Script macros for various annotations (see generated PS code). The \textquotesingle{}pre\textquotesingle{} and \textquotesingle{}post\textquotesingle{} variables contain Post\+Script code that is verbatim copied in the resulting PS file just before and after the structure plot. If both arguments (\textquotesingle{}pre\textquotesingle{} and \textquotesingle{}post\textquotesingle{}) are N\+U\+LL, no additional macros will be printed into the Post\+Script.
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq} & The R\+NA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em file} & The filename of the postscript output \\
+\hline
+{\em pre} & Post\+Script code to appear before the secondary structure plot \\
+\hline
+{\em post} & Post\+Script code to appear after the secondary structure plot \\
+\hline
+{\em md\+\_\+p} & Model parameters used to generate a commandline option string in the output (Maybe N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}\label{group__plotting__utils_ga70834bc8c0aad4fe6824ff76ccb8f329}} 
+\index{Plotting@{Plotting}!gml\+R\+NA@{gml\+R\+NA}}
+\index{gml\+R\+NA@{gml\+R\+NA}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{gml\+R\+N\+A()}{gmlRNA()}}
+{\footnotesize\ttfamily int gml\+R\+NA (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{ssfile,  }\item[{char}]{option }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2structures_8h}{Vienna\+R\+N\+A/plotting/structures.\+h}$>$}
+
+
+
+Produce a secondary structure graph in Graph Meta Language (gml) and write it to a file. 
+
+If \textquotesingle{}option\textquotesingle{} is an uppercase letter the R\+NA sequence is used to label nodes, if \textquotesingle{}option\textquotesingle{} equals {\itshape \textquotesingle{}X\textquotesingle{}} or {\itshape \textquotesingle{}x\textquotesingle{}} the resulting file will coordinates for an initial layout of the graph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The R\+NA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em ssfile} & The filename of the gml output \\
+\hline
+{\em option} & The option flag \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_gadd368528755f9a830727b680243541df}\label{group__plotting__utils_gadd368528755f9a830727b680243541df}} 
+\index{Plotting@{Plotting}!ssv\+\_\+rna\+\_\+plot@{ssv\+\_\+rna\+\_\+plot}}
+\index{ssv\+\_\+rna\+\_\+plot@{ssv\+\_\+rna\+\_\+plot}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{ssv\+\_\+rna\+\_\+plot()}{ssv\_rna\_plot()}}
+{\footnotesize\ttfamily int ssv\+\_\+rna\+\_\+plot (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{ssfile }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2structures_8h}{Vienna\+R\+N\+A/plotting/structures.\+h}$>$}
+
+
+
+Produce a secondary structure graph in S\+Struct\+View format. 
+
+Write coord file for S\+Struct\+View
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The R\+NA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em ssfile} & The filename of the ssv output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_gae7853539b5df98f294b4af434e979304}\label{group__plotting__utils_gae7853539b5df98f294b4af434e979304}} 
+\index{Plotting@{Plotting}!svg\+\_\+rna\+\_\+plot@{svg\+\_\+rna\+\_\+plot}}
+\index{svg\+\_\+rna\+\_\+plot@{svg\+\_\+rna\+\_\+plot}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{svg\+\_\+rna\+\_\+plot()}{svg\_rna\_plot()}}
+{\footnotesize\ttfamily int svg\+\_\+rna\+\_\+plot (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{ssfile }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2structures_8h}{Vienna\+R\+N\+A/plotting/structures.\+h}$>$}
+
+
+
+Produce a secondary structure plot in S\+VG format and write it to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The R\+NA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em ssfile} & The filename of the svg output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}\label{group__plotting__utils_ga2f6d5953e6a323df898896b8d6614483}} 
+\index{Plotting@{Plotting}!xrna\+\_\+plot@{xrna\+\_\+plot}}
+\index{xrna\+\_\+plot@{xrna\+\_\+plot}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{xrna\+\_\+plot()}{xrna\_plot()}}
+{\footnotesize\ttfamily int xrna\+\_\+plot (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{ssfile }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2structures_8h}{Vienna\+R\+N\+A/plotting/structures.\+h}$>$}
+
+
+
+Produce a secondary structure plot for further editing in X\+R\+NA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The R\+NA sequence \\
+\hline
+{\em structure} & The secondary structure in dot-\/bracket notation \\
+\hline
+{\em ssfile} & The filename of the xrna output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__plotting__utils_ga0873c7cc4cd7a11c9a2cea19dde7e9c9}\label{group__plotting__utils_ga0873c7cc4cd7a11c9a2cea19dde7e9c9}} 
+\index{Plotting@{Plotting}!P\+S\+\_\+rna\+\_\+plot@{P\+S\+\_\+rna\+\_\+plot}}
+\index{P\+S\+\_\+rna\+\_\+plot@{P\+S\+\_\+rna\+\_\+plot}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{P\+S\+\_\+rna\+\_\+plot()}{PS\_rna\_plot()}}
+{\footnotesize\ttfamily int P\+S\+\_\+rna\+\_\+plot (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2structures_8h}{Vienna\+R\+N\+A/plotting/structures.\+h}$>$}
+
+
+
+Produce a secondary structure graph in Post\+Script and write it to \textquotesingle{}filename\textquotesingle{}. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000160}{Deprecated}]Use \hyperlink{group__plotting__utils_gabdc8f6548ba4a3bc3cd868ccbcfdb86a}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot()} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__plotting__utils_ga47856b2504b566588785597b6ebb8271}\label{group__plotting__utils_ga47856b2504b566588785597b6ebb8271}} 
+\index{Plotting@{Plotting}!P\+S\+\_\+rna\+\_\+plot\+\_\+a@{P\+S\+\_\+rna\+\_\+plot\+\_\+a}}
+\index{P\+S\+\_\+rna\+\_\+plot\+\_\+a@{P\+S\+\_\+rna\+\_\+plot\+\_\+a}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{P\+S\+\_\+rna\+\_\+plot\+\_\+a()}{PS\_rna\_plot\_a()}}
+{\footnotesize\ttfamily int P\+S\+\_\+rna\+\_\+plot\+\_\+a (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{file,  }\item[{char $\ast$}]{pre,  }\item[{char $\ast$}]{post }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2structures_8h}{Vienna\+R\+N\+A/plotting/structures.\+h}$>$}
+
+
+
+Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{}. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000161}{Deprecated}]Use \hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a()} instead! \end{DoxyRefDesc}
+\mbox{\Hypertarget{group__plotting__utils_ga32fa0f97625119e9d24dd2e7153abc4f}\label{group__plotting__utils_ga32fa0f97625119e9d24dd2e7153abc4f}} 
+\index{Plotting@{Plotting}!P\+S\+\_\+rna\+\_\+plot\+\_\+a\+\_\+gquad@{P\+S\+\_\+rna\+\_\+plot\+\_\+a\+\_\+gquad}}
+\index{P\+S\+\_\+rna\+\_\+plot\+\_\+a\+\_\+gquad@{P\+S\+\_\+rna\+\_\+plot\+\_\+a\+\_\+gquad}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{P\+S\+\_\+rna\+\_\+plot\+\_\+a\+\_\+gquad()}{PS\_rna\_plot\_a\_gquad()}}
+{\footnotesize\ttfamily int P\+S\+\_\+rna\+\_\+plot\+\_\+a\+\_\+gquad (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char $\ast$}]{structure,  }\item[{char $\ast$}]{ssfile,  }\item[{char $\ast$}]{pre,  }\item[{char $\ast$}]{post }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{plotting_2structures_8h}{Vienna\+R\+N\+A/plotting/structures.\+h}$>$}
+
+
+
+Produce a secondary structure graph in Post\+Script including additional annotation macros and write it to \textquotesingle{}filename\textquotesingle{} (detect and draw g-\/quadruplexes) 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000162}{Deprecated}]Use \hyperlink{group__plotting__utils_ga139a31dd0ba9fc6612431f67de901c31}{vrna\+\_\+file\+\_\+\+P\+S\+\_\+rnaplot\+\_\+a()} instead! \end{DoxyRefDesc}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{group__plotting__utils_ga5964c4581431b098b80027d6e14dcdd4}\label{group__plotting__utils_ga5964c4581431b098b80027d6e14dcdd4}} 
+\index{Plotting@{Plotting}!rna\+\_\+plot\+\_\+type@{rna\+\_\+plot\+\_\+type}}
+\index{rna\+\_\+plot\+\_\+type@{rna\+\_\+plot\+\_\+type}!Plotting@{Plotting}}
+\subsubsection{\texorpdfstring{rna\+\_\+plot\+\_\+type}{rna\_plot\_type}}
+{\footnotesize\ttfamily int rna\+\_\+plot\+\_\+type}
+
+
+
+{\ttfamily \#include $<$\hyperlink{layouts_8h}{Vienna\+R\+N\+A/plotting/layouts.\+h}$>$}
+
+
+
+Switch for changing the secondary structure layout algorithm. 
+
+Current possibility are 0 for a simple radial drawing or 1 for the modified radial drawing taken from the {\itshape naview} program of \cite{bruccoleri:1988}.
+
+\begin{DoxyNote}{Note}
+To provide thread safety please do not rely on this global variable in future implementations but pass a plot type flag directly to the function that decides which layout algorithm it may use!
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__plotting__utils_gae6d17b9f0a53cf5205a9181e0f8422e9}{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+I\+M\+P\+LE}, \hyperlink{group__plotting__utils_ga94d4c863ecac2f220f76658afb92f964}{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+A\+V\+I\+EW}, \hyperlink{group__plotting__utils_ga8c9eac631348da92136c8363ecdd9fb9}{V\+R\+N\+A\+\_\+\+P\+L\+O\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+I\+R\+C\+U\+L\+AR} 
+\end{DoxySeeAlso}

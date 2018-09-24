@@ -1,0 +1,9 @@
+<map id="Secondary Structure Utilities" name="Secondary Structure Utilities">
+<area shape="rect" id="node1" href="$group__struct__utils__plist.html" title="Pair List Representation\l of Secondary Structures" alt="" coords="313,5,479,47"/>
+<area shape="rect" id="node2" href="$group__struct__utils__tree.html" title="Tree Representation\l of Secondary Structures" alt="" coords="313,71,479,112"/>
+<area shape="rect" id="node3" href="$group__struct__utils__dot__bracket.html" title="Dot&#45;Bracket Notation\l of Secondary Structures" alt="" coords="313,136,479,177"/>
+<area shape="rect" id="node5" href="$group__struct__utils__pair__table.html" title="Pair Table Representation\l of Secondary Structures" alt="" coords="309,201,483,243"/>
+<area shape="rect" id="node7" href="$group__struct__utils__helix__list.html" title="Helix List Representation\l of Secondary Structures" alt="" coords="311,267,481,308"/>
+<area shape="rect" id="node8" href="$group__struct__utils__deprecated.html" title="Deprecated Interface\l for Secondary Structure\l Utilities" alt="" coords="314,333,478,389"/>
+<area shape="rect" id="node6" href="$group__utils.html" title="Utilities" alt="" coords="5,177,72,203"/>
+</map>

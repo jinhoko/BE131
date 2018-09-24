@@ -1,0 +1,78 @@
+\hypertarget{findpath_8h_source}{}\section{findpath.\+h}
+\label{findpath_8h_source}\index{Vienna\+R\+N\+A/findpath.\+h@{Vienna\+R\+N\+A/findpath.\+h}}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef VIENNA\_RNA\_PACKAGE\_FIND\_PATH\_H}
+00002 \textcolor{preprocessor}{#define VIENNA\_RNA\_PACKAGE\_FIND\_PATH\_H}
+00003 
+00018 \textcolor{comment}{/* below are several convenience typedef's we use throughout the ViennaRNA library */}
+00019 
+\Hypertarget{findpath_8h_source_l00023}\hyperlink{group__direct__paths_ga818d4f3d1cf8723d6905990b08d909fe}{00023} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_s} \hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_t};
+00024 
+00025 
+00026 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00027 
+00028 \textcolor{comment}{/* the following typedefs are for backward compatibility only */}
+00029 
+\Hypertarget{findpath_8h_source_l00034}\hyperlink{group__direct__paths_gab6b8737d5377e70a7815d04aae7fd884}{00034} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_s} \hyperlink{group__direct__paths_structvrna__path__s}{path\_t};
+00035 
+00036 \textcolor{preprocessor}{#endif}
+00037 
+00038 \textcolor{preprocessor}{#include <\hyperlink{datastructures_2basic_8h}{ViennaRNA/datastructures/basic.h}>}
+00039 
+\Hypertarget{findpath_8h_source_l00044}\hyperlink{group__direct__paths}{00044} \textcolor{keyword}{struct }\hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_s} \{
+\Hypertarget{findpath_8h_source_l00045}\hyperlink{group__direct__paths_ac25160bf31d28097358278f367e41227}{00045}   \textcolor{keywordtype}{double}  \hyperlink{group__direct__paths_ac25160bf31d28097358278f367e41227}{en}; 
+\Hypertarget{findpath_8h_source_l00046}\hyperlink{group__direct__paths_a141b70a59cb81d10bc65bbb7a0f6db77}{00046}   \textcolor{keywordtype}{char}    *\hyperlink{group__direct__paths_a141b70a59cb81d10bc65bbb7a0f6db77}{s}; 
+00047 \};
+00048 
+00049 
+00071 \textcolor{keywordtype}{int} \hyperlink{group__direct__paths_gad611574a76593e26021f177e7854b6b4}{vrna\_path\_findpath\_saddle}(\hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *vc,
+00072                               \textcolor{keyword}{const} \textcolor{keywordtype}{char}            *s1,
+00073                               \textcolor{keyword}{const} \textcolor{keywordtype}{char}            *s2,
+00074                               \textcolor{keywordtype}{int}                   width);
+00075 
+00076 
+00103 \textcolor{keywordtype}{int} \hyperlink{group__direct__paths_gada8d722e37401b1aea30128b07555771}{vrna\_path\_findpath\_saddle\_ub}(
+      \hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00104                                  \textcolor{keyword}{const} \textcolor{keywordtype}{char}           *s1,
+00105                                  \textcolor{keyword}{const} \textcolor{keywordtype}{char}           *s2,
+00106                                  \textcolor{keywordtype}{int}                  width,
+00107                                  \textcolor{keywordtype}{int}                  maxE);
+00108 
+00109 
+00131 \hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_t} *\hyperlink{group__direct__paths_ga4b2283c4142cafd99678495585fcc842}{vrna\_path\_findpath}(
+      \hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t}  *vc,
+00132                                 \textcolor{keyword}{const} \textcolor{keywordtype}{char}            *s1,
+00133                                 \textcolor{keyword}{const} \textcolor{keywordtype}{char}            *s2,
+00134                                 \textcolor{keywordtype}{int}                   width);
+00135 
+00136 
+00164 \hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_t} *\hyperlink{group__direct__paths_ga8d47812616303f40057dfb033869863a}{vrna\_path\_findpath\_ub}(
+      \hyperlink{group__fold__compound_structvrna__fc__s}{vrna\_fold\_compound\_t} *vc,
+00165                                    \textcolor{keyword}{const} \textcolor{keywordtype}{char}           *s1,
+00166                                    \textcolor{keyword}{const} \textcolor{keywordtype}{char}           *s2,
+00167                                    \textcolor{keywordtype}{int}                  width,
+00168                                    \textcolor{keywordtype}{int}                  maxE);
+00169 
+00170 
+00171 \textcolor{preprocessor}{#ifndef VRNA\_DISABLE\_BACKWARD\_COMPATIBILITY}
+00172 
+00185 \textcolor{keywordtype}{int} \hyperlink{group__direct__paths_ga4c0dabf032c04eeab9c7370d15db6ad2}{find\_saddle}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *seq,
+00186                 \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s1,
+00187                 \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s2,
+00188                 \textcolor{keywordtype}{int}         width);
+00189 
+00190 
+00196 \textcolor{keywordtype}{void}    \hyperlink{group__direct__paths_ga9056421d716ae89f0ed3f107627f395b}{free\_path}(\hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_t} *path);
+00197 
+00198 
+00211 \hyperlink{group__direct__paths_structvrna__path__s}{vrna\_path\_t} *\hyperlink{group__direct__paths_gac009a44db824f90a6de5f9c28b9b3222}{get\_path}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}  *seq,
+00212                       \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s1,
+00213                       \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *s2,
+00214                       \textcolor{keywordtype}{int}         width);
+00215 
+00216 
+00217 \textcolor{preprocessor}{#endif}
+00218 
+00223 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

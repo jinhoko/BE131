@@ -1,0 +1,63 @@
+\hypertarget{mfe__window_8h}{}\section{Vienna\+R\+N\+A/mfe\+\_\+window.h File Reference}
+\label{mfe__window_8h}\index{Vienna\+R\+N\+A/mfe\+\_\+window.\+h@{Vienna\+R\+N\+A/mfe\+\_\+window.\+h}}
+
+
+Compute local Minimum Free Energy (M\+FE) using a sliding window approach and backtrace corresponding secondary structures.  
+
+
+Include dependency graph for mfe\+\_\+window.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mfe__window_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{mfe__window_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void() \hyperlink{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}{vrna\+\_\+mfe\+\_\+window\+\_\+callback}(int start, int end, const char $\ast$structure, float en, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em The default callback for sliding window M\+FE structure predictions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{Indent}\textbf{ Basic local (sliding window) M\+FE prediction interface}\par
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{group__mfe__window_ga689df235a1915a1ad56e377383c044ce}{vrna\+\_\+mfe\+\_\+window} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, F\+I\+LE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Local M\+FE prediction using a sliding window approach. \end{DoxyCompactList}\item 
+float {\bfseries vrna\+\_\+mfe\+\_\+window\+\_\+cb} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, \hyperlink{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}{vrna\+\_\+mfe\+\_\+window\+\_\+callback} $\ast$cb, void $\ast$data)
+\item 
+float \hyperlink{group__mfe__window_gaa4f67ae94efd08d800c17f9b53423fd6}{vrna\+\_\+mfe\+\_\+window\+\_\+zscore} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, double min\+\_\+z, F\+I\+LE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Local M\+FE prediction using a sliding window approach (with z-\/score cut-\/off) \end{DoxyCompactList}\item 
+float {\bfseries vrna\+\_\+mfe\+\_\+window\+\_\+zscore\+\_\+cb} (\hyperlink{group__fold__compound_ga1b0cef17fd40466cef5968eaeeff6166}{vrna\+\_\+fold\+\_\+compound\+\_\+t} $\ast$vc, double min\+\_\+z, vrna\+\_\+mfe\+\_\+window\+\_\+zscore\+\_\+callback $\ast$cb, void $\ast$data)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Simplified local M\+FE prediction using sequence(s) or multiple sequence alignment(s)}\par
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{group__mfe__window_ga4918cce52bf69c1913cda503b2ac75d8}{vrna\+\_\+\+Lfold} (const char $\ast$string, int window\+\_\+size, F\+I\+LE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Local M\+FE prediction using a sliding window approach (simplified interface) \end{DoxyCompactList}\item 
+float {\bfseries vrna\+\_\+\+Lfold\+\_\+cb} (const char $\ast$string, int window\+\_\+size, \hyperlink{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}{vrna\+\_\+mfe\+\_\+window\+\_\+callback} $\ast$cb, void $\ast$data)
+\item 
+float \hyperlink{group__mfe__window_ga27fddda5fc63eb49c861e38845fc34b4}{vrna\+\_\+\+Lfoldz} (const char $\ast$string, int window\+\_\+size, double min\+\_\+z, F\+I\+LE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Local M\+FE prediction using a sliding window approach with z-\/score cut-\/off (simplified interface) \end{DoxyCompactList}\item 
+float {\bfseries vrna\+\_\+\+Lfoldz\+\_\+cb} (const char $\ast$string, int window\+\_\+size, double min\+\_\+z, vrna\+\_\+mfe\+\_\+window\+\_\+zscore\+\_\+callback $\ast$cb, void $\ast$data)
+\item 
+float {\bfseries vrna\+\_\+ali\+Lfold} (const char $\ast$$\ast$alignment, int maxdist, F\+I\+LE $\ast$fp)
+\item 
+float {\bfseries vrna\+\_\+ali\+Lfold\+\_\+cb} (const char $\ast$$\ast$alignment, int maxdist, \hyperlink{group__mfe__window_ga4f3e5bc214ef803074ace313cb9571b4}{vrna\+\_\+mfe\+\_\+window\+\_\+callback} $\ast$cb, void $\ast$data)
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+Compute local Minimum Free Energy (M\+FE) using a sliding window approach and backtrace corresponding secondary structures. 
+
+, This file includes the interface to all functions related to predicting locally stable secondary structures. 

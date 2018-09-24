@@ -1,0 +1,237 @@
+\hypertarget{group__message__utils}{}\section{Messages}
+\label{group__message__utils}\index{Messages@{Messages}}
+
+
+Functions to print various kind of messages.  
+
+
+
+
+\subsection{Detailed Description}
+Functions to print various kind of messages. 
+
+Collaboration diagram for Messages\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{group__message__utils}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{vrna\+\_\+message\+\_\+error} (const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em Print an error message and die. \end{DoxyCompactList}\item 
+void \hyperlink{group__message__utils_gabc1a08dea0d84b5c33701732172a8b18}{vrna\+\_\+message\+\_\+verror} (const char $\ast$format, va\+\_\+list args)
+\begin{DoxyCompactList}\small\item\em Print an error message and die. \end{DoxyCompactList}\item 
+void \hyperlink{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}{vrna\+\_\+message\+\_\+warning} (const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em Print a warning message. \end{DoxyCompactList}\item 
+void \hyperlink{group__message__utils_ga377aa8ec8a49d343063adb22e6311f26}{vrna\+\_\+message\+\_\+vwarning} (const char $\ast$format, va\+\_\+list args)
+\begin{DoxyCompactList}\small\item\em Print a warning message. \end{DoxyCompactList}\item 
+void \hyperlink{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}{vrna\+\_\+message\+\_\+info} (F\+I\+LE $\ast$fp, const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em Print an info message. \end{DoxyCompactList}\item 
+void \hyperlink{group__message__utils_gad8b8139bd04fbfb51e398e9fcd6908dc}{vrna\+\_\+message\+\_\+vinfo} (F\+I\+LE $\ast$fp, const char $\ast$format, va\+\_\+list args)
+\begin{DoxyCompactList}\small\item\em Print an info message. \end{DoxyCompactList}\item 
+void \hyperlink{group__message__utils_gaee1dd652ca5b9e56b096963a1576f73b}{vrna\+\_\+message\+\_\+input\+\_\+seq\+\_\+simple} (void)
+\begin{DoxyCompactList}\small\item\em Print a line to {\itshape stdout} that asks for an input sequence. \end{DoxyCompactList}\item 
+void \hyperlink{group__message__utils_gaf4d194d558b0c975f269de01dea52460}{vrna\+\_\+message\+\_\+input\+\_\+seq} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Print a line with a user defined string and a ruler to stdout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}\label{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}} 
+\index{Messages@{Messages}!vrna\+\_\+message\+\_\+error@{vrna\+\_\+message\+\_\+error}}
+\index{vrna\+\_\+message\+\_\+error@{vrna\+\_\+message\+\_\+error}!Messages@{Messages}}
+\subsubsection{\texorpdfstring{vrna\+\_\+message\+\_\+error()}{vrna\_message\_error()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+error (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Print an error message and die. 
+
+This function is a wrapper to {\itshape fprintf}(stderr, ...) that puts a capital {\bfseries E\+R\+R\+OR\+:} in front of the message and then exits the calling program.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__message__utils_gabc1a08dea0d84b5c33701732172a8b18}{vrna\+\_\+message\+\_\+verror()}, \hyperlink{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}{vrna\+\_\+message\+\_\+warning()}, \hyperlink{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}{vrna\+\_\+message\+\_\+info()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & The error message to be printed \\
+\hline
+{\em ...} & Optional arguments for the formatted message string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__message__utils_gabc1a08dea0d84b5c33701732172a8b18}\label{group__message__utils_gabc1a08dea0d84b5c33701732172a8b18}} 
+\index{Messages@{Messages}!vrna\+\_\+message\+\_\+verror@{vrna\+\_\+message\+\_\+verror}}
+\index{vrna\+\_\+message\+\_\+verror@{vrna\+\_\+message\+\_\+verror}!Messages@{Messages}}
+\subsubsection{\texorpdfstring{vrna\+\_\+message\+\_\+verror()}{vrna\_message\_verror()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+verror (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{va\+\_\+list}]{args }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Print an error message and die. 
+
+This function is a wrapper to {\itshape vfprintf}(stderr, ...) that puts a capital {\bfseries E\+R\+R\+OR\+:} in front of the message and then exits the calling program.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{vrna\+\_\+message\+\_\+error()}, \hyperlink{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}{vrna\+\_\+message\+\_\+warning()}, \hyperlink{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}{vrna\+\_\+message\+\_\+info()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & The error message to be printed \\
+\hline
+{\em args} & The argument list for the formatted message string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}\label{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}} 
+\index{Messages@{Messages}!vrna\+\_\+message\+\_\+warning@{vrna\+\_\+message\+\_\+warning}}
+\index{vrna\+\_\+message\+\_\+warning@{vrna\+\_\+message\+\_\+warning}!Messages@{Messages}}
+\subsubsection{\texorpdfstring{vrna\+\_\+message\+\_\+warning()}{vrna\_message\_warning()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+warning (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Print a warning message. 
+
+This function is a wrapper to {\itshape fprintf}(stderr, ...) that puts a capital {\bfseries W\+A\+R\+N\+I\+NG\+:} in front of the message.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__message__utils_ga377aa8ec8a49d343063adb22e6311f26}{vrna\+\_\+message\+\_\+vwarning()}, \hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{vrna\+\_\+message\+\_\+error()}, \hyperlink{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}{vrna\+\_\+message\+\_\+info()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & The warning message to be printed \\
+\hline
+{\em ...} & Optional arguments for the formatted message string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__message__utils_ga377aa8ec8a49d343063adb22e6311f26}\label{group__message__utils_ga377aa8ec8a49d343063adb22e6311f26}} 
+\index{Messages@{Messages}!vrna\+\_\+message\+\_\+vwarning@{vrna\+\_\+message\+\_\+vwarning}}
+\index{vrna\+\_\+message\+\_\+vwarning@{vrna\+\_\+message\+\_\+vwarning}!Messages@{Messages}}
+\subsubsection{\texorpdfstring{vrna\+\_\+message\+\_\+vwarning()}{vrna\_message\_vwarning()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+vwarning (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{va\+\_\+list}]{args }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Print a warning message. 
+
+This function is a wrapper to {\itshape fprintf}(stderr, ...) that puts a capital {\bfseries W\+A\+R\+N\+I\+NG\+:} in front of the message.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__message__utils_ga377aa8ec8a49d343063adb22e6311f26}{vrna\+\_\+message\+\_\+vwarning()}, \hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{vrna\+\_\+message\+\_\+error()}, \hyperlink{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}{vrna\+\_\+message\+\_\+info()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & The warning message to be printed \\
+\hline
+{\em args} & The argument list for the formatted message string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}\label{group__message__utils_ga039bae6153a6415b054dbe6045f83d03}} 
+\index{Messages@{Messages}!vrna\+\_\+message\+\_\+info@{vrna\+\_\+message\+\_\+info}}
+\index{vrna\+\_\+message\+\_\+info@{vrna\+\_\+message\+\_\+info}!Messages@{Messages}}
+\subsubsection{\texorpdfstring{vrna\+\_\+message\+\_\+info()}{vrna\_message\_info()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+info (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{fp,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Print an info message. 
+
+This function is a wrapper to {\itshape fprintf}(...).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__message__utils_gad8b8139bd04fbfb51e398e9fcd6908dc}{vrna\+\_\+message\+\_\+vinfo()}, \hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{vrna\+\_\+message\+\_\+error()}, \hyperlink{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}{vrna\+\_\+message\+\_\+warning()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & The file pointer where the message is printed to \\
+\hline
+{\em format} & The warning message to be printed \\
+\hline
+{\em ...} & Optional arguments for the formatted message string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__message__utils_gad8b8139bd04fbfb51e398e9fcd6908dc}\label{group__message__utils_gad8b8139bd04fbfb51e398e9fcd6908dc}} 
+\index{Messages@{Messages}!vrna\+\_\+message\+\_\+vinfo@{vrna\+\_\+message\+\_\+vinfo}}
+\index{vrna\+\_\+message\+\_\+vinfo@{vrna\+\_\+message\+\_\+vinfo}!Messages@{Messages}}
+\subsubsection{\texorpdfstring{vrna\+\_\+message\+\_\+vinfo()}{vrna\_message\_vinfo()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+vinfo (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{fp,  }\item[{const char $\ast$}]{format,  }\item[{va\+\_\+list}]{args }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Print an info message. 
+
+This function is a wrapper to {\itshape fprintf}(...).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__message__utils_gad8b8139bd04fbfb51e398e9fcd6908dc}{vrna\+\_\+message\+\_\+vinfo()}, \hyperlink{group__message__utils_ga36b35be01d7f36cf7f59c245eee628d1}{vrna\+\_\+message\+\_\+error()}, \hyperlink{group__message__utils_ga6e07ed24add60693ba886d54d0a46635}{vrna\+\_\+message\+\_\+warning()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & The file pointer where the message is printed to \\
+\hline
+{\em format} & The info message to be printed \\
+\hline
+{\em args} & The argument list for the formatted message string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__message__utils_gaee1dd652ca5b9e56b096963a1576f73b}\label{group__message__utils_gaee1dd652ca5b9e56b096963a1576f73b}} 
+\index{Messages@{Messages}!vrna\+\_\+message\+\_\+input\+\_\+seq\+\_\+simple@{vrna\+\_\+message\+\_\+input\+\_\+seq\+\_\+simple}}
+\index{vrna\+\_\+message\+\_\+input\+\_\+seq\+\_\+simple@{vrna\+\_\+message\+\_\+input\+\_\+seq\+\_\+simple}!Messages@{Messages}}
+\subsubsection{\texorpdfstring{vrna\+\_\+message\+\_\+input\+\_\+seq\+\_\+simple()}{vrna\_message\_input\_seq\_simple()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+input\+\_\+seq\+\_\+simple (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Print a line to {\itshape stdout} that asks for an input sequence. 
+
+There will also be a ruler (scale line) printed that helps orientation of the sequence positions \mbox{\Hypertarget{group__message__utils_gaf4d194d558b0c975f269de01dea52460}\label{group__message__utils_gaf4d194d558b0c975f269de01dea52460}} 
+\index{Messages@{Messages}!vrna\+\_\+message\+\_\+input\+\_\+seq@{vrna\+\_\+message\+\_\+input\+\_\+seq}}
+\index{vrna\+\_\+message\+\_\+input\+\_\+seq@{vrna\+\_\+message\+\_\+input\+\_\+seq}!Messages@{Messages}}
+\subsubsection{\texorpdfstring{vrna\+\_\+message\+\_\+input\+\_\+seq()}{vrna\_message\_input\_seq()}}
+{\footnotesize\ttfamily void vrna\+\_\+message\+\_\+input\+\_\+seq (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Print a line with a user defined string and a ruler to stdout. 
+
+(usually this is used to ask for user input) There will also be a ruler (scale line) printed that helps orientation of the sequence positions
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & A user defined string that will be printed to stdout \\
+\hline
+\end{DoxyParams}

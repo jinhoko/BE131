@@ -1,0 +1,411 @@
+\hypertarget{group__utils}{}\section{Utilities}
+\label{group__utils}\index{Utilities@{Utilities}}
+
+
+\subsection{Detailed Description}
+Collaboration diagram for Utilities\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{group__utils}
+\end{center}
+\end{figure}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__alphabet__utils}{Utilities to deal with Nucleotide Alphabets}
+\begin{DoxyCompactList}\small\item\em Functions to cope with various aspects related to the nucleotide sequence alphabet. \end{DoxyCompactList}\item 
+\hyperlink{group__string__utils}{(\+Nucleic Acid Sequence) String Utilitites}
+\begin{DoxyCompactList}\small\item\em Functions to parse, convert, manipulate, create, and compare (nucleic acid sequence) strings. \end{DoxyCompactList}\item 
+\hyperlink{group__struct__utils}{Secondary Structure Utilities}
+\begin{DoxyCompactList}\small\item\em Functions to create, parse, convert, manipulate, and compare secondary structure representations. \end{DoxyCompactList}\item 
+\hyperlink{group__aln__utils}{Multiple Sequence Alignment Utilities}
+\begin{DoxyCompactList}\small\item\em Functions to extract features from and to manipulate multiple sequence alignments. \end{DoxyCompactList}\item 
+\hyperlink{group__file__utils}{Files and I/O}
+\begin{DoxyCompactList}\small\item\em Functions to parse, write, and convert various file formats and to deal with file system related issues. \end{DoxyCompactList}\item 
+\hyperlink{group__plotting__utils}{Plotting}
+\begin{DoxyCompactList}\small\item\em Functions for Creating Secondary Structure Plots, Dot-\/\+Plots, and More. \end{DoxyCompactList}\item 
+\hyperlink{group__search__utils}{Search Algorithms}
+\begin{DoxyCompactList}\small\item\em Implementations of various search algorithms to detect strings of objects within other strings of objects. \end{DoxyCompactList}\item 
+\hyperlink{group__combinatorics__utils}{Combinatorics Algorithms}
+\begin{DoxyCompactList}\small\item\em Implementations to solve various combinatorial aspects for strings of objects. \end{DoxyCompactList}\item 
+\hyperlink{group__data__structures}{(\+Abstract) Data Structures}
+\begin{DoxyCompactList}\small\item\em All datastructures and typedefs shared among the Vienna\+R\+NA Package can be found here. \end{DoxyCompactList}\item 
+\hyperlink{group__message__utils}{Messages}
+\begin{DoxyCompactList}\small\item\em Functions to print various kind of messages. \end{DoxyCompactList}\item 
+\hyperlink{group__units}{Unit Conversion}
+\begin{DoxyCompactList}\small\item\em Functions to convert between various physical units. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{alphabet_8h}{alphabet.\+h}
+\begin{DoxyCompactList}\small\item\em Functions to process, convert, and generally handle different nucleotide and/or base pair alphabets. \end{DoxyCompactList}\item 
+file \hyperlink{combinatorics_8h}{combinatorics.\+h}
+\begin{DoxyCompactList}\small\item\em Various implementations that deal with combinatorial aspects of objects. \end{DoxyCompactList}\item 
+file \hyperlink{commands_8h}{commands.\+h}
+\begin{DoxyCompactList}\small\item\em Parse and apply different commands that alter the behavior of secondary structure prediction and evaluation. \end{DoxyCompactList}\item 
+file \hyperlink{sequence_8h}{sequence.\+h}
+\begin{DoxyCompactList}\small\item\em Functions and data structures related to sequence representations ,. \end{DoxyCompactList}\item 
+file \hyperlink{units_8h}{units.\+h}
+\begin{DoxyCompactList}\small\item\em Physical Units and Functions to convert them into each other. \end{DoxyCompactList}\item 
+file \hyperlink{io_2file__formats__msa_8h}{file\+\_\+formats\+\_\+msa.\+h}
+\begin{DoxyCompactList}\small\item\em Functions dealing with file formats for Multiple Sequence Alignments (M\+SA) \end{DoxyCompactList}\item 
+file \hyperlink{io_2utils_8h}{utils.\+h}
+\begin{DoxyCompactList}\small\item\em Several utilities for file handling. \end{DoxyCompactList}\item 
+file \hyperlink{plotting_2utils_8h}{utils.\+h}
+\begin{DoxyCompactList}\small\item\em Various utilities to assist in plotting secondary structures and consensus structures. \end{DoxyCompactList}\item 
+file \hyperlink{utils_2alignments_8h}{alignments.\+h}
+\begin{DoxyCompactList}\small\item\em Various utility-\/ and helper-\/functions for sequence alignments and comparative structure prediction. \end{DoxyCompactList}\item 
+file \hyperlink{utils_2basic_8h}{basic.\+h}
+\begin{DoxyCompactList}\small\item\em General utility-\/ and helper-\/functions used throughout the {\itshape Vienna\+R\+NA} {\itshape Package}. \end{DoxyCompactList}\item 
+file \hyperlink{strings_8h}{strings.\+h}
+\begin{DoxyCompactList}\small\item\em General utility-\/ and helper-\/functions for R\+NA sequence and structure strings used throughout the Vienna\+R\+NA Package. \end{DoxyCompactList}\item 
+file \hyperlink{BoyerMoore_8h}{Boyer\+Moore.\+h}
+\begin{DoxyCompactList}\small\item\em Variants of the Boyer-\/\+Moore string search algorithm. \end{DoxyCompactList}\item 
+file \hyperlink{datastructures_2char__stream_8h}{char\+\_\+stream.\+h}
+\begin{DoxyCompactList}\small\item\em Implementation of a dynamic, buffered character stream. \end{DoxyCompactList}\item 
+file \hyperlink{datastructures_2stream__output_8h}{stream\+\_\+output.\+h}
+\begin{DoxyCompactList}\small\item\em An implementation of a buffered, ordered stream output data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__utils_gad403c9ea58f1836689404c2931419c8c}\label{group__utils_gad403c9ea58f1836689404c2931419c8c}} 
+\#define \hyperlink{group__utils_gad403c9ea58f1836689404c2931419c8c}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+E\+R\+R\+OR}~1U
+\begin{DoxyCompactList}\small\item\em Output flag of \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}\+: {\itshape \char`\"{}\+An E\+R\+R\+O\+R has occured, maybe E\+O\+F\char`\"{}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_ga72f3c6ca5c83d2b9baed2922d19c403d}\label{group__utils_ga72f3c6ca5c83d2b9baed2922d19c403d}} 
+\#define \hyperlink{group__utils_ga72f3c6ca5c83d2b9baed2922d19c403d}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+Q\+U\+IT}~2U
+\begin{DoxyCompactList}\small\item\em Output flag of \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}\+: {\itshape \char`\"{}the user requested quitting the program\char`\"{}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_ga8e3241b321c9c1a78a69e59e2e019a71}\label{group__utils_ga8e3241b321c9c1a78a69e59e2e019a71}} 
+\#define \hyperlink{group__utils_ga8e3241b321c9c1a78a69e59e2e019a71}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+M\+I\+SC}~4U
+\begin{DoxyCompactList}\small\item\em Output flag of \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}\+: {\itshape \char`\"{}something was read\char`\"{}}. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__utils_ga2f0d8069e93d3ac54d9320d6bdb8e7e7}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+F\+A\+S\+T\+A\+\_\+\+H\+E\+A\+D\+ER}~8U
+\begin{DoxyCompactList}\small\item\em Input/\+Output flag of \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}\+:~\newline
+if used as input option this tells \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()} that the data to be read should comply with the F\+A\+S\+TA format. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__utils_gac08a9df45b9721b97a47dbfe7a6e5f85}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+NT}~32U
+\begin{DoxyCompactList}\small\item\em Input flag for \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}\+:~\newline
+Tell \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()} that we assume to read a structure constraint. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_ga086742158293217a46ae2f71bb296937}\label{group__utils_ga086742158293217a46ae2f71bb296937}} 
+\#define \hyperlink{group__utils_ga086742158293217a46ae2f71bb296937}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+\_\+\+T\+R\+U\+N\+C\+A\+T\+I\+ON}~256U
+\begin{DoxyCompactList}\small\item\em Input switch for \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}\+: {\itshape \char`\"{}do not trunkate the line by eliminating white spaces at end of line\char`\"{}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_ga7a2e8c50a0c7ce82e60da1016e1367fd}\label{group__utils_ga7a2e8c50a0c7ce82e60da1016e1367fd}} 
+\#define \hyperlink{group__utils_ga7a2e8c50a0c7ce82e60da1016e1367fd}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+\_\+\+R\+E\+ST}~512U
+\begin{DoxyCompactList}\small\item\em Input switch for \hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}\+: {\itshape \char`\"{}do fill rest array\char`\"{}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_ga0de536599b881c787b0943a2671da476}\label{group__utils_ga0de536599b881c787b0943a2671da476}} 
+\#define \hyperlink{group__utils_ga0de536599b881c787b0943a2671da476}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+\_\+\+S\+P\+AN}~1024U
+\begin{DoxyCompactList}\small\item\em Input switch for \hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}\+: {\itshape \char`\"{}never allow data to span more than one line\char`\"{}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_gab4db885222b3b69608310d7c7e63e286}\label{group__utils_gab4db885222b3b69608310d7c7e63e286}} 
+\#define \hyperlink{group__utils_gab4db885222b3b69608310d7c7e63e286}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+S\+K\+I\+P\+\_\+\+B\+L\+A\+N\+K\+\_\+\+L\+I\+N\+ES}~2048U
+\begin{DoxyCompactList}\small\item\em Input switch for \hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}\+: {\itshape \char`\"{}do not skip empty lines\char`\"{}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_ga305474b93ccb79ae4c7754016a8ddd84}\label{group__utils_ga305474b93ccb79ae4c7754016a8ddd84}} 
+\#define \hyperlink{group__utils_ga305474b93ccb79ae4c7754016a8ddd84}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+B\+L\+A\+N\+K\+\_\+\+L\+I\+NE}~4096U
+\begin{DoxyCompactList}\small\item\em Output flag for \hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}\+: {\itshape \char`\"{}read an empty line\char`\"{}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_ga0f6311f11bed1842e3a527ab27b294c6}\label{group__utils_ga0f6311f11bed1842e3a527ab27b294c6}} 
+\#define \hyperlink{group__utils_ga0f6311f11bed1842e3a527ab27b294c6}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+S\+K\+I\+P\+\_\+\+C\+O\+M\+M\+E\+N\+TS}~128U
+\begin{DoxyCompactList}\small\item\em Input switch for \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}\+: {\itshape \char`\"{}do not skip comment lines\char`\"{}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_gaf2062e0eeefffd3ed639af460b3d4fab}\label{group__utils_gaf2062e0eeefffd3ed639af460b3d4fab}} 
+\#define \hyperlink{group__utils_gaf2062e0eeefffd3ed639af460b3d4fab}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+O\+M\+M\+E\+NT}~8192U
+\begin{DoxyCompactList}\small\item\em Output flag for \hyperlink{group__file__formats_ga8cfb7e271efc9e1f34640acb85475639}{vrna\+\_\+file\+\_\+fasta\+\_\+read\+\_\+record()}\+: {\itshape \char`\"{}read a comment\char`\"{}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}\label{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}} 
+\#define \hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{M\+I\+N2}(A,  B)~((A) $<$ (B) ? (A) \+: (B))
+\begin{DoxyCompactList}\small\item\em Get the minimum of two comparable values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}\label{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}} 
+\#define \hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{M\+A\+X2}(A,  B)~((A) $>$ (B) ? (A) \+: (B))
+\begin{DoxyCompactList}\small\item\em Get the maximum of two comparable values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_ga721b8d5f3abef17f10293f1f7f8c958e}\label{group__utils_ga721b8d5f3abef17f10293f1f7f8c958e}} 
+\#define \hyperlink{group__utils_ga721b8d5f3abef17f10293f1f7f8c958e}{M\+I\+N3}(A,  B,  C)~(\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{M\+I\+N2}(  (\hyperlink{group__utils_gae0b9cd0ce090bd69b951aa73e8fa4f7d}{M\+I\+N2}((A),(B))) ,(C)))
+\begin{DoxyCompactList}\small\item\em Get the minimum of three comparable values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_ga8d577123d2e66d2b7d0bf9af6e172b93}\label{group__utils_ga8d577123d2e66d2b7d0bf9af6e172b93}} 
+\#define \hyperlink{group__utils_ga8d577123d2e66d2b7d0bf9af6e172b93}{M\+A\+X3}(A,  B,  C)~(\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{M\+A\+X2}(  (\hyperlink{group__utils_ga33297b3679c713b0c4d897cd0fe3b122}{M\+A\+X2}((A),(B))) ,(C)))
+\begin{DoxyCompactList}\small\item\em Get the maximum of three comparable values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{group__utils_gaf37a0979367c977edfb9da6614eebe99}{vrna\+\_\+alloc} (unsigned size)
+\begin{DoxyCompactList}\small\item\em Allocate space safely. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{group__utils_ga27f4719a66c6f90d1cca3d1e6e696c6a}{vrna\+\_\+realloc} (void $\ast$p, unsigned size)
+\begin{DoxyCompactList}\small\item\em Reallocate space safely. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__utils_ga0ad1f40ea316e5c5918695c35613027a}\label{group__utils_ga0ad1f40ea316e5c5918695c35613027a}} 
+void \hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\+\_\+init\+\_\+rand} (void)
+\begin{DoxyCompactList}\small\item\em Initialize seed for random number generator. \end{DoxyCompactList}\item 
+double \hyperlink{group__utils_ga384e256ebb295d04a14426179db0dd6e}{vrna\+\_\+urn} (void)
+\begin{DoxyCompactList}\small\item\em get a random number from \mbox{[}0..1\mbox{]} \end{DoxyCompactList}\item 
+int \hyperlink{group__utils_ga46111bb3747dbcf4609f0d40ae169ad9}{vrna\+\_\+int\+\_\+urn} (int from, int to)
+\begin{DoxyCompactList}\small\item\em Generates a pseudo random integer in a specified range. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{group__utils_gad3bbe8d01afb1310609cb018d5290550}{vrna\+\_\+time\+\_\+stamp} (void)
+\begin{DoxyCompactList}\small\item\em Get a timestamp. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line} (char $\ast$$\ast$string, unsigned int options)
+\item 
+int $\ast$ \hyperlink{group__utils_ga70b180e9ea764218a82647a1cd347445}{vrna\+\_\+idx\+\_\+row\+\_\+wise} (unsigned int length)
+\begin{DoxyCompactList}\small\item\em Get an index mapper array (iindx) for accessing the energy matrices, e.\+g. in partition function related functions. \end{DoxyCompactList}\item 
+int $\ast$ \hyperlink{group__utils_ga89ebc69c52fa0c78c9e1974b0017746b}{vrna\+\_\+idx\+\_\+col\+\_\+wise} (unsigned int length)
+\begin{DoxyCompactList}\small\item\em Get an index mapper array (indx) for accessing the energy matrices, e.\+g. in M\+FE related functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned short \hyperlink{group__utils_gaf9a866c8417afda7368bbac939ab3c47}{xsubi} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em Current 48 bit random number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__utils_ga2f0d8069e93d3ac54d9320d6bdb8e7e7}\label{group__utils_ga2f0d8069e93d3ac54d9320d6bdb8e7e7}} 
+\index{Utilities@{Utilities}!V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+F\+A\+S\+T\+A\+\_\+\+H\+E\+A\+D\+ER@{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+F\+A\+S\+T\+A\+\_\+\+H\+E\+A\+D\+ER}}
+\index{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+F\+A\+S\+T\+A\+\_\+\+H\+E\+A\+D\+ER@{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+F\+A\+S\+T\+A\+\_\+\+H\+E\+A\+D\+ER}!Utilities@{Utilities}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+F\+A\+S\+T\+A\+\_\+\+H\+E\+A\+D\+ER}{VRNA\_INPUT\_FASTA\_HEADER}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+F\+A\+S\+T\+A\+\_\+\+H\+E\+A\+D\+ER~8U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Input/\+Output flag of \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}\+:~\newline
+if used as input option this tells \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()} that the data to be read should comply with the F\+A\+S\+TA format. 
+
+the function will return this flag if a fasta header was read \mbox{\Hypertarget{group__utils_gac08a9df45b9721b97a47dbfe7a6e5f85}\label{group__utils_gac08a9df45b9721b97a47dbfe7a6e5f85}} 
+\index{Utilities@{Utilities}!V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+NT@{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+NT}}
+\index{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+NT@{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+NT}!Utilities@{Utilities}}
+\subsubsection{\texorpdfstring{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+NT}{VRNA\_INPUT\_CONSTRAINT}}
+{\footnotesize\ttfamily \#define V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+O\+N\+S\+T\+R\+A\+I\+NT~32U}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Input flag for \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()}\+:~\newline
+Tell \hyperlink{group__utils_ga8ef1835eb83f542396f59f0b205965e5}{get\+\_\+input\+\_\+line()} that we assume to read a structure constraint. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__utils_gaf37a0979367c977edfb9da6614eebe99}\label{group__utils_gaf37a0979367c977edfb9da6614eebe99}} 
+\index{Utilities@{Utilities}!vrna\+\_\+alloc@{vrna\+\_\+alloc}}
+\index{vrna\+\_\+alloc@{vrna\+\_\+alloc}!Utilities@{Utilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+alloc()}{vrna\_alloc()}}
+{\footnotesize\ttfamily void$\ast$ vrna\+\_\+alloc (\begin{DoxyParamCaption}\item[{unsigned}]{size }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Allocate space safely. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the memory to be allocated in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated memory 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__utils_ga27f4719a66c6f90d1cca3d1e6e696c6a}\label{group__utils_ga27f4719a66c6f90d1cca3d1e6e696c6a}} 
+\index{Utilities@{Utilities}!vrna\+\_\+realloc@{vrna\+\_\+realloc}}
+\index{vrna\+\_\+realloc@{vrna\+\_\+realloc}!Utilities@{Utilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+realloc()}{vrna\_realloc()}}
+{\footnotesize\ttfamily void$\ast$ vrna\+\_\+realloc (\begin{DoxyParamCaption}\item[{void $\ast$}]{p,  }\item[{unsigned}]{size }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Reallocate space safely. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A pointer to the memory region to be reallocated \\
+\hline
+{\em size} & The size of the memory to be allocated in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly allocated memory 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__utils_ga384e256ebb295d04a14426179db0dd6e}\label{group__utils_ga384e256ebb295d04a14426179db0dd6e}} 
+\index{Utilities@{Utilities}!vrna\+\_\+urn@{vrna\+\_\+urn}}
+\index{vrna\+\_\+urn@{vrna\+\_\+urn}!Utilities@{Utilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+urn()}{vrna\_urn()}}
+{\footnotesize\ttfamily double vrna\+\_\+urn (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+get a random number from \mbox{[}0..1\mbox{]} 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__utils_ga46111bb3747dbcf4609f0d40ae169ad9}{vrna\+\_\+int\+\_\+urn()}, \hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\+\_\+init\+\_\+rand()} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+Usually implemented by calling {\itshape erand48()}. 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+A random number in range \mbox{[}0..1\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__utils_ga46111bb3747dbcf4609f0d40ae169ad9}\label{group__utils_ga46111bb3747dbcf4609f0d40ae169ad9}} 
+\index{Utilities@{Utilities}!vrna\+\_\+int\+\_\+urn@{vrna\+\_\+int\+\_\+urn}}
+\index{vrna\+\_\+int\+\_\+urn@{vrna\+\_\+int\+\_\+urn}!Utilities@{Utilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+int\+\_\+urn()}{vrna\_int\_urn()}}
+{\footnotesize\ttfamily int vrna\+\_\+int\+\_\+urn (\begin{DoxyParamCaption}\item[{int}]{from,  }\item[{int}]{to }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Generates a pseudo random integer in a specified range. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__utils_ga384e256ebb295d04a14426179db0dd6e}{vrna\+\_\+urn()}, \hyperlink{group__utils_ga0ad1f40ea316e5c5918695c35613027a}{vrna\+\_\+init\+\_\+rand()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em from} & The first number in range \\
+\hline
+{\em to} & The last number in range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pseudo random number in range \mbox{[}from, to\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__utils_gad3bbe8d01afb1310609cb018d5290550}\label{group__utils_gad3bbe8d01afb1310609cb018d5290550}} 
+\index{Utilities@{Utilities}!vrna\+\_\+time\+\_\+stamp@{vrna\+\_\+time\+\_\+stamp}}
+\index{vrna\+\_\+time\+\_\+stamp@{vrna\+\_\+time\+\_\+stamp}!Utilities@{Utilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+time\+\_\+stamp()}{vrna\_time\_stamp()}}
+{\footnotesize\ttfamily char$\ast$ vrna\+\_\+time\+\_\+stamp (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Get a timestamp. 
+
+Returns a string containing the current date in the format \begin{DoxyVerb}Fri Mar 19 21:10:57 1993 \end{DoxyVerb}
+
+
+\begin{DoxyReturn}{Returns}
+A string containing the timestamp 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__utils_ga8ef1835eb83f542396f59f0b205965e5}\label{group__utils_ga8ef1835eb83f542396f59f0b205965e5}} 
+\index{Utilities@{Utilities}!get\+\_\+input\+\_\+line@{get\+\_\+input\+\_\+line}}
+\index{get\+\_\+input\+\_\+line@{get\+\_\+input\+\_\+line}!Utilities@{Utilities}}
+\subsubsection{\texorpdfstring{get\+\_\+input\+\_\+line()}{get\_input\_line()}}
+{\footnotesize\ttfamily unsigned int get\+\_\+input\+\_\+line (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{string,  }\item[{unsigned int}]{options }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+Retrieve a line from \textquotesingle{}stdin\textquotesingle{} savely while skipping comment characters and other features This function returns the type of input it has read if recognized. An option argument allows one to switch between different reading modes.~\newline
+Currently available options are\+:~\newline
+\#\+V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+P\+R\+I\+N\+T\+\_\+\+C\+O\+M\+M\+E\+N\+TS, \hyperlink{group__utils_ga0f6311f11bed1842e3a527ab27b294c6}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+S\+K\+I\+P\+\_\+\+C\+O\+M\+M\+E\+N\+TS}, \#\+V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+N\+O\+E\+L\+I\+M\+\_\+\+W\+S\+\_\+\+S\+U\+F\+F\+IX
+
+pass a collection of options as one value like this\+: \begin{DoxyVerb}get_input_line(string, option_1 | option_2 | option_n) \end{DoxyVerb}
+
+
+If the function recognizes the type of input, it will report it in the return value. It also reports if a user defined \textquotesingle{}quit\textquotesingle{} command (-\/sign on \textquotesingle{}stdin\textquotesingle{}) was given. Possible return values are\+:~\newline
+\hyperlink{group__utils_ga2f0d8069e93d3ac54d9320d6bdb8e7e7}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+F\+A\+S\+T\+A\+\_\+\+H\+E\+A\+D\+ER}, \hyperlink{group__utils_gad403c9ea58f1836689404c2931419c8c}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+E\+R\+R\+OR}, \hyperlink{group__utils_ga8e3241b321c9c1a78a69e59e2e019a71}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+M\+I\+SC}, \hyperlink{group__utils_ga72f3c6ca5c83d2b9baed2922d19c403d}{V\+R\+N\+A\+\_\+\+I\+N\+P\+U\+T\+\_\+\+Q\+U\+IT}
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A pointer to the character array that contains the line read \\
+\hline
+{\em options} & A collection of options for switching the functions behavior \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A flag with information about what has been read 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__utils_ga70b180e9ea764218a82647a1cd347445}\label{group__utils_ga70b180e9ea764218a82647a1cd347445}} 
+\index{Utilities@{Utilities}!vrna\+\_\+idx\+\_\+row\+\_\+wise@{vrna\+\_\+idx\+\_\+row\+\_\+wise}}
+\index{vrna\+\_\+idx\+\_\+row\+\_\+wise@{vrna\+\_\+idx\+\_\+row\+\_\+wise}!Utilities@{Utilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+idx\+\_\+row\+\_\+wise()}{vrna\_idx\_row\_wise()}}
+{\footnotesize\ttfamily int$\ast$ vrna\+\_\+idx\+\_\+row\+\_\+wise (\begin{DoxyParamCaption}\item[{unsigned int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Get an index mapper array (iindx) for accessing the energy matrices, e.\+g. in partition function related functions. 
+
+Access of a position \char`\"{}(i,j)\char`\"{} is then accomplished by using\begin{DoxyVerb}(i,j) ~ iindx[i]-j \end{DoxyVerb}
+ This function is necessary as most of the two-\/dimensional energy matrices are actually one-\/dimensional arrays throughout the Vienna\+R\+NA Package
+
+Consult the implemented code to find out about the mapping formula ;)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__utils_ga89ebc69c52fa0c78c9e1974b0017746b}{vrna\+\_\+idx\+\_\+col\+\_\+wise()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em length} & The length of the R\+NA sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mapper array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__utils_ga89ebc69c52fa0c78c9e1974b0017746b}\label{group__utils_ga89ebc69c52fa0c78c9e1974b0017746b}} 
+\index{Utilities@{Utilities}!vrna\+\_\+idx\+\_\+col\+\_\+wise@{vrna\+\_\+idx\+\_\+col\+\_\+wise}}
+\index{vrna\+\_\+idx\+\_\+col\+\_\+wise@{vrna\+\_\+idx\+\_\+col\+\_\+wise}!Utilities@{Utilities}}
+\subsubsection{\texorpdfstring{vrna\+\_\+idx\+\_\+col\+\_\+wise()}{vrna\_idx\_col\_wise()}}
+{\footnotesize\ttfamily int$\ast$ vrna\+\_\+idx\+\_\+col\+\_\+wise (\begin{DoxyParamCaption}\item[{unsigned int}]{length }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Get an index mapper array (indx) for accessing the energy matrices, e.\+g. in M\+FE related functions. 
+
+Access of a position \char`\"{}(i,j)\char`\"{} is then accomplished by using\begin{DoxyVerb}(i,j) ~ indx[j]+i \end{DoxyVerb}
+ This function is necessary as most of the two-\/dimensional energy matrices are actually one-\/dimensional arrays throughout the Vienna\+R\+N\+A\+Package
+
+Consult the implemented code to find out about the mapping formula ;)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__utils_ga70b180e9ea764218a82647a1cd347445}{vrna\+\_\+idx\+\_\+row\+\_\+wise()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em length} & The length of the R\+NA sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mapper array 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{group__utils_gaf9a866c8417afda7368bbac939ab3c47}\label{group__utils_gaf9a866c8417afda7368bbac939ab3c47}} 
+\index{Utilities@{Utilities}!xsubi@{xsubi}}
+\index{xsubi@{xsubi}!Utilities@{Utilities}}
+\subsubsection{\texorpdfstring{xsubi}{xsubi}}
+{\footnotesize\ttfamily unsigned short xsubi\mbox{[}3\mbox{]}}
+
+
+
+{\ttfamily \#include $<$\hyperlink{utils_2basic_8h}{Vienna\+R\+N\+A/utils/basic.\+h}$>$}
+
+
+
+Current 48 bit random number. 
+
+This variable is used by \hyperlink{group__utils_ga384e256ebb295d04a14426179db0dd6e}{vrna\+\_\+urn()}. These should be set to some random number seeds before the first call to \hyperlink{group__utils_ga384e256ebb295d04a14426179db0dd6e}{vrna\+\_\+urn()}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__utils_ga384e256ebb295d04a14426179db0dd6e}{vrna\+\_\+urn()} 
+\end{DoxySeeAlso}
