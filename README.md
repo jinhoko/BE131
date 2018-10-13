@@ -8,4 +8,4 @@ Berkeley 2018 Fall  BioE131 | lab, class repo
 * lab6 : Understanding the sequences, plot the depth results [link](https://github.com/dgggit/BE131_JK/blob/master/lab6/lab_6.ipynb)
 
 ## License Information
-See the [LICENSE](LICENSE.md) file for license rights and limitations.
+See the [LICENSE](LICENSE) file for license rights and limitations.
