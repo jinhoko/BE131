@@ -9,6 +9,7 @@ Berkeley 2018 Fall  BioE131 | lab, class repo
 * lab4 : Forming BIO databases with SQlite, making assosiative table [link](https://github.com/dgggit/BE131_JK/blob/master/lab4/Submission_lab4/database_sql.ipynb)
 * lab5 : Use RNAfold to predict the folded structure of allosteric ribozyme, verify the bio-logic-gate controlled by OBS binding input & stem II activation output [link](https://github.com/dgggit/BE131_JK/blob/master/lab5/lab5_submission.ipynb)
 * lab6 : Understanding the sequences, plot the depth results [link](https://github.com/dgggit/BE131_JK/blob/master/lab6/lab_6.ipynb)
+* lab7 : Generating random DNA sequences, run compression algorithms and analyze/calculate based on principle of each algorithm [link](https://github.com/dgggit/BE131_JK/blob/master/lab7/lab7_submission.ipynb)
 
 ## License Information
 See the [LICENSE](LICENSE) file for license rights and limitations.
