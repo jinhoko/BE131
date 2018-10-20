@@ -3,8 +3,7 @@ Berkeley 2018 Fall  BioE131 | lab, class repo
 
 **Introduction to Computational Molecular and Cell Biology**
 
-**Lab List**
-
+**Lab List**  
 * lab2 : Biological gene tree analysis / bar plotting, box plotting    [link](https://github.com/dgggit/BE131_JK/blob/master/lab2/lab2_data.ipynb)
 * lab3 : Raw file analysis from 'Romeo and Juliet.txt' [link](https://github.com/dgggit/BE131_JK/blob/master/lab3/lab3_report.ipynb)
 * lab4 : Forming BIO databases with SQlite, making assosiative table [link](https://github.com/dgggit/BE131_JK/blob/master/lab4/Submission_lab4/database_sql.ipynb)
