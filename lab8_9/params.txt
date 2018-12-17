@@ -1,0 +1,42 @@
+Command line: /usr/bin/spades	-o	/home/be131-08/lab8	-1	/data/lab8/illumina_reads_R1.fastq	-2	/data/lab8/illumina_reads_R2.fastq	--pacbio	/data/lab8/pacbio_reads.fastq	-t	1	
+
+System information:
+  SPAdes version: 3.12.0
+  Python version: 2.7.15
+  OS: Linux-4.15.0-23-generic-x86_64-with-Ubuntu-18.04-bionic
+
+Output dir: /home/be131-08/lab8
+Mode: read error correction and assembling
+Debug mode is turned OFF
+
+Dataset parameters:
+  Multi-cell mode (you should set '--sc' flag if input data was obtained with MDA (single-cell) technology or --meta flag if processing metagenomic dataset)
+  Reads:
+    Library number: 1, library type: paired-end
+      orientation: fr
+      left reads: ['/data/lab8/illumina_reads_R1.fastq']
+      right reads: ['/data/lab8/illumina_reads_R2.fastq']
+      interlaced reads: not specified
+      single reads: not specified
+      merged reads: not specified
+    Library number: 2, library type: pacbio
+      left reads: not specified
+      right reads: not specified
+      interlaced reads: not specified
+      single reads: ['/data/lab8/pacbio_reads.fastq']
+      merged reads: not specified
+Read error correction parameters:
+  Iterations: 1
+  PHRED offset will be auto-detected
+  Corrected reads will be compressed
+Assembly parameters:
+  k: automatic selection based on read length
+  Repeat resolution is enabled
+  Mismatch careful mode is turned OFF
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+Other parameters:
+  Dir for temp files: /home/be131-08/lab8/tmp
+  Threads: 1
+  Memory limit (in Gb): 125
+
