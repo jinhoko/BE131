@@ -14,7 +14,7 @@ Berkeley 2018 Fall  BioE131 | lab, class repo
 * lab10 : Implementing Needleman-Wunsch algorithm and run-traceback pairwise alignment of amino acids. [link](https://github.com/dgggit/BE131_JK/blob/master/lab10/nw_aligner.py)
 
 
-* Final Project : To analyze unknown genome. 
+* Final Project : To analyze unknown genome : An analysis of Population Diversity and Genetic Variation [link](https://github.com/dgggit/BE131_JK/tree/master/final_project)
 
 ## License Information
 See the [LICENSE](LICENSE) file for license rights and limitations.
