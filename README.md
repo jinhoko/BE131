@@ -12,9 +12,7 @@ Berkeley 2018 Fall  BioE131 | lab, class repo
 * lab7 : Generating random DNA sequences, run compression algorithms and analyze/calculate based on principle of each algorithm [link](https://github.com/dgggit/BE131_JK/blob/master/lab07/lab7_submission.ipynb)
 * lab8 & 9 : Sequence alignment with SPAdes, finding N50 score, Genomic Annotation [link](https://github.com/dgggit/BE131_JK/blob/master/lab0809/lab8_submission.ipynb)
 * lab10 : Implementing Needleman-Wunsch algorithm and run-traceback pairwise alignment of amino acids. [link](https://github.com/dgggit/BE131_JK/blob/master/lab10/nw_aligner.py)
-
-
-* Final Project : To analyze unknown genome : An analysis of Population Diversity and Genetic Variation [link](https://github.com/dgggit/BE131_JK/tree/master/final_project)
+* **Final Project : To analyze unknown genome : An analysis of Population Diversity and Genetic Variation [link](https://github.com/dgggit/BE131_JK/tree/master/final_project)**
 
 ## License Information
 See the [LICENSE](LICENSE) file for license rights and limitations.
